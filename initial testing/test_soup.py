@@ -18,7 +18,6 @@ for athlete in pool_soup.find_all('a'):
 print(athlete_list)
 pool_size = len(athlete_list)
 
-
 for test in pool_soup.find_all('div',class_="Table-athlete"):
     print("Pool Row for ",end="")
     print(test.a.get_text())
