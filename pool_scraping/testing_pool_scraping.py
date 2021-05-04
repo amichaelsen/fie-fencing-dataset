@@ -2,9 +2,9 @@ from pool_scraping import get_pool_data
 from pool_data import poolData
 import numpy as np
 
-# ------------------------------------
-#         Test poolData class
-# ------------------------------------
+# --------------------------------------------------------------------------------
+#                         Test poolData class
+# --------------------------------------------------------------------------------
 
 print("\nDOCSTRING for PoolData:\n{}".format(poolData.__doc__))
 
@@ -17,14 +17,18 @@ fake_pool = poolData(3, ['Alice', 'Bob', 'Charlie'], [1, 2, 3],
 print("String representation of fake pool:\n")
 print(fake_pool)
 
-# ------------------------------------
-#         Test pool scraping
-# ------------------------------------
+# --------------------------------------------------------------------------------
+#                         Test pool scraping
+# --------------------------------------------------------------------------------
 
 test_pool = "pool_scraping/test_pool.html"
 loaded_pool = get_pool_data(test_pool)
 print("String representation of pool loaded from {}:\n".format(test_pool))
 print(loaded_pool)
+
+print("Winners Array:\n{}\n".format(loaded_pool.winners))
+
+print("Score Array:\n{}\n".format(loaded_pool.scores))
 
 
 # Print results of a single match
