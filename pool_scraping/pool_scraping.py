@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import numpy as np
+from pool_data import poolData
 
 
 def get_pool_data(html_filename):
@@ -34,4 +35,4 @@ def get_pool_data(html_filename):
                 winners_array[idx // pool_size][idx % pool_size] = 1
             score_array[idx // pool_size][idx % pool_size] = score_pieces[1]
     
-    return athlete_name_list, athlete_ID_list, winners_array, score_array
+    return poolData(pool_size, athlete_name_list, athlete_ID_list, winners_array, score_array)

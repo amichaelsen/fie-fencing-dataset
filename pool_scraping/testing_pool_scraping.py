@@ -1,44 +1,42 @@
 from pool_scraping import get_pool_data
+from pool_data import poolData
+import numpy as np
+
+# ------------------------------------
+#         Test poolData class
+# ------------------------------------
+
+print("\nDOCSTRING for PoolData:\n{}".format(poolData.__doc__))
+
+winners = np.array([[0, 1, 1], [0, 0, 0], [0, 1, 0]])
+scores = np.array([[0, 4, 5], [2, 0, 3], [3, 5, 0]])
+
+fake_pool = poolData(3, ['Alice', 'Bob', 'Charlie'], [1, 2, 3],
+                     winners, scores)
+
+print("String representation of fake pool:\n")
+print(fake_pool)
+
+# ------------------------------------
+#         Test pool scraping
+# ------------------------------------
 
 test_pool = "pool_scraping/test_pool.html"
-
-names, ids, winners, scores = get_pool_data(test_pool)
-
-
-# Print entire pools table
-print("\nLoaded and parsed pool data from: {}\n".format(test_pool))
-print("Data from entire pool:\n")
-print("                                    |", end="")
-for i in range(1, len(list(names))+1):
-    print(" # {} |".format(i), end="")
-print("\n-------------------------------------------------------------------------------")
-
-for idx, name in enumerate(names):
-    print("#{i} {name:<20} (ID {id})  |".format(
-        i=idx+1, name=name, id=ids[idx]), end="")
-    for j in range(0, len(list(names))):
-        if(j == idx):
-            print(" --- |", end="")
-        else:
-            victory_indicator = "V" if winners[idx][j] == 1 else "D"
-            print(" {vw}/{sc} |".format(vw=victory_indicator,
-                  sc=scores[idx][j]), end="")
-    print("")
-print("\n")
+loaded_pool = get_pool_data(test_pool)
+print("String representation of pool loaded from {}:\n".format(test_pool))
+print(loaded_pool)
 
 
 # Print results of a single match
 fencer_idx = 2
 opponent_idx = 4
-print("Showing result from single match (fencers {} and {}):".format(
-    fencer_idx, opponent_idx))
+print("Showing result from single match (fencers #{} and #{}):".format(
+    fencer_idx+1, opponent_idx+1))
 
 print("   {name1:<15} (ID {id1}) vs {name2:<15} (ID {id2})\n\
-        Score:  {score1} - {score2}     Winner: {winner}".format(
-    name1=names[fencer_idx], name2=names[opponent_idx],
-    id1=ids[fencer_idx], id2=ids[opponent_idx],
-    score1=scores[fencer_idx][opponent_idx],
-    score2=scores[opponent_idx][fencer_idx],
-    winner=names[fencer_idx] if winners[fencer_idx][opponent_idx] == 1 else names[opponent_idx]
-))
-print("")
+        Score:  {score1} - {score2}     Winner: {winner}\n".format(
+    name1=loaded_pool.get_name_by_idx(fencer_idx), name2=loaded_pool.get_name_by_idx(opponent_idx),
+    id1=loaded_pool.get_ID_by_idx(fencer_idx), id2=loaded_pool.get_ID_by_idx(opponent_idx),
+    score1=loaded_pool.scores[fencer_idx][opponent_idx],
+    score2=loaded_pool.scores[opponent_idx][fencer_idx],
+    winner=loaded_pool.get_name_by_idx(fencer_idx) if loaded_pool.winners[fencer_idx][opponent_idx] == 1 else loaded_pool.get_name_by_idx(opponent_idx)))
