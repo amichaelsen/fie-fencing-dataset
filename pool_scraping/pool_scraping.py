@@ -10,8 +10,9 @@ def get_pool_data(html_filename):
         Input:
         ------
         html_filename : str
-            A string containing the html from a pool
-            <div class="ResultsPool-pool ResultsPool-pool">...</div>
+            A string containing file location for the html from a pool.
+            The file should have its outermost html tag as:
+              <div class="ResultsPool-pool ResultsPool-pool">...</div>
 
         Output:
         ------
