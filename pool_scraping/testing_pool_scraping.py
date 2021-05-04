@@ -6,7 +6,7 @@ names, ids, winners, scores = get_pool_data(test_pool)
 
 
 # Print entire pools table
-print("\nLoaded and parsed pool from: {}\n".format(test_pool))
+print("\nLoaded and parsed pool data from: {}\n".format(test_pool))
 print("Data from entire pool:\n")
 print("                                    |", end="")
 for i in range(1, len(list(names))+1):

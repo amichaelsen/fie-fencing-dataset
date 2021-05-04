@@ -8,9 +8,9 @@ def get_pool_data(html_filename):
     (1) a list of fencer's names (in order), (2) a list of fencer's ID on FIE (in order)
     (3) an boolean array indicating winners for each bout and (4) array of scores for each bout
     """
-    html_pool = open(html_filename)
+    with open(html_filename) as html_pool:
     # caution: contains chlorine!
-    pool_soup = BeautifulSoup(html_pool, 'html.parser')
+        pool_soup = BeautifulSoup(html_pool, 'html.parser')
 
     athlete_name_list = []
     athlete_ID_list = []
@@ -30,7 +30,6 @@ def get_pool_data(html_filename):
         if(score):
             # scores are stored in a 'V/5', 'D/2' format
             score_pieces = score.split("/")
-            print(score_pieces)
             if score_pieces[0] == 'V':
                 winners_array[idx // pool_size][idx % pool_size] = 1
             score_array[idx // pool_size][idx % pool_size] = score_pieces[1]
