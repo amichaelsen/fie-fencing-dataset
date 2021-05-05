@@ -38,8 +38,8 @@ class poolData:
 
         for idx, name in enumerate(self.fencer_names):
             # center the ID value in the parens? 
-            str_rep += "#{i} {name:<20} (ID {id:<5})  |".format(
-                i=idx+1, name=name, id=self.fencer_IDs[idx])
+            str_rep += "#{i} {name:<20s} (ID {id: <5})  |".format(
+                i=idx+1, name=name[0:19], id=self.fencer_IDs[idx])
             for j in range(0, self.pool_size):
                 if(j == idx):
                     str_rep += " --- |"

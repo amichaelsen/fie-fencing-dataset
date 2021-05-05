@@ -1,5 +1,9 @@
-from pool_scraping import get_pool_data
+from pool_scraping import get_pool_data_from_html, get_pool_data_from_dict
 from pool_data import poolData
+import requests
+import re
+import json
+from bs4 import BeautifulSoup
 import numpy as np
 
 # --------------------------------------------------------------------------------
@@ -17,12 +21,32 @@ fake_pool = poolData(3, ['Alice', 'Bob', 'Charlie'], [1, 2, 3],
 print("String representation of fake pool:\n")
 print(fake_pool)
 
+
 # --------------------------------------------------------------------------------
-#                         Test pool scraping
+#                         Test pool scraping   --- Dict Version
+# --------------------------------------------------------------------------------
+tournament_url = 'https://fie.org/competitions/2021/1079' #'https://fie.org/competitions/2020/771'
+req = requests.get(tournament_url)
+soup = BeautifulSoup(req.content, 'html.parser')
+
+script = next(soup.find('script', text=re.compile("window._pools = ")).children)
+pools_string = [text.strip() for text in script.split(';') if text.strip().startswith('window._pools ')][0]
+# pools string = "window._pools = [{...dict info here...}]"
+pool_dict = json.loads(pools_string.split(" = ")[1])['pools'][1]
+
+
+fencers, pool_results = get_pool_data_from_dict(pool_dict)
+
+print("Fencers List from Pool #2:")
+print(fencers)
+print(pool_results)
+
+# --------------------------------------------------------------------------------
+#                         Test pool scraping   --- HTML Version
 # --------------------------------------------------------------------------------
 
 test_pool = "pool_scraping/test_pool.html"
-loaded_pool = get_pool_data(test_pool)
+loaded_pool = get_pool_data_from_html(test_pool)
 print("String representation of pool loaded from {}:\n".format(test_pool))
 print(loaded_pool)
 
