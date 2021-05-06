@@ -5,24 +5,6 @@ from bs4 import BeautifulSoup
 from pools.pool_scraping import get_pool_data_from_dict
 from tournament_data import tournamentData
 
-# deprecated because processing of tournament will take place entirely in this file!
-# remove once done with other processing...
-
-
-def get_pool_list_from_url(tournament_url):
-    req = requests.get(tournament_url)
-    soup = BeautifulSoup(req.content, 'html.parser')
-    # the <script id="js-competition"> tag contains the pool data
-    script = next(soup.find('script', id="js-competition").children)
-    # each variable window._XXXX is ';' separated and window._pools
-    # contains pool data. Caution: do NOT want window._poolsMobile
-    pools_string = [text.strip() for text in script.split(
-        ';') if text.strip().startswith('window._pools ')][0]
-    # pools_string = "window._pools = [{...dict info here...}]"
-    # split to get value, then extract dictionary
-    pool_list = json.loads(pools_string.split(" = ")[1])['pools']
-    return pool_list
-
 
 def get_pool_list_from_json_list(var_list):
     # get window._pools Data
@@ -67,16 +49,19 @@ def get_athletes_list_from_json_list(var_list):
     return athletes_list
 
 
-def process_tournament_from_url(tournament_url):
+def create_tournament_data_from_url(tournament_url):
     """
-    DOCSTRING TO GO HERE
+    Takes a tournament URL and returns a tournamentData dataclass with desired information
 
         Input:
+            tournament_url : str
+                String representation of tournament url, e.g. 'https://fie.org/competitions/2020/771'
 
         Output:
-            bout_dataframe
-            fencer_dict
-            tournament_info (**dict?** dataframe row?)
+            tournament : tournamentData 
+                A tournamentData object (see tournament_data.py) which contains general tournament 
+                information along with a list of poolData objects (see pool_data.py) and a dictionary
+                with tournament specific athlete information indexed by 'id' 
     """
     # 1. EXTRACT TOURNAMENT VARIABLES/RAW DATA
     # -----------------------------------------
