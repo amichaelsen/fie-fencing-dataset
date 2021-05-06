@@ -64,7 +64,7 @@ def get_pool_data_from_dict(pool_dict):
     pool = poolData(id, pool_size, fencer_names,
                     fencer_IDs, winners_array, score_array, date)
 
-    return fencer_list, pool
+    return pool
 
 
 # # initial pool scraping using html file name

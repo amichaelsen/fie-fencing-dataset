@@ -40,10 +40,10 @@ pools_string = [text.strip() for text in script.split(
 pool_dict = json.loads(pools_string.split(" = ")[1])['pools'][1]
 
 
-fencers, pool_results = get_pool_data_from_dict(pool_dict)
+pool_results = get_pool_data_from_dict(pool_dict)
 
 print("Fencers List from Pool #2:")
-print(fencers)
+print(pool_results.fencer_names)
 print(pool_results)
 
 # # --------------------------------------------------------------------------------

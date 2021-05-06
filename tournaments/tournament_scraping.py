@@ -97,7 +97,7 @@ def process_tournament_from_url(tournament_url):
     # -----------------------------------------
     poolData_list = []
     for pool_dict in pools_list:
-        fencers, pool_data = get_pool_data_from_dict(pool_dict) 
+        pool_data = get_pool_data_from_dict(pool_dict) 
         poolData_list.append(pool_data)
         print(pool_data)
 
