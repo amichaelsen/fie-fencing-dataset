@@ -21,6 +21,7 @@ def get_pool_list_from_url(tournament_url):
     pool_list = json.loads(pools_string.split(" = ")[1])['pools']
     return pool_list
 
+
 def get_pool_list_from_json_list(var_list):
     # get window._pools Data
     # -------------------------
@@ -33,6 +34,7 @@ def get_pool_list_from_json_list(var_list):
     pools_list = json.loads(pools_string.split(" = ")[1])['pools']
     return pools_list
 
+
 def get_comp_dict_from_json_list(var_list):
     # get window._competition Data
     # -------------------------
@@ -41,7 +43,8 @@ def get_comp_dict_from_json_list(var_list):
     comp_string = [text.strip() for text in var_list if
                    text.strip().startswith(comp_var_name)][0]
     comp = json.loads(comp_string.split(" = ")[1])  # type(comp) = dict
-    return comp 
+    return comp
+
 
 def get_athletes_list_from_json_list(var_list):
     # get window._athletes Data
@@ -61,28 +64,49 @@ def get_athletes_list_from_json_list(var_list):
     athletes_list = json.loads(athl_string.split(" = ")[1])
     return athletes_list
 
+
 def process_tournament_from_url(tournament_url):
-    # 1. Extract Tournament Variables for Data Processing 
+    """
+    DOCSTRING TO GO HERE 
+
+        Input:
+
+        Output: 
+            bout_dataframe 
+            fencer_dict
+            tournament_info (**dict?** dataframe row?)
+    """
+    # 1. EXTRACT TOURNAMENT VARIABLES/RAW DATA
+    # -----------------------------------------
     req = requests.get(tournament_url)
     soup = BeautifulSoup(req.content, 'html.parser')
     script = next(soup.find('script', id="js-competition").children)
     # each variable window._XXXX is ';' separated and window._pools contains pool data.
     var_list = script.split(';')
-    
+
     pools_list = get_pool_list_from_json_list(var_list)
     comp = get_comp_dict_from_json_list(var_list)
     athletes_list = get_athletes_list_from_json_list(var_list)
-    
-    print("\nTournament Information: (ID {}) (Season {})".format(comp['competitionId'],comp['season']))
+
+    print("\nTournament Information: (ID {}) (Season {})".format(
+        comp['competitionId'], comp['season']))
     print("   # of Athletes:  {}".format(len(athletes_list)))
     print("   # of Pools:     {}".format(len(pools_list)))
 
-
-    # 2. PROCESS POOL DICTS INTO POOL DATA
+    # 2. PROCESS POOL DICTS INTO POOL DATA & FENCER LIST
+    # -----------------------------------------
     poolData_list = []
-    for idx, pool_dict in enumerate(pools_list):
-        fencers, pool_data = get_pool_data_from_dict(pool_dict)
+    for pool_dict in pools_list:
+        fencers, pool_data = get_pool_data_from_dict(pool_dict) 
         poolData_list.append(pool_data)
         print(pool_data)
 
+    # 3. PROCESS TOURNAMENT INFO INTO DICT
+    # -----------------------------------------
+    tournament_dict = {k: v for k, v in comp.items(
+    ) if k in ['id', 'competitionId', 'season', 'name', 'category', 'country',
+               'startDate', 'endDate', 'weapon', 'gender', 'level', 'timezone']}
+
+    # 4. PROCESS FENCERS INTO A DICT
+    # -----------------------------------------
     
