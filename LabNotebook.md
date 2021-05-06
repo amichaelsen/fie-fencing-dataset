@@ -29,7 +29,7 @@ Now that the code has been updated to handle JSON parsing the updates are as fol
 
 * **`pool_scraping.py`** (updated) contains a method `get_pool_data_from_dict` which takes a dictionary representation of a pool and returns a list of fencers, represented by dicts, and  a `poolData` class object with the data of the pool. It also contains the old method `get_pool_data_from_html` which takes a string with the file location for the html of a single pool and returns a `poolData` class object with the data of the pool 
 * **`testing_pool_scraping.py`** (updated) tests both `pool_data.py` and both methods from `pool_scraping.py` by making several calls to each and printing the results. 
-*  **`exploring_json_extraion.py`** (new) contains the exploratory code for navigating the HTML of a tournament website with the goal of extracting the list of dicts for pool results. 
+*  **`exploring_json_extraction.py`** (new) contains the exploratory code for navigating the HTML of a tournament website with the goal of extracting the list of dicts for pool results. 
 * **`tournament_scraping.py`** (new) has a single method `get_pool_list_from_url` which takes a string of the tournament url (e.g. 'https://fie.org/competitions/2020/771') and returns a list of pools, each represented by a dict that can be fed in `get_pool_data_from_dict`. 
 * **`testing_tournament_scraping.py`** (new) tests the process of pulling the pools from a url and parsing them into pool data and a fencer list. 
 
