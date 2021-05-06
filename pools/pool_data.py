@@ -20,15 +20,18 @@ class poolData:
     scores : np.ndarray
         np array of scores representing the pool table 
     '''
+    pool_ID: int
     pool_size: int
     fencer_names: list[str]
     fencer_IDs: list[int]
     winners: np.ndarray
     scores: np.ndarray
+    # date: str # come back an change to date 
+
 
     def __str__(self):
         str_rep = ""
-        str_rep += "                                    |"
+        str_rep += "Pool #{:<3}                           |".format(self.pool_ID)
         for i in range(1, self.pool_size+1):
             str_rep += " # {} |".format(i)
         #change to be variable length based on pool size
@@ -51,8 +54,8 @@ class poolData:
         str_rep += "\n"
         return str_rep
     
-    def get_name_by_idx(self, idx):
+    def get_fencer_name_by_idx(self, idx):
         return self.fencer_names[idx]
     
-    def get_ID_by_idx(self, idx):
+    def get_fencer_ID_by_idx(self, idx):
         return self.fencer_IDs[idx]

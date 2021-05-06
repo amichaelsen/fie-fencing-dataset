@@ -4,6 +4,50 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
 
 # Entries 
 
+### 05/06/2021
+
+**Fixing Imports Notes** 
+
+* Do the following in terminal to make sure that paths work: 
+    ```
+    echo $PYTHONPATH
+    vim ~/.bash_profile
+    ```
+    Insert the following into ~/.bash_profile
+    ```     
+    export PYTHONPATH="$PYTHONPATH:/path/to/directory/fie-fencing-dataset"    
+    ``` 
+    Save `./bash_profile` and restart Terminal 
+    ```
+    echo $PYTHONPATH
+    ```
+    should now return a strong containing `/path/to/directory/fie-fencing-dataset`
+
+**Data Processing Pipeline**
+
+* add a basic flowchart for process? or just image from notability drawing? 
+
+**Single Data Generation vs Iterable** 
+
+* iterable allows adding new events without rerunning old data (reduces computation time and redundancy) 
+
+* iterable introduces complications in storing fencer "overall" data since newer lookups will have different overall rankings/points than previously called fencers... 
+    * basically iteration is fine for old pools and tournament data but creates inconsistencies in the fencer data frame --> maybe allow iteration but re-run the fencer data frame every time new data is added? 
+    * if iterating, maybe have option to pass dataframes (if none, create fresh) and for each tournament check if the tournament is already in the data frame and if so skip it. so everytime reset fencers data to a dict or whatever internal structure I'm using (adding known fencers from pools) and then adding as events are processed and then always performing the lookup at the end? 
+        * case: performing "new" lookup but no new events, should we still refresh fencer rankings/points? they should not have changed... ah but age could change for example and that may be interesting... ah maybe age at event time is important too and should be stored with the tournament/bout data... so actually unless points expire (which they might but does that affect the collected data?) it may not be necessary to refresh the fencer dataframe (is there value to having it be 'up to date' though? )
+
+**Fencer Ranking/Points**
+
+* flexible value that changes over time, probably want to store fencer rankings with each bout... 
+* for unrated fencers the order is randomized (see FIE Rules in `initial_testing/README.me`) so measuring "upsets" by event ranking is not significant but could be interesting when at least one fencer has points. 
+
+**Tournament 'IDs'** 
+
+* has 2 IDs specified and neither is unique (across seasons) ... [verified using Grand Prix results for 2020 and 2017, both have same id and compId but different season ] 
+* storing IDs as ints/str? especially if int will be year-id (e.g. 2020-771) where 2020771 doesn't obviously communicate the use of the date in the ID 
+* loads "fake" competition if season-id combo does not exists
+
+
 ### 05/05/2021 
 
 **JSON vs HTML Parsing**

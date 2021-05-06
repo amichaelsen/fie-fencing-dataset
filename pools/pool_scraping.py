@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import numpy as np
-from pool_scraping.pool_data import poolData
-
+from pools.pool_data import poolData
 
 
 def extract_matches(pool):
@@ -9,7 +8,6 @@ def extract_matches(pool):
     for row in pool['rows']:
         for match in row['matches']:
             yield match
-
 
 
 def get_pool_data_from_dict(pool_dict):
@@ -39,9 +37,10 @@ def get_pool_data_from_dict(pool_dict):
     # generate list of fencers
     fencer_names = []
     fencer_IDs = []
-    fencer_list = [] 
+    fencer_list = []
     for row in pool_dict['rows']:
-        fencer_dict = {k:v for k,v in row.items() if k in ['nationality','name','fencerId']}
+        fencer_dict = {k: v for k, v in row.items(
+        ) if k in ['nationality', 'name', 'fencerId']}
         fencer_list.append(fencer_dict)
         fencer_names.append(row['name'])
         fencer_IDs.append(row['fencerId'])
@@ -59,11 +58,11 @@ def get_pool_data_from_dict(pool_dict):
                 winners_array[idx // pool_size][idx % pool_size] = 1
             score_array[idx // pool_size][idx % pool_size] = score
 
-    pool = poolData(pool_size, fencer_names,
+    id = 123
+    pool = poolData(id, pool_size, fencer_names,
                     fencer_IDs, winners_array, score_array)
 
     return fencer_list, pool
-
 
 
 # initial pool scraping using html file name
@@ -113,6 +112,7 @@ def get_pool_data_from_html(html_filename):
                 winners_array[idx // pool_size][idx % pool_size] = 1
             score_array[idx // pool_size][idx % pool_size] = score_pieces[1]
 
-    pool = poolData(pool_size, athlete_name_list,
+    id = 123
+    pool = poolData(id, pool_size, athlete_name_list,
                     athlete_ID_list, winners_array, score_array)
     return pool
