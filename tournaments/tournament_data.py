@@ -43,6 +43,12 @@ class TournamentData:
     pools_list : list[PoolData]
     fencers_dict : dict
 
+    def create_tournament_dict(self):
+        tournament_dict = self.__dict__
+        tournament_dict.pop('fencers_dict')
+        tournament_dict.pop('pools_list')
+        return tournament_dict
+
     def __str__(self):
         str_rep = "\nTournament Information:\n"
         str_rep +=   "-----------------------\n"
