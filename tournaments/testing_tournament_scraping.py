@@ -3,7 +3,7 @@ import re
 import json
 import random
 from bs4 import BeautifulSoup
-from tournament_scraping import create_tournament_data_from_url
+from tournament_scraping import create_tournament_data_from_url, compile_bout_dataframe_from_tournament_data
 
 
 list_of_urls = ['https://fie.org/competitions/2020/771', 
@@ -16,5 +16,7 @@ for tournament_url in list_of_urls:
 
     print(tournament)
 
+bout_dataframe = compile_bout_dataframe_from_tournament_data(tournament)
 
+print(bout_dataframe.to_markdown())
 

@@ -4,6 +4,7 @@ import json
 from bs4 import BeautifulSoup
 from pools.pool_scraping import get_pool_data_from_dict
 from tournament_data import tournamentData
+import pandas as pd
 
 
 def get_pool_list_from_json_list(var_list):
@@ -75,7 +76,6 @@ def create_tournament_data_from_url(tournament_url):
     comp = get_comp_dict_from_json_list(var_list)
     athlete_dict_list = get_athletes_list_from_json_list(var_list)
 
-
     # 2. PROCESS POOL DICTS INTO POOL DATA & FENCER LIST
     # -----------------------------------------
     poolData_list = []
@@ -89,17 +89,17 @@ def create_tournament_data_from_url(tournament_url):
     ) if k in ['competitionId', 'season', 'name', 'category', 'country',
                'startDate', 'endDate', 'weapon', 'gender', 'level', 'timezone']}
     # rename keys for consistent naming
-    tournament_dict['competition_id'] = tournament_dict.pop('competitionId')
+    tournament_dict['competition_ID'] = tournament_dict.pop('competitionId')
     tournament_dict['start_date'] = tournament_dict.pop('startDate')
     tournament_dict['end_date'] = tournament_dict.pop('endDate')
 
     # create url and unique_id for tournament_dict
     tournament_dict['url'] = "https://fie.org/competitions/" + \
         str(tournament_dict['season'])+"/" + \
-        str(tournament_dict['competition_id'])
+        str(tournament_dict['competition_ID'])
 
     tournament_dict['unique_ID'] = str(
-        tournament_dict['season'])+'-'+str(tournament_dict['competition_id'])
+        tournament_dict['season'])+'-'+str(tournament_dict['competition_ID'])
 
     # 4. PROCESS FENCERS INTO A DICT
     # -----------------------------------------
@@ -120,3 +120,36 @@ def create_tournament_data_from_url(tournament_url):
         **tournament_dict
     )
     return tournament
+
+
+def compile_bout_dataframe_from_tournament_data(tournament_data):
+    """
+    Takes a tournamentData Object and returns a pandas Dataframe of bouts 
+    """
+    bout_dataframe = pd.DataFrame(columns=['fencer_ID', 'opp_ID', 'fencer_score', 'opp_score',
+                                           'winner_ID', 'fencer_curr_pts', 'opp_curr_pts',
+                                           'tournament_ID', 'pool_ID', 'upset'])
+
+    tournament_ID = tournament_data.unique_ID
+
+    for pool in tournament_data.pools_list:
+        pool_ID = pool.pool_ID
+        for i in range(0, pool.pool_size):
+            fencer_ID = pool.fencer_IDs[i]
+            fencer_curr_points = tournament_data.fencers_dict[fencer_ID]['points_before_event']
+            for j in range(i+1, pool.pool_size):
+                # gather bout data
+                opponent_ID = pool.fencer_IDs[j]
+                opponent_curr_points = tournament_data.fencers_dict[opponent_ID]['points_before_event']
+                fencer_score = pool.scores[i][j]
+                opponent_score = pool.scores[j][i]
+                winner_ID = fencer_ID if pool.winners[i][j] == 1 else opponent_ID
+                upset = True if ((opponent_curr_points > fencer_curr_points) and winner_ID == fencer_ID or (
+                    opponent_curr_points < fencer_curr_points) and winner_ID == opponent_ID) else False
+
+                # add bout entry as row in dataframe
+                bout_dataframe = bout_dataframe.append({'fencer_ID': fencer_ID, 'opp_ID': opponent_ID, 'fencer_score': fencer_score,
+                                       'opp_score': opponent_score, 'winner_ID': winner_ID,
+                                       'fencer_curr_pts': fencer_curr_points, 'opp_curr_pts': opponent_curr_points,
+                                       'tournament_ID': tournament_ID, 'pool_ID': pool_ID, 'upset': upset}, ignore_index=True)
+    return bout_dataframe
