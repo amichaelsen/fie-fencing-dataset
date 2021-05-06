@@ -6,21 +6,33 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
 
 ### 05/05/2021 
 
-**File Structure/Types**
-
-* Spending time exploring BeautifulSoup and maybe save "exploring_..." files to show that process to help myself retrace my steps or adapt them later to other goals 
-
 **JSON vs HTML Parsing**
 
- * existing script for HTML pools but tournament page data contains JSON (not direct HTML) for the pools data so need to recontruct processing to handle json objects 
+Having built a method that takes the full HTML representation of a pool and extracts the data, I then started exploring making https requests to systematically get the desired HTML to feed into this method. It was then that I realized that the source code for the tournament page is *not* the fully compiled HTML but gets compiled from Javascript. This meant that the pools data was stored in a JSON object rather than  HTML. So I scrapped my html version (well it still exists because it may be useful for future me figuring out HTML parsing) and created a new pool scraping method that now takes the dictionary extracted from the JSON. 
+
+Given the nested set up for the pools dictionary, I created a generator (`extract_matches`) to iterate over the squares in the pools grid. 
+
+
+**File Structure/Types**
+
+Given the time I spent exploring the tournament page structure using requests and BeautifulSoup and the lessons learned there that didn't make it into the final implementation I wanted to save that code and its comments somewhere for potential future reading. However not wanting to clutter up the working files, I have decided to use `exploring_[topic].py` files to keep track of this work. This pairs nicely with the `testing_[module].py` files which I use to import and run the code in each module. 
 
 **Data Scoping**
-* (for now) arbitrary (personal familiarity) focus on Womens Foil.
-* what data to include about the fencers themselves? goal to compare collab filter "features" with known features like height, weight, handedness, country?, etc  
+
+In thinking about representation and overall goals for this dataset, I realized that to date I have only been handling "womens foil" for personal familiarity/nostalgia reasons. Once I have the machinery in place to scrape all the pool data for all currently listed women's foil (individual) events I will work to expand this to handle other weapons (epee/saber) and genders (men's). 
+
+I also realized that in comparing fencer's performance some demographic data on the fencers themselves will be useful and should be included for completeness's sake. From the pool data I can easily extract their nationality, name, and ID. From the ID I can find the athlete webpage (e.g. https://fie.org/athletes/42286) which contains further information such as handedness and age along with historical results and over rank and points which can be used as a proxy for general skill level. Not included (for privacy or because such data could change) are height and weight which could have been interesting statistics (particularly height) to examine. 
 
 **Tournament page scraping Update** 
 
-* add description of current status once done parsing JSON ...
+Now that the code has been updated to handle JSON parsing the updates are as follows: 
+
+* **`pool_scraping.py`** (updated) contains a method `get_pool_data_from_dict` which takes a dictionary representation of a pool and returns a list of fencers, represented by dicts, and  a `poolData` class object with the data of the pool. It also contains the old method `get_pool_data_from_html` which takes a string with the file location for the html of a single pool and returns a `poolData` class object with the data of the pool 
+* **`testing_pool_scraping.py`** (updated) tests both `pool_data.py` and both methods from `pool_scraping.py` by making several calls to each and printing the results. 
+*  **`exploring_json_extraion.py`** (new) contains the exploratory code for navigating the HTML of a tournament website with the goal of extracting the list of dicts for pool results. 
+* **`tournament_scraping.py`** (new) has a single method `get_pool_list_from_url` which takes a string of the tournament url (e.g. 'https://fie.org/competitions/2020/771') and returns a list of pools, each represented by a dict that can be fed in `get_pool_data_from_dict`. 
+* **`testing_tournament_scraping.py`** (new) tests the process of pulling the pools from a url and parsing them into pool data and a fencer list. 
+
 
 ### 05/04/2021
 
