@@ -26,7 +26,7 @@ class poolData:
     fencer_IDs: list[int]
     winners: np.ndarray
     scores: np.ndarray
-    # date: str # come back an change to date 
+    date: str # come back an change to date 
 
 
     def __str__(self):
