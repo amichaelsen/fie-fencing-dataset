@@ -3,10 +3,12 @@ import requests
 import json
 from bs4 import BeautifulSoup
 from pools.pool_scraping import get_pool_data_from_dict
-
+from tournament_data import tournamentData
 
 # deprecated because processing of tournament will take place entirely in this file!
 # remove once done with other processing...
+
+
 def get_pool_list_from_url(tournament_url):
     req = requests.get(tournament_url)
     soup = BeautifulSoup(req.content, 'html.parser')
@@ -67,12 +69,12 @@ def get_athletes_list_from_json_list(var_list):
 
 def process_tournament_from_url(tournament_url):
     """
-    DOCSTRING TO GO HERE 
+    DOCSTRING TO GO HERE
 
         Input:
 
-        Output: 
-            bout_dataframe 
+        Output:
+            bout_dataframe
             fencer_dict
             tournament_info (**dict?** dataframe row?)
     """
@@ -86,27 +88,50 @@ def process_tournament_from_url(tournament_url):
 
     pools_list = get_pool_list_from_json_list(var_list)
     comp = get_comp_dict_from_json_list(var_list)
-    athletes_list = get_athletes_list_from_json_list(var_list)
+    athlete_dict_list = get_athletes_list_from_json_list(var_list)
 
-    print("\nTournament Information: (ID {}) (Season {})".format(
-        comp['competitionId'], comp['season']))
-    print("   # of Athletes:  {}".format(len(athletes_list)))
-    print("   # of Pools:     {}".format(len(pools_list)))
 
     # 2. PROCESS POOL DICTS INTO POOL DATA & FENCER LIST
     # -----------------------------------------
     poolData_list = []
     for pool_dict in pools_list:
-        pool_data = get_pool_data_from_dict(pool_dict) 
+        pool_data = get_pool_data_from_dict(pool_dict)
         poolData_list.append(pool_data)
-        print(pool_data)
 
     # 3. PROCESS TOURNAMENT INFO INTO DICT
     # -----------------------------------------
     tournament_dict = {k: v for k, v in comp.items(
-    ) if k in ['id', 'competitionId', 'season', 'name', 'category', 'country',
+    ) if k in ['competitionId', 'season', 'name', 'category', 'country',
                'startDate', 'endDate', 'weapon', 'gender', 'level', 'timezone']}
+    # rename keys for consistent naming
+    tournament_dict['competition_id'] = tournament_dict.pop('competitionId')
+    tournament_dict['start_date'] = tournament_dict.pop('startDate')
+    tournament_dict['end_date'] = tournament_dict.pop('endDate')
+
+    # create url and unique_id for tournament_dict
+    tournament_dict['url'] = "https://fie.org/competitions/" + \
+        str(tournament_dict['season'])+"/" + \
+        str(tournament_dict['competition_id'])
+
+    tournament_dict['unique_ID'] = str(
+        tournament_dict['season'])+'-'+str(tournament_dict['competition_id'])
 
     # 4. PROCESS FENCERS INTO A DICT
     # -----------------------------------------
-    
+    tournament_athlete_dict = {}
+    for athlete_dict in athlete_dict_list:
+        if athlete_dict['overallPoints']:
+            points = athlete_dict['overallPoints']
+        else:
+            points = 0
+        id = athlete_dict['fencer']['id']
+        age = athlete_dict['fencer']['age']
+        tournament_athlete_dict[id] = {
+            "age": age, "points_before_event": points}
+
+    tournament = tournamentData(
+        pools_list=poolData_list,
+        fencers_dict=tournament_athlete_dict,
+        **tournament_dict
+    )
+    return tournament

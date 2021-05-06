@@ -19,5 +19,6 @@ tournament_url = 'https://fie.org/competitions/2020/771'
 
 
 print("Tournament URL for lookup: {}".format(tournament_url))
-process_tournament_from_url(tournament_url)
+tournament = process_tournament_from_url(tournament_url)
 
+print(tournament)
