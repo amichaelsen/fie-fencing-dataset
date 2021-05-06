@@ -1,10 +1,10 @@
 from dataclasses import dataclass
-from pools.pool_data import poolData
+from pools.pool_data import PoolData
 import numpy as np
 
 
 @dataclass
-class tournamentData:
+class TournamentData:
     '''
     A dataclass to represent data from a single tournament
 
@@ -12,8 +12,8 @@ class tournamentData:
     -----------
     unique_ID : str
         string to uniquely identify event, combines "season" and "competitionId"
-    pools_list : list[poolData]
-        list of poolData objects representing the pool results
+    pools_list : list[PoolData]
+        list of PoolData objects representing the pool results
     fencers_dict : dict
         a dictionary of fencers at the event, indexed by fencer's 'id' with event
         specific fencer data: "age" and "points_before_event" (for comparison of ranking)
@@ -40,7 +40,7 @@ class tournamentData:
     timezone : str  # make this an enum eventually ??
     url : str 
 
-    pools_list : list[poolData]
+    pools_list : list[PoolData]
     fencers_dict : dict
 
     def __str__(self):

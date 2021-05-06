@@ -3,7 +3,7 @@ import requests
 import json
 from bs4 import BeautifulSoup
 from pools.pool_scraping import get_pool_data_from_dict
-from tournament_data import tournamentData
+from tournament_data import TournamentData
 import pandas as pd
 
 
@@ -52,15 +52,15 @@ def get_athletes_list_from_json_list(var_list):
 
 def create_tournament_data_from_url(tournament_url):
     """
-    Takes a tournament URL and returns a tournamentData dataclass with desired information
+    Takes a tournament URL and returns a TournamentData dataclass with desired information
 
         Input:
             tournament_url : str
                 String representation of tournament url, e.g. 'https://fie.org/competitions/2020/771'
 
         Output:
-            tournament : tournamentData 
-                A tournamentData object (see tournament_data.py) which contains general tournament 
+            tournament : TournamentData 
+                A TournamentData object (see tournament_data.py) which contains general tournament 
                 information along with a list of poolData objects (see pool_data.py) and a dictionary
                 with tournament specific athlete information indexed by 'id' 
     """
@@ -114,7 +114,7 @@ def create_tournament_data_from_url(tournament_url):
         tournament_athlete_dict[id] = {
             "age": age, "points_before_event": points}
 
-    tournament = tournamentData(
+    tournament = TournamentData(
         pools_list=poolData_list,
         fencers_dict=tournament_athlete_dict,
         **tournament_dict
@@ -124,7 +124,7 @@ def create_tournament_data_from_url(tournament_url):
 
 def compile_bout_dataframe_from_tournament_data(tournament_data):
     """
-    Takes a tournamentData Object and returns a pandas Dataframe of bouts 
+    Takes a TournamentData Object and returns a pandas Dataframe of bouts 
     """
     bout_dataframe = pd.DataFrame(columns=['fencer_ID', 'opp_ID', 'fencer_score', 'opp_score',
                                            'winner_ID', 'fencer_curr_pts', 'opp_curr_pts',

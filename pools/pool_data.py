@@ -3,7 +3,7 @@ import numpy as np
 
 
 @dataclass
-class poolData:
+class PoolData:
     '''
     A dataclass to represent data from a single pool
 
