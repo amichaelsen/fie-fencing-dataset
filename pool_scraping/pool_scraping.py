@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import numpy as np
-from pool_data import poolData
+from pool_scraping.pool_data import poolData
 
 
 
@@ -14,15 +14,17 @@ def extract_matches(pool):
 
 def get_pool_data_from_dict(pool_dict):
     """
-    Takes the html of a pool and reads it to a poolData object
+    Takes the dict representation of a pool and reads it to a poolData object
 
         Input:
         ------
         pool_dict : dict
             A dictionary containing the following keys:
             ['poolId', 'piste', 'time', 'referee', 'rows']
-            where 'rows' is a list of dicts containing row 
-            information for the pool score grid
+
+            For more information about how this dictionary is 
+            being extracted from the website see:
+                tournament_scraping/exploring_json_extraction.py
 
         Output:
         ------
@@ -62,9 +64,10 @@ def get_pool_data_from_dict(pool_dict):
 
     return fencer_list, pool
 
+
+
 # initial pool scraping using html file name
-
-
+# Note: will not use this version going forward.
 def get_pool_data_from_html(html_filename):
     """
     Takes the html of a pool and reads it to a poolData object
