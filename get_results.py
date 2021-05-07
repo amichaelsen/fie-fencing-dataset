@@ -10,9 +10,10 @@ from fencers.fencer_scraping import get_fencer_info_from_ID
 # ---------------------------------------------------------------
 
 print("Preparing to process tournament data...", end="")
-list_of_urls = ['https://fie.org/competitions/2020/771',
-                'https://fie.org/competitions/2021/1070',
-                'https://fie.org/competitions/2021/92']
+list_of_urls = ['https://fie.org/competitions/2021/1070']
+#'https://fie.org/competitions/2020/771']#,
+#                'https://fie.org/competitions/2021/1070']
+                #,'https://fie.org/competitions/2021/92']
 
 # Create dataframes to store the output data
 fencers_dataframe = pd.DataFrame(columns=FENCERS_DF_COLS)
@@ -54,13 +55,14 @@ print(" Done!")
 # ---------------------------------------------------------------
 # PROCESS INDIVIDUAL FENCER DATA
 # ---------------------------------------------------------------
+## THIS PART IS COSTLY!!
 print("Processing {} fencers: ".format(len(fencer_ID_list)), end="")
 
 for fencer_ID in fencer_ID_list:
-    print("id: {}".format(fencer_ID))
+    print(fencer_ID, end=" ")
     fencer_info_dict = get_fencer_info_from_ID(fencer_ID)
-    fencers_dataframe.append(fencer_info_dict, ignore_index=True)
-    print(".", end="")
+    fencers_dataframe = fencers_dataframe.append(fencer_info_dict, ignore_index=True)
+    # print(".", end="")
 
 print(" Done!")
 
@@ -71,7 +73,7 @@ print("Cleaning up dataframes...", end="")
 
 
 # expand labels for 'weapon', 'gender' and 'category' in the tournament dataframe
-weapon_dict = {'E': "Epee", "F": "Foil", "S": "Saber"}
+weapon_dict = {'E': "Epee", "F": "Foil", "S": "Sabre"}
 gender_dict = {"M": "Mens", "F": "Womens"}
 category_dict = {"J": "Junior", "C": "Cadet",
                  "S": "Senior", "V": "Veterans"}
@@ -115,4 +117,3 @@ fencer_count = 10
 idx = random.sample(list(fencers_dataframe.index), fencer_count)
 print("\nA random selection of {} fencers from list:\n".format(fencer_count))
 print(fencers_dataframe.loc[idx].to_markdown())
-print(fencers_dataframe.info())
