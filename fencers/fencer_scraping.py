@@ -138,56 +138,22 @@ def get_fencer_info_from_ID(fencer_ID, use_cache=True):
     return fencer_dict
 
 
-def get_fencer_rankings(fencer_url):
-    iterables = [["Foil", "Epee", "Sabre"],
-                 ["Cadet", "Junior", "Senior", "Veteran"],
-                 ["2021", "2020", "2019"]]
-    index = pd.MultiIndex.from_product(
-        iterables, names=["Weapon", "Category", "Season"])
-    # print(index)
-    gen_ranking_dataframe = pd.DataFrame(
-        columns=['rank', 'points'], index=index)
-    # add a fake data point
-    gen_ranking_dataframe.loc[('Foil', 'Senior', '2020'), :] = (2, 50)
-    # print(gen_ranking_dataframe)
+def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, index_names):
+    """
+    Takes a list of dict data and returns a pd.DataFrame with multiIndex from specified columns
+    """
+    # create dataframe from list
+    dataframe = pd.DataFrame(data=list_of_results, columns=column_names)
 
-    # iterables = [["Foil", "Epee", "Sabre"],
-    #  ["Cadet", "Junior", "Senior", "Veteran"],
-    #  ["2021", "2020", "2019"]]
-    # index = pd.MultiIndex.from_product(
-    #    iterables, names=["Weapon", "Category", "Season"])
-    # print(index)
-    iterables1 = [["Foil"],
-                  ["Cadet"],
-                  ["2021", "2020"]]
-    index1 = pd.MultiIndex.from_product(
-        iterables1, names=["Weapon", "Category", "Season"])
-    ranking_dataframe1 = pd.DataFrame(columns=['rank', 'points'], index=index1)
-    print(ranking_dataframe1)
+    # construct multiIndex (sort first to group by heirarchy)
+    idx_array = []
+    dataframe.sort_values(by=index_names,inplace=True)
+    for name in index_names:
+        idx_array.append(dataframe[name])
+    new_index = pd.MultiIndex.from_arrays(idx_array)
 
-    # add a fake data point
-    ranking_dataframe1.loc[('Foil', 'Cadet', '2020'), :] = (2, 50)
-    ranking_dataframe1.loc[('Foil', 'Cadet', '2021'), :] = (10, 7.5)
-    print(ranking_dataframe1)
+    # convert to multi index and drop columns used to create multiIndex
+    dataframe.index = new_index
+    dataframe = dataframe.drop(columns=index_names)
 
-    iterables2 = [["Epee"],
-                  ["Cadet"],
-                  ["2021", "2020", "2019"]]
-    index2 = pd.MultiIndex.from_product(
-        iterables2, names=["Weapon", "Category", "Season"])
-    ranking_dataframe2 = pd.DataFrame(columns=['rank', 'points'], index=index2)
-    print(ranking_dataframe2)
-
-    # add a fake data point
-    ranking_dataframe2.loc[('Epee', 'Cadet', '2021'), :] = (1, 72)
-    ranking_dataframe2.loc[('Epee', 'Cadet', '2020'), :] = (2, 57)
-    ranking_dataframe2.loc[('Epee', 'Cadet', '2019'), :] = (3, 46)
-    print(ranking_dataframe2)
-
-    print("print all dataframes at the end")
-    print(ranking_dataframe1)
-    print(ranking_dataframe2)
-
-    # combine these dataframes? 
-    comb_ranking_dataframe = pd.concat([ranking_dataframe1,ranking_dataframe2], keys =["id1","id2"])
-    print(comb_ranking_dataframe)
+    return dataframe
