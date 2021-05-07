@@ -14,7 +14,7 @@ bout_dataframe = compile_bout_dataframe_from_tournament_data(tournament)
 bout_count = 5
 idx = random.sample(list(bout_dataframe.index), bout_count)
 print("A random selection of {} bouts from the tournament:\n".format(bout_count))
-print(bout_dataframe.loc[idx].to_markdown())
+print(bout_dataframe.loc[idx].drop(columns=['opp_age','opp_curr_pts','date']).to_markdown())
 
 
 list_of_urls = ['https://fie.org/competitions/2021/1081']

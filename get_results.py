@@ -5,7 +5,8 @@ from tournaments.tournament_scraping import create_tournament_data_from_url, com
 from tournaments.tournament_data import TournamentData
 from fencers.fencer_scraping import get_fencer_info_from_ID
 
-def get_dataframes_from_tournament_url_list(list_of_urls):
+
+def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
     # ---------------------------------------------------------------
     # INITIALIZE DATAFRAMES AND URLS
     # ---------------------------------------------------------------
@@ -23,7 +24,6 @@ def get_dataframes_from_tournament_url_list(list_of_urls):
     # temporary list to store IDs before looking up fencer data
     fencer_ID_list = []
     print(" Done!")
-
 
     # ---------------------------------------------------------------
     # PROCESS TOURNAMENTS INDIVIDUALLY
@@ -49,22 +49,28 @@ def get_dataframes_from_tournament_url_list(list_of_urls):
         bouts_dataframe = bouts_dataframe.append(tournament_bout_dataframe)
         tournaments_dataframe = tournaments_dataframe.append(
             tournament_info_dict, ignore_index=True)
-        print("\rProcessing {} tournaments: {} tournaments done... ".format(len(list_of_urls), idx+1), end="")
-
+        print("\rProcessing {} tournaments: {} tournaments done... ".format(
+            len(list_of_urls), idx+1), end="")
 
     print(" Done!")
     # ---------------------------------------------------------------
     # PROCESS INDIVIDUAL FENCER DATA
     # ---------------------------------------------------------------
-    ## THIS PART IS COSTLY!!
 
-    fencer_count_cap = 5
-    print("Processing {} fencers: ".format(len(fencer_ID_list[0:fencer_count_cap])), end="")
+    # Takes a while if lots of fencers are not cached
+    if fencer_cap  == -1:
+        list_to_process = fencer_ID_list
+    else:
+        list_to_process = fencer_ID_list[0:fencer_cap]
 
-    for idx, fencer_ID in enumerate(fencer_ID_list[0:fencer_count_cap]):
+    print("Processing {} fencers: ".format(len(list_to_process)), end="")
+
+    for idx, fencer_ID in enumerate(list_to_process):
         fencer_info_dict = get_fencer_info_from_ID(fencer_ID)
-        fencers_dataframe = fencers_dataframe.append(fencer_info_dict, ignore_index=True)
-        print("\rProcessing {} fencers: {} done... ".format(len(fencer_ID_list[0:fencer_count_cap]),idx+1), end="", flush=True)
+        fencers_dataframe = fencers_dataframe.append(
+            fencer_info_dict, ignore_index=True)
+        print("\rProcessing {} fencers: {} done... ".format(
+            len(list_to_process), idx+1), end="", flush=True)
 
     print(" Done!")
 
@@ -73,12 +79,11 @@ def get_dataframes_from_tournament_url_list(list_of_urls):
     # ---------------------------------------------------------------
     print("Cleaning up dataframes...", end="")
 
-
     # expand labels for 'weapon', 'gender' and 'category' in the tournament dataframe
     weapon_dict = {'E': "Epee", "F": "Foil", "S": "Sabre"}
     gender_dict = {"M": "Mens", "F": "Womens"}
     category_dict = {"J": "Junior", "C": "Cadet",
-                    "S": "Senior", "V": "Veterans"}
+                     "S": "Senior", "V": "Veterans"}
 
     tournaments_dataframe['weapon'] = tournaments_dataframe['weapon'].map(
         weapon_dict)
@@ -88,14 +93,16 @@ def get_dataframes_from_tournament_url_list(list_of_urls):
         category_dict)
 
     tournaments_dataframe['start_date'] = pd.to_datetime(
-        tournaments_dataframe['start_date'])
+        tournaments_dataframe['start_date']).dt.date
     tournaments_dataframe['end_date'] = pd.to_datetime(
-        tournaments_dataframe['end_date'])
-    bouts_dataframe['date'] = pd.to_datetime(bouts_dataframe['date'])
+        tournaments_dataframe['end_date']).dt.date
+    bouts_dataframe['date'] = pd.to_datetime(bouts_dataframe['date']).dt.date
+    fencers_dataframe['date_accessed'] = pd.to_datetime(fencers_dataframe['date_accessed']).dt.date
 
     categorical_data = ['weapon', 'gender', 'category']
     for cat in categorical_data:
-        tournaments_dataframe[cat] = tournaments_dataframe[cat].astype('category')
+        tournaments_dataframe[cat] = tournaments_dataframe[cat].astype(
+            'category')
 
     print("Done!")
     # ---------------------------------------------------------------
@@ -111,9 +118,8 @@ def get_dataframes_from_tournament_url_list(list_of_urls):
     bout_count = 3
     idx = random.sample(list(bouts_dataframe.index), bout_count)
     print("\nA random selection of {} bouts from list:\n".format(bout_count))
-    print(bouts_dataframe.loc[idx].to_markdown())
+    print(bouts_dataframe.loc[idx].drop(columns=['opp_age','opp_curr_pts','date']).to_markdown())
     # print(bouts_dataframe.info())
-
 
     fencer_count = 2
     idx = random.sample(list(fencers_dataframe.index), fencer_count)
