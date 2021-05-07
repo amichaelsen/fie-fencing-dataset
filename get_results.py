@@ -3,7 +3,7 @@ import random
 from dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_DF_COLS
 from tournaments.tournament_scraping import create_tournament_data_from_url, compile_bout_dataframe_from_tournament_data
 from tournaments.tournament_data import TournamentData
-
+from fencers.fencer_scraping import get_fencer_info_from_ID
 
 # ---------------------------------------------------------------
 # INITIALIZE DATAFRAMES AND URLS
@@ -57,7 +57,8 @@ print(" Done!")
 print("Processing {} fencers: ".format(len(fencer_ID_list)), end="")
 
 for fencer_ID in fencer_ID_list:
-    fencer_info_dict = get_fencer_info_from_url(fencer_ID)
+    print("id: {}".format(fencer_ID))
+    fencer_info_dict = get_fencer_info_from_ID(fencer_ID)
     fencers_dataframe.append(fencer_info_dict, ignore_index=True)
     print(".", end="")
 
@@ -108,3 +109,10 @@ idx = random.sample(list(bouts_dataframe.index), bout_count)
 print("\nA random selection of {} bouts from list:\n".format(bout_count))
 print(bouts_dataframe.loc[idx].to_markdown())
 # print(bouts_dataframe.info())
+
+
+fencer_count = 10
+idx = random.sample(list(fencers_dataframe.index), fencer_count)
+print("\nA random selection of {} fencers from list:\n".format(fencer_count))
+print(fencers_dataframe.loc[idx].to_markdown())
+print(fencers_dataframe.info())
