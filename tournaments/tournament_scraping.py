@@ -94,8 +94,6 @@ def create_tournament_data_from_url(tournament_url):
     tournament_dict['start_date'] = tournament_dict.pop('startDate')
     tournament_dict['end_date'] = tournament_dict.pop('endDate')
 
-    
-
     # create url and unique_id for tournament_dict
     tournament_dict['url'] = "https://fie.org/competitions/" + \
         str(tournament_dict['season'])+"/" + \
@@ -135,12 +133,15 @@ def compile_bout_dataframe_from_tournament_data(tournament_data):
 
     for pool in tournament_data.pools_list:
         pool_ID = pool.pool_ID
+        date = tournament_data.start_date
         for i in range(0, pool.pool_size):
             fencer_ID = pool.fencer_IDs[i]
+            fencer_age = tournament_data.fencers_dict[fencer_ID]['age']
             fencer_curr_points = tournament_data.fencers_dict[fencer_ID]['points_before_event']
             for j in range(i+1, pool.pool_size):
                 # gather bout data
                 opponent_ID = pool.fencer_IDs[j]
+                opponent_age = tournament_data.fencers_dict[opponent_ID]['age']
                 opponent_curr_points = tournament_data.fencers_dict[opponent_ID]['points_before_event']
                 fencer_score = pool.scores[i][j]
                 opponent_score = pool.scores[j][i]
@@ -149,8 +150,9 @@ def compile_bout_dataframe_from_tournament_data(tournament_data):
                     opponent_curr_points < fencer_curr_points) and winner_ID == opponent_ID) else False
 
                 # add bout entry as row in dataframe
-                bout_dataframe = bout_dataframe.append({'fencer_ID': fencer_ID, 'opp_ID': opponent_ID, 'fencer_score': fencer_score,
-                                       'opp_score': opponent_score, 'winner_ID': winner_ID,
-                                       'fencer_curr_pts': fencer_curr_points, 'opp_curr_pts': opponent_curr_points,
-                                       'tournament_ID': tournament_ID, 'pool_ID': pool_ID, 'upset': upset}, ignore_index=True)
+                bout_dataframe = bout_dataframe.append({'fencer_ID': fencer_ID, 'opp_ID': opponent_ID,
+                                                        'fencer_age': fencer_age, 'opp_age': opponent_age,
+                                                        'fencer_score': fencer_score, 'opp_score': opponent_score, 'winner_ID': winner_ID,
+                                                        'fencer_curr_pts': fencer_curr_points, 'opp_curr_pts': opponent_curr_points,
+                                                        'tournament_ID': tournament_ID, 'pool_ID': pool_ID, 'upset': upset, 'date': date}, ignore_index=True)
     return bout_dataframe
