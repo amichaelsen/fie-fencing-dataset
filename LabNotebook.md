@@ -4,7 +4,24 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
 
 # Entries 
 
+
+**Data Processing Pipeline**
+
+* add a basic flowchart for process? or just image from notability drawing? 
+
+
 ### 05/06/2021
+
+**Fencer Data Pages** 
+
+* Nationality by itself is not stored on the fencer's page, only the tag for the flag. Should probably pull nationality out from competition then... Note, found many fencers have a "window._tabOpponent" in which their own fencer data (like in tournament pages) was listed and could pull nationality from there but for fencers with so few results, this fails from an empty list... have created logic in the get_fencer_data_from_ID to  leave nationality empty in this case 
+
+* Some fencers have multiple weapons (not many), right now this saves their weapon as 'sabrefoil' for example, however accessing their ranking/points for their non-dominant weapon doesn't even seem possible on the FIE website (see https://fie.org/athletes/34656?weapon=F)
+
+**GAHHHH Inconsistent Pool "Time"** 
+
+* Some pools have 'time' as a date string, others as an actual time string. To get around this, will use the "start_date" of tournament as the date for the bout 
+* Also pandas can store as a Datetime and must include "time" (00:00:00 in our case) or can convert to date only `['date'].dt.date` but this reverts to `object` type. Since sorting by date may be useful, I will leave these in datetime for now. Since it is easy to convert between them this may change later.
 
 **Fixing Imports Notes** 
 
@@ -23,9 +40,7 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
     ```
     should now return a strong containing `/path/to/directory/fie-fencing-dataset`
 
-**Data Processing Pipeline**
 
-* add a basic flowchart for process? or just image from notability drawing? 
 
 **Single Data Generation vs Iterable** 
 
@@ -35,6 +50,8 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
     * basically iteration is fine for old pools and tournament data but creates inconsistencies in the fencer data frame --> maybe allow iteration but re-run the fencer data frame every time new data is added? 
     * if iterating, maybe have option to pass dataframes (if none, create fresh) and for each tournament check if the tournament is already in the data frame and if so skip it. so everytime reset fencers data to a dict or whatever internal structure I'm using (adding known fencers from pools) and then adding as events are processed and then always performing the lookup at the end? 
         * case: performing "new" lookup but no new events, should we still refresh fencer rankings/points? they should not have changed... ah but age could change for example and that may be interesting... ah maybe age at event time is important too and should be stored with the tournament/bout data... so actually unless points expire (which they might but does that affect the collected data?) it may not be necessary to refresh the fencer dataframe (is there value to having it be 'up to date' though? )
+
+* updating the fencer dataframe is costly becuase it involves many requests calls, so thats another argument for not refreshing, but then definitely need to keep track of *when* that fencers data was pulled, which might be reason enough to refresh it every time 
 
 **Fencer Ranking/Points**
 
