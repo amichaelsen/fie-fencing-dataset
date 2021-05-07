@@ -10,8 +10,7 @@ from fencers.fencer_scraping import get_fencer_info_from_ID
 # ---------------------------------------------------------------
 
 print("Preparing to process tournament data...", end="")
-list_of_urls = ['https://fie.org/competitions/2021/1070']
-#'https://fie.org/competitions/2020/771']#,
+list_of_urls = ['https://fie.org/competitions/2020/771']#,
 #                'https://fie.org/competitions/2021/1070']
                 #,'https://fie.org/competitions/2021/92']
 
@@ -30,7 +29,7 @@ print(" Done!")
 # ---------------------------------------------------------------
 print("Processing {} tournaments: ".format(len(list_of_urls)), end="")
 
-for tournament_url in list_of_urls:
+for idx, tournament_url in enumerate(list_of_urls):
     # process data from the event
     tournament_data = create_tournament_data_from_url(tournament_url)
     tournament_bout_dataframe = compile_bout_dataframe_from_tournament_data(
@@ -49,7 +48,8 @@ for tournament_url in list_of_urls:
     bouts_dataframe = bouts_dataframe.append(tournament_bout_dataframe)
     tournaments_dataframe = tournaments_dataframe.append(
         tournament_info_dict, ignore_index=True)
-    print(".", end="")
+    print("\rProcessing {} tournaments: {} tournaments done... ".format(len(list_of_urls), idx+1), end="")
+
 
 print(" Done!")
 # ---------------------------------------------------------------
@@ -58,11 +58,10 @@ print(" Done!")
 ## THIS PART IS COSTLY!!
 print("Processing {} fencers: ".format(len(fencer_ID_list)), end="")
 
-for fencer_ID in fencer_ID_list:
-    print(fencer_ID, end=" ")
+for idx, fencer_ID in enumerate(fencer_ID_list[0:5]):
     fencer_info_dict = get_fencer_info_from_ID(fencer_ID)
     fencers_dataframe = fencers_dataframe.append(fencer_info_dict, ignore_index=True)
-    # print(".", end="")
+    print("\rProcessing {} fencers: {} done... ".format(len(fencer_ID_list),idx+1), end="", flush=True)
 
 print(" Done!")
 
@@ -113,7 +112,7 @@ print(bouts_dataframe.loc[idx].to_markdown())
 # print(bouts_dataframe.info())
 
 
-fencer_count = 10
+fencer_count = 2
 idx = random.sample(list(fencers_dataframe.index), fencer_count)
 print("\nA random selection of {} fencers from list:\n".format(fencer_count))
 print(fencers_dataframe.loc[idx].to_markdown())

@@ -55,7 +55,6 @@ def get_fencer_info_from_ID(fencer_ID):
     age = ""
     rank = ""
     for info_item in info_div.children:
-        print(info_item.get_text())
         if(info_item.get_text().startswith('foil') or info_item.get_text().startswith('epee') or info_item.get_text().startswith('sabre')):
             weapon = info_item.get_text()
         elif(info_item.get_text().startswith('Pts')): # second text is either value of points (may be 0) or "-"
