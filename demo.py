@@ -12,8 +12,8 @@ for tournament_url in list_of_urls:
 
 bout_dataframe = compile_bout_dataframe_from_tournament_data(tournament)
 
-bout_count = 10 
-idx = random.sample(list(bout_dataframe.index),bout_count)
+bout_count = 10
+idx = random.sample(list(bout_dataframe.index), bout_count)
 print("A random selection of {} bouts from the tournament:\n".format(bout_count))
 print(bout_dataframe.loc[idx].to_markdown())
 
