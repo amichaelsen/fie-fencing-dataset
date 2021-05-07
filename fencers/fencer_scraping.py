@@ -1,27 +1,29 @@
 import requests
 import json
+from datetime import date, datetime
+from os import path, stat
 from bs4 import BeautifulSoup
 
 
-def get_fencer_info_from_ID(fencer_ID, use_cache = True):
+def get_fencer_info_from_ID(fencer_ID, use_cache=True):
     """
     Takes url for athlete page and returns dict of fencer data with keys FENCERS_DF_COLS
     """
-    # open cache to read/write fencer data 
-    with open('fencer_cache.txt') as fencer_cache:
-        cached_data = json.load(fencer_cache)
-
     # --------------------------------------------------------
     # Check if fencer is in cache (uses potentially old data)
     # --------------------------------------------------------
 
-        
-
+    if use_cache and path.exists('fencers/fencer_cache.txt') and stat('fencers/fencer_cache.txt').st_size > 0:
+        # check if fencer data is already stored
+        with open('fencers/fencer_cache.txt') as fencer_cache_read:
+            cached_data = json.load(fencer_cache_read)
+            if str(fencer_ID) in cached_data.keys():
+                fencer_dict = cached_data[str(fencer_ID)]
+                return fencer_dict
 
     # --------------------------------------------------------
     # If not cached or using cache, pull fencer data from url
     # --------------------------------------------------------
-
 
     fencer_url = "https://fie.org/athletes/"+str(fencer_ID)
     req = requests.get(fencer_url)
@@ -42,12 +44,12 @@ def get_fencer_info_from_ID(fencer_ID, use_cache = True):
     tabOpp_string = [text.strip() for text in var_list if
                      text.strip().startswith(tabOpp_var_name)][0]
     tabOpp_list = json.loads(tabOpp_string.split(" = ")[1])
-    if len(tabOpp_list)>0 and int(tabOpp_list[0]['fencer1']['id']) == fencer_ID:
-        nationality = tabOpp_list[0]['fencer1']['nationality']        
+    if len(tabOpp_list) > 0 and int(tabOpp_list[0]['fencer1']['id']) == fencer_ID:
+        nationality = tabOpp_list[0]['fencer1']['nationality']
     else:
         nationality = ""
     info_div = soup.find('div', class_="ProfileInfo")
-   
+
     weapon = ""
     points = 0
     hand = ""
@@ -56,12 +58,13 @@ def get_fencer_info_from_ID(fencer_ID, use_cache = True):
     for info_item in info_div.children:
         if(info_item.get_text().startswith('foil') or info_item.get_text().startswith('epee') or info_item.get_text().startswith('sabre')):
             weapon = info_item.get_text()
-        elif(info_item.get_text().startswith('Pts')): # second text is either value of points (may be 0) or "-"
+        # second text is either value of points (may be 0) or "-"
+        elif(info_item.get_text().startswith('Pts')):
             pts_text = list(info_item.children)[1].get_text()
             try:
                 points = float(pts_text)
             except ValueError:
-                points = 0 
+                points = 0
         elif(info_item.get_text().startswith('Hand')):
             hand = list(info_item.children)[1].get_text()
         elif(info_item.get_text().startswith('Age')):
@@ -69,5 +72,27 @@ def get_fencer_info_from_ID(fencer_ID, use_cache = True):
         elif(info_item.get_text().startswith('Rank')):
             rank = list(info_item.children)[1].get_text()
 
+    fencer_dict = {'id': fencer_ID, 'name': fencer_name,
+                   'nationality': nationality, 'url': fencer_url,
+                   'hand': hand, 'weapon': weapon, 'points': points,
+                   'rank': rank, 'age': age, 'date_accessed': datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+
+    # --------------------------------------------------------
+    # save fencer data to cache if not already in cache
+    # --------------------------------------------------------
+
     # save data to cache for potential future use (even if not drawing from cache)
-    return {'id': fencer_ID, 'name': fencer_name, 'nationality': nationality, 'url': fencer_url, 'hand': hand, 'weapon': weapon, 'points': points, 'rank': rank, 'age': age}
+    if((not path.exists('fencers/fencer_cache.txt')) or (stat('fencers/fencer_cache.txt').st_size == 0)):
+        # cache file does not exist or is empty (cannt be json.loaded)
+        with open('fencers/fencer_cache.txt', 'w') as fencer_cache_write:
+            new_cache_dict = {fencer_ID: fencer_dict}
+            json.dump(new_cache_dict, fencer_cache_write)
+    else:
+        with open('fencers/fencer_cache.txt') as fencer_cache_read:
+            cached_data = json.load(fencer_cache_read)
+            # store fencer dict, overwrite old data if it exists
+            cached_data[fencer_ID] = fencer_dict
+            with open('fencers/fencer_cache.txt', 'w') as fencer_cache_write:
+                json.dump(cached_data, fencer_cache_write)
+
+    return fencer_dict
