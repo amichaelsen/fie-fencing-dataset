@@ -1,6 +1,6 @@
 import pandas as pd
 import random
-from dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_DF_COLS
+from dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_BIO_DF_COLS, FENCERS_RANKINGS_DF_COLS
 from tournaments.tournament_scraping import create_tournament_data_from_url, compile_bout_dataframe_from_tournament_data
 from tournaments.tournament_data import TournamentData
 from fencers.fencer_scraping import get_fencer_info_from_ID
@@ -17,7 +17,6 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
     #                 #,'https://fie.org/competitions/2021/92']
 
     # Create dataframes to store the output data
-    fencers_dataframe = pd.DataFrame(columns=FENCERS_DF_COLS)
     tournaments_dataframe = pd.DataFrame(columns=TOURNAMENTS_DF_COLS)
     bouts_dataframe = pd.DataFrame(columns=BOUTS_DF_COLS)
 
@@ -58,19 +57,28 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
     # ---------------------------------------------------------------
 
     # Takes a while if lots of fencers are not cached
-    if fencer_cap  == -1:
+    if fencer_cap == -1:
         list_to_process = fencer_ID_list
     else:
         list_to_process = fencer_ID_list[0:fencer_cap]
 
     print("Processing {} fencers: ".format(len(list_to_process)), end="")
 
+    all_fencer_bio_data_list = []
+    all_fencer_ranking_data_list = []
     for idx, fencer_ID in enumerate(list_to_process):
         fencer_info_dict = get_fencer_info_from_ID(fencer_ID)
-        fencers_dataframe = fencers_dataframe.append(
-            fencer_info_dict, ignore_index=True)
+        fencer_rankings_list = fencer_info_dict.pop('rankings')
+        all_fencer_bio_data_list.append(fencer_info_dict)
+        all_fencer_ranking_data_list += fencer_rankings_list
+
         print("\rProcessing {} fencers: {} done... ".format(
             len(list_to_process), idx+1), end="", flush=True)
+    
+    fencers_bio_dataframe = pd.DataFrame(
+        data=all_fencer_bio_data_list, columns=FENCERS_BIO_DF_COLS)
+    fencers_rankings_dataframe = pd.DataFrame(
+        data=all_fencer_ranking_data_list, columns=FENCERS_RANKINGS_DF_COLS)
 
     print(" Done!")
 
@@ -97,7 +105,8 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
     tournaments_dataframe['end_date'] = pd.to_datetime(
         tournaments_dataframe['end_date']).dt.date
     bouts_dataframe['date'] = pd.to_datetime(bouts_dataframe['date']).dt.date
-    fencers_dataframe['date_accessed'] = pd.to_datetime(fencers_dataframe['date_accessed']).dt.date
+    fencers_bio_dataframe['date_accessed'] = pd.to_datetime(
+        fencers_bio_dataframe['date_accessed']).dt.date
 
     categorical_data = ['weapon', 'gender', 'category']
     for cat in categorical_data:
@@ -118,12 +127,18 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
     bout_count = 3
     idx = random.sample(list(bouts_dataframe.index), bout_count)
     print("\nA random selection of {} bouts from list:\n".format(bout_count))
-    print(bouts_dataframe.loc[idx].drop(columns=['opp_age','opp_curr_pts','date']).to_markdown())
+    print(bouts_dataframe.loc[idx].drop(
+        columns=['opp_age', 'opp_curr_pts', 'date']).to_markdown())
     # print(bouts_dataframe.info())
 
     fencer_count = 2
-    idx = random.sample(list(fencers_dataframe.index), fencer_count)
+    idx = random.sample(list(fencers_bio_dataframe.index), fencer_count)
     print("\nA random selection of {} fencers from list:\n".format(fencer_count))
-    print(fencers_dataframe.loc[idx].to_markdown())
+    print(fencers_bio_dataframe.loc[idx].to_markdown())
 
-    return tournaments_dataframe, bouts_dataframe, fencers_dataframe
+    fencer_count = 2
+    idx = random.sample(list(fencers_rankings_dataframe.index.get_level_values(0)), fencer_count)
+    print("\nA random selection of {} fencers from rankings list:\n".format(fencer_count))
+    print(fencers_rankings_dataframe.loc[idx].to_markdown())
+
+    return tournaments_dataframe, bouts_dataframe, fencers_bio_dataframe

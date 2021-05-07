@@ -6,4 +6,6 @@ BOUTS_DF_COLS = ['fencer_ID', 'opp_ID', 'fencer_age', 'opp_age',
                  'winner_ID', 'fencer_curr_pts', 'opp_curr_pts',
                  'tournament_ID', 'pool_ID', 'upset']
 
-FENCERS_DF_COLS = ['id', 'name',  'weapon', 'nationality', 'hand', 'age', 'points', 'rank', 'url','date_accessed']
+FENCERS_BIO_DF_COLS      = ['id', 'name', 'nationality', 'hand', 'age', 'url','date_accessed']
+
+FENCERS_RANKINGS_DF_COLS = ['id', 'weapon', 'category', 'season', 'rank', 'points']

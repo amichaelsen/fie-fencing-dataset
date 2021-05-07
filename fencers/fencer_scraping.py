@@ -70,42 +70,14 @@ def save_fencer_to_cache(cache_filename, fencer_ID, fencer_dict):
                 json.dump(cached_data, fencer_cache_write)
 
 
-def get_fencer_info_from_ID(fencer_ID, use_cache=True):
-    """
-    Takes url for athlete page and returns dict of fencer data with keys FENCERS_DF_COLS
-    """
-    # --------------------------------------------------------
-    # Check if fencer is in cache (uses potentially old data)
-    # --------------------------------------------------------
-
-    if use_cache and path.exists(CACHE_FILENAME) and stat(CACHE_FILENAME).st_size > 0:
-        # check if fencer data is already stored
-        with open(CACHE_FILENAME) as fencer_cache_read:
-            cached_data = json.load(fencer_cache_read)
-            if str(fencer_ID) in cached_data.keys():
-                fencer_dict = cached_data[str(fencer_ID)]
-                return fencer_dict
-
-    # --------------------------------------------------------
-    # If not cached or using cache, pull fencer data from url
-    # --------------------------------------------------------
-
-    fencer_url = "https://fie.org/athletes/"+str(fencer_ID)
-    req = requests.get(fencer_url)
-    soup = BeautifulSoup(req.content, 'html.parser')
-
-    fencer_id_dict = {'id': fencer_ID, 'url': fencer_url,
-                      'date_accessed': datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
-
-    fencer_bio_dict = get_fencer_bio_from_soup(soup, fencer_ID)
-
-    # fencer_rankings_dict = get_fencer_rankings(fencer_url)
-
+def get_fencer_curr_rankings_list_from_soup(soup, fencer_ID):
     info_div = soup.find('div', class_="ProfileInfo")
 
     weapon = ""
     points = 0
     rank = ""
+    category = ""
+    season = ""
     for info_item in info_div.children:
         if(info_item.get_text().startswith('foil') or info_item.get_text().startswith('epee') or info_item.get_text().startswith('sabre')):
             weapon = info_item.get_text()
@@ -123,14 +95,51 @@ def get_fencer_info_from_ID(fencer_ID, use_cache=True):
         elif(info_item.get_text().startswith('Rank')):
             rank = list(info_item.children)[1].get_text()
 
-    fencer_rankings_dict = {'hand': hand, 'weapon': weapon,
-                            'points': points, 'rank': rank}
+    fencer_rankings_list = [{'id': fencer_ID, 'weapon': weapon, 'category': category,
+                             'season': season, 'points': points, 'rank': rank}]
 
-    fencer_dict = {**fencer_bio_dict, **fencer_id_dict, **fencer_rankings_dict}
-    # --------------------------------------------------------
-    # save fencer data to cache if not already in cache
-    # --------------------------------------------------------
+    return fencer_rankings_list
 
+def get_fencer_rankings_list_from_soup(soup, fencer_ID, url):
+    return 
+
+def get_fencer_info_from_ID(fencer_ID, use_cache=True):
+    """
+    Takes url for athlete page and returns dict of fencer data 
+
+        Output:
+        -------
+        fencer_dict : dict 
+
+    """
+    # Check if fencer is in cache (uses potentially old data)
+
+    if use_cache and path.exists(CACHE_FILENAME) and stat(CACHE_FILENAME).st_size > 0:
+        # check if fencer data is already stored
+        with open(CACHE_FILENAME) as fencer_cache_read:
+            cached_data = json.load(fencer_cache_read)
+            if str(fencer_ID) in cached_data.keys():
+                fencer_dict = cached_data[str(fencer_ID)]
+                return fencer_dict
+
+    # If not cached or using cache, pull fencer data from url
+    fencer_url = "https://fie.org/athletes/"+str(fencer_ID)
+    req = requests.get(fencer_url)
+    soup = BeautifulSoup(req.content, 'html.parser')
+
+    fencer_id_dict = {'id': fencer_ID, 'url': fencer_url,
+                      'date_accessed': datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+
+    fencer_bio_dict = get_fencer_bio_from_soup(soup, fencer_ID)
+    
+    fencer_rankings_list = get_fencer_curr_rankings_list_from_soup(
+        soup, fencer_ID)
+
+    fencer_bio_dict = {**fencer_bio_dict, **fencer_id_dict}
+    fencer_rankings_dict = {'rankings': fencer_rankings_list}
+
+    # save fencer data to cache
+    fencer_dict = {**fencer_bio_dict, **fencer_rankings_dict}
     save_fencer_to_cache(cache_filename=CACHE_FILENAME,
                          fencer_ID=fencer_ID,
                          fencer_dict=fencer_dict)
@@ -147,7 +156,7 @@ def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, in
 
     # construct multiIndex (sort first to group by heirarchy)
     idx_array = []
-    dataframe.sort_values(by=index_names,inplace=True)
+    dataframe.sort_values(by=index_names, inplace=True)
     for name in index_names:
         idx_array.append(dataframe[name])
     new_index = pd.MultiIndex.from_arrays(idx_array)
