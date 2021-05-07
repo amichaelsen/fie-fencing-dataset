@@ -1,9 +1,9 @@
 import pandas as pd
 import random
-from dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_BIO_DF_COLS, FENCERS_RANKINGS_DF_COLS
+from dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_BIO_DF_COLS, FENCERS_RANKINGS_DF_COLS, FENCERS_RANKINGS_MULTI_INDEX
 from tournaments.tournament_scraping import create_tournament_data_from_url, compile_bout_dataframe_from_tournament_data
 from tournaments.tournament_data import TournamentData
-from fencers.fencer_scraping import get_fencer_info_from_ID
+from fencers.fencer_scraping import get_fencer_info_from_ID, convert_list_to_dataframe_with_multi_index
 
 
 def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
@@ -74,11 +74,13 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
 
         print("\rProcessing {} fencers: {} done... ".format(
             len(list_to_process), idx+1), end="", flush=True)
-    
+
     fencers_bio_dataframe = pd.DataFrame(
         data=all_fencer_bio_data_list, columns=FENCERS_BIO_DF_COLS)
-    fencers_rankings_dataframe = pd.DataFrame(
-        data=all_fencer_ranking_data_list, columns=FENCERS_RANKINGS_DF_COLS)
+    fencers_rankings_dataframe = convert_list_to_dataframe_with_multi_index(
+        list_of_results=all_fencer_ranking_data_list,
+        column_names=FENCERS_RANKINGS_DF_COLS, index_names=FENCERS_RANKINGS_MULTI_INDEX)
+
 
     print(" Done!")
 
@@ -137,8 +139,9 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
     print(fencers_bio_dataframe.loc[idx].to_markdown())
 
     fencer_count = 2
-    idx = random.sample(list(fencers_rankings_dataframe.index.get_level_values(0)), fencer_count)
+    idx = random.sample(
+        list(fencers_rankings_dataframe.index.get_level_values(0)), fencer_count)
     print("\nA random selection of {} fencers from rankings list:\n".format(fencer_count))
-    print(fencers_rankings_dataframe.loc[idx].to_markdown())
+    print(fencers_rankings_dataframe.loc[idx])
 
     return tournaments_dataframe, bouts_dataframe, fencers_bio_dataframe

@@ -9,3 +9,5 @@ BOUTS_DF_COLS = ['fencer_ID', 'opp_ID', 'fencer_age', 'opp_age',
 FENCERS_BIO_DF_COLS      = ['id', 'name', 'nationality', 'hand', 'age', 'url','date_accessed']
 
 FENCERS_RANKINGS_DF_COLS = ['id', 'weapon', 'category', 'season', 'rank', 'points']
+
+FENCERS_RANKINGS_MULTI_INDEX = ['id', 'weapon', 'category', 'season']

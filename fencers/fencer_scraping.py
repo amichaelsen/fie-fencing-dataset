@@ -70,38 +70,75 @@ def save_fencer_to_cache(cache_filename, fencer_ID, fencer_dict):
                 json.dump(cached_data, fencer_cache_write)
 
 
-def get_fencer_curr_rankings_list_from_soup(soup, fencer_ID):
-    info_div = soup.find('div', class_="ProfileInfo")
+# def get_fencer_curr_rankings_list_from_soup(soup, fencer_ID):
+#     info_div = soup.find('div', class_="ProfileInfo")
 
-    weapon = ""
-    points = 0
-    rank = ""
-    category = ""
-    season = ""
-    for info_item in info_div.children:
-        if(info_item.get_text().startswith('foil') or info_item.get_text().startswith('epee') or info_item.get_text().startswith('sabre')):
-            weapon = info_item.get_text()
-        # second text is either value of points (may be 0) or "-"
-        elif(info_item.get_text().startswith('Pts')):
-            pts_text = list(info_item.children)[1].get_text()
-            try:
-                points = float(pts_text)
-            except ValueError:
-                points = 0
-        elif(info_item.get_text().startswith('Hand')):
-            hand = list(info_item.children)[1].get_text()
-        elif(info_item.get_text().startswith('Age')):
-            age = list(info_item.children)[1].get_text()
-        elif(info_item.get_text().startswith('Rank')):
-            rank = list(info_item.children)[1].get_text()
+#     weapon = ""
+#     points = 0
+#     rank = ""
+#     category = ""
+#     season = ""
+#     for info_item in info_div.children:
+#         if(info_item.get_text().startswith('foil') or info_item.get_text().startswith('epee') or info_item.get_text().startswith('sabre')):
+#             weapon = info_item.get_text()
+#         # second text is either value of points (may be 0) or "-"
+#         elif(info_item.get_text().startswith('Pts')):
+#             pts_text = list(info_item.children)[1].get_text()
+#             try:
+#                 points = float(pts_text)
+#             except ValueError:
+#                 points = 0
+#         elif(info_item.get_text().startswith('Hand')):
+#             hand = list(info_item.children)[1].get_text()
+#         elif(info_item.get_text().startswith('Age')):
+#             age = list(info_item.children)[1].get_text()
+#         elif(info_item.get_text().startswith('Rank')):
+#             rank = list(info_item.children)[1].get_text()
 
-    fencer_rankings_list = [{'id': fencer_ID, 'weapon': weapon, 'category': category,
-                             'season': season, 'points': points, 'rank': rank}]
+#     fencer_rankings_list = [{'id': fencer_ID, 'weapon': weapon, 'category': category,
+#                              'season': season, 'points': points, 'rank': rank}]
+
+#     return fencer_rankings_list
+
+
+def get_fencer_weapon_rankings_list_from_soup(soup):
+    script = next(soup.find('script', id="js-single-athlete").children)
+    # each variable window._XXXX is ';' separated and window._tabRanking contains historical rankings
+    var_list = script.split(';')
+
+    # get window._tabRankings Data
+    tabRank_var_name = "window._tabRanking "
+    tabRank_string = [text.strip() for text in var_list if
+                      text.strip().startswith(tabRank_var_name)][0]
+    fencer_rankings_list = json.loads(tabRank_string.split(" = ")[1])
 
     return fencer_rankings_list
 
+
 def get_fencer_rankings_list_from_soup(soup, fencer_ID, url):
-    return 
+    # get weapons list
+    # <select class="ProfileInfo-weaponDropdown...">
+    weapon_dropdown = soup.find('select', class_="ProfileInfo-weaponDropdown")
+    if(not weapon_dropdown or len(list(weapon_dropdown.children)) == 1):  # only 1 weapon, can re-use soup
+        fencer_rankings_list = get_fencer_weapon_rankings_list_from_soup(soup)
+    else:
+        # weapon_options = []
+        # current_weapon = ""
+        # for weapon in weapon_options:
+        #     if weapon == current_weapon:
+        #         get_fencer_weapon_rankings_list_from_soup(soup)
+        #     else:
+        #         #construct new url
+        #         # create new soup
+        #         #get_fencer_weapon_rankings_list_from_soup(soup)
+        # for each weapon need to make a single request
+        fencer_rankings_list = get_fencer_weapon_rankings_list_from_soup(soup)
+
+    for rank_item in fencer_rankings_list:
+        rank_item.update({"id": fencer_ID})
+        rank_item['points'] = rank_item.pop('point') # relabel from JSON 'point'
+    return fencer_rankings_list
+
 
 def get_fencer_info_from_ID(fencer_ID, use_cache=True):
     """
@@ -131,9 +168,8 @@ def get_fencer_info_from_ID(fencer_ID, use_cache=True):
                       'date_accessed': datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
 
     fencer_bio_dict = get_fencer_bio_from_soup(soup, fencer_ID)
-    
-    fencer_rankings_list = get_fencer_curr_rankings_list_from_soup(
-        soup, fencer_ID)
+
+    fencer_rankings_list = get_fencer_rankings_list_from_soup(soup, fencer_ID, fencer_url)
 
     fencer_bio_dict = {**fencer_bio_dict, **fencer_id_dict}
     fencer_rankings_dict = {'rankings': fencer_rankings_list}
