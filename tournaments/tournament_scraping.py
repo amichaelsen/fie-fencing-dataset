@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from pools.pool_scraping import get_pool_data_from_dict
 from tournaments.tournament_data import TournamentData
 import pandas as pd
+from dataframe_columns import BOUTS_DF_COLS
 
 
 def get_pool_list_from_json_list(var_list):
@@ -126,9 +127,7 @@ def compile_bout_dataframe_from_tournament_data(tournament_data):
     """
     Takes a TournamentData Object and returns a pandas Dataframe of bouts 
     """
-    bout_dataframe = pd.DataFrame(columns=['fencer_ID', 'opp_ID', 'fencer_score', 'opp_score',
-                                           'winner_ID', 'fencer_curr_pts', 'opp_curr_pts',
-                                           'tournament_ID', 'pool_ID', 'upset'])
+    bout_dataframe = pd.DataFrame(columns=BOUTS_DF_COLS)
 
     tournament_ID = tournament_data.unique_ID
 
