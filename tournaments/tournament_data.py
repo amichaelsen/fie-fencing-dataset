@@ -29,22 +29,21 @@ class TournamentData:
     unique_ID : str # this will be season-competition_id, e.g. "2020-771"
     season : int
     competition_ID : int
-    weapon : str # make this an enum eventually 
-    gender : str # make this an enum eventually 
-    category : str # make this an enum eventually 
-    level : str  # make this an enum eventually 
+    weapon : str  
+    gender : str 
+    category : str 
     start_date : str
     end_date : str
     name : str 
     country : str
-    timezone : str  # make this an enum eventually ??
+    timezone : str  
     url : str 
 
     pools_list : list[PoolData]
     fencers_dict : dict
 
     def create_tournament_dict(self):
-        tournament_dict = self.__dict__
+        tournament_dict = self.__dict__.copy()
         tournament_dict.pop('fencers_dict')
         tournament_dict.pop('pools_list')
         return tournament_dict

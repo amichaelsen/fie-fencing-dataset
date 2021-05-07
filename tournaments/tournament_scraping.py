@@ -88,11 +88,13 @@ def create_tournament_data_from_url(tournament_url):
     # -----------------------------------------
     tournament_dict = {k: v for k, v in comp.items(
     ) if k in ['competitionId', 'season', 'name', 'category', 'country',
-               'startDate', 'endDate', 'weapon', 'gender', 'level', 'timezone']}
+               'startDate', 'endDate', 'weapon', 'gender', 'timezone']}
     # rename keys for consistent naming
     tournament_dict['competition_ID'] = tournament_dict.pop('competitionId')
     tournament_dict['start_date'] = tournament_dict.pop('startDate')
     tournament_dict['end_date'] = tournament_dict.pop('endDate')
+
+    
 
     # create url and unique_id for tournament_dict
     tournament_dict['url'] = "https://fie.org/competitions/" + \
