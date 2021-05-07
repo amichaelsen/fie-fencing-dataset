@@ -3,7 +3,7 @@ import requests
 import json
 from bs4 import BeautifulSoup
 from pools.pool_scraping import get_pool_data_from_dict
-from tournament_data import TournamentData
+from tournaments.tournament_data import TournamentData
 import pandas as pd
 
 

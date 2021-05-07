@@ -1,7 +1,3 @@
-import requests
-import re
-import json
-import random
 from bs4 import BeautifulSoup
 from tournament_scraping import create_tournament_data_from_url, compile_bout_dataframe_from_tournament_data
 from tournament_data import TournamentData
