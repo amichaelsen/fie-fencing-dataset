@@ -10,6 +10,22 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
 * add a basic flowchart for process? or just image from notability drawing? 
 
 
+### 05/07/2021
+
+**Fencer Ranking/Points by Weapon** 
+
+* Assume that handedness does not change by weapon 
+* on a page, there is a drop down menu for weapon 
+    ```
+    <select class="ProfileInfo-weaponDropdown js-athlete-dropdown-weapon" name="weapon">
+        <option value="F">foil</option>
+        <option value="S" selected>sabre</option>
+    </select>
+    ```
+    and for each "option value", need to make a url call to "../athletes/ID?weapon={}" where {}=F,E,S for each weapon option. 
+
+    Note: if a fencer has only one weapon, making this URL call is not a problem but creates redundant calls so should be avoided. 
+
 ### 05/06/2021
 
 **Fencer Data Pages** 

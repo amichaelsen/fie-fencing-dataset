@@ -17,3 +17,7 @@ Fencing Rules on Pool Composition
     * *"The pools are composed taking account of the latest official FIE ranking, and by drawing lots among fencers who are not in the ranking."*
 * [FIE 2015 Competition Rules](http://mszag.com/fie/pravilnici/fieorganisation.pdf) (from 2015) 
     * *"o.13. 1. The pools are composed taking account of the latest official FIE ranking and by drawing lots among any fencers who are not in the ranking"*
+
+
+Example Pages 
+* Fencer with multiple weapons [here](https://fie.org/athletes/12054)
