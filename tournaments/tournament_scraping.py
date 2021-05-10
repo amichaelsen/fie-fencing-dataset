@@ -88,7 +88,7 @@ def create_tournament_data_from_url(tournament_url):
 
     # each get json variables of the form window._XXXX 
     pools_list = get_json_var_from_script(
-        soup=soup, script_id="js-competition", var_name="window._pools ")    
+        soup=soup, script_id="js-competition", var_name="window._pools ")['pools']  
     comp = get_json_var_from_script(
         soup=soup, script_id="js-competition", var_name="window._competition ")
     athlete_dict_list = get_json_var_from_script(
@@ -101,7 +101,7 @@ def create_tournament_data_from_url(tournament_url):
         poolData_list.append(pool_data)
 
     # PROCESS TOURNAMENT & ATHLETE INFO INTO DICTS
-    tournament_dict = create_tournament_data_from_comp(comp)
+    tournament_dict = create_tournament_dict_from_comp(comp)
     tournament_athlete_dict = create_tournament_athlete_dict_from_athlete_list(athlete_dict_list)
     
     # CREATE TOURNAMENT DATACLASS TO RETURN

@@ -9,6 +9,6 @@ def get_json_var_from_script(soup, script_id, var_name):
     # get var_name Data (may be list or dict)
     var_string = [text.strip() for text in var_list if
                      text.strip().startswith(var_name)][0]
-    json_variable = json.loads(tabOpp_string.split(" = ")[1])
+    json_variable = json.loads(var_string.split(" = ")[1])
     return json_variable
     

@@ -169,6 +169,7 @@ def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, in
 def get_fencer_dataframes_from_ID_list(fencer_ID_list):
     all_fencer_bio_data_list = []
     all_fencer_ranking_data_list = []
+    print("Processing {} fencers: ".format(len(fencer_ID_list)), end="")
 
     for idx, fencer_ID in enumerate(fencer_ID_list):
         fencer_info_dict = get_fencer_info_from_ID(fencer_ID, use_cache=False)
