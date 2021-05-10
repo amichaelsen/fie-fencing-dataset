@@ -4,8 +4,9 @@ from datetime import date, datetime
 from os import path, stat
 from bs4 import BeautifulSoup
 import pandas as pd
-
 import tabulate
+
+from dataframe_columns import FENCERS_RANKINGS_MULTI_INDEX, FENCERS_RANKINGS_DF_COLS, FENCERS_BIO_DF_COLS
 
 CACHE_FILENAME = 'fencers/fencer_cache.txt'
 
@@ -70,37 +71,6 @@ def save_fencer_to_cache(cache_filename, fencer_ID, fencer_dict):
                 json.dump(cached_data, fencer_cache_write)
 
 
-# def get_fencer_curr_rankings_list_from_soup(soup, fencer_ID):
-#     info_div = soup.find('div', class_="ProfileInfo")
-
-#     weapon = ""
-#     points = 0
-#     rank = ""
-#     category = ""
-#     season = ""
-#     for info_item in info_div.children:
-#         if(info_item.get_text().startswith('foil') or info_item.get_text().startswith('epee') or info_item.get_text().startswith('sabre')):
-#             weapon = info_item.get_text()
-#         # second text is either value of points (may be 0) or "-"
-#         elif(info_item.get_text().startswith('Pts')):
-#             pts_text = list(info_item.children)[1].get_text()
-#             try:
-#                 points = float(pts_text)
-#             except ValueError:
-#                 points = 0
-#         elif(info_item.get_text().startswith('Hand')):
-#             hand = list(info_item.children)[1].get_text()
-#         elif(info_item.get_text().startswith('Age')):
-#             age = list(info_item.children)[1].get_text()
-#         elif(info_item.get_text().startswith('Rank')):
-#             rank = list(info_item.children)[1].get_text()
-
-#     fencer_rankings_list = [{'id': fencer_ID, 'weapon': weapon, 'category': category,
-#                              'season': season, 'points': points, 'rank': rank}]
-
-#     return fencer_rankings_list
-
-
 def get_fencer_weapon_rankings_list_from_soup(soup):
     script = next(soup.find('script', id="js-single-athlete").children)
     # each variable window._XXXX is ';' separated and window._tabRanking contains historical rankings
@@ -116,27 +86,29 @@ def get_fencer_weapon_rankings_list_from_soup(soup):
 
 
 def get_fencer_rankings_list_from_soup(soup, fencer_ID, url):
-    # get weapons list
-    # <select class="ProfileInfo-weaponDropdown...">
+    """
+    TODO 
+    """
+    # get weapons list from <select class="ProfileInfo-weaponDropdown...">
     weapon_dropdown = soup.find('select', class_="ProfileInfo-weaponDropdown")
     if(not weapon_dropdown or len(list(weapon_dropdown.children)) == 1):  # only 1 weapon, can re-use soup
         fencer_rankings_list = get_fencer_weapon_rankings_list_from_soup(soup)
     else:
-        # weapon_options = []
-        # current_weapon = ""
-        # for weapon in weapon_options:
-        #     if weapon == current_weapon:
-        #         get_fencer_weapon_rankings_list_from_soup(soup)
-        #     else:
-        #         #construct new url
-        #         # create new soup
-        #         #get_fencer_weapon_rankings_list_from_soup(soup)
-        # for each weapon need to make a single request
-        fencer_rankings_list = get_fencer_weapon_rankings_list_from_soup(soup)
+        fencer_rankings_list = []
+        for weapon in weapon_dropdown.children:
+            # create soup for page with specific weapon 
+            weapon_value = weapon['value']
+            weapon_url =  url + "?weapon="+weapon_value
+            weapon_req = requests.get(weapon_url)
+            weapon_soup = BeautifulSoup(weapon_req.content, 'html.parser')
+            # process page for weapon specific rankings 
+            fencer_weapon_rankings_list = get_fencer_weapon_rankings_list_from_soup(weapon_soup)
+            fencer_rankings_list += fencer_weapon_rankings_list
 
     for rank_item in fencer_rankings_list:
         rank_item.update({"id": fencer_ID})
         rank_item['points'] = rank_item.pop('point') # relabel from JSON 'point'
+
     return fencer_rankings_list
 
 
@@ -147,10 +119,10 @@ def get_fencer_info_from_ID(fencer_ID, use_cache=True):
         Output:
         -------
         fencer_dict : dict 
+            TODO Describe the dict structure here... 
 
     """
     # Check if fencer is in cache (uses potentially old data)
-
     if use_cache and path.exists(CACHE_FILENAME) and stat(CACHE_FILENAME).st_size > 0:
         # check if fencer data is already stored
         with open(CACHE_FILENAME) as fencer_cache_read:
@@ -183,6 +155,7 @@ def get_fencer_info_from_ID(fencer_ID, use_cache=True):
     return fencer_dict
 
 
+
 def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, index_names):
     """
     Takes a list of dict data and returns a pd.DataFrame with multiIndex from specified columns
@@ -202,3 +175,25 @@ def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, in
     dataframe = dataframe.drop(columns=index_names)
 
     return dataframe
+
+
+def get_fencer_dataframes_from_ID_list(fencer_ID_list):
+    all_fencer_bio_data_list = []
+    all_fencer_ranking_data_list = []
+
+    for idx, fencer_ID in enumerate(fencer_ID_list):
+        fencer_info_dict = get_fencer_info_from_ID(fencer_ID, use_cache=False)
+        fencer_rankings_list = fencer_info_dict.pop('rankings')
+        all_fencer_bio_data_list.append(fencer_info_dict)
+        all_fencer_ranking_data_list += fencer_rankings_list
+
+        print("\rProcessing {} fencers: {} done... ".format(
+            len(fencer_ID_list), idx+1), end="", flush=True)
+
+        fencers_bio_dataframe = pd.DataFrame(
+            data=all_fencer_bio_data_list, columns=FENCERS_BIO_DF_COLS)
+        fencers_rankings_dataframe = convert_list_to_dataframe_with_multi_index(
+            list_of_results=all_fencer_ranking_data_list,
+            column_names=FENCERS_RANKINGS_DF_COLS, index_names=FENCERS_RANKINGS_MULTI_INDEX)
+
+    return fencers_bio_dataframe, fencers_rankings_dataframe

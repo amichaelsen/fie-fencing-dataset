@@ -6,6 +6,8 @@ from tournaments.tournament_data import TournamentData
 from fencers.fencer_scraping import get_fencer_info_from_ID, convert_list_to_dataframe_with_multi_index
 
 
+
+
 def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
     # ---------------------------------------------------------------
     # INITIALIZE DATAFRAMES AND URLS
@@ -144,4 +146,4 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
     print("\nA random selection of {} fencers from rankings list:\n".format(fencer_count))
     print(fencers_rankings_dataframe.loc[idx])
 
-    return tournaments_dataframe, bouts_dataframe, fencers_bio_dataframe
+    return tournaments_dataframe, bouts_dataframe, fencers_bio_dataframe, fencers_rankings_dataframe
