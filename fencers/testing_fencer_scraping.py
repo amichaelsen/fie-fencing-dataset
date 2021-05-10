@@ -28,7 +28,7 @@ from fencers.fencer_scraping import convert_list_to_dataframe_with_multi_index
 
 
 fencer_IDs = [46080, 12054]
-fencers_bio_dataframe, fencers_rankings_dataframe = get_fencer_dataframes_from_ID_list(fencer_IDs)
+fencers_bio_dataframe, fencers_rankings_dataframe = get_fencer_dataframes_from_ID_list(fencer_IDs, use_cache=False)
 
 print(fencers_bio_dataframe)
 

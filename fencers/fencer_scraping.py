@@ -5,6 +5,7 @@ from os import path, stat
 from bs4 import BeautifulSoup
 import pandas as pd
 import tabulate
+from progress.bar import Bar
 
 from soup_scraping import get_json_var_from_script
 from dataframe_columns import FENCERS_RANKINGS_MULTI_INDEX, FENCERS_RANKINGS_DF_COLS, FENCERS_BIO_DF_COLS
@@ -166,19 +167,16 @@ def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, in
     return dataframe
 
 
-def get_fencer_dataframes_from_ID_list(fencer_ID_list):
+def get_fencer_dataframes_from_ID_list(fencer_ID_list, use_cache=True):
     all_fencer_bio_data_list = []
     all_fencer_ranking_data_list = []
-    print("Processing {} fencers: ".format(len(fencer_ID_list)), end="")
+    print("Processing fencers by ID")
 
-    for idx, fencer_ID in enumerate(fencer_ID_list):
-        fencer_info_dict = get_fencer_info_from_ID(fencer_ID, use_cache=False)
+    for fencer_ID in Bar('  Loading fencers').iter(fencer_ID_list):
+        fencer_info_dict = get_fencer_info_from_ID(fencer_ID, use_cache)
         fencer_rankings_list = fencer_info_dict.pop('rankings')
         all_fencer_bio_data_list.append(fencer_info_dict)
         all_fencer_ranking_data_list += fencer_rankings_list
-
-        print("\rProcessing {} fencers: {} done... ".format(
-            len(fencer_ID_list), idx+1), end="", flush=True)
 
         fencers_bio_dataframe = pd.DataFrame(
             data=all_fencer_bio_data_list, columns=FENCERS_BIO_DF_COLS)
