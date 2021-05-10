@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import tabulate
 
+from soup_scraping import get_json_var_from_script
 from dataframe_columns import FENCERS_RANKINGS_MULTI_INDEX, FENCERS_RANKINGS_DF_COLS, FENCERS_BIO_DF_COLS
 
 CACHE_FILENAME = 'fencers/fencer_cache.txt'
@@ -25,19 +26,10 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
     fencer_name = name_tag.get_text()
 
     # first approximation to get nationality
-
-    # window._tabOpponents = [{"date":"2021-04-10",
-    #                           "fencer1":{"id":"52027","name":"PARK Faith","nationality":"USA","isWinner":true,"score":"5"},
-    #                           "fencer2":{"id":49302,"name":"CARDOSO Elisabete","nationality":"POR","isWinner":false,"score":"2"},"competition":"Championnats du monde juniors-cadets","season":"2021","competitionId":"235","city":"Le Caire"},
-    script = next(soup.find('script', id="js-single-athlete").children)
-    # each variable window._XXXX is ';' separated and window._tabOpponents contains data that includes fencer nationality
-    var_list = script.split(';')
-
-    # get window._tabOpponents Data
-    tabOpp_var_name = "window._tabOpponents "
-    tabOpp_string = [text.strip() for text in var_list if
-                     text.strip().startswith(tabOpp_var_name)][0]
-    tabOpp_list = json.loads(tabOpp_string.split(" = ")[1])
+    # window._tabOpponents = [{"date":"2021-04-10", "fencer1":{"id":"52027","name":"PARK Faith","nationality":"USA","isWinner":true,"score":"5"},
+    #                                               "fencer2":{"id":49302,"name":"CARDOSO Elisabete","nationality":"POR","isWinner":false,"score":"2"},"competition":"Championnats du monde juniors-cadets","season":"2021","competitionId":"235","city":"Le Caire"},
+    tabOpp_list = get_json_var_from_script(
+        soup=soup, script_id="js-single-athlete", var_name="window._tabOpponents")
     if len(tabOpp_list) > 0 and int(tabOpp_list[0]['fencer1']['id']) == fencer_ID:
         nationality = tabOpp_list[0]['fencer1']['nationality']
 
@@ -72,15 +64,10 @@ def save_fencer_to_cache(cache_filename, fencer_ID, fencer_dict):
 
 
 def get_fencer_weapon_rankings_list_from_soup(soup):
-    script = next(soup.find('script', id="js-single-athlete").children)
-    # each variable window._XXXX is ';' separated and window._tabRanking contains historical rankings
-    var_list = script.split(';')
-
     # get window._tabRankings Data
     tabRank_var_name = "window._tabRanking "
-    tabRank_string = [text.strip() for text in var_list if
-                      text.strip().startswith(tabRank_var_name)][0]
-    fencer_rankings_list = json.loads(tabRank_string.split(" = ")[1])
+    fencer_rankings_list = get_json_var_from_script(
+        soup=soup, script_id="js-single-athlete", var_name=tabRank_var_name)
 
     return fencer_rankings_list
 
@@ -96,18 +83,20 @@ def get_fencer_rankings_list_from_soup(soup, fencer_ID, url):
     else:
         fencer_rankings_list = []
         for weapon in weapon_dropdown.children:
-            # create soup for page with specific weapon 
+            # create soup for page with specific weapon
             weapon_value = weapon['value']
-            weapon_url =  url + "?weapon="+weapon_value
+            weapon_url = url + "?weapon="+weapon_value
             weapon_req = requests.get(weapon_url)
             weapon_soup = BeautifulSoup(weapon_req.content, 'html.parser')
-            # process page for weapon specific rankings 
-            fencer_weapon_rankings_list = get_fencer_weapon_rankings_list_from_soup(weapon_soup)
+            # process page for weapon specific rankings
+            fencer_weapon_rankings_list = get_fencer_weapon_rankings_list_from_soup(
+                weapon_soup)
             fencer_rankings_list += fencer_weapon_rankings_list
 
     for rank_item in fencer_rankings_list:
         rank_item.update({"id": fencer_ID})
-        rank_item['points'] = rank_item.pop('point') # relabel from JSON 'point'
+        rank_item['points'] = rank_item.pop(
+            'point')  # relabel from JSON 'point'
 
     return fencer_rankings_list
 
@@ -141,7 +130,8 @@ def get_fencer_info_from_ID(fencer_ID, use_cache=True):
 
     fencer_bio_dict = get_fencer_bio_from_soup(soup, fencer_ID)
 
-    fencer_rankings_list = get_fencer_rankings_list_from_soup(soup, fencer_ID, fencer_url)
+    fencer_rankings_list = get_fencer_rankings_list_from_soup(
+        soup, fencer_ID, fencer_url)
 
     fencer_bio_dict = {**fencer_bio_dict, **fencer_id_dict}
     fencer_rankings_dict = {'rankings': fencer_rankings_list}
@@ -153,7 +143,6 @@ def get_fencer_info_from_ID(fencer_ID, use_cache=True):
                          fencer_dict=fencer_dict)
 
     return fencer_dict
-
 
 
 def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, index_names):

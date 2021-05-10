@@ -42,5 +42,5 @@ print("\n"*2)
 print(fencers_rankings_df)
 print("\n"*2)
 
-print(fencers_rankings_df.index.get_level_values(1))
+print("Weapons represented by fencers: {}".format(set(fencers_rankings_df.index.get_level_values(1))))
 print("\n"*2)
