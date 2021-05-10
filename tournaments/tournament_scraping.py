@@ -7,6 +7,10 @@ from tournaments.tournament_data import TournamentData
 import pandas as pd
 from dataframe_columns import BOUTS_DF_COLS
 
+## =--------------------------------------=
+## Helper Methods Methods for Tournament Scraping
+## =--------------------------------------=
+
 
 def get_pool_list_from_json_list(var_list):
     # get window._pools Data
@@ -50,7 +54,12 @@ def get_athletes_list_from_json_list(var_list):
     athletes_list = json.loads(athl_string.split(" = ")[1])
     return athletes_list
 
+## =--------------------------------------=
+## Main Methods for Tournament Scraping
+## =--------------------------------------=
 
+## Entry point for get_results
+# TODO: split into more helper functions 
 def create_tournament_data_from_url(tournament_url):
     """
     Takes a tournament URL and returns a TournamentData dataclass with desired information
@@ -123,6 +132,8 @@ def create_tournament_data_from_url(tournament_url):
     return tournament
 
 
+## Entry point for get_results
+#TODO: remove dataframe.append for each row, use list instead! 
 def compile_bout_dataframe_from_tournament_data(tournament_data):
     """
     Takes a TournamentData Object and returns a pandas Dataframe of bouts 
