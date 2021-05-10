@@ -3,7 +3,7 @@
 Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1KhN0) on Lab Notebooks at [csv,conf,v6](https://csvconf.com/), I have decided to maintain a lab notebook as part of this project to track more detailed, unfiltered notes. The aim of this notebook is not to be a polished presentation of the final product, but a history of its development including half-baked ideas and failed experiments/implementations. Entries will be ordered reverse-chronologically, with the most recent ones appearing at the top. 
 
 # Entries 
-
+<!-- -------------------------------------------------------------------- -->
 
 **Data Processing Pipeline**
 
@@ -14,7 +14,7 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
 
 **Fencer Ranking/Points by Weapon** 
 
-* Assume that handedness does not change by weapon 
+* Assume that handedness does not change by weapon -> store in the fencer bio dataframe 
 * on a page, there is a drop down menu for weapon 
     ```
     <select class="ProfileInfo-weaponDropdown js-athlete-dropdown-weapon" name="weapon">
