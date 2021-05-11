@@ -1,6 +1,7 @@
 from os import path, stat
 import json
 
+
 def save_dict_to_cache(cache_filename, dict_key, dict_value):
 
     # save data to cache for potential future use (even if not drawing from cache)
@@ -16,3 +17,13 @@ def save_dict_to_cache(cache_filename, dict_key, dict_value):
             cached_data[dict_key] = dict_value
             with open(cache_filename, 'w') as write_file:
                 json.dump(cached_data, write_file)
+
+
+def clear_null_entries(cache_filename):
+    with open(cache_filename) as read_file:
+        cached_data = json.load(read_file)
+        for key, value in list(cached_data.items()):
+            if value is None:
+                del cached_data[key]
+        with open(cache_filename, 'w') as write_file:
+            json.dump(cached_data, write_file)
