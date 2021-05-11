@@ -128,8 +128,8 @@ def get_fencer_info_from_ID(fencer_ID, use_cache=True):
     # save fencer data to cache
     fencer_dict = {**fencer_bio_dict, **fencer_rankings_dict}
     save_dict_to_cache(cache_filename=CACHE_FILENAME,
-                       fencer_ID=fencer_ID,
-                       fencer_dict=fencer_dict)
+                       dict_key=fencer_ID,
+                       dict_value=fencer_dict)
 
     return fencer_dict
 

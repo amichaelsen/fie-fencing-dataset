@@ -3,6 +3,8 @@ import random
 from progress.bar import Bar
 import requests
 import math
+import json
+from os import path, stat
 
 from dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_BIO_DF_COLS, FENCERS_RANKINGS_DF_COLS, FENCERS_RANKINGS_MULTI_INDEX
 from dataframe_columns import multiIndex_relabeler, make_season_from_year
@@ -10,6 +12,9 @@ from tournaments.tournament_scraping import create_tournament_data_from_url, com
 from tournaments.tournament_data import TournamentData
 from fencers.fencer_scraping import get_fencer_data_lists_from_ID_list, convert_list_to_dataframe_with_multi_index
 from soup_scraping import get_search_params
+from caching_methods import save_dict_to_cache
+
+CACHE_FILENAME = 'tournaments/tournament_cache.txt'
 
 
 def add_tournament_urls_to_list(url_list, tournament_dict_list):
@@ -40,7 +45,7 @@ def get_url_list_from_seach(search_params):
     return url_list
 
 
-def process_tournament_data_from_urls(list_of_urls):
+def process_tournament_data_from_urls(list_of_urls, use_cache=True):
     # tournaments_dataframe = pd.DataFrame(columns=TOURNAMENTS_DF_COLS)
 
     tournaments_dict_list = []
@@ -48,19 +53,52 @@ def process_tournament_data_from_urls(list_of_urls):
     fencer_ID_list = []
 
     for tournament_url in Bar('  Loading tournaments').iter(list_of_urls):
-        # process data from the event
-        tournament_data = create_tournament_data_from_url(tournament_url)
-        if tournament_data is not None:
-            tournament_bout_dict_list = compile_bout_dict_list_from_tournament_data(
-                tournament_data)
-            tournament_info_dict = tournament_data.create_tournament_dict()
-            tournament_fencer_ID_list = list(
-                tournament_data.fencers_dict.keys())
-            # add tournament data to overall dataframes/lists
-            fencer_ID_list = list(
-                set(fencer_ID_list+tournament_fencer_ID_list))
-            bouts_dict_list = bouts_dict_list + tournament_bout_dict_list
-            tournaments_dict_list.append(tournament_info_dict)
+        load_from_cache = False
+        # Check if tournament is in cache (uses potentially old data)
+        if use_cache and path.exists(CACHE_FILENAME) and stat(CACHE_FILENAME).st_size > 0:
+            # check if fencer data is already stored
+            with open(CACHE_FILENAME) as read_file:
+                cached_data = json.load(read_file)
+                if str(tournament_url) in cached_data.keys():
+                    # may be null if tournament has missing data
+                    cached_tournament_dict = cached_data[str(tournament_url)]
+                    load_from_cache = True
+
+        if load_from_cache:
+            if cached_tournament_dict is not None:
+                # parse tournament data from cached_tournament_dict
+                tournament_bout_dict_list = cached_tournament_dict.pop(
+                    'bout_list')
+                tournament_fencer_ID_list = cached_tournament_dict.pop(
+                    'fencer_list')
+                tournament_info_dict = cached_tournament_dict.copy()
+            else:
+                continue
+        else:
+            # generate tournament data from url
+            tournament_data = create_tournament_data_from_url(tournament_url)
+            if tournament_data is not None:
+                tournament_bout_dict_list = compile_bout_dict_list_from_tournament_data(
+                    tournament_data)
+                tournament_info_dict = tournament_data.create_tournament_dict()
+                tournament_fencer_ID_list = list(
+                    tournament_data.fencers_dict.keys())
+
+                # save data
+                dict_to_cache = {**tournament_info_dict, 'bout_list': tournament_bout_dict_list,
+                                 'fencer_list': tournament_fencer_ID_list}
+                save_dict_to_cache(
+                    CACHE_FILENAME, tournament_url, dict_to_cache)
+            else:
+                # save null to cache
+                save_dict_to_cache(CACHE_FILENAME, tournament_url, None)
+                continue
+        
+        # append tournament data to the list
+        fencer_ID_list = list(
+            set(fencer_ID_list+tournament_fencer_ID_list))
+        bouts_dict_list = bouts_dict_list + tournament_bout_dict_list
+        tournaments_dict_list.append(tournament_info_dict)
 
     # convert lists to dataframes
 
@@ -107,10 +145,10 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
 
 def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
 
-    # PROCESS TOURNAMENTS INDIVIDUALLY
-
+    # PROCESS TOURNAMENTS FIRST
     tournaments_dict_list, bouts_dict_list, fencer_ID_list = process_tournament_data_from_urls(
         list_of_urls)
+    
     bouts_dataframe = pd.DataFrame(data=bouts_dict_list, columns=BOUTS_DF_COLS)
     tournaments_dataframe = pd.DataFrame(
         data=tournaments_dict_list, columns=TOURNAMENTS_DF_COLS)

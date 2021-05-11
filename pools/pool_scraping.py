@@ -63,6 +63,6 @@ def get_pool_data_from_dict(pool_dict):
     date = pool_dict['time']
 
     pool = PoolData(id, pool_size, fencer_names,
-                    fencer_IDs, winners_array, score_array, date)
+                    fencer_IDs, winners_array.tolist(), score_array.tolist(), date)
 
     return pool

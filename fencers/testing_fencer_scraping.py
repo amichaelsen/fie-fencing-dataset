@@ -1,7 +1,7 @@
-from fencers.fencer_scraping import get_fencer_dataframes_from_ID_list
+from fencers.fencer_scraping import get_fencer_data_lists_from_ID_list
 from dataframe_columns import FENCERS_BIO_DF_COLS, FENCERS_RANKINGS_DF_COLS, FENCERS_RANKINGS_MULTI_INDEX
 import time
-import pandas as pd 
+import pandas as pd
 from fencers.fencer_scraping import convert_list_to_dataframe_with_multi_index
 
 # print("\n Loading fencer data without cache!\n")
@@ -28,10 +28,16 @@ from fencers.fencer_scraping import convert_list_to_dataframe_with_multi_index
 
 
 fencer_IDs = [46080, 12054]
-fencers_bio_dataframe, fencers_rankings_dataframe = get_fencer_dataframes_from_ID_list(fencer_IDs, use_cache=False)
+# fencer_IDs = [37080]
+fencers_bio_list, fencers_rankings_list = get_fencer_data_lists_from_ID_list(
+    fencer_IDs, use_cache=False)
+
+fencers_bio_dataframe = pd.DataFrame(
+    data=fencers_bio_list, columns=FENCERS_BIO_DF_COLS)
+fencers_rankings_dataframe = convert_list_to_dataframe_with_multi_index(
+    list_of_results=fencers_rankings_list,
+    column_names=FENCERS_RANKINGS_DF_COLS, index_names=FENCERS_RANKINGS_MULTI_INDEX)
 
 print(fencers_bio_dataframe)
 
 print(fencers_rankings_dataframe)
-
-
