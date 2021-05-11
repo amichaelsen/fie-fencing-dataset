@@ -11,26 +11,33 @@ from tournaments.tournament_data import TournamentData
 from fencers.fencer_scraping import get_fencer_dataframes_from_ID_list, convert_list_to_dataframe_with_multi_index
 
 
+def add_tournament_urls_to_list(url_list, tournament_dict_list):
+    for tournament in tournament_dict_list:
+        url = "https://fie.org/"+str(tournament['season'])+"/"+str(tournament['competitionId'])
+        print('Event URL: \'{}\''.format(url))
+        url_list.append(url) 
+    return url_list
+
+
 def get_url_list_from_seach(search_params):
+    url_list = []
+
     # get first page of results and check if more pages needed 
     search_params['fetchPage'] = 1
     search_url = 'https://fie.org/competitions/search'
     req = requests.post(search_url, data=search_params)
     json = req.json()
-    # json object sample in initial_testing/request_response.json
     print("Total Events Found: {}".format(json['totalFound']))
+    # json object sample in initial_testing/request_response.json
     pages_needed = math.ceil(json['totalFound']/json['pageSize'])
-    print("Page Size: {}    Pages Needed: {}".format(json['pageSize'], pages_needed))
-    print("Number of tournaments in this response: {}".format(len(json['items'])))
-    print("First Tournament: {}\n\n".format(json['items'][0]))
+    url_list = add_tournament_urls_to_list(url_list, json['items'])
     for p in range(2,pages_needed+1):
         search_params['fetchPage'] = p
         req = requests.post(search_url, data=search_params)
         json = req.json()
-        print("Total Events Found: {}".format(json['totalFound']))
-        print("Page Size: {}    Pages Needed: {}".format(json['pageSize'], pages_needed))
-        print("Number of tournaments in this response: {}".format(len(json['items'])))
-        print("First Tournament: {}\n\n".format(json['items'][0]))
+        url_list = add_tournament_urls_to_list(url_list, json['items'])
+
+    return url_list
 
 
 

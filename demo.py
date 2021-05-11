@@ -71,10 +71,13 @@ if testing_results_search:
     print(     "----------------------------------\n\n")
     print("\n\nGetting results for Women's Foil...\n")
 
-    search_params = get_search_params(weapon=['f'],gender=['f'])
-    get_url_list_from_seach(search_params)
+    # search_params = get_search_params(weapon=['f'],gender=['f'])
+    # get_url_list_from_seach(search_params)
 
     print("\n\nGetting results for Cadet Women's Sabre...\n")
 
     search_params = get_search_params(weapon=['s'],gender=['f'],category='c')
-    get_url_list_from_seach(search_params)
+    url_list = get_url_list_from_seach(search_params)
+
+    print(len(url_list))
+    print(url_list[0:100])
