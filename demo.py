@@ -97,15 +97,15 @@ if test_results_by_division:
     print("Getting results for  Women's Foil...\n")
 
     tourn_df, bout_df, fencers_bio_df, fencers_rankings_df = get_results_for_division(
-        weapon=['s'], gender=['f'], category='c', max_events=10)
+        weapon=['s'], gender=['f'], category='', max_events=100)
 
     print("\n\n")
     time.sleep(2)
 
     # Print dataframes (or parts of them) to see output
 
-    if(len(list(tourn_df.index)) > 10):
-        tournament_count = 2
+    tournament_count = 10
+    if(len(list(tourn_df.index)) > tournament_count):
         idx = random.sample(list(tourn_df.index), tournament_count)
         print(tourn_df.loc[idx].drop(
             columns=['timezone', 'url', 'end_date']).to_markdown())
@@ -114,11 +114,15 @@ if test_results_by_division:
             columns=['timezone', 'url', 'end_date']).to_markdown())
     # print(tourn_df.info())
 
-    bout_count = 3
-    idx = random.sample(list(bout_df.index), bout_count)
-    print("\nA random selection of bouts from list:\n".format(bout_count))
-    print(bout_df.loc[idx].drop(
-        columns=['opp_age', 'opp_curr_pts']).to_markdown())
+    bout_count = 5
+    if(len(list(bout_df.index)) > bout_count):
+        idx = random.sample(list(bout_df.index), bout_count)
+        print("\nA random selection of bouts from list:\n".format(bout_count))
+        print(bout_df.loc[idx].drop(
+            columns=['opp_age', 'opp_curr_pts']).to_markdown())
+    else: 
+        print(bout_df.drop(
+            columns=['opp_age', 'opp_curr_pts']).to_markdown())
     # print(bout_df.info())
 
     fencer_count = 5
