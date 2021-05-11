@@ -8,6 +8,7 @@ import tabulate
 from progress.bar import Bar
 
 from soup_scraping import get_json_var_from_script
+from caching_methods import save_dict_to_cache
 from dataframe_columns import FENCERS_RANKINGS_MULTI_INDEX, FENCERS_RANKINGS_DF_COLS, FENCERS_BIO_DF_COLS
 
 CACHE_FILENAME = 'fencers/fencer_cache.txt'
@@ -37,7 +38,6 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
     if len(tabOpp_list) > 0 and int(tabOpp_list[0]['fencer1']['id']) == fencer_ID:
         nationality = tabOpp_list[0]['fencer1']['nationality']
 
-    
     try:
         info_div = soup.find('div', class_="ProfileInfo")
         for info_item in info_div.children:
@@ -51,23 +51,6 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
     return {'name': fencer_name,
             'nationality': nationality,
             'hand': hand, 'age': age}
-
-
-def save_fencer_to_cache(cache_filename, fencer_ID, fencer_dict):
-
-    # save data to cache for potential future use (even if not drawing from cache)
-    if((not path.exists(cache_filename)) or (stat(cache_filename).st_size == 0)):
-        # cache file does not exist or is empty (cannt be json.loaded)
-        with open(cache_filename, 'w') as fencer_cache_write:
-            new_cache_dict = {fencer_ID: fencer_dict}
-            json.dump(new_cache_dict, fencer_cache_write)
-    else:
-        with open(cache_filename) as fencer_cache_read:
-            cached_data = json.load(fencer_cache_read)
-            # store fencer dict, overwrite old data if it exists
-            cached_data[fencer_ID] = fencer_dict
-            with open(cache_filename, 'w') as fencer_cache_write:
-                json.dump(cached_data, fencer_cache_write)
 
 
 def get_fencer_weapon_rankings_list_from_soup(soup):
@@ -144,9 +127,9 @@ def get_fencer_info_from_ID(fencer_ID, use_cache=True):
 
     # save fencer data to cache
     fencer_dict = {**fencer_bio_dict, **fencer_rankings_dict}
-    save_fencer_to_cache(cache_filename=CACHE_FILENAME,
-                         fencer_ID=fencer_ID,
-                         fencer_dict=fencer_dict)
+    save_dict_to_cache(cache_filename=CACHE_FILENAME,
+                       fencer_ID=fencer_ID,
+                       fencer_dict=fencer_dict)
 
     return fencer_dict
 
@@ -173,10 +156,12 @@ def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, in
 
 
 def get_fencer_dataframes_from_ID_list(fencer_ID_list, use_cache=True):
+    if len(fencer_ID_list) == 0:
+        return None, None
+
     all_fencer_bio_data_list = []
     all_fencer_ranking_data_list = []
     print("Processing fencers by ID")
-    print(fencer_ID_list)
 
     for fencer_ID in Bar('  Loading fencers    ').iter(fencer_ID_list):
         fencer_info_dict = get_fencer_info_from_ID(fencer_ID, use_cache)
