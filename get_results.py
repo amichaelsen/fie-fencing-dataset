@@ -1,12 +1,38 @@
 import pandas as pd
 import random
 from progress.bar import Bar
+import requests
+import math
 
 from dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_BIO_DF_COLS, FENCERS_RANKINGS_DF_COLS, FENCERS_RANKINGS_MULTI_INDEX
 from dataframe_columns import multiIndex_relabeler, make_season_from_year
 from tournaments.tournament_scraping import create_tournament_data_from_url, compile_bout_dataframe_from_tournament_data
 from tournaments.tournament_data import TournamentData
 from fencers.fencer_scraping import get_fencer_dataframes_from_ID_list, convert_list_to_dataframe_with_multi_index
+
+
+def get_url_list_from_seach(search_params):
+    # get first page of results and check if more pages needed 
+    search_params['fetchPage'] = 1
+    search_url = 'https://fie.org/competitions/search'
+    req = requests.post(search_url, data=search_params)
+    json = req.json()
+    # json object sample in initial_testing/request_response.json
+    print("Total Events Found: {}".format(json['totalFound']))
+    pages_needed = math.ceil(json['totalFound']/json['pageSize'])
+    print("Page Size: {}    Pages Needed: {}".format(json['pageSize'], pages_needed))
+    print("Number of tournaments in this response: {}".format(len(json['items'])))
+    print("First Tournament: {}\n\n".format(json['items'][0]))
+    for p in range(2,pages_needed+1):
+        search_params['fetchPage'] = p
+        req = requests.post(search_url, data=search_params)
+        json = req.json()
+        print("Total Events Found: {}".format(json['totalFound']))
+        print("Page Size: {}    Pages Needed: {}".format(json['pageSize'], pages_needed))
+        print("Number of tournaments in this response: {}".format(len(json['items'])))
+        print("First Tournament: {}\n\n".format(json['items'][0]))
+
+
 
 
 def process_tournament_data_from_urls(list_of_urls):
