@@ -37,9 +37,9 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
     if len(tabOpp_list) > 0 and int(tabOpp_list[0]['fencer1']['id']) == fencer_ID:
         nationality = tabOpp_list[0]['fencer1']['nationality']
 
-    info_div = soup.find('div', class_="ProfileInfo")
-
+    
     try:
+        info_div = soup.find('div', class_="ProfileInfo")
         for info_item in info_div.children:
             if(info_item.get_text().startswith('Hand')):
                 hand = list(info_item.children)[1].get_text()
