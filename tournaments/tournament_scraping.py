@@ -13,6 +13,7 @@ from soup_scraping import get_json_var_from_script
 # Helper Methods Methods for Tournament Scraping
 # =--------------------------------------=
 
+
 def create_tournament_dict_from_comp(comp):
     # comp = { "id": 4874, "competitionId": 771,... }"
     tournament_dict = {k: v for k, v in comp.items(
@@ -32,6 +33,7 @@ def create_tournament_dict_from_comp(comp):
         tournament_dict['season'])+'-'+str(tournament_dict['competition_ID'])
 
     return tournament_dict
+
 
 def create_tournament_athlete_dict_from_athlete_list(athlete_dict_list):
     """
@@ -68,6 +70,8 @@ def create_tournament_athlete_dict_from_athlete_list(athlete_dict_list):
 # =--------------------------------------=
 
 # Entry point for get_results
+
+
 def create_tournament_data_from_url(tournament_url):
     """
     Takes a tournament URL and returns a TournamentData dataclass with desired information
@@ -86,17 +90,13 @@ def create_tournament_data_from_url(tournament_url):
     req = requests.get(tournament_url)
     soup = BeautifulSoup(req.content, 'html.parser')
 
-    # each get json variables of the form window._XXXX 
+    # each get json variables of the form window._XXXX
     pools_list = get_json_var_from_script(
-        soup=soup, script_id="js-competition", var_name="window._pools ")['pools']  
+        soup=soup, script_id="js-competition", var_name="window._pools ")['pools']
     comp = get_json_var_from_script(
         soup=soup, script_id="js-competition", var_name="window._competition ")
     athlete_dict_list = get_json_var_from_script(
         soup=soup, script_id="js-competition", var_name="window._athletes ")
-
-    # IF NO POOLS DATA STORED, SKIP THE EVENT
-    if len(pools_list) == 0:
-        return 
 
     # PROCESS POOL DICTS INTO POOL DATA & FENCER LIST
     poolData_list = []
@@ -106,8 +106,14 @@ def create_tournament_data_from_url(tournament_url):
 
     # PROCESS TOURNAMENT & ATHLETE INFO INTO DICTS
     tournament_dict = create_tournament_dict_from_comp(comp)
-    tournament_athlete_dict = create_tournament_athlete_dict_from_athlete_list(athlete_dict_list)
-    
+    tournament_athlete_dict = create_tournament_athlete_dict_from_athlete_list(
+        athlete_dict_list)
+
+    # IF NO POOLS DATA STORED OR FENCER IDS MISSING (usually from all athletes) SKIP
+    #    (return NoneType, handled in get_results.process_tournament_data_from_urls)
+    if (0 in list(tournament_athlete_dict.keys())) or (len(pools_list) == 0):
+        return
+
     # CREATE TOURNAMENT DATACLASS TO RETURN
     tournament = TournamentData(
         pools_list=poolData_list,

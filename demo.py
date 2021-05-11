@@ -5,7 +5,7 @@ from tournaments.tournament_scraping import create_tournament_data_from_url, com
 from tournaments.tournament_data import TournamentData
 from get_results import get_dataframes_from_tournament_url_list
 from get_results import get_url_list_from_seach
-from get_results import get_results_for_division
+git afrom get_results import get_results_for_division
 from soup_scraping import get_search_params
 
 

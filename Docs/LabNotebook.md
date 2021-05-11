@@ -9,6 +9,58 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
 
 * add a basic flowchart for process? or just image from notability drawing? 
 
+### 05/11/2021
+
+**Results Search Processing**
+ 
+* steps added to the pipeline:
+    * `get_results_for_division(-)` takes search parameters 
+        * `get_search_params(-)` generates search params for http request
+        * `get_url_list_from_seach(-)` creates list of tournament urls for processing
+        * `get_dataframes_from_tournament_url_list(-)` reads URL list and gets tournament data
+            * `process_tournament_data_from_urls(-)` gets tournament/bout data and fencer ID list
+            * `get_fencer_dataframes_from_ID_list(-)` loads fencer info from ID list
+            * `cleanup_dataframes(-)` performs pandas dataframe processing
+
+
+<details>
+<summary> 
+
+   `big method name` 
+</summary>
+<br> 
+
+ * `Added` detail about method implementation
+</details>
+
+**Error Handling?** 
+
+* In building the pipeline, I keep running into issues where it will throw a soup error (something is being called/passed incorrectly) and then to trouble shoot I end up added print statements everywhere. Maybe try something like this for all(?) soup requests:
+    ``` 
+    # fencers/fencer_scraping.py
+    #   -> get_fencer_bio_from_soup(soup, fencer_ID)
+    try: 
+        # make a soup request here
+        name_tag = soup.find('h1', class_='AthleteHero-fencerName')
+        fencer_name = name_tag.get_text()
+    except:
+        # print current state for debugging
+        print("Failed to read name from name_tag for fencer: {}".format(fencer_ID))
+
+    ```
+
+**Missing Fencer IDs!?** 
+
+* For at least one tournament (ex https://fie.org/competitions/2016/941) all fencers have 'id' 0 which will not load an athlete bio page. Also makes it hard to keep track of them. Upon inspection, these athletes likely *do* have IDs and pages, they just weren't stored with this event for some reason. 
+    * Can maybe use https://fie.org/athletes to search for them by name in the atheletes index? 
+    * Can also use this page to get a dict for translating nationalities... 
+    * ACTUALLY, this has hand info... maybe use this instead? well, maybe, but doesnt have historical rankings data... so probably a hybrid of the two, but could use this one first to find the IDs? 
+
+* Some (older?) tournaments have different formats/data 
+    * Example: no pools data (https://fie.org/competitions/1999/239)
+    * Example: no details, only overview (https://fie.org/competitions/2004/377, https://fie.org/competitions/2020/767)
+    * Example: Pools data but fencer id is always 0  (https://fie.org/competitions/2016/941)
+
 ### 05/10/2021
 
 **Multi-Weapon Fencer Data**
