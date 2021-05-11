@@ -45,13 +45,13 @@ def create_tournament_athlete_dict_from_athlete_list(athlete_dict_list):
         ------
         athlete_dict_list : list (of dicts)
         [  { "overallRanking": 59, "overallPoints": 27, "rank": 1, "points": 32,
-           "fencer": { "id": 33614, "name": "BERTHIER Amita", "country": "SINGAPORE", 
+           "fencer": { "id": 33614, "name": "BERTHIER Amita", "country": "SINGAPORE",
                        "date": "2000-12-15", "flag": "SG", "countryCode": "SGP", "age": 20
-                      } 
+                      }
            }, ... ]
-        Output: 
-        ------ 
-        tournament_athlete_dict : dict 
+        Output:
+        ------
+        tournament_athlete_dict : dict
             {id1 : {"age" : int, "points_before_event": float}, id2 : ...}
     """
     tournament_athlete_dict = {}
@@ -84,10 +84,13 @@ def create_tournament_data_from_url(tournament_url, use_cache=True):
                 String representation of tournament url, e.g. 'https://fie.org/competitions/2020/771'
 
         Output:
-            tournament : TournamentData 
-                A TournamentData object (see tournament_data.py) which contains general tournament 
-                information along with a list of poolData objects (see pool_data.py) and a dictionary
-                with tournament specific athlete information indexed by 'id' 
+            has_results_data : bool
+                Indicates whether the tournament has results data. 
+                False may indicate missing fencer IDs or no results/pool results.
+            tournament : TournamentData
+                A TournamentData object (see tournament_data.py) which contains general tournament
+                information along with a list of poolData objects if it exists (see pool_data.py)
+                and a dict with tournament specific athlete information indexed by 'id', if it exists
     """
     req = requests.get(tournament_url)
     soup = BeautifulSoup(req.content, 'html.parser')
@@ -98,7 +101,7 @@ def create_tournament_data_from_url(tournament_url, use_cache=True):
     comp = get_json_var_from_script(
         soup=soup, script_id="js-competition", var_name="window._competition ")
     athlete_dict_list = get_json_var_from_script(
-            soup=soup, script_id="js-competition", var_name="window._athletes ")
+        soup=soup, script_id="js-competition", var_name="window._athletes ")
 
     # PROCESS POOL DICTS INTO POOL DATA & FENCER LIST
     poolData_list = []
@@ -114,7 +117,11 @@ def create_tournament_data_from_url(tournament_url, use_cache=True):
     # IF NO POOLS DATA STORED OR FENCER IDS MISSING (usually from all athletes) SKIP
     #    (return NoneType, handled in get_results.process_tournament_data_from_urls)
     if (0 in list(tournament_athlete_dict.keys())) or (len(pools_list) == 0):
-        return
+        return False, TournamentData(pools_list=[],
+                                     fencers_dict={},
+                                     **tournament_dict)
+    else:
+        has_results_data = True
 
     # CREATE TOURNAMENT DATACLASS TO RETURN
     tournament = TournamentData(
@@ -122,14 +129,14 @@ def create_tournament_data_from_url(tournament_url, use_cache=True):
         fencers_dict=tournament_athlete_dict,
         **tournament_dict
     )
-    return tournament
+    return has_results_data, tournament
 
 
 # Entry point for get_results
 # TODO: remove dataframe.append for each row, use list instead!
 def compile_bout_dict_list_from_tournament_data(tournament_data):
     """
-    Takes a TournamentData Object and returns a pandas Dataframe of bouts 
+    Takes a TournamentData Object and returns a pandas Dataframe of bouts
     """
     bout_list = []
     tournament_ID = tournament_data.unique_ID
