@@ -9,6 +9,28 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
 
 * add a basic flowchart for process? or just image from notability drawing? 
 
+### 05/10/2021
+
+**Multi-Weapon Fencer Data**
+
+* Implemented a method for pulling rankings/points for each weapon when reading a fencer's data. 
+* Couldn't figure out a way to tell what the "default" weapon is that loads with the fencer url (no '?weapon=') tag 
+
+**Code Cleanup** 
+
+* Pulled out some helper functions.
+* Still need to convert df.append loops to list creation loops and then convert to df at the end 
+
+**Making HTTPS Web Requests to FIE.org** 
+
+* figuring out how to get the tournament results list by search
+* Explore the Google "Networks" tab and a 'search' request that appears when changing the check boxes in the search bar. From there, pull the url, POST, and search params dict to pass as `data` to the python `requests` call. 
+* See `initial_testing/results.html` for example of results page on fie 
+* See `initial_testing/request_reponse/json` for a sample POST response 
+* Note: need all the fields even if most are blank! 
+* Note: to get all seasons instead of leaving "season" blank ("") need to pass "-1" (this can be seen when viewing the search params on an FIE search http request.)
+
+
 
 ### 05/07/2021
 
