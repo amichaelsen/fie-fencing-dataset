@@ -106,7 +106,7 @@ def create_tournament_data_from_url(tournament_url, use_cache=True):
         pool_data = get_pool_data_from_dict(pool_dict)
         poolData_list.append(pool_data)
 
-    # PROCESS ATHLETE INFO INTO DICTS
+    # PROCESS TOURNAMENT & ATHLETE INFO INTO DICTS
     tournament_dict = create_tournament_dict_from_comp(comp)
     tournament_athlete_dict = create_tournament_athlete_dict_from_athlete_list(
         athlete_dict_list)
