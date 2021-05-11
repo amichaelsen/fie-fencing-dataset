@@ -104,7 +104,7 @@ if test_results_by_division:
 
     # Print dataframes (or parts of them) to see output
 
-    if(len(list(tourn_df.index)) > 5):
+    if(len(list(tourn_df.index)) > 10):
         tournament_count = 2
         idx = random.sample(list(tourn_df.index), tournament_count)
         print(tourn_df.loc[idx].drop(
@@ -128,6 +128,6 @@ if test_results_by_division:
 
     fencer_count = 2
     idx = random.sample(
-        list(fencers_rankings_df.index.get_level_values(0)), fencer_count)
+        list(set(fencers_rankings_df.index.get_level_values(0))), fencer_count)
     print("\nA random selection of {} fencers from rankings list: (idx = {})\n".format(fencer_count, idx))
     print(fencers_rankings_df.loc[idx])
