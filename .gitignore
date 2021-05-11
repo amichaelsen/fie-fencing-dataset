@@ -8,3 +8,6 @@ TODO.md
 
 test_tournament.html
 fencers/fencer_cache.txt
+tournaments/tournament_cache.txt
+tournaments/bout_cache.txt
+tournaments/fencer_list_cache.txt
