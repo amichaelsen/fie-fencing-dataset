@@ -45,6 +45,7 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
     gender_dict = {"M": "Mens", "F": "Womens"}
     category_dict = {"J": "Junior", "C": "Cadet",
                      "S": "Senior", "V": "Veterans"}
+    hand_dict = {"R": "Right", "L": "Left"}
 
     # relabel keys to full words
     tournaments_dataframe['weapon'] = tournaments_dataframe['weapon'].map(
@@ -53,29 +54,26 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
         gender_dict)
     tournaments_dataframe['category'] = tournaments_dataframe['category'].map(
         category_dict)
-
+    fencers_bio_dataframe['hand'] = fencers_bio_dataframe['hand'].map(
+        hand_dict)
+        
     multiIndex_relabeler(fencers_rankings_dataframe,
                          level=1, mapper=weapon_dict)
     multiIndex_relabeler(fencers_rankings_dataframe,
                          level=2, mapper=category_dict)
     multiIndex_relabeler(fencers_rankings_dataframe,
                          level=3, mapper=make_season_from_year)
-    
-    # fix up date formats
-    tournaments_dataframe['start_date'] = pd.to_datetime(
-        tournaments_dataframe['start_date']).dt.date
-    tournaments_dataframe['end_date'] = pd.to_datetime(
-        tournaments_dataframe['end_date']).dt.date
-    bouts_dataframe['date'] = pd.to_datetime(bouts_dataframe['date']).dt.date
-    
-    fencers_bio_dataframe['date_accessed'] = pd.to_datetime(
-        fencers_bio_dataframe['date_accessed']).dt.date
-    
+
+    # # fix up date formats
+    # df['col'] = pd.to_datetime(df['col']) # converts to a datetime columns in pandas
+    # df['col'] = df['col'].dt.date # converts from datetime to just the YYYY-MM-DD
+
     # convert to pd categories
     categorical_data = ['weapon', 'gender', 'category']
     for cat in categorical_data:
         tournaments_dataframe[cat] = tournaments_dataframe[cat].astype(
             'category')
+
 
 def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
     print("Preparing to process tournament data...\n", end="")
@@ -101,7 +99,7 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
 
     cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
                        fencers_bio_dataframe, fencers_rankings_dataframe)
-                       
+
     print(" Done!")
 
     return tournaments_dataframe, bouts_dataframe, fencers_bio_dataframe, fencers_rankings_dataframe

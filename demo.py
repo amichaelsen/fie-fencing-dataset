@@ -43,7 +43,7 @@ bout_count = 5
 idx = random.sample(list(bout_df.index), bout_count)
 print("\nA random selection of {} bouts from list:\n".format(bout_count))
 print(bout_df.loc[idx].drop(
-    columns=['opp_age', 'opp_curr_pts', 'date']).to_markdown())
+    columns=['opp_age', 'opp_curr_pts']).to_markdown())
 # print(bout_df.info())
 
 fencer_count = 5
