@@ -94,6 +94,10 @@ def create_tournament_data_from_url(tournament_url):
     athlete_dict_list = get_json_var_from_script(
         soup=soup, script_id="js-competition", var_name="window._athletes ")
 
+    # IF NO POOLS DATA STORED, SKIP THE EVENT
+    if len(pools_list) == 0:
+        return 
+
     # PROCESS POOL DICTS INTO POOL DATA & FENCER LIST
     poolData_list = []
     for pool_dict in pools_list:

@@ -6,8 +6,9 @@ from pools.pool_data import PoolData
 def extract_matches(pool):
     """ Creates an interator of the cells in the pool grid from pool dict """
     for row in pool['rows']:
-        for match in row['matches']:
-            yield match
+        if int(row['fencerId']) > 0:
+            for match in row['matches']:
+                yield match
 
 
 def get_pool_data_from_dict(pool_dict):
