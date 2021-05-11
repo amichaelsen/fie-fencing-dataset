@@ -155,10 +155,7 @@ def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, in
     return dataframe
 
 
-def get_fencer_dataframes_from_ID_list(fencer_ID_list, use_cache=True):
-    if len(fencer_ID_list) == 0:
-        return None, None
-
+def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_cache=True):
     all_fencer_bio_data_list = []
     all_fencer_ranking_data_list = []
     print("Processing fencers by ID")
@@ -169,10 +166,4 @@ def get_fencer_dataframes_from_ID_list(fencer_ID_list, use_cache=True):
         all_fencer_bio_data_list.append(fencer_info_dict)
         all_fencer_ranking_data_list += fencer_rankings_list
 
-        fencers_bio_dataframe = pd.DataFrame(
-            data=all_fencer_bio_data_list, columns=FENCERS_BIO_DF_COLS)
-        fencers_rankings_dataframe = convert_list_to_dataframe_with_multi_index(
-            list_of_results=all_fencer_ranking_data_list,
-            column_names=FENCERS_RANKINGS_DF_COLS, index_names=FENCERS_RANKINGS_MULTI_INDEX)
-
-    return fencers_bio_dataframe, fencers_rankings_dataframe
+    return all_fencer_bio_data_list, all_fencer_ranking_data_list
