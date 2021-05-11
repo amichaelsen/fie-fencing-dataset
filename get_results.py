@@ -53,12 +53,11 @@ def process_tournament_data_from_urls(list_of_urls):
     for tournament_url in Bar('  Loading tournaments').iter(list_of_urls):
         # process data from the event
         tournament_data = create_tournament_data_from_url(tournament_url)
-        if tournament_data is not None:     
+        if tournament_data is not None:   
             tournament_bout_dataframe = compile_bout_dataframe_from_tournament_data(
                 tournament_data)
             tournament_info_dict = tournament_data.create_tournament_dict()
             tournament_fencer_ID_list = list(tournament_data.fencers_dict.keys())
-
             # add tournament data to overall dataframes/lists
             fencer_ID_list = list(set(fencer_ID_list+tournament_fencer_ID_list))
             bouts_dataframe = bouts_dataframe.append(tournament_bout_dataframe)

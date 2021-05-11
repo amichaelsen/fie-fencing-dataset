@@ -60,6 +60,9 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
     * Example: no pools data (https://fie.org/competitions/1999/239)
     * Example: no details, only overview (https://fie.org/competitions/2004/377, https://fie.org/competitions/2020/767)
     * Example: Pools data but fencer id is always 0  (https://fie.org/competitions/2016/941)
+* For now:
+    * If no pools data, skip tournament by passing NoneType for TournamentData
+    * If 0 in fencer ID list (probably means list - [0]) then skip tournament by passing NoneType for TournamentData
 
 ### 05/10/2021
 
