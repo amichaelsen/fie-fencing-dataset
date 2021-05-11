@@ -4,10 +4,12 @@ import json
 from bs4 import BeautifulSoup
 import pandas as pd
 
+
 from dataframe_columns import BOUTS_DF_COLS
 from pools.pool_scraping import get_pool_data_from_dict
 from tournaments.tournament_data import TournamentData
 from soup_scraping import get_json_var_from_script
+
 
 # =--------------------------------------=
 # Helper Methods Methods for Tournament Scraping
@@ -65,6 +67,7 @@ def create_tournament_athlete_dict_from_athlete_list(athlete_dict_list):
 
     return tournament_athlete_dict
 
+
 # =--------------------------------------=
 # Main Methods for Tournament Scraping
 # =--------------------------------------=
@@ -72,7 +75,7 @@ def create_tournament_athlete_dict_from_athlete_list(athlete_dict_list):
 # Entry point for get_results
 
 
-def create_tournament_data_from_url(tournament_url):
+def create_tournament_data_from_url(tournament_url, use_cache=True):
     """
     Takes a tournament URL and returns a TournamentData dataclass with desired information
 
@@ -86,7 +89,6 @@ def create_tournament_data_from_url(tournament_url):
                 information along with a list of poolData objects (see pool_data.py) and a dictionary
                 with tournament specific athlete information indexed by 'id' 
     """
-    # EXTRACT TOURNAMENT VARIABLES/RAW DATA
     req = requests.get(tournament_url)
     soup = BeautifulSoup(req.content, 'html.parser')
 
@@ -96,7 +98,7 @@ def create_tournament_data_from_url(tournament_url):
     comp = get_json_var_from_script(
         soup=soup, script_id="js-competition", var_name="window._competition ")
     athlete_dict_list = get_json_var_from_script(
-        soup=soup, script_id="js-competition", var_name="window._athletes ")
+            soup=soup, script_id="js-competition", var_name="window._athletes ")
 
     # PROCESS POOL DICTS INTO POOL DATA & FENCER LIST
     poolData_list = []
@@ -104,7 +106,7 @@ def create_tournament_data_from_url(tournament_url):
         pool_data = get_pool_data_from_dict(pool_dict)
         poolData_list.append(pool_data)
 
-    # PROCESS TOURNAMENT & ATHLETE INFO INTO DICTS
+    # PROCESS ATHLETE INFO INTO DICTS
     tournament_dict = create_tournament_dict_from_comp(comp)
     tournament_athlete_dict = create_tournament_athlete_dict_from_athlete_list(
         athlete_dict_list)
@@ -125,12 +127,11 @@ def create_tournament_data_from_url(tournament_url):
 
 # Entry point for get_results
 # TODO: remove dataframe.append for each row, use list instead!
-def compile_bout_dataframe_from_tournament_data(tournament_data):
+def compile_bout_dict_list_from_tournament_data(tournament_data):
     """
     Takes a TournamentData Object and returns a pandas Dataframe of bouts 
     """
-    bout_dataframe = pd.DataFrame(columns=BOUTS_DF_COLS)
-
+    bout_list = []
     tournament_ID = tournament_data.unique_ID
 
     for pool in tournament_data.pools_list:
@@ -152,9 +153,9 @@ def compile_bout_dataframe_from_tournament_data(tournament_data):
                     opponent_curr_points < fencer_curr_points) and winner_ID == opponent_ID) else False
 
                 # add bout entry as row in dataframe
-                bout_dataframe = bout_dataframe.append({'fencer_ID': fencer_ID, 'opp_ID': opponent_ID,
-                                                        'fencer_age': fencer_age, 'opp_age': opponent_age,
-                                                        'fencer_score': fencer_score, 'opp_score': opponent_score, 'winner_ID': winner_ID,
-                                                        'fencer_curr_pts': fencer_curr_points, 'opp_curr_pts': opponent_curr_points,
-                                                        'tournament_ID': tournament_ID, 'pool_ID': pool_ID, 'upset': upset, 'date': date}, ignore_index=True)
-    return bout_dataframe
+                bout_list.append({'fencer_ID': fencer_ID, 'opp_ID': opponent_ID,
+                                  'fencer_age': fencer_age, 'opp_age': opponent_age,
+                                  'fencer_score': fencer_score, 'opp_score': opponent_score, 'winner_ID': winner_ID,
+                                  'fencer_curr_pts': fencer_curr_points, 'opp_curr_pts': opponent_curr_points,
+                                  'tournament_ID': tournament_ID, 'pool_ID': pool_ID, 'upset': upset, 'date': date})
+    return bout_list
