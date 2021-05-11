@@ -55,6 +55,7 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
     * Can maybe use https://fie.org/athletes to search for them by name in the atheletes index? 
     * Can also use this page to get a dict for translating nationalities... 
     * ACTUALLY, this has hand info... maybe use this instead? well, maybe, but doesnt have historical rankings data... so probably a hybrid of the two, but could use this one first to find the IDs? 
+    * Ah! Could also maybe extract a dict for converting flag to nationality ... 
 
 * Some (older?) tournaments have different formats/data 
     * Example: no pools data (https://fie.org/competitions/1999/239)
@@ -63,6 +64,8 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
 * For now:
     * If no pools data, skip tournament by passing NoneType for TournamentData
     * If 0 in fencer ID list (probably means list - [0]) then skip tournament by passing NoneType for TournamentData
+
+* Also seems like there may be some inconsistencies with points data? Specifically, https://fie.org/athletes/36225 has a ranking of 1 for 2014/2015 but with 0 points. Hard to verify because the athlete search page only searches by senior and junior... May only be an issue for cadet, make not in final doc that cadet points data seems unreliable 
 
 ### 05/10/2021
 
