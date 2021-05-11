@@ -23,8 +23,11 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
     nationality = ""
 
     # find <h1 class="AthleteHero-fencerName">
-    name_tag = soup.find('h1', class_='AthleteHero-fencerName')
-    fencer_name = name_tag.get_text()
+    try:
+        name_tag = soup.find('h1', class_='AthleteHero-fencerName')
+        fencer_name = name_tag.get_text()
+    except:
+        print("\nFailed to read name from name_tag for fencer ID: {}".format(fencer_ID))
 
     # first approximation to get nationality
     # window._tabOpponents = [{"date":"2021-04-10", "fencer1":{"id":"52027","name":"PARK Faith","nationality":"USA","isWinner":true,"score":"5"},
@@ -36,11 +39,14 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
 
     info_div = soup.find('div', class_="ProfileInfo")
 
-    for info_item in info_div.children:
-        if(info_item.get_text().startswith('Hand')):
-            hand = list(info_item.children)[1].get_text()
-        elif(info_item.get_text().startswith('Age')):
-            age = list(info_item.children)[1].get_text()
+    try:
+        for info_item in info_div.children:
+            if(info_item.get_text().startswith('Hand')):
+                hand = list(info_item.children)[1].get_text()
+            elif(info_item.get_text().startswith('Age')):
+                age = list(info_item.children)[1].get_text()
+    except:
+        print("\nFailed to info_div from ProfileInfo for fencer ID: {}".format(fencer_ID))
 
     return {'name': fencer_name,
             'nationality': nationality,
@@ -69,7 +75,6 @@ def get_fencer_weapon_rankings_list_from_soup(soup):
     tabRank_var_name = "window._tabRanking "
     fencer_rankings_list = get_json_var_from_script(
         soup=soup, script_id="js-single-athlete", var_name=tabRank_var_name)
-
     return fencer_rankings_list
 
 
@@ -171,8 +176,9 @@ def get_fencer_dataframes_from_ID_list(fencer_ID_list, use_cache=True):
     all_fencer_bio_data_list = []
     all_fencer_ranking_data_list = []
     print("Processing fencers by ID")
+    print(fencer_ID_list)
 
-    for fencer_ID in Bar('  Loading fencers').iter(fencer_ID_list):
+    for fencer_ID in Bar('  Loading fencers    ').iter(fencer_ID_list):
         fencer_info_dict = get_fencer_info_from_ID(fencer_ID, use_cache)
         fencer_rankings_list = fencer_info_dict.pop('rankings')
         all_fencer_bio_data_list.append(fencer_info_dict)
