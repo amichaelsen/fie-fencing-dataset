@@ -4,7 +4,7 @@ TOURNAMENTS_DF_COLS = ['competition_ID', 'season', 'name', 'category', 'country'
 BOUTS_DF_COLS = ['fencer_ID', 'opp_ID', 'fencer_age', 'opp_age',
                  'fencer_score', 'opp_score',
                  'winner_ID', 'fencer_curr_pts', 'opp_curr_pts',
-                 'tournament_ID', 'pool_ID', 'upset']
+                 'tournament_ID', 'pool_ID', 'upset', 'date']
 
 FENCERS_BIO_DF_COLS = ['id', 'name', 'nationality',
                        'hand', 'age', 'url', 'date_accessed']
