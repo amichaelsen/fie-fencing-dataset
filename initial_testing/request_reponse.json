@@ -1,0 +1,82 @@
+{
+    "totalFound": 1543,
+    "page": 1,
+    "pageSize": 300,
+    "items": [
+        {
+            "season": 2021,
+            "competitionId": 1075,
+            "name": "Championnats de qualification panaméricains",
+            "location": "San-Jose",
+            "country": "costa rica",
+            "federation": "CRC",
+            "flag": "CR",
+            "startDate": "02-05-2021",
+            "endDate": "02-05-2021",
+            "weapon": "sabre",
+            "weapons": [
+                "sabre"
+            ],
+            "gender": "women",
+            "category": "senior",
+            "categories": [
+                "senior"
+            ],
+            "type": "individual",
+            "hasResults": 1,
+            "isSubCompetition": false,
+            "isLink": true
+        },
+        {
+            "season": 2017,
+            "competitionId": 935,
+            "name": "Championnats de la Méditerranée",
+            "location": "Marseille",
+            "country": "france",
+            "federation": "FRA",
+            "flag": "FR",
+            "startDate": "27-01-2017",
+            "endDate": "29-01-2017",
+            "weapon": "sabre",
+            "weapons": [
+                "sabre"
+            ],
+            "gender": "women",
+            "category": "cadet",
+            "categories": [
+                "cadet"
+            ],
+            "type": "individual",
+            "hasResults": 0,
+            "isSubCompetition": false,
+            "isLink": true
+        },
+        {
+            "season": 2017,
+            "competitionId": 64,
+            "name": "Coupe du Monde",
+            "location": "Alger",
+            "country": "algeria",
+            "federation": "ALG",
+            "flag": "DZ",
+            "startDate": "21-01-2017",
+            "endDate": "21-01-2017",
+            "weapon": "sabre",
+            "weapons": [
+                "sabre"
+            ],
+            "gender": "women",
+            "category": "junior",
+            "categories": [
+                "junior"
+            ],
+            "type": "individual",
+            "hasResults": 1,
+            "isSubCompetition": false,
+            "isLink": true
+        }
+    ],
+    "isUpcoming": false,
+    "pdfCalendarUrl": "http://api1.fie.org/json-api/competitions/calendar/pdf/2021",
+    "generalCalendarUrl": "https://static.fie.org/uploads/19/98504-CALENDAR%202018-2019.pdf"
+}

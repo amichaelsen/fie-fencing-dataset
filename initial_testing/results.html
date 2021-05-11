@@ -1,0 +1,66 @@
+<section class="athletes-rankings results-competitions results-competitions--padding-no">
+    <form class="js-comp-form-search" action="/" autocomplete="off" name="competitionSearchForm" method="POST"
+        novalidate>
+        <div class="checkbox-row Search-options Search-options--open">
+            <div class="indicators"><label><input class="js-form-checkbox-weapon js-form-checkbox" type="checkbox"
+                        name="weaponEpee" id="weaponEpee" value="e"><i></i><span>Epee</span><label><label><input
+                                class="js-form-checkbox-weapon js-form-checkbox" type="checkbox" name="weaponFoil"
+                                id="weaponFoil" value="f"><i></i><span>Foil</span>
+                            <label><label>
+                                    <inputclass="js-form-checkbox-weapon js-form-checkbox" type="checkbox"
+                                        name="weaponSabre" id="weaponSabre" value="s">
+                                        <i></i><span>Sabre</span>
+                                </label></div>
+            <div class="indicators"><label><input class="js-form-checkbox-eventType js-form-checkbox" type="checkbox"
+                        name="eventIndividual" id="eventIndividual"
+                        value="i"><i></i><span>Individual</span></label><label><input
+                        class="js-form-checkbox-eventType js-form-checkbox" type="checkbox" name="eventTeam"
+                        id="eventTeam" value="e"><i></i><span>Team</span></label>
+            </div>
+            <div class="indicators">
+                <label>
+                    <input class="js-form-checkbox-gender js-form-checkbox" type="checkbox" name="genderWomen"
+                        id="genderWomen" value="f">
+                    <i></i><span>Women</span>
+                </label>
+                <label>
+                    <input class="js-form-checkbox-gender js-form-checkbox" type="checkbox" name="genderMen"
+                        id="genderMen" value="m">
+                    <i></i><span>Men</span>
+                </label>
+            </div>
+        </div>
+        <div class="select-row Search-options Search-options--advanced Search-options--open">
+            <select class="Search-dropdown js-competition-type" name="competitionType" id="competitionType">
+                <option value="" selected>All event types</option>
+                <option value="JO">Olympic games</option>
+                <option value="CHM">World Championship</option>
+                <option value="GP">Grand Prix</option>
+                <option value="A">World Cup</option>
+                <option value="SA">Satellite</option>
+                <option value="CHZ">Zone Championships</option>
+                <option value="OF">Official</option>
+                <option value="NF">Non official</option>
+            </select><select class="js-age-category" name="ageCategory" id="ageCategory">
+                <option value="" selected>All categories</option>
+                <option value="c">Cadet</option>
+                <option value="j">Junior</option>
+                <option value="s">Senior</option>
+                <option value="v">Veteran</option>
+            </select><input class="Search-dropdown js-date-from" placeholder="From"><input
+                class="Search-dropdown js-date-to" placeholder="To"><select class="Search-dropdown js-season-dropdown"
+                name="season" id="season" data-default-value="-1">
+                <option value="-1" selected>Select season</option>
+                <option value="2021" data-official="1">2020 / 2021</option>
+                <option value="2020" data-official="1">2019 / 2020</option>
+                <option value="2019" data-official="1">2018 / 2019</option>
+                <option value="1953" data-official="1">1952 / 1953</option>
+            </select>
+        </div>
+    </form>
+</section>
+<script id="js-competitions">
+    window._competitions = [
+        { "season": 2021, "competitionId": 1071, "name": "Championnats de qualification panaméricains", "location": "San-Jose", "country": "costa rica", "federation": "CRC", "flag": "CR", "startDate": "02-05-2021", "endDate": "02-05-2021", "weapon": "epee", "weapons": ["epee"], "gender": "women", "category": "senior", "categories": ["senior"], "type": "individual", "hasResults": 1, "isSubCompetition": false, "isLink": true }, { "season": 2021, "competitionId": 1074, "name": "Championnats de qualification panaméricains", "location": "San-Jose", "country": "costa rica", "federation": "CRC", "flag": "CR", "startDate": "02-05-2021", "endDate": "02-05-2021", "weapon": "foil", "weapons": ["foil"], "gender": "men", "category": "senior", "categories": ["senior"], "type": "individual", "hasResults": 1, "isSubCompetition": false, "isLink": true }, { "season": 2020, "competitionId": 989, "name": "Championnats d'Afrique juniors", "location": "Ghana", "country": "ghana", "federation": "GHA", "flag": "GH", "startDate": "28-02-2020", "endDate": "28-02-2020", "weapon": "foil", "weapons": ["foil"], "gender": "men", "category": "junior", "categories": ["junior"], "type": "team", "hasResults": 1, "isSubCompetition": false, "isLink": true }, { "season": 2020, "competitionId": 990, "name": "Championnats d'Afrique juniors", "location": "Ghana", "country": "ghana", "federation": "GHA", "flag": "GH", "startDate": "28-02-2020", "endDate": "28-02-2020", "weapon": "sabre", "weapons": ["sabre"], "gender": "women", "category": "junior", "categories": ["junior"], "type": "team", "hasResults": 1, "isSubCompetition": false, "isLink": true }
+    ];
+</script>
