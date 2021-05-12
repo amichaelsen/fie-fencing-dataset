@@ -10,7 +10,7 @@ from dataframe_columns import BOUTS_DF_COLS
 from pools.pool_scraping import get_pool_data_from_dict
 from tournaments.tournament_data import TournamentData
 from soup_scraping import get_json_var_from_script
-from caching_methods import save_dict_to_cache
+from caching_methods import load_all_cached_fencers_rankings, save_dict_to_cache
 
 
 CACHE_FILENAME = 'tournaments/tournament_cache.txt'
@@ -141,17 +141,17 @@ def create_tournament_data_from_url(tournament_url):
     #    (return NoneType, handled in get_results.process_tournament_data_from_urls)
     has_results_data = True
     if len(pools_list) == 0:
-        missing_results_flag="no pools data"
+        missing_results_flag = "no pools data"
         has_results_data = False
     elif 0 in list(tournament_athlete_dict.keys()):
-        missing_results_flag="fencer IDs missing"
-        has_results_data = False 
+        missing_results_flag = "fencer IDs missing"
+        has_results_data = False
 
     if not has_results_data:
         return False, TournamentData(pools_list=[],
                                      fencers_dict={},
                                      missing_results_flag=missing_results_flag,
-                                     ** tournament_dict) 
+                                     ** tournament_dict)
 
     # CREATE TOURNAMENT DATACLASS TO RETURN
     tournament = TournamentData(
@@ -196,14 +196,10 @@ def compile_bout_dict_list_from_tournament_data(tournament_data):
     return bout_list
 
 
-def process_tournament_data_from_urls(list_of_urls, use_cache=True):
-    """
-    """
-    tournaments_dict_list = []
-    bouts_dict_list = []
-    fencer_ID_list = []
-
-    for tournament_url in Bar('  Loading tournaments').iter(list_of_urls):
+def load_tournament_data(list_of_urls, tournaments_dict_list, bouts_dict_list, fencer_ID_list, use_cache=True, label="tournament data"):
+    if len(list_of_urls) == 0:
+        return tournaments_dict_list, bouts_dict_list, fencer_ID_list
+    for tournament_url in Bar('  Loading {}'.format(label)).iter(list_of_urls):
         load_from_cache = False
         # Check if tournament is in cache (uses potentially old data)
         if use_cache and path.exists(CACHE_FILENAME) and stat(CACHE_FILENAME).st_size > 0:
@@ -241,11 +237,39 @@ def process_tournament_data_from_urls(list_of_urls, use_cache=True):
                              'fencer_list': tournament_fencer_ID_list}
             save_dict_to_cache(
                 CACHE_FILENAME, tournament_url, dict_to_cache)
-
         # append tournament data to the list
         fencer_ID_list = list(
             set(fencer_ID_list+tournament_fencer_ID_list))
         bouts_dict_list = bouts_dict_list + tournament_bout_dict_list
         tournaments_dict_list.append(tournament_info_dict)
+    return tournaments_dict_list, bouts_dict_list, fencer_ID_list
+
+
+def process_tournament_data_from_urls(list_of_urls, use_cache=True):
+    """
+    """
+    tournaments_dict_list = []
+    bouts_dict_list = []
+    fencer_ID_list = []
+
+    print("Processing {} tournaments by URL ".format(len(list_of_urls)), end="")
+    
+
+    if use_cache:
+        with open(CACHE_FILENAME) as file_cache:
+            cached_data = json.load(file_cache)
+            cached_URLS = [url for url in list(
+                cached_data.keys()) if url in list_of_urls]
+            print("({} cached tournaments)".format(len(cached_URLS)))
+    else:
+        cached_URLS = []
+        print("")
+    uncached_URLS = list(set(list_of_urls) - set(cached_URLS))
+
+    load_tournament_data(uncached_URLS, tournaments_dict_list=tournaments_dict_list, bouts_dict_list=bouts_dict_list,
+                         fencer_ID_list=fencer_ID_list, use_cache=use_cache, label="uncached tournaments")
+
+    load_tournament_data(cached_URLS, tournaments_dict_list=tournaments_dict_list, bouts_dict_list=bouts_dict_list,
+                         fencer_ID_list=fencer_ID_list, use_cache=use_cache, label="cached tournaments")
 
     return tournaments_dict_list, bouts_dict_list, fencer_ID_list
