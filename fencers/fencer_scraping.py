@@ -174,27 +174,6 @@ def get_fencer_info_from_ID(fencer_ID, use_data_cache=True, use_req_cache=True):
     return fencer_dict
 
 
-def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, index_names):
-    """
-    Takes a list of dict data and returns a pd.DataFrame with multiIndex from specified columns
-    """
-    # create dataframe from list
-    dataframe = pd.DataFrame(data=list_of_results, columns=column_names)
-
-    # construct multiIndex (sort first to group by heirarchy)
-    idx_array = []
-    dataframe.sort_values(by=index_names, inplace=True)
-    for name in index_names:
-        idx_array.append(dataframe[name])
-    new_index = pd.MultiIndex.from_arrays(idx_array)
-
-    # convert to multi index and drop columns used to create multiIndex
-    dataframe.index = new_index
-    dataframe = dataframe.drop(columns=index_names)
-
-    return dataframe
-
-
 def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_cache=True):
     # progress bar throws an error if the iter is empty
     if 0 in fencer_ID_list:

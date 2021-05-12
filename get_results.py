@@ -10,7 +10,8 @@ from dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_BIO_DF
 from dataframe_columns import multiIndex_relabeler, make_season_from_year
 from tournaments.tournament_scraping import create_tournament_data_from_url, compile_bout_dict_list_from_tournament_data, process_tournament_data_from_urls
 from tournaments.tournament_data import TournamentData
-from fencers.fencer_scraping import get_fencer_data_lists_from_ID_list, convert_list_to_dataframe_with_multi_index
+from fencers.fencer_scraping import get_fencer_data_lists_from_ID_list
+from dataframe_columns import convert_list_to_dataframe_with_multi_index
 from soup_scraping import get_search_params
 from caching_methods import save_dict_to_cache
 
@@ -18,6 +19,9 @@ CACHE_FILENAME = 'tournaments/tournament_cache.txt'
 
 
 def add_tournament_urls_to_list(url_list, tournament_dict_list):
+    """
+    Method for constructing a list of urls from a list of tournament_dict data
+    """
     for tournament in tournament_dict_list:
         url = "https://fie.org/competitions/" + \
             str(tournament['season'])+"/"+str(tournament['competitionId'])
@@ -26,6 +30,25 @@ def add_tournament_urls_to_list(url_list, tournament_dict_list):
 
 
 def get_url_list_from_seach(search_params):
+    """
+    Given dictionary of search parameters returns list of tournament urls in the search
+
+        Input:
+        ------
+        search_params : dict 
+            Search parameters modeled off 'Request Payload' from 'search' network call
+            made by https://fie.org/competitions when results search parameters changed.
+            Ex: { "name": "", "status": "passed", "gender": ['f'], "weapon": ['e'],
+                "type": ["i"], "season": "-1", "level": 'c', "competitionCategory": "",
+                "fromDate": "", "toDate": "", "fetchPage": 1 }
+            Note: "season": '-1' returns *all* seasons
+
+        Output:
+        ------
+        url_list : list
+            List of tournament urls represented as strings. 
+            Urls will have the form: https://fie.org/competitions/2020/1080
+    """
     url_list = []
 
     # get first page of results and check if more pages needed
@@ -47,6 +70,13 @@ def get_url_list_from_seach(search_params):
 
 def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
                        fencers_bio_dataframe, fencers_rankings_dataframe):
+    """
+    Performs relabeling/typecasting of tournament, bout, fencer_bio, and fencer_ranking pd.DataFrames
+
+    Notes: 
+        * No returns, makes changes to the dataframes in place
+        * Currently no changes made to bouts_dataframe
+    """
     # expand labels for 'weapon', 'gender' and 'category' in the tournament dataframe
     weapon_dict = {'E': "Epee", "F": "Foil", "S": "Sabre"}
     gender_dict = {"M": "Mens", "F": "Womens"}
@@ -85,8 +115,35 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
             'category')
 
 
-def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1, use_tournament_cache=True, use_fencer_cache=True):
+def get_dataframes_from_tournament_url_list(list_of_urls, use_tournament_cache=True, use_fencer_cache=True):
+    """
+    Given list of tournament urls (+ cache flags), returns dataframes of compiled data
 
+        Input:
+        ------
+        list_of_urls : list
+            List of tournament urls represented as strings. 
+            Urls will have the form: https://fie.org/competitions/2020/1080
+
+        use_tournament_cache : boolean
+        use_fencer_cache : boolean
+
+        Output:
+        ------
+        tournaments_dataframe : pandas.DataFrame 
+            Dataframe with data about each tournament, with columns listed and described
+            in dataframe_columns.py as TOURNAMENTS_DF_COLS
+        bouts_dataframe  : pandas.DataFrame  
+            Dataframe with data about each bout, with columns listed and described
+            in dataframe_columns.py as BOUTS_DF_COLS
+        fencers_bio_dataframe  : pandas.DataFrame  
+            Dataframe with biographical data about each fencer, with columns listed 
+            and described in dataframe_columns.py as FENCERS_BIO_DF_COLS
+        fencers_rankings_dataframe : pandas.DataFrame 
+            Dataframe with historical rankings data for each fencer, with columns listed 
+            and described in dataframe_columns.py as FENCERS_RANKINGS_DF_COLS
+            and pd.multiIndex created from FENCERS_RANKINGS_MULTI_INDEX (see )
+    """
     # PROCESS TOURNAMENTS FIRST
     tournaments_dict_list, bouts_dict_list, fencer_ID_list = process_tournament_data_from_urls(
         list_of_urls, use_cache=use_tournament_cache)
@@ -97,14 +154,8 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1, use_tou
 
     # PROCESS INDIVIDUAL FENCER DATA
 
-    # Takes a while if lots of fencers are not cached
-    if fencer_cap == -1:
-        list_to_process = fencer_ID_list
-    else:
-        list_to_process = random.sample(fencer_ID_list, fencer_cap)
-
     fencers_bio_data_list, fencers_rankings_data_list = get_fencer_data_lists_from_ID_list(
-        list_to_process, use_cache=use_fencer_cache)
+        fencer_ID_list=fencer_ID_list, use_cache=use_fencer_cache)
 
     fencers_bio_dataframe = pd.DataFrame(
         data=fencers_bio_data_list, columns=FENCERS_BIO_DF_COLS)
@@ -124,6 +175,9 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1, use_tou
 
 
 def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, use_tournament_cache=True, use_fencer_cache=True):
+    """
+
+    """
     print("Gettting list of tournaments to process...", end="")
     search_params = get_search_params(weapon, gender, category)
     url_list = get_url_list_from_seach(search_params)
@@ -138,4 +192,5 @@ def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, u
 
     tournament_df, bouts_df, fencer_bio_df, fencer_rank_df = get_dataframes_from_tournament_url_list(
         list_of_urls=list_to_process, use_tournament_cache=use_tournament_cache, use_fencer_cache=use_fencer_cache)
+
     return tournament_df, bouts_df, fencer_bio_df, fencer_rank_df

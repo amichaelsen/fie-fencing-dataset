@@ -1,4 +1,4 @@
-from fencers.fencer_scraping import convert_list_to_dataframe_with_multi_index
+from dataframe_columns import convert_list_to_dataframe_with_multi_index
 from dataframe_columns import multiIndex_relabeler
 print("\n Testing pandas multi-indexing\n")
 

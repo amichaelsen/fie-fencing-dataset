@@ -2,7 +2,7 @@ from fencers.fencer_scraping import get_fencer_data_lists_from_ID_list
 from dataframe_columns import FENCERS_BIO_DF_COLS, FENCERS_RANKINGS_DF_COLS, FENCERS_RANKINGS_MULTI_INDEX
 import time
 import pandas as pd
-from fencers.fencer_scraping import convert_list_to_dataframe_with_multi_index
+from dataframe_columns import convert_list_to_dataframe_with_multi_index
 
 # print("\n Loading fencer data without cache!\n")
 
