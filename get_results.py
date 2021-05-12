@@ -8,7 +8,7 @@ from os import path, stat
 
 from dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_BIO_DF_COLS, FENCERS_RANKINGS_DF_COLS, FENCERS_RANKINGS_MULTI_INDEX
 from dataframe_columns import multiIndex_relabeler, make_season_from_year
-from tournaments.tournament_scraping import create_tournament_data_from_url, compile_bout_dict_list_from_tournament_data
+from tournaments.tournament_scraping import create_tournament_data_from_url, compile_bout_dict_list_from_tournament_data, process_tournament_data_from_urls
 from tournaments.tournament_data import TournamentData
 from fencers.fencer_scraping import get_fencer_data_lists_from_ID_list, convert_list_to_dataframe_with_multi_index
 from soup_scraping import get_search_params
@@ -45,61 +45,6 @@ def get_url_list_from_seach(search_params):
     return url_list
 
 
-def process_tournament_data_from_urls(list_of_urls, use_cache=True):
-    # tournaments_dataframe = pd.DataFrame(columns=TOURNAMENTS_DF_COLS)
-
-    tournaments_dict_list = []
-    bouts_dict_list = []
-    fencer_ID_list = []
-
-    for tournament_url in Bar('  Loading tournaments').iter(list_of_urls):
-        load_from_cache = False
-        # Check if tournament is in cache (uses potentially old data)
-        if use_cache and path.exists(CACHE_FILENAME) and stat(CACHE_FILENAME).st_size > 0:
-            # check if fencer data is already stored
-            with open(CACHE_FILENAME) as read_file:
-                cached_data = json.load(read_file)
-                if str(tournament_url) in cached_data.keys():
-                    # may be null if tournament has missing data
-                    cached_tournament_dict = cached_data[str(tournament_url)]
-                    tournament_bout_dict_list = cached_tournament_dict.pop(
-                        'bout_list')
-                    tournament_fencer_ID_list = cached_tournament_dict.pop(
-                        'fencer_list')
-                    tournament_info_dict = cached_tournament_dict.copy()
-                    load_from_cache = True
-
-        if not load_from_cache:
-            # generate tournament data from url
-            has_results_data, tournament_data = create_tournament_data_from_url(
-                tournament_url)
-            if has_results_data:
-                tournament_bout_dict_list = compile_bout_dict_list_from_tournament_data(
-                    tournament_data)
-                tournament_info_dict = tournament_data.create_tournament_dict()
-                tournament_fencer_ID_list = list(
-                    tournament_data.fencers_dict.keys())
-            else:
-                tournament_fencer_ID_list = []
-                tournament_bout_dict_list = []
-                tournament_info_dict = tournament_data.create_tournament_dict()
-                # print("\nfound a tournamnet with missing data: {} ".format(tournament_url))
-                # print("missing data flag is: \'{}\'".format(tournament_info_dict['missing_results_flag']))
-
-            dict_to_cache = {**tournament_info_dict, 'bout_list': tournament_bout_dict_list,
-                             'fencer_list': tournament_fencer_ID_list}
-            save_dict_to_cache(
-                CACHE_FILENAME, tournament_url, dict_to_cache)
-
-        # append tournament data to the list
-        fencer_ID_list = list(
-            set(fencer_ID_list+tournament_fencer_ID_list))
-        bouts_dict_list = bouts_dict_list + tournament_bout_dict_list
-        tournaments_dict_list.append(tournament_info_dict)
-
-    return tournaments_dict_list, bouts_dict_list, fencer_ID_list
-
-
 def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
                        fencers_bio_dataframe, fencers_rankings_dataframe):
     # expand labels for 'weapon', 'gender' and 'category' in the tournament dataframe
@@ -120,14 +65,14 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
     fencers_bio_dataframe['hand'] = fencers_bio_dataframe['hand'].map(
         hand_dict)
 
-    # no entries -> no index to label 
+    # no entries -> no index to label
     if fencers_rankings_dataframe.size > 0:
         multiIndex_relabeler(fencers_rankings_dataframe,
-                            level=1, mapper=weapon_dict)
+                             level=1, mapper=weapon_dict)
         multiIndex_relabeler(fencers_rankings_dataframe,
-                            level=2, mapper=category_dict)
+                             level=2, mapper=category_dict)
         multiIndex_relabeler(fencers_rankings_dataframe,
-                            level=3, mapper=make_season_from_year)
+                             level=3, mapper=make_season_from_year)
 
     # # fix up date formats
     # df['col'] = pd.to_datetime(df['col']) # converts to a datetime columns in pandas
@@ -160,7 +105,6 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1, use_tou
 
     fencers_bio_data_list, fencers_rankings_data_list = get_fencer_data_lists_from_ID_list(
         list_to_process, use_cache=use_fencer_cache)
-    
 
     fencers_bio_dataframe = pd.DataFrame(
         data=fencers_bio_data_list, columns=FENCERS_BIO_DF_COLS)
