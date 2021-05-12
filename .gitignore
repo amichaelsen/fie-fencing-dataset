@@ -18,3 +18,6 @@ tournaments/tournament_cache.txt
 # saved html requests content 
 fencers/athlete_pages/
 tournaments/tournament_pages/
+
+# local output files, once complete will move to final_output 
+output/
