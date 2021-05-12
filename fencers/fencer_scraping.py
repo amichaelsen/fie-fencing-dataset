@@ -55,7 +55,8 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
     fencer_name = ""
     hand = ""
     age = ""
-    nationality = ""
+    country_code = ""
+    country_name = ""
 
     # find <h1 class="AthleteHero-fencerName">
     try:
@@ -68,7 +69,7 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
     try:
         country_code, country_name = get_fencer_nationality_data(soup)
     except:
-        print("Issue loading country data for fencer {}".format(fencer_ID))
+        print("\n  WARNING:  Issue loading country data for fencer {}".format(fencer_ID))
 
     try:
         info_div = soup.find('div', class_="ProfileInfo")
@@ -174,6 +175,18 @@ def get_fencer_info_from_ID(fencer_ID, use_data_cache=True, use_req_cache=True):
     return fencer_dict
 
 
+def load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list, fencer_ID_list, use_cache=True, label="data"):
+    """
+    Loads fencer data from list with a progress bar and optional progress bar label
+    """
+    if len(fencer_ID_list) > 0:
+        for fencer_ID in Bar('  Loading {}    '.format(label)).iter(fencer_ID_list):
+            fencer_info_dict = get_fencer_info_from_ID(fencer_ID, use_cache)
+            fencer_rankings_list = fencer_info_dict.pop('rankings')
+            all_fencer_bio_data_list.append(fencer_info_dict)
+            all_fencer_ranking_data_list += fencer_rankings_list
+
+
 def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_cache=True):
     # progress bar throws an error if the iter is empty
     if 0 in fencer_ID_list:
@@ -184,12 +197,25 @@ def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_cache=True):
 
     all_fencer_bio_data_list = []
     all_fencer_ranking_data_list = []
-    print("Processing fencers by ID")
 
-    for fencer_ID in Bar('  Loading fencers    ').iter(fencer_ID_list):
-        fencer_info_dict = get_fencer_info_from_ID(fencer_ID, use_cache)
-        fencer_rankings_list = fencer_info_dict.pop('rankings')
-        all_fencer_bio_data_list.append(fencer_info_dict)
-        all_fencer_ranking_data_list += fencer_rankings_list
+    print("Processing {} fencers by ID ".format(len(fencer_ID_list)), end="")
+
+    # if using cache, split fencers into cached and not for progress bars
+    if use_cache:
+        with open(CACHE_FILENAME) as fencer_cache:
+            cached_data = json.load(fencer_cache)
+            cached_IDs = [int(id) for id in list(
+                cached_data.keys()) if int(id) in fencer_ID_list]
+            print("({} cached fencers)".format(len(cached_IDs)))
+    else:
+        cached_IDs = []
+        print("")
+    uncached_IDs = list(set(fencer_ID_list) - set(cached_IDs))
+
+    load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list,
+                     uncached_IDs, use_cache=use_cache, label="uncached fencers")
+
+    load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list,
+                     cached_IDs, use_cache=use_cache, label="cached fencers")
 
     return all_fencer_bio_data_list, all_fencer_ranking_data_list
