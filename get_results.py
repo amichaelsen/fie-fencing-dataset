@@ -83,12 +83,13 @@ def process_tournament_data_from_urls(list_of_urls, use_cache=True):
                 tournament_fencer_ID_list = []
                 tournament_bout_dict_list = []
                 tournament_info_dict = tournament_data.create_tournament_dict()
+                print("\nfound a tournamnet with missing data: {} ".format(tournament_url))
+                print("missing data flag is: \'{}\'".format(tournament_info_dict['missing_results_flag']))
 
             dict_to_cache = {**tournament_info_dict, 'bout_list': tournament_bout_dict_list,
                              'fencer_list': tournament_fencer_ID_list}
             save_dict_to_cache(
                 CACHE_FILENAME, tournament_url, dict_to_cache)
-
 
         # append tournament data to the list
         fencer_ID_list = list(
@@ -119,12 +120,14 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
     fencers_bio_dataframe['hand'] = fencers_bio_dataframe['hand'].map(
         hand_dict)
 
-    multiIndex_relabeler(fencers_rankings_dataframe,
-                         level=1, mapper=weapon_dict)
-    multiIndex_relabeler(fencers_rankings_dataframe,
-                         level=2, mapper=category_dict)
-    multiIndex_relabeler(fencers_rankings_dataframe,
-                         level=3, mapper=make_season_from_year)
+    # no entries -> no index to label 
+    if fencers_rankings_dataframe.size > 0:
+        multiIndex_relabeler(fencers_rankings_dataframe,
+                            level=1, mapper=weapon_dict)
+        multiIndex_relabeler(fencers_rankings_dataframe,
+                            level=2, mapper=category_dict)
+        multiIndex_relabeler(fencers_rankings_dataframe,
+                            level=3, mapper=make_season_from_year)
 
     # # fix up date formats
     # df['col'] = pd.to_datetime(df['col']) # converts to a datetime columns in pandas
@@ -137,11 +140,11 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
             'category')
 
 
-def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
+def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1, use_tournament_cache=True, use_fencer_cache=True):
 
     # PROCESS TOURNAMENTS FIRST
     tournaments_dict_list, bouts_dict_list, fencer_ID_list = process_tournament_data_from_urls(
-        list_of_urls)
+        list_of_urls, use_cache=use_tournament_cache)
 
     bouts_dataframe = pd.DataFrame(data=bouts_dict_list, columns=BOUTS_DF_COLS)
     tournaments_dataframe = pd.DataFrame(
@@ -156,7 +159,8 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
         list_to_process = random.sample(fencer_ID_list, fencer_cap)
 
     fencers_bio_data_list, fencers_rankings_data_list = get_fencer_data_lists_from_ID_list(
-        list_to_process)
+        list_to_process, use_cache=use_fencer_cache)
+    
 
     fencers_bio_dataframe = pd.DataFrame(
         data=fencers_bio_data_list, columns=FENCERS_BIO_DF_COLS)
@@ -175,7 +179,7 @@ def get_dataframes_from_tournament_url_list(list_of_urls, fencer_cap=-1):
     return tournaments_dataframe, bouts_dataframe, fencers_bio_dataframe, fencers_rankings_dataframe
 
 
-def get_results_for_division(weapon=[], gender=[], category="", max_events=-1):
+def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, use_tournament_cache=True, use_fencer_cache=True):
     print("Gettting list of tournaments to process...", end="")
     search_params = get_search_params(weapon, gender, category)
     url_list = get_url_list_from_seach(search_params)
@@ -189,5 +193,5 @@ def get_results_for_division(weapon=[], gender=[], category="", max_events=-1):
         print("  (processing {} random tournaments)".format(len(list_to_process)))
 
     tournament_df, bouts_df, fencer_bio_df, fencer_rank_df = get_dataframes_from_tournament_url_list(
-        list_to_process)
+        list_of_urls=list_to_process, use_tournament_cache=use_tournament_cache, use_fencer_cache=use_fencer_cache)
     return tournament_df, bouts_df, fencer_bio_df, fencer_rank_df

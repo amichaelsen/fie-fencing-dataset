@@ -156,6 +156,10 @@ def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, in
 
 
 def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_cache=True):
+    # progress bar throws an error if the iter is empty
+    if len(fencer_ID_list) == 0:
+        return [], []
+
     all_fencer_bio_data_list = []
     all_fencer_ranking_data_list = []
     print("Processing fencers by ID")
