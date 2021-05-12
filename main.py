@@ -4,11 +4,11 @@ from os import path, makedirs
 
 from get_results import get_results_for_division
 
-save_results = False 
+save_results = True 
 
 weapon = 'f'
 gender = 'f'
-category = 'v'
+category = ''
 
 
 
@@ -17,15 +17,13 @@ gender_dict = {'f': "womens", 'm': 'mens'}
 category_dict = {'c': 'cadet', 'j': 'junior', 's':'senior', 'v':'veteran', '':'all'}
 
 div_name = category_dict[category] + "_" + gender_dict[gender] + "_" + weapon_dict[weapon]
-print(div_name)
 
 print("\n\n Loading all results + fencer data for {}".format(" ".join(div_name.split("_"))))
 print("----------------------------------------------------------------------\n\n")
 
 
 tourn_df, bout_df, fencers_bio_df, fencers_rankings_df = get_results_for_division(
-    weapon=[weapon], gender=[gender], category=category, max_events=5, use_tournament_cache=True, use_fencer_cache=False)
-
+    weapon=[weapon], gender=[gender], category=category, use_tournament_cache=True, use_fencer_cache=True)
 
 if save_results:
 
