@@ -7,7 +7,14 @@ __pycache__/
 TODO.md
 
 test_tournament.html
+
+
+##LOCALLY CACHED FILES
+
+# saved processed data
 fencers/fencer_cache.txt
 tournaments/tournament_cache.txt
-tournaments/bout_cache.txt
-tournaments/fencer_list_cache.txt
+
+# saved html requests content 
+fencers/athlete_pages/
+tournaments/tournament_pages/

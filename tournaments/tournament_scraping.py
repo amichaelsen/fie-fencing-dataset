@@ -3,7 +3,7 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import pandas as pd
-
+from os import path 
 
 from dataframe_columns import BOUTS_DF_COLS
 from pools.pool_scraping import get_pool_data_from_dict
@@ -15,6 +15,24 @@ from soup_scraping import get_json_var_from_script
 # Helper Methods Methods for Tournament Scraping
 # =--------------------------------------=
 
+def get_req_content(tournament_url):
+    # store req.content to cache, if not already saved
+    # if saved, load content without web request,
+    # assuming no historical data changes to tournament pages 
+    tournement_url_pieces = tournament_url.split("/")
+    tournament_filename = str(
+        tournement_url_pieces[-2])+"-" + str(tournement_url_pieces[-1])
+    path_name = "tournaments/tournament_pages/" + tournament_filename + ".txt"
+    if not path.exists(path_name):
+        fencer_url = "https://fie.org/tournament_pages/" + tournament_filename + ".txt"
+        req = requests.get(tournament_url)
+        content = req.content
+        with open(path_name, 'wb') as cache_file:
+            cache_file.write(content)
+    else:
+        with open(path_name, 'rb') as cache_file:
+            content = cache_file.read()
+    return content
 
 def create_tournament_dict_from_comp(comp):
     # comp = { "id": 4874, "competitionId": 771,... }"
@@ -35,7 +53,6 @@ def create_tournament_dict_from_comp(comp):
         tournament_dict['season'])+'-'+str(tournament_dict['competition_ID'])
 
     return tournament_dict
-
 
 def create_tournament_athlete_dict_from_athlete_list(athlete_dict_list):
     """
@@ -72,10 +89,7 @@ def create_tournament_athlete_dict_from_athlete_list(athlete_dict_list):
 # Main Methods for Tournament Scraping
 # =--------------------------------------=
 
-# Entry point for get_results
-
-
-def create_tournament_data_from_url(tournament_url, use_cache=True):
+def create_tournament_data_from_url(tournament_url):
     """
     Takes a tournament URL and returns a TournamentData dataclass with desired information
 
@@ -92,8 +106,10 @@ def create_tournament_data_from_url(tournament_url, use_cache=True):
                 information along with a list of poolData objects if it exists (see pool_data.py)
                 and a dict with tournament specific athlete information indexed by 'id', if it exists
     """
-    req = requests.get(tournament_url)
-    soup = BeautifulSoup(req.content, 'html.parser')
+
+    # this loads from tournaments/tournament_pages/ if possible
+    content = get_req_content(tournament_url)
+    soup = BeautifulSoup(content, 'html.parser')
 
     # each get json variables of the form window._XXXX
     pools_list = get_json_var_from_script(
@@ -137,9 +153,6 @@ def create_tournament_data_from_url(tournament_url, use_cache=True):
     )
     return has_results_data, tournament
 
-
-# Entry point for get_results
-# TODO: remove dataframe.append for each row, use list instead!
 def compile_bout_dict_list_from_tournament_data(tournament_data):
     """
     Takes a TournamentData Object and returns a pandas Dataframe of bouts

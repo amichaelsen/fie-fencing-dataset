@@ -13,9 +13,30 @@ from dataframe_columns import FENCERS_RANKINGS_MULTI_INDEX, FENCERS_RANKINGS_DF_
 
 CACHE_FILENAME = 'fencers/fencer_cache.txt'
 
+
+def get_req_content(fencer_ID, use_req_cache):
+    # store req.content to cache, if not already saved
+    # if saved, load content without web request
+    path_name = "fencers/athlete_pages/"+str(fencer_ID)+".txt"
+    if (path.exists(path_name) and use_req_cache):
+        with open(path_name, 'rb') as cache_file:
+            content = cache_file.read()
+    else:
+        fencer_url = "https://fie.org/athletes/"+str(fencer_ID)
+        req = requests.get(fencer_url)
+        content = req.content
+        with open(path_name, 'wb') as cache_file:
+            cache_file.write(content)
+    return content
+
+
 def get_fencer_nationality_data(soup):
-    flag_span = soup.find('span', class_='AthleteHero-flag')
-    class_labels = flag_span['class'] # should be the third
+    try:
+        flag_span = soup.find('span', class_='AthleteHero-flag')
+        class_labels = flag_span['class']  # should be the third
+    except:
+        print("Failed to find <span class='AthleteHere-flag' for fencer")
+        raise ValueError
     flag_indicator = class_labels[2]
     flag_label = flag_indicator.split('--')[1].upper()
     with open('fencers/flag_to_country_code.txt') as flag_file:
@@ -25,6 +46,7 @@ def get_fencer_nationality_data(soup):
             country_code = flag_data.get(flag_label, flag_label)
             country_name = country_data.get(country_code, flag_label)
     return country_code, country_name
+
 
 def get_fencer_bio_from_soup(soup, fencer_ID):
     """
@@ -42,7 +64,11 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
     except:
         print("\nFailed to read name from name_tag for fencer ID: {}".format(fencer_ID))
 
-    country_code, country_name = get_fencer_nationality_data(soup)
+    # get nationality data
+    try:
+        country_code, country_name = get_fencer_nationality_data(soup)
+    except:
+        print("Issue loading country data for fencer {}".format(fencer_ID))
 
     try:
         info_div = soup.find('div', class_="ProfileInfo")
@@ -97,18 +123,25 @@ def get_fencer_rankings_list_from_soup(soup, fencer_ID, url):
     return fencer_rankings_list
 
 
-def get_fencer_info_from_ID(fencer_ID, use_cache=True):
+def get_fencer_info_from_ID(fencer_ID, use_data_cache=True, use_req_cache=True):
     """
-    Takes url for athlete page and returns dict of fencer data 
 
         Output:
         -------
         fencer_dict : dict 
             TODO Describe the dict structure here... 
 
+        Caching:
+        --------
+        fencer_cache.txt
+            description
+        athlete_pages/ 
+            description
+
     """
+
     # Check if fencer is in cache (uses potentially old data)
-    if use_cache and path.exists(CACHE_FILENAME) and stat(CACHE_FILENAME).st_size > 0:
+    if use_data_cache and path.exists(CACHE_FILENAME) and stat(CACHE_FILENAME).st_size > 0:
         # check if fencer data is already stored
         with open(CACHE_FILENAME) as fencer_cache_read:
             cached_data = json.load(fencer_cache_read)
@@ -116,10 +149,9 @@ def get_fencer_info_from_ID(fencer_ID, use_cache=True):
                 fencer_dict = cached_data[str(fencer_ID)]
                 return fencer_dict
 
-    # If not cached or using cache, pull fencer data from url
-    fencer_url = "https://fie.org/athletes/"+str(fencer_ID)
-    req = requests.get(fencer_url)
-    soup = BeautifulSoup(req.content, 'html.parser')
+    # If not cached or using cache, pull fencer data from url/req_cache
+    content = get_req_content(fencerID=fencer_ID, use_req_cache=use_req_cache)
+    soup = BeautifulSoup(content, 'html.parser')
 
     fencer_id_dict = {'id': fencer_ID, 'url': fencer_url,
                       'date_accessed': datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
