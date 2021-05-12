@@ -83,8 +83,8 @@ def process_tournament_data_from_urls(list_of_urls, use_cache=True):
                 tournament_fencer_ID_list = []
                 tournament_bout_dict_list = []
                 tournament_info_dict = tournament_data.create_tournament_dict()
-                print("\nfound a tournamnet with missing data: {} ".format(tournament_url))
-                print("missing data flag is: \'{}\'".format(tournament_info_dict['missing_results_flag']))
+                # print("\nfound a tournamnet with missing data: {} ".format(tournament_url))
+                # print("missing data flag is: \'{}\'".format(tournament_info_dict['missing_results_flag']))
 
             dict_to_cache = {**tournament_info_dict, 'bout_list': tournament_bout_dict_list,
                              'fencer_list': tournament_fencer_ID_list}

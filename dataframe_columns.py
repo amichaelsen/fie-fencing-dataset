@@ -1,5 +1,5 @@
 TOURNAMENTS_DF_COLS = ['competition_ID', 'season', 'name', 'category', 'country',
-                       'start_date', 'end_date', 'weapon', 'gender', 'timezone', 'url', 'unique_ID']
+                       'start_date', 'end_date', 'weapon', 'gender', 'timezone', 'url', 'unique_ID', 'missing_results_flag']
 
 BOUTS_DF_COLS = ['fencer_ID', 'opp_ID', 'fencer_age', 'opp_age',
                  'fencer_score', 'opp_score',

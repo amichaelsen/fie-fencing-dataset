@@ -116,10 +116,16 @@ def create_tournament_data_from_url(tournament_url, use_cache=True):
 
     # IF NO POOLS DATA STORED OR FENCER IDS MISSING (usually from all athletes) SKIP
     #    (return NoneType, handled in get_results.process_tournament_data_from_urls)
-    if (0 in list(tournament_athlete_dict.keys())) or (len(pools_list) == 0):
+    if len(pools_list) == 0:
         return False, TournamentData(pools_list=[],
                                      fencers_dict={},
-                                     **tournament_dict)
+                                     missing_results_flag="no pools data",
+                                     ** tournament_dict)
+    elif 0 in list(tournament_athlete_dict.keys()):
+        return False, TournamentData(pools_list=[],
+                                     fencers_dict={},
+                                     missing_results_flag="fencer IDs missing",
+                                     ** tournament_dict)
     else:
         has_results_data = True
 

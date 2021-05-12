@@ -42,6 +42,8 @@ class TournamentData:
     pools_list: list[PoolData]
     fencers_dict: dict
 
+    missing_results_flag : str = ""
+
     def create_tournament_dict(self):
         tournament_dict = self.__dict__.copy()
         tournament_dict.pop('fencers_dict')
