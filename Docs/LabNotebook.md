@@ -9,7 +9,26 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
 
 * add a basic flowchart for process? or just image from notability drawing? 
 
+
+
 ### 05/11/2021
+
+**Fencer Nationality Improvement**
+
+* Using the fie athlete search page, I was able to construct a dictionary that takes the flag code (which can be pulled from a fencers bio page) and converts to a country code and then a country name. Implementing this now saves better nationality for fencers.
+* Need to figure out how to handle previously cached fencer data, obviously it could be deleted and refetched as needed... or perhaps I could write a script to find the ones that dont have nationality data (either empty of just the country code) and run a special script to fill the data??
+
+**Dropdowns in Markdown?**
+
+<details>
+<summary> 
+
+   `big method name` 
+</summary>
+<br> 
+
+ * `Added` detail about method implementation
+</details>
 
 **Results Search Processing**
  
@@ -22,16 +41,6 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
             * `get_fencer_dataframes_from_ID_list(-)` loads fencer info from ID list
             * `cleanup_dataframes(-)` performs pandas dataframe processing
 
-
-<details>
-<summary> 
-
-   `big method name` 
-</summary>
-<br> 
-
- * `Added` detail about method implementation
-</details>
 
 **Error Handling?** 
 
