@@ -241,7 +241,7 @@ def load_tournament_data(list_of_urls, tournaments_dict_list, bouts_dict_list, f
         # append tournament data to the list
         temp_fencer_list = list(
             set(temp_fencer_list+tournament_fencer_ID_list))
-        bouts_dict_list = bouts_dict_list + tournament_bout_dict_list
+        bouts_dict_list += tournament_bout_dict_list
         tournaments_dict_list.append(tournament_info_dict)
     fencer_ID_list += temp_fencer_list
 
