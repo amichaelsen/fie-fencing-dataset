@@ -150,9 +150,10 @@ def get_fencer_info_from_ID(fencer_ID, use_data_cache=True, use_req_cache=True):
                 return fencer_dict
 
     # If not cached or using cache, pull fencer data from url/req_cache
-    content = get_req_content(fencerID=fencer_ID, use_req_cache=use_req_cache)
+    content = get_req_content(fencer_ID=fencer_ID, use_req_cache=use_req_cache)
     soup = BeautifulSoup(content, 'html.parser')
 
+    fencer_url = "https://fie.org/athletes/"+str(fencer_ID)
     fencer_id_dict = {'id': fencer_ID, 'url': fencer_url,
                       'date_accessed': datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
 
@@ -196,6 +197,9 @@ def convert_list_to_dataframe_with_multi_index(list_of_results, column_names, in
 
 def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_cache=True):
     # progress bar throws an error if the iter is empty
+    if 0 in fencer_ID_list:
+        fencer_ID_list.remove(0)
+
     if len(fencer_ID_list) == 0:
         return [], []
 
