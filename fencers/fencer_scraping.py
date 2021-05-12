@@ -179,12 +179,13 @@ def load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list, fen
     """
     Loads fencer data from list with a progress bar and optional progress bar label
     """
-    if len(fencer_ID_list) > 0:
-        for fencer_ID in Bar('  Loading {}    '.format(label)).iter(fencer_ID_list):
-            fencer_info_dict = get_fencer_info_from_ID(fencer_ID, use_cache)
-            fencer_rankings_list = fencer_info_dict.pop('rankings')
-            all_fencer_bio_data_list.append(fencer_info_dict)
-            all_fencer_ranking_data_list += fencer_rankings_list
+    if len(fencer_ID_list) == 0:
+        return 
+    for fencer_ID in Bar('  Loading {}    '.format(label)).iter(fencer_ID_list):
+        fencer_info_dict = get_fencer_info_from_ID(fencer_ID, use_cache)
+        fencer_rankings_list = fencer_info_dict.pop('rankings')
+        all_fencer_bio_data_list.append(fencer_info_dict)
+        all_fencer_ranking_data_list += fencer_rankings_list
 
 
 def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_cache=True):
@@ -216,6 +217,6 @@ def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_cache=True):
                      uncached_IDs, use_cache=use_cache, label="uncached fencers")
 
     load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list,
-                     cached_IDs, use_cache=use_cache, label="cached fencers")
+                     cached_IDs, use_cache=use_cache, label="cached fencers  ")
 
     return all_fencer_bio_data_list, all_fencer_ranking_data_list
