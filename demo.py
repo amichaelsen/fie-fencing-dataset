@@ -13,7 +13,7 @@ from dataframe_columns import BOUTS_DF_COLS
 testing_single_tournament = False
 testing_list_tournaments = True
 testing_results_search = False
-test_results_by_division = False
+test_results_by_division = True
 
 if testing_single_tournament:
     print("\n\n Reading and printing a single tournament")
@@ -41,7 +41,8 @@ if testing_list_tournaments:
 
     list_of_urls = ['https://fie.org/competitions/2021/1081',
                     'https://fie.org/competitions/2021/121']
-    list_of_urls = ['https://fie.org/competitions/2021/1081']
+    list_of_urls = ['https://fie.org/competitions/2016/941']
+    list_of_urls = ['https://fie.org/competitions/2016/63']
     tourn_df, bout_df, fencers_bio_df, fencers_rankings_df = get_dataframes_from_tournament_url_list(
         list_of_urls=list_of_urls, use_fencer_cache=False)
 
@@ -98,14 +99,14 @@ if test_results_by_division:
     print("Getting results for  Women's Foil...\n")
 
     tourn_df, bout_df, fencers_bio_df, fencers_rankings_df = get_results_for_division(
-        weapon=['s'], gender=['f'], category='', max_events=5, use_tournament_cache=False, use_fencer_cache=False)
+        weapon=['s'], gender=['f'], category='c', max_events=10, use_tournament_cache=True, use_fencer_cache=True)
 
     print("\n\n")
     time.sleep(2)
 
     # Print dataframes (or parts of them) to see output
 
-    tournament_count = 15
+    tournament_count = 25
     if(len(list(tourn_df.index)) > tournament_count):
         idx = random.sample(list(tourn_df.index), tournament_count)
         print(tourn_df.loc[idx].drop(
@@ -115,7 +116,7 @@ if test_results_by_division:
             columns=['timezone', 'url', 'end_date']).to_markdown())
     # print(tourn_df.info())
 
-    bout_count = 5
+    bout_count = 25
     if(len(list(bout_df.index)) > bout_count):
         idx = random.sample(list(bout_df.index), bout_count)
         print("\nA random selection of bouts from list:\n".format(bout_count))
@@ -127,7 +128,7 @@ if test_results_by_division:
     # print(bout_df.info())
 
 
-    fencer_count = 5
+    fencer_count = 50
     if(len(list(fencers_bio_df.index)) > fencer_count):
         idx = random.sample(list(fencers_bio_df.index), fencer_count)
         print("\nA random selection of {} fencers from bio list: (idx = {})\n".format(fencer_count, idx))
@@ -136,7 +137,7 @@ if test_results_by_division:
         print(fencers_bio_df.to_markdown())
 
 
-    fencer_count = 2
+    fencer_count = 5
     if(len(list(set(fencers_rankings_df.index.get_level_values(0)))) > fencer_count):
         idx = random.sample(
             list(set(fencers_rankings_df.index.get_level_values(0))), fencer_count)
