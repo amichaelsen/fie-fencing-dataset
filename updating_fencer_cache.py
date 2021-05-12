@@ -2,7 +2,7 @@ from os import path, stat
 import json
 import requests
 from bs4 import BeautifulSoup
-from fencers.fencer_scraping import get_fencer_nationality_data
+from fencers.fencer_scraping import get_fencer_nationality_data, get_req_content
 from progress.bar import Bar
 
 def clear_nationality_entries():
@@ -14,9 +14,12 @@ def clear_nationality_entries():
             if 'nationality' in list(value.keys()):
                 fencer_dict = value.copy() 
                 fencer_url = "https://fie.org/athletes/"+str(key)
-                req = requests.get(fencer_url)
-                soup = BeautifulSoup(req.content, 'html.parser')
-                country_code, country_name = get_fencer_nationality_data(soup)
+                content = get_req_content(int(key))
+                soup = BeautifulSoup(content, 'html.parser')
+                try:
+                    country_code, country_name = get_fencer_nationality_data(soup)
+                except:
+                    print("\n -->Could not load country data for fencer: {}".format(key))
                 fencer_dict.pop('nationality')
                 fencer_dict['country_code'] = country_code
                 fencer_dict['country'] = country_name

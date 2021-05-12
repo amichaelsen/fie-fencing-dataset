@@ -14,7 +14,7 @@ from dataframe_columns import FENCERS_RANKINGS_MULTI_INDEX, FENCERS_RANKINGS_DF_
 CACHE_FILENAME = 'fencers/fencer_cache.txt'
 
 
-def get_req_content(fencer_ID, use_req_cache):
+def get_req_content(fencer_ID, use_req_cache=True):
     # store req.content to cache, if not already saved
     # if saved, load content without web request
     path_name = "fencers/athlete_pages/"+str(fencer_ID)+".txt"
@@ -35,7 +35,7 @@ def get_fencer_nationality_data(soup):
         flag_span = soup.find('span', class_='AthleteHero-flag')
         class_labels = flag_span['class']  # should be the third
     except:
-        print("Failed to find <span class='AthleteHere-flag' for fencer")
+        print("\n -->Failed to find <span class='AthleteHero-flag' for fencer")
         raise ValueError
     flag_indicator = class_labels[2]
     flag_label = flag_indicator.split('--')[1].upper()
