@@ -15,8 +15,22 @@ CACHE_FILENAME = 'fencers/fencer_cache.txt'
 
 
 def get_req_content(fencer_ID, use_req_cache=True):
-    # store req.content to cache, if not already saved
-    # if saved, load content without web request
+    """
+    Gets athlete page content, either from cache or requests, stores in cache if new
+
+        Input:
+        ------
+        fencer_ID : int 
+            ID for the fencer to get page content for
+        use_req_cache : boolean (default True)
+            Flag allowing use of cache, if false will always pull 
+            new request and load and store the new data to cache
+
+        Output:
+        ------
+        content : bytes
+            Represents the `content` of a requests.get to the fencers url
+    """
     path_name = "fencers/athlete_pages/"+str(fencer_ID)+".txt"
     if (path.exists(path_name) and use_req_cache):
         with open(path_name, 'rb') as cache_file:
@@ -31,6 +45,22 @@ def get_req_content(fencer_ID, use_req_cache=True):
 
 
 def get_fencer_nationality_data(soup):
+    """
+    From the fencer's soup extracts country_code and country_name 
+
+        Input:
+        ------
+        soup: bs4.BeautifulSoup
+            A BeautifulSoup object created from the request content 
+            from a fencers page (using 'html.parser')
+
+        Output:
+        -------
+        country_code : str 
+            Three letter code for fencer's country 
+        country_name : str 
+            Full name of the fencer's country 
+    """
     try:
         flag_span = soup.find('span', class_='AthleteHero-flag')
         class_labels = flag_span['class']  # should be the third
@@ -51,6 +81,21 @@ def get_fencer_nationality_data(soup):
 def get_fencer_bio_from_soup(soup, fencer_ID):
     """
     Takes a BeautifulSoup object for the fencer's webpage and returns non-weapon/category bio data
+
+        Input:
+        ------
+        soup: bs4.BeautifulSoup
+            A BeautifulSoup object created from the request content 
+            from a fencers page (using 'html.parser')
+        fencer_ID : int
+            ID for the fencer to get bio for
+
+        Output:
+        ------
+        fencer_bio_dict : dict 
+            Dictionary with fencer's bio data
+                keys : 'name', 'country_code', 'country', 'hand', 'age'
+
     """
     fencer_name = ""
     hand = ""
@@ -81,13 +126,17 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
     except:
         print("\nFailed to info_div from ProfileInfo for fencer ID: {}".format(fencer_ID))
 
-    return {'name': fencer_name,
-            'country_code': country_code,
-            'country': country_name,
-            'hand': hand, 'age': age}
+    fencer_bio_dict = {'name': fencer_name,
+                       'country_code': country_code,
+                       'country': country_name,
+                       'hand': hand, 'age': age}
+    return fencer_bio_dict
 
 
 def get_fencer_weapon_rankings_list_from_soup(soup):
+    """
+    Takes a BeautifulSoup object for the fencer's webpage and returns list of ranking data
+    """
     # get window._tabRankings Data
     tabRank_var_name = "window._tabRanking "
     fencer_rankings_list = get_json_var_from_script(
@@ -97,13 +146,32 @@ def get_fencer_weapon_rankings_list_from_soup(soup):
 
 def get_fencer_rankings_list_from_soup(soup, fencer_ID, url):
     """
-    TODO 
+    Takes a BeautifulSoup for the fencer, their ID, and URL, and returns a list of rankings
+
+        Input:
+        ------
+        soup: bs4.BeautifulSoup
+            A BeautifulSoup object created from the request content 
+            from a fencers page (using 'html.parser')
+        fencer_ID : int
+            ID for the fencer to get rankings data for
+        url : str 
+            URL of the fencers page to make separate weapon page calls
+
+        Output:
+        -------
+        fencer_rankings_list : list
+            List of rankings, each represented as a dict with 
+            keys : "id", "rank", "points", "weapon", "season", "category"
     """
     # get weapons list from <select class="ProfileInfo-weaponDropdown...">
     weapon_dropdown = soup.find('select', class_="ProfileInfo-weaponDropdown")
+
     if(not weapon_dropdown or len(list(weapon_dropdown.children)) == 1):  # only 1 weapon, can re-use soup
+        # only one weapon, so use current soup to read rankings
         fencer_rankings_list = get_fencer_weapon_rankings_list_from_soup(soup)
     else:
+        # multiple weapons to process, read each and add to a rankings list
         fencer_rankings_list = []
         for weapon in weapon_dropdown.children:
             # create soup for page with specific weapon
@@ -116,29 +184,42 @@ def get_fencer_rankings_list_from_soup(soup, fencer_ID, url):
                 weapon_soup)
             fencer_rankings_list += fencer_weapon_rankings_list
 
+    # update their JSON labels for processing
     for rank_item in fencer_rankings_list:
+        # add fencer ID for combining
         rank_item.update({"id": fencer_ID})
+        # 'point' -> 'points'
         rank_item['points'] = rank_item.pop(
-            'point')  # relabel from JSON 'point'
+            'point')
 
     return fencer_rankings_list
 
 
 def get_fencer_info_from_ID(fencer_ID, use_data_cache=True, use_req_cache=True):
     """
+    Takes fencer ID and cache flags and returns and saves dict with bio and rankings data
+
+        Input:
+        -------
+        fencer_ID : int
+        use_data_cache : boolean (default True)
+            Indicates whether to use data in fencers/fencer_cache.txt or reprocess data
+        use_req_cache  : boolean (default True)
+            Indicates whether to use req.content in fencers/ahtlete_pages/ or reload request
 
         Output:
         -------
         fencer_dict : dict 
-            TODO Describe the dict structure here... 
+            Dictionary containing both bio and rankings data for a fencer 
+            Keys are combined from fencer_bio_dict (from get_fencer_bio_from_soup)
+                and fencer_rankings_dict (from get_fencer_rankings_list_from_soup)
 
         Caching:
         --------
         fencer_cache.txt
-            description
+            If creating fencer_dict (not loading from fencer_cache.txt) saves to cache
         athlete_pages/ 
-            description
-
+            If loading request page (not loading from athlete_pages/) saves to cache
     """
 
     # Check if fencer is in cache (uses potentially old data)
@@ -150,7 +231,7 @@ def get_fencer_info_from_ID(fencer_ID, use_data_cache=True, use_req_cache=True):
                 fencer_dict = cached_data[str(fencer_ID)]
                 return fencer_dict
 
-    # If not cached or using cache, pull fencer data from url/req_cache
+    # Load fencer request data from url OR req_cache
     content = get_req_content(fencer_ID=fencer_ID, use_req_cache=use_req_cache)
     soup = BeautifulSoup(content, 'html.parser')
 
@@ -175,24 +256,69 @@ def get_fencer_info_from_ID(fencer_ID, use_data_cache=True, use_req_cache=True):
     return fencer_dict
 
 
-def load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list, fencer_ID_list, use_cache=True, label="data"):
+def load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list, fencer_ID_list, use_data_cache=True, use_req_cache=True, label="fencer data"):
     """
     Loads fencer data from list with a progress bar and optional progress bar label
+
+        Input:
+        ------
+        all_fencer_bio_data_list : list
+            Accumulating list of bio data for all fencers being processed
+        all_fencer_ranking_data_list : list 
+            Accumulating list of rankings data for all fencers being processed
+
+        fencer_ID_list : list
+            List of IDs for fencers to be process and added to output lists
+
+        use_data_cache : boolean (default True)
+            Indicates whether to use data in fencers/fencer_cache.txt or reprocess data
+        use_req_cache  : boolean (default True)
+            Indicates whether to use req.content in fencers/ahtlete_pages/ or reload request
+
+        label : boolean (default "fencer data")
+            Label to use for progress bar (could indicate if fencers are cached/uncached)
+
+        Output:
+        -------
+        Does not return anything, but makes updates to:
+            all_fencer_bio_data_list,
+            all_fencer_ranking_data_list
     """
     if len(fencer_ID_list) == 0:
-        return 
+        return
     for fencer_ID in Bar('  Loading {}    '.format(label)).iter(fencer_ID_list):
-        fencer_info_dict = get_fencer_info_from_ID(fencer_ID, use_cache)
+        fencer_info_dict = get_fencer_info_from_ID(
+            fencer_ID, use_req_cache=use_req_cache, use_data_cache=use_data_cache)
         fencer_rankings_list = fencer_info_dict.pop('rankings')
         all_fencer_bio_data_list.append(fencer_info_dict)
         all_fencer_ranking_data_list += fencer_rankings_list
 
 
-def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_cache=True):
-    # progress bar throws an error if the iter is empty
+def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_data_cache=True, use_req_cache=True,):
+    """
+    Loads fencer data from list with a progress bar and optional progress bar label
+
+        Input:
+        ------
+        fencer_ID_list : list
+            List of IDs for fencers to be process and added to output lists
+
+        use_data_cache : boolean (default True)
+            Indicates whether to use data in fencers/fencer_cache.txt or reprocess data
+        use_req_cache  : boolean (default True)
+            Indicates whether to use req.content in fencers/ahtlete_pages/ or reload request
+
+        Output:
+        -------
+        all_fencer_bio_data_list : list
+            List of bio data for all fencers in fencer_ID_list
+        all_fencer_ranking_data_list : list 
+            :ist of rankings data for all fencers in fencer_ID_list
+    """
     if 0 in fencer_ID_list:
         fencer_ID_list.remove(0)
 
+    # TODO I think this can safely be removed now...
     if len(fencer_ID_list) == 0:
         return [], []
 
@@ -201,8 +327,8 @@ def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_cache=True):
 
     print("Processing {} fencers by ID ".format(len(fencer_ID_list)), end="")
 
-    # if using cache, split fencers into cached and not for progress bars
-    if use_cache:
+    # split fencers into cached and not for progress bars
+    if use_data_cache:
         with open(CACHE_FILENAME) as fencer_cache:
             cached_data = json.load(fencer_cache)
             cached_IDs = [int(id) for id in list(
@@ -213,10 +339,12 @@ def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_cache=True):
         print("")
     uncached_IDs = list(set(fencer_ID_list) - set(cached_IDs))
 
+    # load fencer data for uncached then cached and 
+    # add data to all_fencer_bio_data_list, all_fencer_ranking_data_list
     load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list,
-                     uncached_IDs, use_cache=use_cache, label="uncached fencers")
+                     uncached_IDs, use_data_cache=True, use_req_cache=True, label="uncached fencers")
 
     load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list,
-                     cached_IDs, use_cache=use_cache, label="cached fencers  ")
+                     cached_IDs, use_data_cache=True, use_req_cache=True, label="cached fencers  ")
 
     return all_fencer_bio_data_list, all_fencer_ranking_data_list
