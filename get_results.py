@@ -235,7 +235,7 @@ def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, u
     print(" Done!")
 
     print("Results search found {} tournaments ".format(len(url_list)))
-    if max_events == -1:
+    if max_events == -1 or max_events > len(url_list):
         list_to_process = url_list
     else:
         list_to_process = random.sample(url_list, max_events)
