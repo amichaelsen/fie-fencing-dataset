@@ -1,0 +1,831 @@
+competition_ID,season,name,category,country,start_date,end_date,weapon,gender,timezone,url,unique_ID,missing_results_flag
+121,2021,Grand Prix,Senior,QATAR,2021-03-26,2021-03-28,Foil,Womens,Asia/Qatar,https://fie.org/competitions/2021/121,2021-121,
+800,2011,Championnats Panaméricains,Senior,USA,2011-07-04,2011-07-09,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/2011/800,2011-800,no pools data
+225,1958,Championnats du Monde,Junior,ROMANIA,1958-04-04,1958-04-07,Foil,Womens,Europe/Bucharest,https://fie.org/competitions/1958/225,1958-225,no pools data
+41,2017,Tournoi international,Junior,GERMANY,2016-10-28,2016-10-28,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2017/41,2017-41,
+800,2015,Championnats Panaméricains,Senior,CHILE,2015-04-17,2015-04-26,Foil,Womens,America/Santiago,https://fie.org/competitions/2015/800,2015-800,
+1093,2015,2015 Summer Universiade,Senior,KOREA,2015-07-05,2015-07-05,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2015/1093,2015-1093,no pools data
+740,2013,Championnats d'Europe,Senior,CROATIA,2013-06-16,2013-06-21,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2013/740,2013-740,no pools data
+225,1995,Championnats du Monde,Junior,FRANCE,1995-04-11,1995-04-16,Foil,Womens,Europe/Paris,https://fie.org/competitions/1995/225,1995-225,no pools data
+225,2005,Champ du monde juniors-cadets,Junior,AUSTRIA,2005-03-28,2005-03-28,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2005/225,2005-225,no pools data
+327,2010,Championnats du Monde Vétérans,Veterans,CROATIA,2010-09-29,2010-10-03,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2010/327,2010-327,no pools data
+771,2010,Championnats asiatiques juniors,Junior,PHILIPPINES,2010-03-12,2010-03-12,Foil,Womens,Asia/Manila,https://fie.org/competitions/2010/771,2010-771,no pools data
+1087,2012,Championnats Panaméricains Cadets,Cadet,VENEZUELA,2012-03-08,2012-03-13,Foil,Womens,America/Caracas,https://fie.org/competitions/2012/1087,2012-1087,no pools data
+243,2019,Championnats du Monde,Senior,HUNGARY,2019-07-16,2019-07-19,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2019/243,2019-243,
+279,2003,Championnats Panaméricains S,Senior,DOMINICAN REPUBLIC,2003-08-02,2003-08-07,Foil,Womens,America/Santo_Domingo,https://fie.org/competitions/2003/279,2003-279,no pools data
+225,1963,Championnats du Monde,Junior,BELGIUM,1963-04-11,1963-04-16,Foil,Womens,Europe/Brussels,https://fie.org/competitions/1963/225,1963-225,no pools data
+237,2016,Championnats du monde juniors-cadets,Cadet,FRANCE,2016-04-01,2016-04-01,Foil,Womens,Europe/Paris,https://fie.org/competitions/2016/237,2016-237,
+129,2008,Prince Takamado WC,Senior,JAPAN,2008-05-09,2008-05-10,Foil,Womens,Asia/Tokyo,https://fie.org/competitions/2008/129,2008-129,no pools data
+225,2000,Championnats du Monde,Junior,USA,2000-04-18,2000-04-25,Foil,Womens,America/New_York,https://fie.org/competitions/2000/225,2000-225,no pools data
+237,1990,Championnats du Monde,Cadet,SWEDEN,1990-04-28,1990-04-30,Foil,Womens,Europe/Stockholm,https://fie.org/competitions/1990/237,1990-237,no pools data
+41,2007,Tournoi international,Junior,GERMANY,2007-01-28,2007-01-28,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2007/41,2007-41,no pools data
+243,2006,Championnats du Monde,Senior,ITALY,2006-09-30,2006-10-01,Foil,Womens,Europe/Rome,https://fie.org/competitions/2006/243,2006-243,no pools data
+122,2007,Coupe du Monde,Senior,CHINA,2007-05-12,2007-05-13,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2007/122,2007-122,no pools data
+130,2003,Coupe du Monde,Senior,USA,2003-06-13,2003-06-14,Foil,Womens,America/New_York,https://fie.org/competitions/2003/130,2003-130,no pools data
+118,2008,Fleuret de St-Petersbourg,Senior,RUSSIA,2008-03-05,2008-03-06,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2008/118,2008-118,no pools data
+35,2009,Stadtwerke-Pokal,Junior,GERMANY,2008-12-13,2008-12-13,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2009/35,2009-35,no pools data
+129,2009,Coupe du Monde,Senior,ITALY,2009-03-21,2009-03-22,Foil,Womens,Europe/Rome,https://fie.org/competitions/2009/129,2009-129,no pools data
+457,2007,World Cup,Senior,EGYPT,2007-05-25,2007-05-26,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2007/457,2007-457,no pools data
+225,2021,Championnats du monde juniors-cadets,Junior,EGYPT,2021-04-06,2021-04-06,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2021/225,2021-225,
+586,2018,Championnats d'Afrique,Senior,TUNISIA,2018-06-07,2018-06-07,Foil,Womens,Africa/Tunis,https://fie.org/competitions/2018/586,2018-586,
+812,2013,Championnats Panaméricains Juniors,Junior,PUERTO RICO,2013-02-07,2013-02-07,Foil,Womens,America/Puerto_Rico,https://fie.org/competitions/2013/812,2013-812,no pools data
+1061,2021,Championnats de qualification - Afrique,Senior,EGYPT,2021-04-23,2021-04-23,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2021/1061,2021-1061,
+315,2003,Championnats d'Escrime du Commonwealth,Senior,AUSTRALIA,2002-11-19,2002-11-24,Foil,Womens,Europe/London,https://fie.org/competitions/2003/315,2003-315,no pools data
+444,2005,Candidature A,Junior,CROATIA,2005-03-19,2005-03-19,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2005/444,2005-444,no pools data
+243,1960,Jeux Olympiques,Senior,ITALY,1960-08-25,1960-09-12,Foil,Womens,Europe/Rome,https://fie.org/competitions/1960/243,1960-243,no pools data
+243,2016,Jeux Olympiques,Senior,BRAZIL,2016-08-10,2016-08-10,Foil,Womens,America/Sao_Paulo,https://fie.org/competitions/2016/243,2016-243,no pools data
+397,2005,Tournoi satellite fleuret féminin,Senior,DENMARK,2005-03-19,2005-03-20,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2005/397,2005-397,no pools data
+1281,2015,Tournoi satellite fleuret féminin,Senior,DENMARK,2015-05-10,2015-05-10,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2015/1281,2015-1281,
+444,2010,Coupe du Monde,Junior,CROATIA,2010-02-20,2010-02-20,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2010/444,2010-444,no pools data
+1230,2018,Tournoi satellite,Senior,SPAIN,2018-02-24,2018-02-25,Foil,Womens,Europe/Madrid,https://fie.org/competitions/2018/1230,2018-1230,
+225,2006,Champ du monde juniors-cadets,Junior,KOREA,2006-04-12,2006-04-12,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2006/225,2006-225,no pools data
+225,1979,Championnats du Monde,Junior,USA,1979-04-12,1979-04-16,Foil,Womens,America/New_York,https://fie.org/competitions/1979/225,1979-225,no pools data
+243,2009,Championnats du Monde,Senior,TURKEY,2009-10-01,2009-10-04,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2009/243,2009-243,no pools data
+1105,2013,Championnats du monde vétérans,Veterans,BULGARIA,2013-10-01,2013-10-06,Foil,Womens,Europe/Sofia,https://fie.org/competitions/2013/1105,2013-1105,no pools data
+225,1975,Championnats du Monde,Junior,MEXICO,1975-03-28,1975-03-31,Foil,Womens,America/Mexico_City,https://fie.org/competitions/1975/225,1975-225,no pools data
+37,2005,Coupe du Monde,Junior,POLAND,2004-12-04,2004-12-04,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2005/37,2005-37,no pools data
+127,2011,Reinhold-Würth-Cup,Senior,GERMANY,2011-02-11,2011-02-12,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2011/127,2011-127,no pools data
+1299,2016,Championnats d'Afrique,Cadet,MALI,2016-03-02,2016-03-02,Foil,Womens,Africa/Bamako,https://fie.org/competitions/2016/1299,2016-1299,
+458,2005,The Artus Court PKO BP,Senior,POLAND,2005-04-29,2005-04-30,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2005/458,2005-458,no pools data
+939,2012,Championnats d'Europe Cadets,Cadet,CROATIA,2012-03-01,2012-03-10,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2012/939,2012-939,no pools data
+351,2017,Championnats d’Europe juniors,Junior,BULGARIA,2017-03-06,2017-03-06,Foil,Womens,Europe/Sofia,https://fie.org/competitions/2017/351,2017-351,
+122,2017,Reinhold-Würth-Cup,Senior,GERMANY,2017-04-28,2017-04-29,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2017/122,2017-122,
+34,2006,Trophée Le Mura di Lucca,Junior,ITALY,2005-10-01,2005-10-01,Foil,Womens,Europe/Rome,https://fie.org/competitions/2006/34,2006-34,no pools data
+1233,2015,Jeux centraméricains et caribéens,Senior,MEXICO,2014-11-14,2014-11-30,Foil,Womens,America/Mexico_City,https://fie.org/competitions/2015/1233,2015-1233,no pools data
+33,2008,Memorial de Martinengo,Junior,SLOVAKIA,2007-10-13,2007-10-13,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2008/33,2008-33,no pools data
+125,2006,Cup Eximbank,Senior,HUNGARY,2006-05-27,2006-05-28,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2006/125,2006-125,no pools data
+122,2019,Coupe du Monde,Senior,GERMANY,2019-05-03,2019-05-04,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2019/122,2019-122,
+627,2009,Star Cup Belgrade,Senior,SERBIA,2009-02-07,2009-02-08,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2009/627,2009-627,no pools data
+243,2004,Jeux Olympiques,Senior,GREECE,2004-08-18,2004-08-18,Foil,Womens,Europe/Athens,https://fie.org/competitions/2004/243,2004-243,no pools data
+41,2020,Coupe du Monde,Junior,ROMANIA,2019-12-07,2019-12-07,Foil,Womens,Europe/Bucharest,https://fie.org/competitions/2020/41,2020-41,
+800,2019,Championnats Panaméricains,Senior,CANADA,2019-06-27,2019-06-27,Foil,Womens,America/Toronto,https://fie.org/competitions/2019/800,2019-800,
+933,2018,Сhampionnats de la Méditerranée,Cadet,EGYPT,2018-02-16,2018-02-16,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2018/933,2018-933,no pools data
+41,2019,Coupe du Monde,Junior,BULGARIA,2018-12-08,2018-12-08,Foil,Womens,Europe/Sofia,https://fie.org/competitions/2019/41,2019-41,
+243,1989,Championnats du Monde,Senior,USA,1989-07-05,1989-07-15,Foil,Womens,America/Denver,https://fie.org/competitions/1989/243,1989-243,no pools data
+586,2012,Championnats d'Afrique,Senior,MOROCCO,2012-04-20,2012-04-25,Foil,Womens,Africa/Casablanca,https://fie.org/competitions/2012/586,2012-586,no pools data
+397,2017,Tournoi satellite,Senior,NETHERLANDS,2016-09-25,2016-09-25,Foil,Womens,Europe/Amsterdam,https://fie.org/competitions/2017/397,2017-397,
+397,2020,Tournoi satellite,Senior,NETHERLANDS,2019-09-08,2019-09-08,Foil,Womens,Europe/Amsterdam,https://fie.org/competitions/2020/397,2020-397,
+812,2016,Championnats Panaméricains Juniors,Junior,MEXICO,2016-02-27,2016-03-04,Foil,Womens,America/Cancun,https://fie.org/competitions/2016/812,2016-812,
+765,2011,Championnats asiatiques cadets,Cadet,THAILAND,2011-03-04,2011-03-13,Foil,Womens,Asia/Bangkok,https://fie.org/competitions/2011/765,2011-765,no pools data
+1061,2016,Championnats de qualification - Afrique,Senior,ALGERIA,2016-04-14,2016-04-14,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2016/1061,2016-1061,
+126,2003,Souvenir Jeanty,Senior,FRANCE,2003-05-02,2003-05-03,Foil,Womens,Europe/Paris,https://fie.org/competitions/2003/126,2003-126,no pools data
+586,2016,Championnats d'Afrique,Senior,ALGERIA,2016-04-15,2016-04-19,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2016/586,2016-586,
+121,2010,SK Trophée Séoul,Senior,KOREA,2010-05-07,2010-05-08,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2010/121,2010-121,no pools data
+129,2006,Prince Takamado WC,Senior,JAPAN,2006-03-10,2006-03-11,Foil,Womens,Asia/Tokyo,https://fie.org/competitions/2006/129,2006-129,no pools data
+243,1972,Jeux Olympiques,Senior,GERMANY,1972-08-26,1972-09-11,Foil,Womens,Europe/Berlin,https://fie.org/competitions/1972/243,1972-243,no pools data
+225,1989,Championnats du Monde,Junior,GREECE,1989-03-23,1989-03-27,Foil,Womens,Europe/Athens,https://fie.org/competitions/1989/225,1989-225,no pools data
+857,2016,Championnats d'Afrique,Junior,MALI,2016-03-04,2016-03-04,Foil,Womens,Africa/Bamako,https://fie.org/competitions/2016/857,2016-857,
+1105,2018,Championnats du monde vétérans 50-59,Veterans,ITALY,2018-10-11,2018-10-11,Foil,Womens,Europe/Rome,https://fie.org/competitions/2018/1105,2018-1105,
+127,2006,Cup der Sparkasse Leipzig,Senior,GERMANY,2006-05-13,2006-05-14,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2006/127,2006-127,no pools data
+34,2009,Alpe Adria,Junior,ITALY,2008-12-05,2008-12-05,Foil,Womens,Europe/Rome,https://fie.org/competitions/2009/34,2009-34,no pools data
+518,2006,Challenge Jeanty,Senior,FRANCE,2006-06-02,2006-06-03,Foil,Womens,Europe/Paris,https://fie.org/competitions/2006/518,2006-518,no pools data
+927,2016,Сhampionnats de la Méditerranée,Junior,ALGERIA,2016-01-29,2016-01-31,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2016/927,2016-927,no pools data
+237,2007,Champ du monde juniors-cadets,Cadet,TURKEY,2007-04-12,2007-04-12,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2007/237,2007-237,no pools data
+125,2018,Coupe du Monde,Senior,MEXICO,2017-10-13,2017-10-14,Foil,Womens,America/Cancun,https://fie.org/competitions/2018/125,2018-125,
+225,2019,Championnats du monde juniors-cadets,Junior,POLAND,2019-04-09,2019-04-09,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2019/225,2019-225,
+127,2010,Cup der Sparkasse Leipzig,Senior,GERMANY,2010-02-20,2010-02-21,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2010/127,2010-127,no pools data
+740,2016,Championnats d'Europe,Senior,POLAND,2016-06-21,2016-06-21,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2016/740,2016-740,
+237,2008,Champ du monde juniors-cadets,Cadet,ITALY,2008-04-08,2008-04-08,Foil,Womens,Europe/Rome,https://fie.org/competitions/2008/237,2008-237,no pools data
+118,2014,Fleuret de St-Petersbourg,Senior,RUSSIA,2014-02-26,2014-02-27,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2014/118,2014-118,no pools data
+586,2008,Championnats d'Afrique,Senior,MOROCCO,2008-04-27,2008-04-27,Foil,Womens,Africa/Casablanca,https://fie.org/competitions/2008/586,2008-586,no pools data
+37,2015,Memorial de Martinengo,Junior,SLOVAKIA,2014-11-21,2014-11-21,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2015/37,2015-37,
+1105,2017,Championnats du monde vétérans 50-59,Veterans,SLOVENIA,2017-10-18,2017-10-18,Foil,Womens,Europe/Ljubljana,https://fie.org/competitions/2017/1105,2017-1105,
+939,2010,Championnats d'Europe Cadets,Cadet,GREECE,2010-03-02,2010-03-07,Foil,Womens,Europe/Athens,https://fie.org/competitions/2010/939,2010-939,no pools data
+127,2015,The Artus Court PKO BP,Senior,POLAND,2015-01-16,2015-01-17,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2015/127,2015-127,
+34,2004,Tournoi international,Junior,ITALY,2003-12-20,2003-12-20,Foil,Womens,Europe/Rome,https://fie.org/competitions/2004/34,2004-34,no pools data
+243,1976,Jeux Olympiques,Senior,CANADA,1976-07-17,1976-08-01,Foil,Womens,America/Toronto,https://fie.org/competitions/1976/243,1976-243,no pools data
+444,2013,Coupe du Monde,Junior,CROATIA,2013-01-19,2013-01-19,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2013/444,2013-444,no pools data
+243,1985,Championnats du Monde,Senior,SPAIN,1985-07-11,1985-07-21,Foil,Womens,Europe/Madrid,https://fie.org/competitions/1985/243,1985-243,no pools data
+765,2019,Championnats asiatiques cadets,Cadet,JORDAN,2019-02-27,2019-02-27,Foil,Womens,Asia/Amman,https://fie.org/competitions/2019/765,2019-765,no pools data
+857,2020,Championnats d'Afrique juniors,Junior,GHANA,2020-02-26,2020-02-26,Foil,Womens,Africa/Porto-Novo,https://fie.org/competitions/2020/857,2020-857,
+34,2007,Trophée Le Mura di Lucca,Junior,ITALY,2006-10-21,2006-10-21,Foil,Womens,Europe/Rome,https://fie.org/competitions/2007/34,2007-34,no pools data
+933,2009,Championnats méditerranéens cadets,Cadet,PORTUGAL,2009-06-20,2009-06-20,Foil,Womens,Europe/Lisbon,https://fie.org/competitions/2009/933,2009-933,no pools data
+129,2017,The Artus Court PKO BP,Senior,POLAND,2017-02-03,2017-02-04,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2017/129,2017-129,
+125,2019,Coupe du monde fleuret d'Alger by Ooredoo ,Senior,ALGERIA,2018-11-23,2018-11-24,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2019/125,2019-125,
+363,2004,Championnats Panaméricains J/C,Junior,FRANCE,2003-10-24,2003-10-31,Foil,Womens,Europe/Paris,https://fie.org/competitions/2004/363,2004-363,no pools data
+765,2009,Championnats asiatiques cadets,Cadet,SINGAPORE,2009-07-16,2009-07-21,Foil,Womens,Asia/Singapore,https://fie.org/competitions/2009/765,2009-765,no pools data
+1299,2019,Championnats d'Afrique,Cadet,ALGERIA,2019-02-18,2019-02-18,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2019/1299,2019-1299,no pools data
+1281,2016,Trekanten International,Senior,DENMARK,2016-05-08,2016-05-08,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2016/1281,2016-1281,
+1281,2019,Tournoi Satellite,Senior,MEXICO,2018-09-30,2018-09-30,Foil,Womens,America/Cancun,https://fie.org/competitions/2019/1281,2019-1281,
+35,2017,Coupe du Monde,Junior,ITALY,2017-02-18,2017-02-18,Foil,Womens,Europe/Rome,https://fie.org/competitions/2017/35,2017-35,
+933,2016,Сhampionnats de la Méditerranée,Cadet,ALGERIA,2016-01-29,2016-01-31,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2016/933,2016-933,no pools data
+42,2009,Coupe du Monde,Junior,FRANCE,2009-02-01,2009-02-01,Foil,Womens,Europe/Paris,https://fie.org/competitions/2009/42,2009-42,no pools data
+225,1984,Championnats du Monde,Junior,RUSSIA,1984-04-19,1984-04-23,Foil,Womens,Europe/Moscow,https://fie.org/competitions/1984/225,1984-225,no pools data
+124,2005,Coupe du Monde,Senior,AUSTRIA,2005-05-07,2005-05-08,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2005/124,2005-124,no pools data
+1281,2018,Tournoi Satellite,Senior,MEXICO,2018-03-24,2018-03-25,Foil,Womens,America/Mexico_City,https://fie.org/competitions/2018/1281,2018-1281,
+1067,2012,Champ. de qualification - Asie-Océanie,Senior,JAPAN,2012-04-20,2012-04-20,Foil,Womens,Asia/Tokyo,https://fie.org/competitions/2012/1067,2012-1067,no pools data
+397,2019,Tournoi satellite,Senior,NETHERLANDS,2018-09-09,2018-09-09,Foil,Womens,Europe/Amsterdam,https://fie.org/competitions/2019/397,2019-397,
+933,2010,Championnats méditerranéens cadets,Cadet,SERBIA,2010-01-30,2010-02-01,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2010/933,2010-933,no pools data
+124,2010,Coupe du Monde,Senior,AUSTRIA,2010-02-13,2010-02-14,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2010/124,2010-124,no pools data
+1230,2016,Tournoi satellite,Senior,TURKEY,2015-12-12,2015-12-13,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2016/1230,2016-1230,
+458,2011,The Artus Court PKO BP,Senior,POLAND,2011-02-25,2011-02-26,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2011/458,2011-458,no pools data
+37,2014,Coupe du Monde,Junior,POLAND,2013-12-14,2013-12-14,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2014/37,2014-37,no pools data
+37,2008,Coupe du Monde,Junior,POLAND,2007-12-01,2007-12-01,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2008/37,2008-37,no pools data
+1117,2014,World Combat Games,Senior,RUSSIA,2013-10-24,2013-10-26,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2014/1117,2014-1117,no pools data
+225,1968,Championnats du Monde,Junior,GREAT BRITAIN,1968-04-12,1968-04-15,Foil,Womens,Europe/London,https://fie.org/competitions/1968/225,1968-225,no pools data
+225,2015,Champ du monde juniors-cadets,Junior,UZBEKISTAN,2015-04-05,2015-04-05,Foil,Womens,Asia/Tashkent,https://fie.org/competitions/2015/225,2015-225,
+129,2015,Coupe du Monde,Senior,ALGERIA,2015-02-06,2015-02-07,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2015/129,2015-129,
+225,1990,Championnats du Monde,Junior,AUSTRIA,1990-04-11,1990-04-16,Foil,Womens,Europe/Vienna,https://fie.org/competitions/1990/225,1990-225,no pools data
+351,2005,Championnats d’Europe juniors,Junior,PORTUGAL,2004-10-31,2004-11-06,Foil,Womens,Europe/Lisbon,https://fie.org/competitions/2005/351,2005-351,no pools data
+122,2005,Coupe du Monde,Senior,CHINA,2005-03-05,2005-03-06,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2005/122,2005-122,no pools data
+121,2018,Absolute Fencing Gear® Grand Prix,Senior,USA,2018-03-17,2018-03-18,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/2018/121,2018-121,
+225,1999,Championnats du Monde,Junior,HUNGARY,1999-03-30,1999-04-05,Foil,Womens,Europe/Budapest,https://fie.org/competitions/1999/225,1999-225,no pools data
+933,2015,Сhampionnats de la Méditerranée,Cadet,SPAIN,2015-01-30,2015-02-01,Foil,Womens,Europe/Madrid,https://fie.org/competitions/2015/933,2015-933,no pools data
+765,2016,Championnats asiatiques cadets,Cadet,BAHRAIN,2016-02-25,2016-02-25,Foil,Womens,Asia/Riyadh,https://fie.org/competitions/2016/765,2016-765,no pools data
+225,1966,Championnats du Monde,Junior,AUSTRIA,1966-04-07,1966-04-11,Foil,Womens,Europe/Vienna,https://fie.org/competitions/1966/225,1966-225,no pools data
+255,2003,Jeux Asiatiques,Senior,KOREA,2002-09-29,2002-10-04,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2003/255,2003-255,no pools data
+243,1979,Championnats du Monde,Senior,AUSTRALIA,1979-08-18,1979-08-28,Foil,Womens,Australia/Melbourne,https://fie.org/competitions/1979/243,1979-243,no pools data
+243,1997,Championnats du Monde,Senior,SOUTH AFRICA,1997-07-13,1997-07-19,Foil,Womens,Africa/Johannesburg,https://fie.org/competitions/1997/243,1997-243,no pools data
+225,1974,Championnats du Monde,Junior,TURKEY,1974-04-12,1974-04-15,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/1974/225,1974-225,no pools data
+39,2005,Coupe Heracles Junior,Junior,HUNGARY,2005-01-09,2005-01-09,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2005/39,2005-39,no pools data
+1105,2015,Championnats du monde vétérans 50-59,Veterans,FRANCE,2015-10-20,2015-10-25,Foil,Womens,Europe/Paris,https://fie.org/competitions/2015/1105,2015-1105,
+716,2007,Championnats Panaméricains,Senior,VENEZUELA,2006-10-27,2006-10-27,Foil,Womens,America/Caracas,https://fie.org/competitions/2007/716,2007-716,no pools data
+771,2008,Championnats asiatiques juniors et cadets,Junior,KOREA,2008-10-24,2008-10-30,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2008/771,2008-771,no pools data
+237,2004,Champ du monde juniors-cadets,Cadet,BULGARIA,2004-04-03,2004-04-03,Foil,Womens,Europe/Sofia,https://fie.org/competitions/2004/237,2004-237,no pools data
+303,2003,Jeux centraméricains et des Caraïbes,Senior,EL SALVADOR,2002-11-23,2002-12-07,Foil,Womens,America/El_Salvador,https://fie.org/competitions/2003/303,2003-303,no pools data
+37,2010,Coupe du Monde,Junior,POLAND,2009-11-28,2009-11-28,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2010/37,2010-37,no pools data
+458,2019,Grand Prix,Senior,ITALY,2019-02-08,2019-02-10,Foil,Womens,Europe/Rome,https://fie.org/competitions/2019/458,2019-458,
+225,1965,Championnats du Monde,Junior,NETHERLANDS,1965-04-16,1965-04-19,Foil,Womens,Europe/Amsterdam,https://fie.org/competitions/1965/225,1965-225,no pools data
+41,2013,Tournoi international,Junior,GERMANY,2012-12-01,2012-12-01,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2013/41,2013-41,no pools data
+702,2006,XXV Championnats Sudaméricains,Junior,ARGENTINA,2006-05-22,2006-05-22,Foil,Womens,America/Argentina/Catamarca,https://fie.org/competitions/2006/702,2006-702,no pools data
+1111,2020,Championnats Panaméricains Cadets,Cadet,EL SALVADOR,2020-02-23,2020-02-23,Foil,Womens,America/El_Salvador,https://fie.org/competitions/2020/1111,2020-1111,no pools data
+1006,2010,Singapore Cadet Fencing World Cup 2010,Cadet,SINGAPORE,2010-01-22,2010-01-22,Foil,Womens,Asia/Singapore,https://fie.org/competitions/2010/1006,2010-1006,no pools data
+690,2006,XXV Championnats Sudaméricains,Cadet,ARGENTINA,2006-05-21,2006-05-21,Foil,Womens,America/Argentina/Catamarca,https://fie.org/competitions/2006/690,2006-690,no pools data
+118,2010,Fleuret de St-Petersbourg,Senior,RUSSIA,2010-05-21,2010-05-22,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2010/118,2010-118,no pools data
+35,2005,Stadtwerke-Pokal,Junior,GERMANY,2004-11-14,2004-11-14,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2005/35,2005-35,no pools data
+939,2019,Championnats d'Europe Cadets,Cadet,ITALY,2019-02-24,2019-02-24,Foil,Womens,Europe/Rome,https://fie.org/competitions/2019/939,2019-939,no pools data
+243,1975,Championnats du Monde,Senior,HUNGARY,1975-07-11,1975-07-21,Foil,Womens,Europe/Budapest,https://fie.org/competitions/1975/243,1975-243,no pools data
+225,1992,Championnats du Monde,Junior,ITALY,1992-04-16,1992-04-20,Foil,Womens,Europe/Rome,https://fie.org/competitions/1992/225,1992-225,no pools data
+35,2008,Stadtwerke-Pokal,Junior,GERMANY,2007-12-15,2007-12-15,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2008/35,2008-35,no pools data
+34,2005,Tournoi international,Junior,ITALY,2004-12-18,2004-12-18,Foil,Womens,Europe/Rome,https://fie.org/competitions/2005/34,2005-34,no pools data
+125,2014,Coupe du Monde,Senior,HUNGARY,2014-02-07,2014-02-08,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2014/125,2014-125,no pools data
+118,2004,Fleuret de St-Petersbourg,Senior,RUSSIA,2004-03-27,2004-03-28,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2004/118,2004-118,no pools data
+1359,2016,Championnats du monde vétérans 60-69,Veterans,GERMANY,2016-10-14,2016-10-14,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2016/1359,2016-1359,
+131,2006,Tournoi Nancy Uranga,Senior,CUBA,2006-06-20,2006-06-21,Foil,Womens,America/Havana,https://fie.org/competitions/2006/131,2006-131,no pools data
+37,2017,Coupe du Monde,Junior,GUATEMALA,2016-11-19,2016-11-19,Foil,Womens,America/Guatemala,https://fie.org/competitions/2017/37,2017-37,
+118,2006,Fleuret de St-Petersbourg,Senior,RUSSIA,2006-05-05,2006-05-06,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2006/118,2006-118,no pools data
+457,2010,World Cup,Senior,EGYPT,2010-03-19,2010-03-20,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2010/457,2010-457,no pools data
+857,2015,Championnats d'Afrique cadets juniors,Junior,ALGERIA,2015-03-01,2015-03-05,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2015/857,2015-857,
+927,2015,Сhampionnats de la Méditerranée,Junior,SPAIN,2015-01-30,2015-02-01,Foil,Womens,Europe/Madrid,https://fie.org/competitions/2015/927,2015-927,no pools data
+861,2008,Championnats de qualification de zones,Senior,THAILAND,2008-04-22,2008-04-23,Foil,Womens,Asia/Bangkok,https://fie.org/competitions/2008/861,2008-861,no pools data
+122,2012,Coupe du Monde,Senior,CHINA,2012-05-04,2012-05-05,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2012/122,2012-122,no pools data
+122,2009,Coupe du Monde,Senior,CHINA,2009-05-04,2009-05-05,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2009/122,2009-122,no pools data
+812,2017,Championnats Panaméricains Juniors,Junior,CUBA,2017-03-02,2017-03-07,Foil,Womens,America/Havana,https://fie.org/competitions/2017/812,2017-812,
+33,2013,Memorial de Martinengo,Junior,SLOVAKIA,2012-11-17,2012-11-17,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2013/33,2013-33,no pools data
+225,1960,Championnats du Monde,Junior,RUSSIA,1960-04-15,1960-04-19,Foil,Womens,Europe/Moscow,https://fie.org/competitions/1960/225,1960-225,no pools data
+1356,2018,Tournoi Satellite,Senior,ROMANIA,2018-05-13,2018-05-13,Foil,Womens,Europe/Bucharest,https://fie.org/competitions/2018/1356,2018-1356,
+225,1972,Championnats du Monde,Junior,SPAIN,1972-03-30,1972-04-03,Foil,Womens,Europe/Madrid,https://fie.org/competitions/1972/225,1972-225,no pools data
+225,1986,Championnats du Monde,Junior,GERMANY,1986-03-28,1986-04-01,Foil,Womens,Europe/Berlin,https://fie.org/competitions/1986/225,1986-225,no pools data
+225,1959,Championnats du Monde,Junior,FRANCE,1959-03-28,1959-03-31,Foil,Womens,Europe/Paris,https://fie.org/competitions/1959/225,1959-225,no pools data
+586,2019,Championnats d'Afrique,Senior,MALI,2019-06-26,2019-06-26,Foil,Womens,Africa/Bamako,https://fie.org/competitions/2019/586,2019-586,
+616,2007,Jeux Asiatiques,Senior,QATAR,2006-12-01,2006-12-15,Foil,Womens,Asia/Qatar,https://fie.org/competitions/2007/616,2007-616,no pools data
+41,2010,Tournoi international,Junior,GERMANY,2010-01-24,2010-01-24,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2010/41,2010-41,no pools data
+122,2006,Coupe du Monde,Senior,CHINA,2006-03-04,2006-03-05,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2006/122,2006-122,no pools data
+771,2020,Championnats Asiatiques juniors,Junior,JORDAN,2020-03-01,2020-03-01,Foil,Womens,Asia/Amman,https://fie.org/competitions/2020/771,2020-771,
+444,2018,Coupe du Monde,Junior,CUBA,2017-12-16,2017-12-16,Foil,Womens,America/Havana,https://fie.org/competitions/2018/444,2018-444,
+225,1970,Championnats du Monde,Junior,RUSSIA,1970-03-24,1970-03-30,Foil,Womens,Europe/Minsk,https://fie.org/competitions/1970/225,1970-225,no pools data
+237,1995,Championnats du Monde,Cadet,FRANCE,1995-04-11,1995-04-16,Foil,Womens,Europe/Paris,https://fie.org/competitions/1995/237,1995-237,no pools data
+127,2013,Reinhold-Würth-Cup,Senior,GERMANY,2013-03-08,2013-03-09,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2013/127,2013-127,no pools data
+598,2006,Championnats asiatiques juniors-cadets,Junior,KUWAIT,2006-04-24,2006-04-30,Foil,Womens,Asia/Kuwait,https://fie.org/competitions/2006/598,2006-598,no pools data
+36,2006,Trophée Federico II,Junior,ITALY,2005-11-26,2005-11-26,Foil,Womens,Europe/Rome,https://fie.org/competitions/2006/36,2006-36,no pools data
+1140,2013,Jeux méditerranéens,Senior,TURKEY,2013-06-22,2013-06-22,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2013/1140,2013-1140,no pools data
+237,2012,Champ du monde juniors-cadets,Cadet,RUSSIA,2012-03-31,2012-03-31,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2012/237,2012-237,no pools data
+125,2009,Cup Eximbank,Senior,HUNGARY,2009-03-14,2009-03-15,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2009/125,2009-125,no pools data
+518,2008,Challenge Jeanty,Senior,FRANCE,2008-03-28,2008-03-29,Foil,Womens,Europe/Paris,https://fie.org/competitions/2008/518,2008-518,no pools data
+37,2019,Coupe du Monde,Junior,CUBA,2018-12-15,2018-12-15,Foil,Womens,America/Havana,https://fie.org/competitions/2019/37,2019-37,
+36,2005,Trophée Federico II,Junior,ITALY,2004-11-27,2004-11-27,Foil,Womens,Europe/Rome,https://fie.org/competitions/2005/36,2005-36,no pools data
+457,2018,Grand Prix,Senior,CHINA,2018-05-18,2018-05-20,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2018/457,2018-457,
+327,2011,Championnats du Monde Vétérans,Veterans,CROATIA,2011-09-27,2011-10-02,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2011/327,2011-327,no pools data
+243,1973,Championnats du Monde,Senior,SWEDEN,1973-06-10,1973-06-24,Foil,Womens,Europe/Stockholm,https://fie.org/competitions/1973/243,1973-243,no pools data
+32,2005,Coupe du Monde,Junior,USA,2004-11-07,2004-11-07,Foil,Womens,America/New_York,https://fie.org/competitions/2005/32,2005-32,no pools data
+225,1977,Championnats du Monde,Junior,AUSTRIA,1977-04-06,1977-04-11,Foil,Womens,Europe/Vienna,https://fie.org/competitions/1977/225,1977-225,no pools data
+444,2009,Coupe du Monde,Junior,CROATIA,2009-02-21,2009-02-21,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2009/444,2009-444,no pools data
+125,2013,Coupe du Monde,Senior,HUNGARY,2013-02-08,2013-02-09,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2013/125,2013-125,no pools data
+42,2010,Coupe du Monde,Junior,FRANCE,2010-02-07,2010-02-07,Foil,Womens,Europe/Paris,https://fie.org/competitions/2010/42,2010-42,no pools data
+1111,2015,Championnats Panaméricains Cadets,Cadet,CANADA,2015-02-02,2015-02-08,Foil,Womens,America/Toronto,https://fie.org/competitions/2015/1111,2015-1111,
+36,2004,Trophée Federico II,Junior,ITALY,2003-11-29,2003-11-29,Foil,Womens,Europe/Rome,https://fie.org/competitions/2004/36,2004-36,no pools data
+586,2007,Jeux Africains,Senior,ALGERIA,2007-07-14,2007-07-14,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2007/586,2007-586,no pools data
+457,2015,Grand Prix,Senior,CHINA,2015-05-15,2015-05-16,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2015/457,2015-457,
+33,2020,Coupe du Monde,Junior,GUATEMALA,2019-11-16,2019-11-16,Foil,Womens,America/Guatemala,https://fie.org/competitions/2020/33,2020-33,
+33,2006,Memorial de Martinengo,Junior,SLOVAKIA,2005-12-11,2005-12-11,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2006/33,2006-33,no pools data
+586,2017,Championnats d'Afrique,Senior,EGYPT,2017-06-10,2017-06-10,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2017/586,2017-586,
+351,2018,Championnats d’Europe juniors,Junior,RUSSIA,2018-03-08,2018-03-08,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2018/351,2018-351,
+42,2005,Tournoi international,Junior,FRANCE,2005-02-13,2005-02-13,Foil,Womens,Europe/Paris,https://fie.org/competitions/2005/42,2005-42,no pools data
+125,2015,Coupe du Monde,Senior,MEXICO,2014-10-17,2014-10-18,Foil,Womens,America/Cancun,https://fie.org/competitions/2015/125,2015-125,
+951,2008,WF-IND,Senior,FIE,2008-08-20,2008-08-21,Foil,Womens,Europe/Zurich,https://fie.org/competitions/2008/951,2008-951,no pools data
+125,2010,Cup Eximbank,Senior,HUNGARY,2010-03-13,2010-03-14,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2010/125,2010-125,no pools data
+1037,2011,Championnats Panaméricains Cadets,Cadet,VENEZUELA,2011-02-11,2011-02-19,Foil,Womens,America/Caracas,https://fie.org/competitions/2011/1037,2011-1037,no pools data
+39,2014,Coupe Heracles Junior,Junior,HUNGARY,2014-02-15,2014-02-15,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2014/39,2014-39,no pools data
+243,2012,JO,Senior,GREAT BRITAIN,2012-07-28,2012-07-28,Foil,Womens,Europe/London,https://fie.org/competitions/2012/243,2012-243,no pools data
+740,2008,Championnats d'Europe,Senior,UKRAINE,2008-07-04,2008-07-11,Foil,Womens,Europe/Kiev,https://fie.org/competitions/2008/740,2008-740,no pools data
+1360,2015,Championnats du monde Vétérans 70+,Veterans,FRANCE,2015-10-20,2015-10-25,Foil,Womens,Europe/Paris,https://fie.org/competitions/2015/1360,2015-1360,no pools data
+243,1996,Jeux Olympiques,Senior,USA,1996-07-19,1996-08-04,Foil,Womens,America/New_York,https://fie.org/competitions/1996/243,1996-243,no pools data
+243,2011,Championnats du Monde,Senior,ITALY,2011-10-09,2011-10-11,Foil,Womens,Europe/Rome,https://fie.org/competitions/2011/243,2011-243,no pools data
+397,2018,Memorial de Martinengo Tournoi,Senior,SLOVAKIA,2017-11-18,2017-11-19,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2018/397,2018-397,
+487,2005,Candidature A,Senior,ROMANIA,2005-06-04,2005-06-05,Foil,Womens,Europe/Bucharest,https://fie.org/competitions/2005/487,2005-487,no pools data
+237,1994,Championnats du Monde,Cadet,MEXICO,1994-03-27,1994-04-02,Foil,Womens,America/Mexico_City,https://fie.org/competitions/1994/237,1994-237,no pools data
+898,2020,Coupe du Monde,Junior,GREAT BRITAIN,2019-11-02,2019-11-02,Foil,Womens,Europe/London,https://fie.org/competitions/2020/898,2020-898,
+327,2004,Championnats du Monde Vétérans,Veterans,AUSTRIA,2004-09-03,2004-09-04,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2004/327,2004-327,no pools data
+898,2011,Ier challenge Colette Flesch,Junior,LUXEMBOURG,2010-11-06,2010-11-06,Foil,Womens,Europe/Luxembourg,https://fie.org/competitions/2011/898,2011-898,no pools data
+41,2004,Coupe du Monde,Junior,GERMANY,2004-02-01,2004-02-01,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2004/41,2004-41,no pools data
+927,2017,Сhampionnats de la Méditerranée,Junior,FRANCE,2017-01-27,2017-01-29,Foil,Womens,Europe/Paris,https://fie.org/competitions/2017/927,2017-927,no pools data
+1073,2012,Champ. de qualification- Amérique,Senior,CHILE,2012-04-20,2012-04-22,Foil,Womens,America/Santiago,https://fie.org/competitions/2012/1073,2012-1073,no pools data
+457,2005,World Cup,Senior,EGYPT,2005-03-18,2005-03-19,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2005/457,2005-457,no pools data
+397,2016,Tournoi satellite,Senior,MEXICO,2015-10-13,2015-10-14,Foil,Womens,America/Cancun,https://fie.org/competitions/2016/397,2016-397,
+1299,2017,Championnats d'Afrique,Cadet,COTE D'IVOIRE,2017-03-07,2017-03-07,Foil,Womens,Africa/Abidjan,https://fie.org/competitions/2017/1299,2017-1299,
+1257,2015,Jeux Panaméricains,Senior,CANADA,2015-07-20,2015-07-25,Foil,Womens,America/Toronto,https://fie.org/competitions/2015/1257,2015-1257,no pools data
+555,2007,Cole Cup,Senior,GREAT BRITAIN,2007-06-23,2007-06-24,Foil,Womens,Europe/London,https://fie.org/competitions/2007/555,2007-555,no pools data
+35,2003,Stadtwerke-Pokal,Junior,GERMANY,2002-11-17,2002-11-17,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2003/35,2003-35,no pools data
+1167,2014,Jeux Asiatiques,Senior,KOREA,2014-09-20,2014-09-25,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2014/1167,2014-1167,no pools data
+225,1962,Championnats du Monde,Junior,EGYPT,1962-04-20,1962-04-23,Foil,Womens,Africa/Cairo,https://fie.org/competitions/1962/225,1962-225,no pools data
+121,2005,2005 SK Trophée Séoul,Senior,KOREA,2005-02-25,2005-02-26,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2005/121,2005-121,no pools data
+586,2015,Championnats d'Afrique,Senior,EGYPT,2015-06-14,2015-06-14,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2015/586,2015-586,
+121,2015,Grand Prix,Senior,CUBA,2015-03-13,2015-03-14,Foil,Womens,America/Havana,https://fie.org/competitions/2015/121,2015-121,
+129,2018,Coupe du Monde de fleuret d'Alger by Ooredoo,Senior,ALGERIA,2018-02-02,2018-02-03,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2018/129,2018-129,
+121,2008,SK Trophée Séoul,Senior,KOREA,2008-05-16,2008-05-17,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2008/121,2008-121,no pools data
+1079,2012,Champ. de qualification-Europe,Senior,SLOVAKIA,2012-04-21,2012-04-22,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2012/1079,2012-1079,no pools data
+933,2014,Championnats méditerranéens cadets,Cadet,ITALY,2014-01-31,2014-02-02,Foil,Womens,Europe/Rome,https://fie.org/competitions/2014/933,2014-933,no pools data
+1014,2016,Championnats asiatiques,Senior,CHINA,2016-04-13,2016-04-18,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2016/1014,2016-1014,
+444,2006,Coupe du Monde,Junior,CROATIA,2006-02-25,2006-02-25,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2006/444,2006-444,no pools data
+237,2003,Champ du monde juniors-cadets,Cadet,ITALY,2003-04-07,2003-04-07,Foil,Womens,Europe/Rome,https://fie.org/competitions/2003/237,2003-237,no pools data
+1111,2018,Championnats Panaméricains Cadets,Cadet,COSTA RICA,2018-03-05,2018-03-05,Foil,Womens,America/Costa_Rica,https://fie.org/competitions/2018/1111,2018-1111,no pools data
+243,1981,Championnats du Monde,Senior,FRANCE,1981-07-02,1981-07-13,Foil,Womens,Europe/Paris,https://fie.org/competitions/1981/243,1981-243,no pools data
+1140,2018,Jeux méditerranéens,Senior,SPAIN,2018-06-24,2018-06-25,Foil,Womens,Europe/Madrid,https://fie.org/competitions/2018/1140,2018-1140,no pools data
+39,2008,Coupe Heracles Junior,Junior,HUNGARY,2008-01-04,2008-01-04,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2008/39,2008-39,no pools data
+898,2014,Ier challenge Colette Flesch,Junior,LUXEMBOURG,2013-11-10,2013-11-10,Foil,Womens,Europe/Luxembourg,https://fie.org/competitions/2014/898,2014-898,no pools data
+291,2003,Championnats d'Europe seniors,Senior,FRANCE,2003-06-27,2003-07-03,Foil,Womens,Europe/Paris,https://fie.org/competitions/2003/291,2003-291,no pools data
+927,2009,Championnats méditerranéens juniors,Junior,PORTUGAL,2009-06-21,2009-06-21,Foil,Womens,Europe/Lisbon,https://fie.org/competitions/2009/927,2009-927,no pools data
+42,2003,Tournoi international,Junior,FRANCE,2003-02-16,2003-02-16,Foil,Womens,Europe/Paris,https://fie.org/competitions/2003/42,2003-42,no pools data
+800,2014,Championnats Panaméricains,Senior,COSTA RICA,2014-06-03,2014-06-03,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/2014/800,2014-800,no pools data
+765,2008,Championnats asiatiques juniors et cadets,Cadet,KOREA,2008-10-24,2008-10-30,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2008/765,2008-765,no pools data
+740,2012,Championnats d'Europe,Senior,ITALY,2012-06-15,2012-06-20,Foil,Womens,Europe/Rome,https://fie.org/competitions/2012/740,2012-740,no pools data
+327,2012,Championnats du Monde Vétérans,Veterans,AUSTRIA,2012-10-17,2012-10-21,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2012/327,2012-327,no pools data
+1391,2020,Tournoi Satellite,Senior,UZBEKISTAN,2019-09-06,2019-09-06,Foil,Womens,Asia/Tashkent,https://fie.org/competitions/2020/1391,2020-1391,
+37,2007,Coupe du Monde,Junior,POLAND,2006-12-02,2006-12-02,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2007/37,2007-37,no pools data
+927,2014,Championnats méditerranéens juniors,Junior,ITALY,2014-01-31,2014-02-02,Foil,Womens,Europe/Rome,https://fie.org/competitions/2014/927,2014-927,no pools data
+127,2004,Cup der Sparkasse Leipzig,Senior,GERMANY,2004-05-15,2004-05-16,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2004/127,2004-127,no pools data
+543,2006,Championnats de la Méditerranée,Junior,TUNISIA,2006-01-06,2006-01-07,Foil,Womens,Africa/Tunis,https://fie.org/competitions/2006/543,2006-543,no pools data
+237,2005,Champ du monde juniors-cadets,Cadet,AUSTRIA,2005-03-25,2005-03-25,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2005/237,2005-237,no pools data
+37,2020,Coupe du Monde,Junior,ITALY,2020-01-05,2020-01-05,Foil,Womens,Europe/Rome,https://fie.org/competitions/2020/37,2020-37,
+583,2006,Championnats panaméricains J/C,Junior,COLOMBIA,2005-10-30,2005-10-30,Foil,Womens,America/Bogota,https://fie.org/competitions/2006/583,2006-583,no pools data
+243,1992,Jeux Olympiques,Senior,SPAIN,1992-07-30,1992-08-07,Foil,Womens,Europe/Madrid,https://fie.org/competitions/1992/243,1992-243,no pools data
+237,2011,Champ du monde juniors-cadets,Cadet,JORDAN,2011-03-29,2011-03-29,Foil,Womens,Asia/Amman,https://fie.org/competitions/2011/237,2011-237,no pools data
+351,2020,Championnats d’Europe juniors,Junior,CROATIA,2020-02-29,2020-02-29,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2020/351,2020-351,
+812,2020,Championnats Panaméricains Juniors,Junior,EL SALVADOR,2020-02-25,2020-02-25,Foil,Womens,America/El_Salvador,https://fie.org/competitions/2020/812,2020-812,
+35,2020,Coupe du Monde,Junior,AUSTRIA,2020-02-15,2020-02-15,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2020/35,2020-35,
+39,2020,Coupe du Monde,Junior,GERMANY,2020-02-01,2020-02-01,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2020/39,2020-39,
+42,2020,Coupe du Monde,Junior,USA,2020-01-25,2020-01-25,Foil,Womens,America/Phoenix,https://fie.org/competitions/2020/42,2020-42,
+927,2020,Сhampionnats de la Méditerranée,Junior,TUNISIA,2020-01-25,2020-01-25,Foil,Womens,Africa/Tunis,https://fie.org/competitions/2020/927,2020-927,no pools data
+444,2020,Coupe du Monde,Junior,CROATIA,2020-01-18,2020-01-18,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2020/444,2020-444,
+771,2019,Championnats Asiatiques juniors,Junior,JORDAN,2019-03-03,2019-03-03,Foil,Womens,Asia/Amman,https://fie.org/competitions/2019/771,2019-771,
+351,2019,Championnats d’Europe juniors,Junior,ITALY,2019-03-01,2019-03-01,Foil,Womens,Europe/Rome,https://fie.org/competitions/2019/351,2019-351,
+812,2019,Championnats Panaméricains Juniors,Junior,COLOMBIA,2019-02-26,2019-02-26,Foil,Womens,America/Bogota,https://fie.org/competitions/2019/812,2019-812,
+857,2019,Championnats d'Afrique juniors,Junior,ALGERIA,2019-02-20,2019-02-20,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2019/857,2019-857,
+35,2019,Coupe du Monde,Junior,AUSTRIA,2019-02-16,2019-02-16,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2019/35,2019-35,
+39,2019,Coupe du Monde,Junior,GERMANY,2019-02-02,2019-02-02,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2019/39,2019-39,
+42,2019,Coupe du Monde,Junior,CROATIA,2019-01-19,2019-01-19,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2019/42,2019-42,
+444,2019,Coupe du Monde,Junior,ITALY,2019-01-05,2019-01-06,Foil,Womens,Europe/Rome,https://fie.org/competitions/2019/444,2019-444,
+33,2019,Coupe du Monde,Junior,GUATEMALA,2018-11-17,2018-11-18,Foil,Womens,America/Guatemala,https://fie.org/competitions/2019/33,2019-33,
+898,2019,Coupe du Monde,Junior,GREAT BRITAIN,2018-11-03,2018-11-04,Foil,Womens,Europe/London,https://fie.org/competitions/2019/898,2019-898,
+225,2018,Championnats du monde juniors-cadets,Junior,ITALY,2018-04-07,2018-04-07,Foil,Womens,Europe/Rome,https://fie.org/competitions/2018/225,2018-225,
+812,2018,Championnats Panaméricains Juniors,Junior,COSTA RICA,2018-03-08,2018-03-08,Foil,Womens,America/Costa_Rica,https://fie.org/competitions/2018/812,2018-812,
+857,2018,Championnats d'Afrique juniors,Junior,NIGERIA,2018-03-03,2018-03-03,Foil,Womens,Africa/Lagos,https://fie.org/competitions/2018/857,2018-857,
+771,2018,Championnats Asiatiques juniors,Junior,UNITED ARAB EMIRATES,2018-02-28,2018-02-28,Foil,Womens,Asia/Dubai,https://fie.org/competitions/2018/771,2018-771,
+35,2018,Coupe du Monde,Junior,AUSTRIA,2018-02-17,2018-02-17,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2018/35,2018-35,
+927,2018,Сhampionnats de la Méditerranée,Junior,EGYPT,2018-02-17,2018-02-17,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2018/927,2018-927,no pools data
+39,2018,Coupe du Monde,Junior,CROATIA,2018-01-27,2018-01-27,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2018/39,2018-39,
+42,2018,Coupe du Monde,Junior,ITALY,2018-01-06,2018-01-06,Foil,Womens,Europe/Rome,https://fie.org/competitions/2018/42,2018-42,
+37,2018,Coupe du Monde,Junior,GUATEMALA,2017-11-18,2017-11-19,Foil,Womens,America/Guatemala,https://fie.org/competitions/2018/37,2018-37,
+41,2018,Tournoi international,Junior,GERMANY,2017-10-28,2017-10-28,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2018/41,2018-41,
+33,2018,Coupe du Monde,Junior,ROMANIA,2017-10-07,2017-10-07,Foil,Womens,Europe/Bucharest,https://fie.org/competitions/2018/33,2018-33,
+898,2018,Coupe du Monde,Junior,GREAT BRITAIN,2017-09-16,2017-09-16,Foil,Womens,Europe/London,https://fie.org/competitions/2018/898,2018-898,
+225,2017,Championnats du monde juniors-cadets,Junior,BULGARIA,2017-04-07,2017-04-07,Foil,Womens,Europe/Sofia,https://fie.org/competitions/2017/225,2017-225,
+857,2017,Championnats d'Afrique,Junior,COTE D'IVOIRE,2017-03-09,2017-03-09,Foil,Womens,Africa/Abidjan,https://fie.org/competitions/2017/857,2017-857,
+771,2017,Championnats asiatiques juniors,Junior,THAILAND,2017-03-03,2017-03-03,Foil,Womens,Asia/Bangkok,https://fie.org/competitions/2017/771,2017-771,
+39,2017,Coupe du Monde,Junior,AUSTRIA,2017-01-28,2017-01-28,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2017/39,2017-39,
+42,2017,Coupe du Monde,Junior,CROATIA,2017-01-07,2017-01-07,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2017/42,2017-42,
+444,2017,Coupe du Monde,Junior,FRANCE,2016-12-17,2016-12-17,Foil,Womens,Europe/Paris,https://fie.org/competitions/2017/444,2017-444,
+33,2017,Coupe du Monde,Junior,ROMANIA,2016-10-08,2016-10-08,Foil,Womens,Europe/Bucharest,https://fie.org/competitions/2017/33,2017-33,
+898,2017,Coupe du Monde,Junior,HUNGARY,2016-09-17,2016-09-17,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2017/898,2017-898,
+225,2016,Championnats du monde juniors-cadets,Junior,FRANCE,2016-04-05,2016-04-05,Foil,Womens,Europe/Paris,https://fie.org/competitions/2016/225,2016-225,
+351,2016,Championnats d’Europe juniors,Junior,SERBIA,2016-02-29,2016-03-09,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2016/351,2016-351,
+771,2016,Championnats asiatiques juniors,Junior,BAHRAIN,2016-02-28,2016-02-28,Foil,Womens,Asia/Riyadh,https://fie.org/competitions/2016/771,2016-771,
+35,2016,Coupe du Monde,Junior,SERBIA,2016-02-13,2016-02-13,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2016/35,2016-35,
+39,2016,Coupe du Monde,Junior,CROATIA,2016-01-30,2016-01-30,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2016/39,2016-39,
+42,2016,Coupe du Monde,Junior,AUSTRIA,2016-01-09,2016-01-09,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2016/42,2016-42,
+444,2016,Coupe du Monde,Junior,FRANCE,2015-12-12,2015-12-12,Foil,Womens,Europe/Paris,https://fie.org/competitions/2016/444,2016-444,
+37,2016,Memorial de Martinengo,Junior,SLOVAKIA,2015-11-29,2015-11-29,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2016/37,2016-37,
+41,2016,Tournoi international,Junior,GERMANY,2015-10-31,2015-10-31,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2016/41,2016-41,
+33,2016,Coupe du Monde,Junior,GUATEMALA,2015-10-10,2015-10-10,Foil,Womens,America/Guatemala,https://fie.org/competitions/2016/33,2016-33,
+898,2016,Coupe du Monde,Junior,ROMANIA,2015-09-26,2015-09-26,Foil,Womens,Europe/Bucharest,https://fie.org/competitions/2016/898,2016-898,
+35,2015,Coupe du Monde,Junior,SERBIA,2015-03-07,2015-03-07,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2015/35,2015-35,
+771,2015,Championnats asiatiques juniors,Junior,UNITED ARAB EMIRATES,2015-03-05,2015-03-09,Foil,Womens,Asia/Muscat,https://fie.org/competitions/2015/771,2015-771,
+351,2015,Championnats d’Europe juniors,Junior,SLOVENIA,2015-03-01,2015-03-05,Foil,Womens,Europe/Ljubljana,https://fie.org/competitions/2015/351,2015-351,
+812,2015,Championnats Panaméricains Juniors,Junior,CANADA,2015-02-02,2015-02-08,Foil,Womens,America/Toronto,https://fie.org/competitions/2015/812,2015-812,
+39,2015,Coupe du Monde,Junior,CROATIA,2015-01-31,2015-01-31,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2015/39,2015-39,
+42,2015,Coupe du Monde,Junior,AUSTRIA,2015-01-10,2015-01-11,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2015/42,2015-42,
+444,2015,Coupe du Monde,Junior,FRANCE,2014-12-13,2014-12-13,Foil,Womens,Europe/Paris,https://fie.org/competitions/2015/444,2015-444,
+41,2015,Tournoi international,Junior,GERMANY,2014-11-01,2014-11-01,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2015/41,2015-41,
+33,2015,Coupe du Monde,Junior,GUATEMALA,2014-10-10,2014-10-11,Foil,Womens,America/Guatemala,https://fie.org/competitions/2015/33,2015-33,
+898,2015,Coupe du Monde,Junior,ROMANIA,2014-09-27,2014-09-27,Foil,Womens,Europe/Bucharest,https://fie.org/competitions/2015/898,2015-898,
+225,2014,Champ du monde juniors-cadets,Junior,BULGARIA,2014-04-06,2014-04-07,Foil,Womens,Europe/Sofia,https://fie.org/competitions/2014/225,2014-225,no pools data
+35,2014,Coupe du Monde,Junior,SERBIA,2014-03-16,2014-03-16,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2014/35,2014-35,no pools data
+771,2014,Championnats asiatiques juniors,Junior,JORDAN,2014-03-12,2014-03-12,Foil,Womens,Asia/Amman,https://fie.org/competitions/2014/771,2014-771,no pools data
+857,2014,Championnats d'Afrique juniors,Junior,EGYPT,2014-03-03,2014-03-03,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2014/857,2014-857,no pools data
+351,2014,Championnats d’Europe juniors,Junior,ISRAEL,2014-03-01,2014-03-01,Foil,Womens,Asia/Jerusalem,https://fie.org/competitions/2014/351,2014-351,no pools data
+812,2014,Championnats Panaméricains Juniors,Junior,GUATEMALA,2014-02-25,2014-02-25,Foil,Womens,America/Guatemala,https://fie.org/competitions/2014/812,2014-812,no pools data
+42,2014,Coupe du Monde,Junior,FRANCE,2014-02-01,2014-02-01,Foil,Womens,Europe/Paris,https://fie.org/competitions/2014/42,2014-42,no pools data
+444,2014,Coupe du Monde,Junior,CROATIA,2014-01-18,2014-01-18,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2014/444,2014-444,no pools data
+41,2014,Tournoi international,Junior,GERMANY,2013-11-30,2013-11-30,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2014/41,2014-41,no pools data
+33,2014,Memorial de Martinengo,Junior,SLOVAKIA,2013-11-16,2013-11-16,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2014/33,2014-33,no pools data
+225,2013,Champ du monde juniors-cadets,Junior,CROATIA,2013-04-09,2013-04-10,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2013/225,2013-225,no pools data
+35,2013,Coupe du Monde,Junior,SERBIA,2013-03-17,2013-03-17,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2013/35,2013-35,no pools data
+1123,2013,Championnats asiatiques juniors,Junior,THAILAND,2013-03-07,2013-03-07,Foil,Womens,Asia/Bangkok,https://fie.org/competitions/2013/1123,2013-1123,no pools data
+351,2013,Championnats d’Europe juniors,Junior,HUNGARY,2013-03-04,2013-03-04,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2013/351,2013-351,no pools data
+39,2013,Coupe Heracles Junior,Junior,HUNGARY,2013-02-16,2013-02-16,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2013/39,2013-39,no pools data
+42,2013,Coupe du Monde,Junior,FRANCE,2013-02-02,2013-02-02,Foil,Womens,Europe/Paris,https://fie.org/competitions/2013/42,2013-42,no pools data
+927,2013,Championnats méditerranéens juniors,Junior,ALGERIA,2013-01-26,2013-01-28,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2013/927,2013-927,no pools data
+37,2013,Coupe du Monde,Junior,POLAND,2012-12-15,2012-12-15,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2013/37,2013-37,no pools data
+898,2013,Ier challenge Colette Flesch,Junior,LUXEMBOURG,2012-11-04,2012-11-04,Foil,Womens,Europe/Luxembourg,https://fie.org/competitions/2013/898,2013-898,no pools data
+771,2013,Championnats asiatiques juniors,Junior,INDONESIA,2012-10-01,2012-10-09,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2013/771,2013-771,no pools data
+225,2012,Champ du monde juniors-cadets,Junior,RUSSIA,2012-04-03,2012-04-03,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2012/225,2012-225,no pools data
+812,2012,Championnats Panaméricains Juniors,Junior,VENEZUELA,2012-03-08,2012-03-13,Foil,Womens,America/Caracas,https://fie.org/competitions/2012/812,2012-812,no pools data
+351,2012,Championnats d’Europe juniors,Junior,CROATIA,2012-03-01,2012-03-10,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2012/351,2012-351,no pools data
+39,2012,Coupe Heracles Junior,Junior,HUNGARY,2012-02-18,2012-02-18,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2012/39,2012-39,no pools data
+42,2012,Coupe du Monde,Junior,FRANCE,2012-02-04,2012-02-04,Foil,Womens,Europe/Paris,https://fie.org/competitions/2012/42,2012-42,no pools data
+927,2012,Championnats méditerranéens juniors,Junior,CROATIA,2012-01-28,2012-01-30,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2012/927,2012-927,no pools data
+444,2012,Coupe du Monde,Junior,CROATIA,2012-01-21,2012-01-21,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2012/444,2012-444,no pools data
+35,2012,Coupe du Monde,Junior,SERBIA,2012-01-08,2012-01-08,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2012/35,2012-35,no pools data
+857,2012,Championnats d'Afrique juniors,Junior,ALGERIA,2011-12-27,2011-12-30,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2012/857,2012-857,no pools data
+37,2012,Coupe du Monde,Junior,POLAND,2011-12-17,2011-12-17,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2012/37,2012-37,no pools data
+41,2012,Tournoi international,Junior,GERMANY,2011-12-03,2011-12-03,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2012/41,2012-41,no pools data
+33,2012,Memorial de Martinengo,Junior,SLOVAKIA,2011-11-19,2011-11-19,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2012/33,2012-33,no pools data
+898,2012,Ier challenge Colette Flesch,Junior,LUXEMBOURG,2011-11-05,2011-11-05,Foil,Womens,Europe/Luxembourg,https://fie.org/competitions/2012/898,2012-898,no pools data
+225,2011,Champ du monde juniors-cadets,Junior,JORDAN,2011-04-01,2011-04-01,Foil,Womens,Asia/Amman,https://fie.org/competitions/2011/225,2011-225,no pools data
+35,2011,Coupe du Monde,Junior,SERBIA,2011-03-06,2011-03-06,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2011/35,2011-35,no pools data
+771,2011,Championnats asiatiques juniors,Junior,THAILAND,2011-03-04,2011-03-13,Foil,Womens,Asia/Bangkok,https://fie.org/competitions/2011/771,2011-771,no pools data
+39,2011,Coupe Heracles in memoriam Gyorgy Gerevich,Junior,HUNGARY,2011-02-19,2011-02-19,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2011/39,2011-39,no pools data
+812,2011,Championnats Panaméricains Juniors,Junior,VENEZUELA,2011-02-11,2011-02-19,Foil,Womens,America/Caracas,https://fie.org/competitions/2011/812,2011-812,no pools data
+42,2011,Coupe du Monde,Junior,FRANCE,2011-02-05,2011-02-05,Foil,Womens,Europe/Paris,https://fie.org/competitions/2011/42,2011-42,no pools data
+927,2011,Championnats méditerranéens juniors,Junior,LEBANON,2011-01-29,2011-01-31,Foil,Womens,Asia/Beirut,https://fie.org/competitions/2011/927,2011-927,no pools data
+444,2011,Coupe du Monde,Junior,CROATIA,2011-01-22,2011-01-22,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2011/444,2011-444,no pools data
+37,2011,Coupe du Monde,Junior,POLAND,2010-12-18,2010-12-18,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2011/37,2011-37,no pools data
+857,2011,Championnats d'Afrique juniors,Junior,SOUTH AFRICA,2010-12-11,2010-12-16,Foil,Womens,Africa/Johannesburg,https://fie.org/competitions/2011/857,2011-857,no pools data
+41,2011,Tournoi international,Junior,GERMANY,2010-12-04,2010-12-04,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2011/41,2011-41,no pools data
+33,2011,Memorial de Martinengo,Junior,SLOVAKIA,2010-11-21,2010-11-21,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2011/33,2011-33,no pools data
+351,2011,Championnats d’Europe juniors,Junior,RUSSIA,2010-10-24,2010-10-30,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2011/351,2011-351,no pools data
+812,2010,Championnats Panaméricains Juniors,Junior,MEXICO,2010-05-04,2010-05-04,Foil,Womens,America/Mexico_City,https://fie.org/competitions/2010/812,2010-812,no pools data
+225,2010,Champ du monde juniors-cadets,Junior,AZERBAIJAN,2010-04-06,2010-04-06,Foil,Womens,Asia/Baku,https://fie.org/competitions/2010/225,2010-225,no pools data
+927,2010,Championnats méditerranéens juniors,Junior,SERBIA,2010-01-30,2010-02-01,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2010/927,2010-927,no pools data
+39,2010,Coupe Heracles Junior,Junior,HUNGARY,2010-01-05,2010-01-05,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2010/39,2010-39,no pools data
+35,2010,Stadtwerke-Pokal,Junior,GERMANY,2009-12-12,2009-12-12,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2010/35,2010-35,no pools data
+34,2010,Alpe Adria,Junior,ITALY,2009-12-04,2009-12-04,Foil,Womens,Europe/Rome,https://fie.org/competitions/2010/34,2010-34,no pools data
+351,2010,Championnats d’Europe juniors,Junior,DENMARK,2009-10-31,2009-11-06,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2010/351,2010-351,no pools data
+40,2010,Tournoi Carl Schwende,Junior,CANADA,2009-10-24,2009-10-24,Foil,Womens,America/Toronto,https://fie.org/competitions/2010/40,2010-40,no pools data
+33,2010,Memorial de Martinengo,Junior,SLOVAKIA,2009-10-11,2009-10-11,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2010/33,2010-33,no pools data
+898,2010,Ier challenge Colette Flesch,Junior,LUXEMBOURG,2009-09-12,2009-09-12,Foil,Womens,Europe/Luxembourg,https://fie.org/competitions/2010/898,2010-898,no pools data
+771,2009,Championnats asiatiques juniors,Junior,SINGAPORE,2009-07-16,2009-07-21,Foil,Womens,Asia/Singapore,https://fie.org/competitions/2009/771,2009-771,no pools data
+812,2009,Championnats Panaméricains Juniors,Junior,VENEZUELA,2009-05-09,2009-05-09,Foil,Womens,America/Caracas,https://fie.org/competitions/2009/812,2009-812,no pools data
+225,2009,Champ du monde juniors-cadets,Junior,GREAT BRITAIN,2009-04-08,2009-04-08,Foil,Womens,Europe/London,https://fie.org/competitions/2009/225,2009-225,no pools data
+41,2009,Tournoi international,Junior,GERMANY,2009-01-25,2009-01-25,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2009/41,2009-41,no pools data
+39,2009,Coupe Heracles Junior,Junior,HUNGARY,2009-01-03,2009-01-03,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2009/39,2009-39,no pools data
+857,2009,Championnats d'Afrique juniors,Junior,MALI,2008-12-10,2008-12-13,Foil,Womens,Africa/Bamako,https://fie.org/competitions/2009/857,2009-857,no pools data
+37,2009,Coupe du Monde,Junior,POLAND,2008-11-29,2008-11-29,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2009/37,2009-37,no pools data
+898,2009,Ier challenge Colette Flesch,Junior,LUXEMBOURG,2008-11-07,2008-11-07,Foil,Womens,Europe/Luxembourg,https://fie.org/competitions/2009/898,2009-898,no pools data
+351,2009,Championnats d’Europe juniors,Junior,NETHERLANDS,2008-11-03,2008-11-08,Foil,Womens,Europe/Amsterdam,https://fie.org/competitions/2009/351,2009-351,no pools data
+40,2009,Tournoi Carl Schwende,Junior,CANADA,2008-10-25,2008-10-25,Foil,Womens,America/Toronto,https://fie.org/competitions/2009/40,2009-40,no pools data
+33,2009,Memorial de Martinengo,Junior,SLOVAKIA,2008-10-12,2008-10-12,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2009/33,2009-33,no pools data
+812,2008,Championnats Panaméricains Juniors,Junior,VENEZUELA,2008-05-03,2008-05-03,Foil,Womens,America/Caracas,https://fie.org/competitions/2008/812,2008-812,no pools data
+225,2008,Champ du monde juniors-cadets,Junior,ITALY,2008-04-11,2008-04-11,Foil,Womens,Europe/Rome,https://fie.org/competitions/2008/225,2008-225,no pools data
+444,2008,Coupe du Monde,Junior,CROATIA,2008-02-23,2008-02-23,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2008/444,2008-444,no pools data
+42,2008,Coupe du Monde,Junior,FRANCE,2008-02-03,2008-02-03,Foil,Womens,Europe/Paris,https://fie.org/competitions/2008/42,2008-42,no pools data
+41,2008,Tournoi international,Junior,GERMANY,2008-01-27,2008-01-27,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2008/41,2008-41,no pools data
+34,2008,Alpe Adria,Junior,ITALY,2007-12-07,2007-12-07,Foil,Womens,Europe/Rome,https://fie.org/competitions/2008/34,2008-34,no pools data
+351,2008,Championnats d’Europe juniors,Junior,CZECH REPUBLIC,2007-10-29,2007-11-04,Foil,Womens,Europe/Prague,https://fie.org/competitions/2008/351,2008-351,no pools data
+771,2007,Championnats asiatiques juniors,Junior,KAZAKHSTAN,2007-07-01,2007-07-09,Foil,Womens,Asia/Almaty,https://fie.org/competitions/2007/771,2007-771,no pools data
+812,2007,Championnats Panaméricains Juniors,Junior,ARGENTINA,2007-05-03,2007-05-03,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/2007/812,2007-812,no pools data
+225,2007,Champ du monde juniors-cadets,Junior,TURKEY,2007-04-15,2007-04-15,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2007/225,2007-225,no pools data
+444,2007,Coupe du Monde,Junior,CROATIA,2007-02-24,2007-02-24,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2007/444,2007-444,no pools data
+42,2007,Coupe du Monde,Junior,FRANCE,2007-02-04,2007-02-04,Foil,Womens,Europe/Paris,https://fie.org/competitions/2007/42,2007-42,no pools data
+40,2007,Tournoi Carl Schwende,Junior,CANADA,2007-01-20,2007-01-20,Foil,Womens,America/Toronto,https://fie.org/competitions/2007/40,2007-40,no pools data
+39,2007,Coupe Heracles Junior,Junior,HUNGARY,2007-01-05,2007-01-05,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2007/39,2007-39,no pools data
+35,2007,Stadtwerke-Pokal,Junior,GERMANY,2006-12-16,2006-12-16,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2007/35,2007-35,no pools data
+36,2007,Trophée Federico II,Junior,ITALY,2006-11-25,2006-11-25,Foil,Womens,Europe/Rome,https://fie.org/competitions/2007/36,2007-36,no pools data
+509,2007,Coupe du Monde Cidade de Loures,Junior,PORTUGAL,2006-11-18,2006-11-18,Foil,Womens,Europe/Lisbon,https://fie.org/competitions/2007/509,2007-509,no pools data
+351,2007,Championnats d’Europe juniors,Junior,POLAND,2006-11-04,2006-11-09,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2007/351,2007-351,no pools data
+33,2007,Memorial de Martinengo,Junior,SLOVAKIA,2006-10-15,2006-10-15,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2007/33,2007-33,no pools data
+42,2006,Coupe du Monde,Junior,FRANCE,2006-02-12,2006-02-12,Foil,Womens,Europe/Paris,https://fie.org/competitions/2006/42,2006-42,no pools data
+41,2006,Tournoi international,Junior,GERMANY,2006-01-29,2006-01-29,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2006/41,2006-41,no pools data
+40,2006,Tournoi Carl Schwende,Junior,CANADA,2006-01-21,2006-01-21,Foil,Womens,America/Toronto,https://fie.org/competitions/2006/40,2006-40,no pools data
+39,2006,Coupe Heracles Junior,Junior,HUNGARY,2006-01-08,2006-01-08,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2006/39,2006-39,no pools data
+37,2006,Coupe du Monde,Junior,POLAND,2005-12-03,2005-12-03,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2006/37,2006-37,no pools data
+509,2006,Coupe du Monde Cidade de Loures,Junior,PORTUGAL,2005-11-19,2005-11-19,Foil,Womens,Europe/Lisbon,https://fie.org/competitions/2006/509,2006-509,no pools data
+35,2006,Stadtwerke-Pokal,Junior,GERMANY,2005-11-13,2005-11-13,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2006/35,2006-35,no pools data
+351,2006,Championnats d’Europe juniors,Junior,HUNGARY,2005-10-31,2005-11-06,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2006/351,2006-351,no pools data
+41,2005,Coupe du Monde,Junior,GERMANY,2005-01-30,2005-01-30,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2005/41,2005-41,no pools data
+40,2005,Tournoi Carl Schwende,Junior,CANADA,2005-01-22,2005-01-22,Foil,Womens,America/Toronto,https://fie.org/competitions/2005/40,2005-40,no pools data
+43,2005,Coupe du Monde,Junior,ISRAEL,2005-01-16,2005-01-16,Foil,Womens,Asia/Jerusalem,https://fie.org/competitions/2005/43,2005-43,no pools data
+33,2005,Memorial de Martinengo,Junior,SLOVAKIA,2004-10-17,2004-10-17,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2005/33,2005-33,no pools data
+225,2004,Champ du monde juniors-cadets,Junior,BULGARIA,2004-04-06,2004-04-06,Foil,Womens,Europe/Sofia,https://fie.org/competitions/2004/225,2004-225,no pools data
+43,2004,Coupe du Monde,Junior,ISRAEL,2004-03-07,2004-03-07,Foil,Womens,Asia/Jerusalem,https://fie.org/competitions/2004/43,2004-43,no pools data
+42,2004,Tournoi international,Junior,FRANCE,2004-02-15,2004-02-15,Foil,Womens,Europe/Paris,https://fie.org/competitions/2004/42,2004-42,no pools data
+40,2004,Tournoi Carl Schwende,Junior,CANADA,2004-01-25,2004-01-25,Foil,Womens,America/Toronto,https://fie.org/competitions/2004/40,2004-40,no pools data
+39,2004,Coupe Heracles Junior,Junior,HUNGARY,2004-01-12,2004-01-12,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2004/39,2004-39,no pools data
+37,2004,Coupe du Monde,Junior,POLAND,2003-12-06,2003-12-06,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2004/37,2004-37,no pools data
+35,2004,Stadtwerke-Pokal,Junior,GERMANY,2003-11-16,2003-11-16,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2004/35,2004-35,no pools data
+32,2004,Coupe du Monde,Junior,USA,2003-11-09,2003-11-09,Foil,Womens,America/New_York,https://fie.org/competitions/2004/32,2004-32,no pools data
+351,2004,Championnats d’Europe juniors,Junior,CROATIA,2003-11-04,2003-11-09,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2004/351,2004-351,no pools data
+33,2004,Memorial de Martinengo,Junior,SLOVAKIA,2003-10-18,2003-10-18,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2004/33,2004-33,no pools data
+225,2003,Champ du monde juniors-cadets,Junior,ITALY,2003-04-11,2003-04-11,Foil,Womens,Europe/Rome,https://fie.org/competitions/2003/225,2003-225,no pools data
+41,2003,Coupe du Monde,Junior,GERMANY,2003-02-02,2003-02-02,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2003/41,2003-41,no pools data
+40,2003,Coupe du M. Carl Schwende,Junior,CANADA,2003-01-25,2003-01-25,Foil,Womens,America/Toronto,https://fie.org/competitions/2003/40,2003-40,no pools data
+39,2003,Coupe Heracles Junior,Junior,HUNGARY,2003-01-05,2003-01-05,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2003/39,2003-39,no pools data
+37,2003,Coupe du Monde,Junior,POLAND,2002-12-07,2002-12-07,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2003/37,2003-37,no pools data
+36,2003,Trophée Federico II,Junior,ITALY,2002-11-30,2002-11-30,Foil,Womens,Europe/Rome,https://fie.org/competitions/2003/36,2003-36,no pools data
+351,2003,Championnats d’Europe juniors,Junior,ITALY,2002-11-04,2002-11-10,Foil,Womens,Europe/Rome,https://fie.org/competitions/2003/351,2003-351,no pools data
+34,2003,Trophée Provincia di Pistoia,Junior,ITALY,2002-10-27,2002-10-27,Foil,Womens,Europe/Rome,https://fie.org/competitions/2003/34,2003-34,no pools data
+363,2003,Championnats Panaméricains J/C,Junior,CHILE,2002-10-21,2002-10-26,Foil,Womens,America/Santiago,https://fie.org/competitions/2003/363,2003-363,no pools data
+33,2003,Memorial de Martinengo,Junior,SLOVAKIA,2002-10-20,2002-10-20,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2003/33,2003-33,no pools data
+32,2003,Candidature A,Junior,USA,2002-09-22,2002-09-22,Foil,Womens,America/New_York,https://fie.org/competitions/2003/32,2003-32,no pools data
+225,2002,Championnats du Monde,Junior,TURKEY,2002-04-01,2002-04-08,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2002/225,2002-225,no pools data
+225,2001,Championnats du Monde,Junior,POLAND,2001-04-09,2001-04-16,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2001/225,2001-225,no pools data
+225,1998,Championnats du Monde,Junior,VENEZUELA,1998-04-06,1998-04-13,Foil,Womens,America/Caracas,https://fie.org/competitions/1998/225,1998-225,no pools data
+225,1997,Championnats du Monde,Junior,SPAIN,1997-03-25,1997-03-31,Foil,Womens,Europe/Madrid,https://fie.org/competitions/1997/225,1997-225,no pools data
+225,1996,Championnats du Monde,Junior,BELGIUM,1996-04-02,1996-04-08,Foil,Womens,Europe/Brussels,https://fie.org/competitions/1996/225,1996-225,no pools data
+225,1994,Championnats du Monde,Junior,MEXICO,1994-03-27,1994-04-02,Foil,Womens,America/Mexico_City,https://fie.org/competitions/1994/225,1994-225,no pools data
+225,1993,Championnats du Monde,Junior,USA,1993-04-07,1993-04-12,Foil,Womens,America/Denver,https://fie.org/competitions/1993/225,1993-225,no pools data
+225,1991,Championnats du Monde,Junior,TURKEY,1991-10-30,1991-11-03,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/1991/225,1991-225,no pools data
+225,1987,Championnats du Monde,Junior,BRAZIL,1987-04-11,1987-04-27,Foil,Womens,America/Sao_Paulo,https://fie.org/competitions/1987/225,1987-225,no pools data
+225,1985,Championnats du Monde,Junior,NETHERLANDS,1985-04-04,1985-04-08,Foil,Womens,Europe/Amsterdam,https://fie.org/competitions/1985/225,1985-225,no pools data
+225,1983,Championnats du Monde,Junior,HUNGARY,1983-03-31,1983-04-04,Foil,Womens,Europe/Budapest,https://fie.org/competitions/1983/225,1983-225,no pools data
+225,1982,Championnats du Monde,Junior,ARGENTINA,1982-04-08,1982-04-12,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/1982/225,1982-225,no pools data
+225,1981,Championnats du Monde,Junior,SWITZERLAND,1981-04-16,1981-04-20,Foil,Womens,Europe/Zurich,https://fie.org/competitions/1981/225,1981-225,no pools data
+225,1980,Championnats du Monde,Junior,ITALY,1980-04-03,1980-04-07,Foil,Womens,Europe/Rome,https://fie.org/competitions/1980/225,1980-225,no pools data
+225,1978,Championnats du Monde,Junior,SPAIN,1978-03-23,1978-03-27,Foil,Womens,Europe/Madrid,https://fie.org/competitions/1978/225,1978-225,no pools data
+225,1976,Championnats du Monde,Junior,POLAND,1976-04-16,1976-04-19,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/1976/225,1976-225,no pools data
+225,1973,Championnats du Monde,Junior,ARGENTINA,1973-04-16,1973-04-23,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/1973/225,1973-225,no pools data
+225,1971,Championnats du Monde,Junior,USA,1971-04-16,1971-04-19,Foil,Womens,America/New_York,https://fie.org/competitions/1971/225,1971-225,no pools data
+225,1969,Championnats du Monde,Junior,ITALY,1969-04-04,1969-04-07,Foil,Womens,Europe/Rome,https://fie.org/competitions/1969/225,1969-225,no pools data
+225,1967,Championnats du Monde,Junior,IRAN,1967-03-23,1967-03-27,Foil,Womens,Asia/Tehran,https://fie.org/competitions/1967/225,1967-225,no pools data
+225,1964,Championnats du Monde,Junior,HUNGARY,1964-03-25,1964-03-30,Foil,Womens,Europe/Budapest,https://fie.org/competitions/1964/225,1964-225,no pools data
+225,1961,Championnats du Monde,Junior,GERMANY,1961-04-01,1961-04-03,Foil,Womens,Europe/Berlin,https://fie.org/competitions/1961/225,1961-225,no pools data
+1073,2021,Championnats de qualification panaméricains,Senior,COSTA RICA,2021-05-01,2021-05-01,Foil,Womens,America/Costa_Rica,https://fie.org/competitions/2021/1073,2021-1073,
+1067,2021,Championnats de qualification Asie-Océanie,Senior,UZBEKISTAN,2021-04-25,2021-04-25,Foil,Womens,Asia/Tashkent,https://fie.org/competitions/2021/1067,2021-1067,
+1079,2021,Championnats de qualification européens,Senior,SPAIN,2021-04-25,2021-04-25,Foil,Womens,Europe/Madrid,https://fie.org/competitions/2021/1079,2021-1079,
+237,2021,Championnats du monde juniors-cadets,Cadet,EGYPT,2021-04-07,2021-04-07,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2021/237,2021-237,
+765,2020,Championnats asiatiques cadets,Cadet,JORDAN,2020-02-26,2020-02-26,Foil,Womens,Asia/Amman,https://fie.org/competitions/2020/765,2020-765,no pools data
+939,2020,Championnats d'Europe Cadets,Cadet,CROATIA,2020-02-24,2020-02-24,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2020/939,2020-939,no pools data
+1299,2020,Championnats d'Afrique,Cadet,GHANA,2020-02-24,2020-02-24,Foil,Womens,Africa/Porto-Novo,https://fie.org/competitions/2020/1299,2020-1299,no pools data
+129,2020,Coupe du Monde,Senior,RUSSIA,2020-02-21,2020-02-22,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2020/129,2020-129,
+458,2020,Grand Prix,Senior,ITALY,2020-02-07,2020-02-09,Foil,Womens,Europe/Rome,https://fie.org/competitions/2020/458,2020-458,
+933,2020,Сhampionnats de la Méditerranée,Cadet,TUNISIA,2020-01-24,2020-01-24,Foil,Womens,Africa/Tunis,https://fie.org/competitions/2020/933,2020-933,no pools data
+127,2020,Coupe du Monde,Senior,POLAND,2020-01-10,2020-01-11,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2020/127,2020-127,
+118,2020,Coupe du Monde,Senior,FRANCE,2019-12-13,2019-12-14,Foil,Womens,Europe/Paris,https://fie.org/competitions/2020/118,2020-118,
+125,2020,Coupe du monde,Senior,EGYPT,2019-11-22,2019-11-23,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2020/125,2020-125,
+1385,2020,Tournoi satellite,Senior,SPAIN,2019-10-26,2019-10-26,Foil,Womens,Europe/Madrid,https://fie.org/competitions/2020/1385,2020-1385,
+1377,2020,Tournoi Satelite,Senior,TURKEY,2019-10-19,2019-10-19,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2020/1377,2020-1377,
+1105,2019,Championnats du monde vétérans 50-59,Veterans,EGYPT,2019-10-07,2019-10-07,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2019/1105,2019-1105,
+1359,2019,Championnats du monde Vétérans 60-69,Veterans,EGYPT,2019-10-07,2019-10-07,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2019/1359,2019-1359,
+1360,2019,Championnats du monde Vétérans 70+,Veterans,EGYPT,2019-10-07,2019-10-07,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2019/1360,2019-1360,
+1356,2020,"Tournoi Satellite, Trekanten International",Senior,DENMARK,2019-10-06,2019-10-06,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2020/1356,2020-1356,
+1281,2020,Tournoi Satellite,Senior,MEXICO,2019-09-29,2019-09-29,Foil,Womens,America/Mexico_City,https://fie.org/competitions/2020/1281,2020-1281,
+1230,2020,Tournoi satellite,Senior,ROMANIA,2019-09-22,2019-09-22,Foil,Womens,Europe/Bucharest,https://fie.org/competitions/2020/1230,2020-1230,
+1218,2020,Tournoi satellite,Senior,SLOVAKIA,2019-09-14,2019-09-14,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2020/1218,2020-1218,
+1093,2019,2019 Summer Universiades,Senior,ITALY,2019-07-04,2019-07-09,Foil,Womens,Europe/Rome,https://fie.org/competitions/2019/1093,2019-1093,
+740,2019,Championnats d'Europe,Senior,GERMANY,2019-06-18,2019-06-18,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2019/740,2019-740,
+1014,2019,Championnats Asiatiques,Senior,JAPAN,2019-06-15,2019-06-15,Foil,Womens,Asia/Tokyo,https://fie.org/competitions/2019/1014,2019-1014,
+457,2019,Grand Prix,Senior,CHINA,2019-05-17,2019-05-19,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2019/457,2019-457,
+237,2019,Championnats du monde juniors-cadets,Cadet,POLAND,2019-04-10,2019-04-10,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2019/237,2019-237,
+121,2019,2019 Absolute Fencing Gear FIE Grand Prix Anaheim,Senior,USA,2019-03-16,2019-03-17,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/2019/121,2019-121,
+129,2019,Coupe du Monde,Senior,EGYPT,2019-03-01,2019-03-02,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2019/129,2019-129,
+1111,2019,Championnats Panaméricains Cadets,Cadet,COLOMBIA,2019-02-28,2019-02-28,Foil,Womens,America/Bogota,https://fie.org/competitions/2019/1111,2019-1111,no pools data
+127,2019,Coupe du Monde,Senior,FRANCE,2019-01-25,2019-01-26,Foil,Womens,Europe/Paris,https://fie.org/competitions/2019/127,2019-127,
+118,2019,Coupe du Monde,Senior,POLAND,2019-01-11,2019-01-12,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2019/118,2019-118,
+1385,2019,Tournoi satellite,Senior,SPAIN,2018-10-27,2018-10-27,Foil,Womens,Europe/Madrid,https://fie.org/competitions/2019/1385,2019-1385,
+1377,2019,Tournoi Satelite,Senior,TURKEY,2018-10-20,2018-10-21,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2019/1377,2019-1377,
+1359,2018,Championnats du monde Vétérans 60-69,Veterans,ITALY,2018-10-11,2018-10-11,Foil,Womens,Europe/Rome,https://fie.org/competitions/2018/1359,2018-1359,
+1360,2018,Championnats du monde Vétérans 70+,Veterans,ITALY,2018-10-11,2018-10-11,Foil,Womens,Europe/Rome,https://fie.org/competitions/2018/1360,2018-1360,
+1180,2018,JOJ 2018,Cadet,ARGENTINA,2018-10-07,2018-10-07,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/2018/1180,2018-1180,no pools data
+237,2018,Championnats du monde juniors-cadets,Cadet,ITALY,2018-04-08,2018-04-08,Foil,Womens,Europe/Rome,https://fie.org/competitions/2018/237,2018-237,
+939,2018,Championnats d'Europe Cadets,Cadet,RUSSIA,2018-03-03,2018-03-03,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2018/939,2018-939,no pools data
+1299,2018,Championnats d'Afrique,Cadet,NIGERIA,2018-03-01,2018-03-01,Foil,Womens,Africa/Lagos,https://fie.org/competitions/2018/1299,2018-1299,no pools data
+765,2018,Championnats asiatiques cadets,Cadet,UNITED ARAB EMIRATES,2018-02-24,2018-02-24,Foil,Womens,Asia/Dubai,https://fie.org/competitions/2018/765,2018-765,no pools data
+237,2017,Championnats du monde juniors-cadets,Cadet,BULGARIA,2017-04-03,2017-04-03,Foil,Womens,Europe/Sofia,https://fie.org/competitions/2017/237,2017-237,
+1111,2017,Championnats Panaméricains Cadets,Cadet,CUBA,2017-03-02,2017-03-07,Foil,Womens,America/Havana,https://fie.org/competitions/2017/1111,2017-1111,
+939,2017,Championnats d'Europe Cadets,Cadet,BULGARIA,2017-03-01,2017-03-01,Foil,Womens,Europe/Sofia,https://fie.org/competitions/2017/939,2017-939,no pools data
+765,2017,Championnats asiatiques cadets,Cadet,THAILAND,2017-02-26,2017-02-26,Foil,Womens,Asia/Bangkok,https://fie.org/competitions/2017/765,2017-765,no pools data
+933,2017,Сhampionnats de la Méditerranée,Cadet,FRANCE,2017-01-27,2017-01-29,Foil,Womens,Europe/Paris,https://fie.org/competitions/2017/933,2017-933,no pools data
+939,2016,Championnats d'Europe Cadets,Cadet,SERBIA,2016-02-29,2016-03-09,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2016/939,2016-939,fencer IDs missing
+1111,2016,Championnats Panaméricains Cadets,Cadet,MEXICO,2016-02-27,2016-03-04,Foil,Womens,America/Cancun,https://fie.org/competitions/2016/1111,2016-1111,
+237,2015,Champ du monde juniors-cadets,Cadet,UZBEKISTAN,2015-04-03,2015-04-03,Foil,Womens,Asia/Tashkent,https://fie.org/competitions/2015/237,2015-237,
+765,2015,Championnats asiatiques cadets,Cadet,UNITED ARAB EMIRATES,2015-03-01,2015-03-01,Foil,Womens,Asia/Muscat,https://fie.org/competitions/2015/765,2015-765,no pools data
+1299,2015,Championnats d'Afrique cadets juniors,Cadet,ALGERIA,2015-03-01,2015-03-05,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2015/1299,2015-1299,no pools data
+1180,2014,JOJ 2014,Cadet,CHINA,2014-08-17,2014-08-17,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2014/1180,2014-1180,no pools data
+1268,2014,Jeux Africains de la Jeunesse,Cadet,BOTSWANA,2014-05-29,2014-05-29,Foil,Womens,Africa/Gaborone,https://fie.org/competitions/2014/1268,2014-1268,no pools data
+237,2014,Champ du monde juniors-cadets,Cadet,BULGARIA,2014-04-03,2014-04-04,Foil,Womens,Europe/Sofia,https://fie.org/competitions/2014/237,2014-237,
+765,2014,Championnats asiatiques cadets,Cadet,JORDAN,2014-03-08,2014-03-08,Foil,Womens,Asia/Amman,https://fie.org/competitions/2014/765,2014-765,no pools data
+1190,2014,Championnats d'Afrique cadets,Cadet,EGYPT,2014-03-01,2014-03-01,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2014/1190,2014-1190,no pools data
+939,2014,Championnats d'Europe Cadets,Cadet,ISRAEL,2014-02-24,2014-02-24,Foil,Womens,Asia/Jerusalem,https://fie.org/competitions/2014/939,2014-939,no pools data
+1111,2014,Championnats Panaméricains Cadets,Cadet,GUATEMALA,2014-02-24,2014-02-24,Foil,Womens,America/Guatemala,https://fie.org/competitions/2014/1111,2014-1111,no pools data
+237,2013,Champ du monde juniors-cadets,Cadet,CROATIA,2013-04-06,2013-04-07,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2013/237,2013-237,no pools data
+1135,2013,Championnats asiatiques cadets,Cadet,THAILAND,2013-03-03,2013-03-03,Foil,Womens,Asia/Bangkok,https://fie.org/competitions/2013/1135,2013-1135,no pools data
+939,2013,Championnats d'Europe Cadets,Cadet,HUNGARY,2013-02-27,2013-02-27,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2013/939,2013-939,no pools data
+1111,2013,Championnats Panaméricains Cadets,Cadet,PUERTO RICO,2013-02-08,2013-02-08,Foil,Womens,America/Puerto_Rico,https://fie.org/competitions/2013/1111,2013-1111,no pools data
+933,2013,Championnats méditerranéens cadets,Cadet,ALGERIA,2013-01-26,2013-01-28,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2013/933,2013-933,no pools data
+765,2013,Championnats asiatiques cadets,Cadet,INDONESIA,2012-10-01,2012-10-09,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2013/765,2013-765,no pools data
+933,2012,Championnats méditerranéens cadets,Cadet,CROATIA,2012-01-28,2012-01-30,Foil,Womens,Europe/Zagreb,https://fie.org/competitions/2012/933,2012-933,no pools data
+939,2011,Championnats d'Europe Cadets,Cadet,AUSTRIA,2011-02-27,2011-03-06,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2011/939,2011-939,no pools data
+1006,2011,Singapore Cadet Fencing World Cup 2011,Cadet,SINGAPORE,2011-02-24,2011-02-27,Foil,Womens,Asia/Singapore,https://fie.org/competitions/2011/1006,2011-1006,no pools data
+933,2011,Championnats méditerranéens cadets,Cadet,LEBANON,2011-01-29,2011-01-31,Foil,Womens,Asia/Beirut,https://fie.org/competitions/2011/933,2011-933,no pools data
+1000,2010,Jeux Olympiques de la Jeunesse,Cadet,SINGAPORE,2010-08-15,2010-08-18,Foil,Womens,Asia/Singapore,https://fie.org/competitions/2010/1000,2010-1000,no pools data
+237,2010,Champ du monde juniors-cadets,Cadet,AZERBAIJAN,2010-04-03,2010-04-03,Foil,Womens,Asia/Baku,https://fie.org/competitions/2010/237,2010-237,no pools data
+765,2010,Championnats asiatiques cadets,Cadet,PHILIPPINES,2010-03-07,2010-03-07,Foil,Womens,Asia/Manila,https://fie.org/competitions/2010/765,2010-765,no pools data
+996,2009,Championnats Panaméricains Cadets,Cadet,VENEZUELA,2009-05-07,2009-05-07,Foil,Womens,America/Caracas,https://fie.org/competitions/2009/996,2009-996,no pools data
+237,2009,Champ du monde juniors-cadets,Cadet,GREAT BRITAIN,2009-04-05,2009-04-05,Foil,Womens,Europe/London,https://fie.org/competitions/2009/237,2009-237,no pools data
+939,2009,Championnats d'Europe Cadets,Cadet,FRANCE,2009-03-02,2009-03-07,Foil,Womens,Europe/Paris,https://fie.org/competitions/2009/939,2009-939,no pools data
+672,2008,Championnats Méditerranéens,Cadet,MOROCCO,2008-01-19,2008-01-20,Foil,Womens,Africa/Casablanca,https://fie.org/competitions/2008/672,2008-672,no pools data
+765,2007,Championnats asiatiques cadets,Cadet,KAZAKHSTAN,2007-07-01,2007-07-09,Foil,Womens,Asia/Almaty,https://fie.org/competitions/2007/765,2007-765,no pools data
+818,2007,Championnats Panaméricains cadets,Cadet,ARGENTINA,2007-05-05,2007-05-05,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/2007/818,2007-818,no pools data
+672,2007,Championnats Méditerranéens,Cadet,ITALY,2007-01-20,2007-01-21,Foil,Womens,Europe/Rome,https://fie.org/competitions/2007/672,2007-672,no pools data
+610,2006,Championnats asiatiques juniors-cadets,Cadet,KUWAIT,2006-04-24,2006-04-30,Foil,Womens,Asia/Kuwait,https://fie.org/competitions/2006/610,2006-610,no pools data
+237,2006,Champ du monde juniors-cadets,Cadet,KOREA,2006-04-09,2006-04-09,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2006/237,2006-237,no pools data
+577,2006,Championnats panaméricains J/C,Cadet,COLOMBIA,2005-10-27,2005-10-27,Foil,Womens,America/Bogota,https://fie.org/competitions/2006/577,2006-577,no pools data
+375,2004,Championnats Panaméricains J/C,Cadet,FRANCE,2003-10-24,2003-10-31,Foil,Womens,Europe/Paris,https://fie.org/competitions/2004/375,2004-375,no pools data
+375,2003,Championnats Panaméricains J/C,Cadet,CHILE,2002-10-21,2002-10-26,Foil,Womens,America/Santiago,https://fie.org/competitions/2003/375,2003-375,no pools data
+237,2002,Championnats du Monde,Cadet,TURKEY,2002-04-01,2002-04-08,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2002/237,2002-237,no pools data
+237,2001,Championnats du Monde,Cadet,POLAND,2001-04-09,2001-04-16,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2001/237,2001-237,no pools data
+237,2000,Championnats du Monde,Cadet,USA,2000-04-18,2000-04-25,Foil,Womens,America/New_York,https://fie.org/competitions/2000/237,2000-237,no pools data
+237,1999,Championnats du Monde,Cadet,HUNGARY,1999-03-30,1999-04-05,Foil,Womens,Europe/Budapest,https://fie.org/competitions/1999/237,1999-237,no pools data
+237,1998,Championnats du Monde,Cadet,VENEZUELA,1998-04-06,1998-04-13,Foil,Womens,America/Caracas,https://fie.org/competitions/1998/237,1998-237,no pools data
+237,1997,Championnats du Monde,Cadet,SPAIN,1997-03-25,1997-03-31,Foil,Womens,Europe/Madrid,https://fie.org/competitions/1997/237,1997-237,no pools data
+237,1996,Championnats du Monde,Cadet,BELGIUM,1996-04-02,1996-04-08,Foil,Womens,Europe/Brussels,https://fie.org/competitions/1996/237,1996-237,no pools data
+237,1993,Championnats du Monde,Cadet,USA,1993-04-07,1993-04-12,Foil,Womens,America/Denver,https://fie.org/competitions/1993/237,1993-237,no pools data
+237,1992,Championnats du Monde,Cadet,GERMANY,1992-05-27,1992-05-31,Foil,Womens,Europe/Berlin,https://fie.org/competitions/1992/237,1992-237,no pools data
+237,1991,Championnats du Monde,Cadet,ITALY,1991-05-07,1991-05-12,Foil,Womens,Europe/Rome,https://fie.org/competitions/1991/237,1991-237,no pools data
+237,1989,Championnats du Monde,Cadet,PORTUGAL,1989-05-13,1989-05-14,Foil,Womens,Europe/Lisbon,https://fie.org/competitions/1989/237,1989-237,no pools data
+237,1988,Championnats du Monde,Cadet,FRANCE,1988-04-30,1988-05-01,Foil,Womens,Europe/Paris,https://fie.org/competitions/1988/237,1988-237,no pools data
+237,1987,Championnats du Monde,Cadet,ISRAEL,1987-04-03,1987-04-05,Foil,Womens,Asia/Jerusalem,https://fie.org/competitions/1987/237,1987-237,no pools data
+327,2007,Championnats du Monde Vétérans,Veterans,AUSTRALIA,2007-09-14,2007-09-16,Foil,Womens,Australia/Sydney,https://fie.org/competitions/2007/327,2007-327,no pools data
+1359,2017,Championnats du monde Vétérans 60-69,Veterans,SLOVENIA,2017-10-18,2017-10-18,Foil,Womens,Europe/Ljubljana,https://fie.org/competitions/2017/1359,2017-1359,
+339,2003,Championnats Européens Vétérans,Veterans,RUSSIA,2003-05-29,2003-06-01,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2003/339,2003-339,no pools data
+327,2009,Championnats du Monde Vétérans,Veterans,RUSSIA,2009-09-24,2009-09-27,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2009/327,2009-327,no pools data
+327,2005,Championnats du Monde Vétérans,Veterans,USA,2005-09-02,2005-09-04,Foil,Womens,America/New_York,https://fie.org/competitions/2005/327,2005-327,no pools data
+1360,2017,Championnats du monde Vétérans 70+,Veterans,SLOVENIA,2017-10-18,2017-10-18,Foil,Womens,Europe/Ljubljana,https://fie.org/competitions/2017/1360,2017-1360,
+501,2005,Championnats Europe vétérans,Veterans,AUSTRIA,2005-05-05,2005-05-08,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2005/501,2005-501,no pools data
+1105,2016,Championnats du monde vétérans 50-59,Veterans,GERMANY,2016-10-13,2016-10-13,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2016/1105,2016-1105,
+327,2003,Championnats du Monde Vétérans,Veterans,FRANCE,2003-09-05,2003-09-06,Foil,Womens,Europe/Paris,https://fie.org/competitions/2003/327,2003-327,no pools data
+1359,2015,Championnats du monde Vétérans 60-69,Veterans,FRANCE,2015-10-20,2015-10-25,Foil,Womens,Europe/Paris,https://fie.org/competitions/2015/1359,2015-1359,fencer IDs missing
+1360,2016,Championnats du monde vétérans 70+,Veterans,GERMANY,2016-10-14,2016-10-14,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2016/1360,2016-1360,
+327,2006,Championnats du Monde Vétérans,Veterans,GREAT BRITAIN,2006-09-01,2006-09-03,Foil,Womens,Europe/London,https://fie.org/competitions/2006/327,2006-327,no pools data
+1105,2014,Championnats du monde vétérans,Veterans,HUNGARY,2014-10-21,2014-10-26,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2014/1105,2014-1105,no pools data
+327,2008,Championnats du Monde Vétérans,Veterans,FRANCE,2008-10-02,2008-10-05,Foil,Womens,Europe/Paris,https://fie.org/competitions/2008/327,2008-327,no pools data
+586,2013,Championnats d'Afrique,Senior,SOUTH AFRICA,2013-06-25,2013-06-25,Foil,Womens,Africa/Johannesburg,https://fie.org/competitions/2013/586,2013-586,no pools data
+124,2008,Coupe du Monde,Senior,AUSTRIA,2008-02-16,2008-02-17,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2008/124,2008-124,no pools data
+243,1978,Championnats du Monde,Senior,GERMANY,1978-07-12,1978-07-22,Foil,Womens,Europe/Berlin,https://fie.org/competitions/1978/243,1978-243,no pools data
+118,2018,Coupe du Monde,Senior,FRANCE,2017-11-03,2017-11-04,Foil,Womens,Europe/Paris,https://fie.org/competitions/2018/118,2018-118,
+1014,2018,Championnats Asiatiques,Senior,THAILAND,2018-06-18,2018-06-18,Foil,Womens,Asia/Bangkok,https://fie.org/competitions/2018/1014,2018-1014,
+800,2010,Championnats Panaméricains,Senior,COSTA RICA,2010-08-02,2010-08-02,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/2010/800,2010-800,no pools data
+458,2007,The Artus Court PKO BP,Senior,POLAND,2007-03-02,2007-03-03,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2007/458,2007-458,no pools data
+243,1987,Championnats du Monde,Senior,SWITZERLAND,1987-07-16,1987-07-26,Foil,Womens,Europe/Zurich,https://fie.org/competitions/1987/243,1987-243,no pools data
+975,2009,IX Juegos Deportivos Centroamericanos,Senior,HONDURAS,2009-08-15,2009-08-21,Foil,Womens,America/Tegucigalpa,https://fie.org/competitions/2009/975,2009-975,no pools data
+518,2007,Challenge Jeanty,Senior,FRANCE,2007-03-23,2007-03-24,Foil,Womens,Europe/Paris,https://fie.org/competitions/2007/518,2007-518,no pools data
+127,2017,Coupe du Monde de fleuret d'Alger by Ooredoo,Senior,ALGERIA,2017-01-13,2017-01-14,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2017/127,2017-127,
+129,2004,Fencing WC,Senior,JAPAN,2004-03-20,2004-03-21,Foil,Womens,Asia/Tokyo,https://fie.org/competitions/2004/129,2004-129,no pools data
+243,1993,Championnats du Monde,Senior,GERMANY,1993-07-01,1993-07-11,Foil,Womens,Europe/Berlin,https://fie.org/competitions/1993/243,1993-243,no pools data
+1014,2010,Championnats asiatiques,Senior,KOREA,2010-07-08,2010-07-08,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2010/1014,2010-1014,no pools data
+129,2011,Coupe du Monde,Senior,ITALY,2011-03-11,2011-03-12,Foil,Womens,Europe/Rome,https://fie.org/competitions/2011/129,2011-129,no pools data
+1014,2011,Championnats asiatiques,Senior,KOREA,2011-07-08,2011-07-08,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2011/1014,2011-1014,no pools data
+1014,2013,Championnats asiatiques,Senior,CHINA,2013-06-04,2013-06-09,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2013/1014,2013-1014,no pools data
+740,2015,Championnats d'Europe,Senior,SWITZERLAND,2015-06-08,2015-06-08,Foil,Womens,Europe/Zurich,https://fie.org/competitions/2015/740,2015-740,
+630,2006,Championnats d'Afrique,Senior,MOROCCO,2006-07-21,2006-07-23,Foil,Womens,Africa/Casablanca,https://fie.org/competitions/2006/630,2006-630,no pools data
+506,2005,Jeux Méditerranéens,Senior,SPAIN,2005-06-25,2005-06-27,Foil,Womens,Europe/Madrid,https://fie.org/competitions/2005/506,2005-506,no pools data
+740,2017,Championnats d'Europe,Senior,GEORGIA,2017-06-13,2017-06-13,Foil,Womens,Asia/Tbilisi,https://fie.org/competitions/2017/740,2017-740,
+124,2004,Coupe du Monde,Senior,AUSTRIA,2004-02-21,2004-02-22,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2004/124,2004-124,no pools data
+800,2009,Championnats Panaméricains,Senior,EL SALVADOR,2009-07-02,2009-07-09,Foil,Womens,America/El_Salvador,https://fie.org/competitions/2009/800,2009-800,no pools data
+243,1980,Jeux Olympiques,Senior,RUSSIA,1980-07-22,1980-07-31,Foil,Womens,Europe/Moscow,https://fie.org/competitions/1980/243,1980-243,no pools data
+131,2004,Tournoi Nancy Uranga,Senior,CUBA,2004-06-21,2004-06-22,Foil,Womens,America/Havana,https://fie.org/competitions/2004/131,2004-131,no pools data
+243,2003,Championnats du Monde,Senior,CUBA,2003-10-05,2003-10-06,Foil,Womens,America/Havana,https://fie.org/competitions/2003/243,2003-243,no pools data
+267,2003,Universiades,Senior,KOREA,2003-08-22,2003-08-29,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2003/267,2003-267,no pools data
+1230,2017,Tournoi satellite,Senior,TURKEY,2016-12-11,2016-12-11,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2017/1230,2017-1230,
+118,2009,Fleuret de St-Petersbourg,Senior,RUSSIA,2009-05-22,2009-05-23,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2009/118,2009-118,no pools data
+129,2010,Coupe du Monde,Senior,ITALY,2010-03-05,2010-03-06,Foil,Womens,Europe/Rome,https://fie.org/competitions/2010/129,2010-129,no pools data
+800,2008,Championnats Panaméricains,Senior,MEXICO,2008-07-08,2008-07-12,Foil,Womens,America/Mexico_City,https://fie.org/competitions/2008/800,2008-800,no pools data
+397,2006,Tournoi satellite fleuret féminin,Senior,DENMARK,2006-03-25,2006-03-26,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2006/397,2006-397,no pools data
+1043,2012,26th South East Asian Games,Senior,INDONESIA,2011-11-11,2011-11-23,Foil,Womens,Asia/Bangkok,https://fie.org/competitions/2012/1043,2012-1043,no pools data
+627,2007,Star Cup Belgrade,Senior,SERBIA,2007-02-10,2007-02-11,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2007/627,2007-627,no pools data
+800,2016,Championnats Panaméricains,Senior,PANAMA,2016-06-23,2016-06-23,Foil,Womens,America/Panama,https://fie.org/competitions/2016/800,2016-800,
+121,2014,SK Trophée Séoul,Senior,KOREA,2014-04-26,2014-04-27,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2014/121,2014-121,no pools data
+458,2016,Grand Prix,Senior,ITALY,2015-11-27,2015-11-28,Foil,Womens,Europe/Rome,https://fie.org/competitions/2016/458,2016-458,
+1218,2016,Tournoi satellite,Senior,TURKEY,2015-11-14,2015-11-15,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2016/1218,2016-1218,
+457,2017,Grand Prix,Senior,CHINA,2017-05-19,2017-05-21,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2017/457,2017-457,
+128,2008,Coupe Buenos Aires,Senior,ARGENTINA,2008-05-31,2008-06-01,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/2008/128,2008-128,no pools data
+1218,2017,Tournoi satellite,Senior,MEXICO,2016-10-12,2016-10-13,Foil,Womens,America/Cancun,https://fie.org/competitions/2017/1218,2017-1218,
+130,2005,Grand Prix,Senior,USA,2005-06-17,2005-06-18,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/2005/130,2005-130,no pools data
+243,2007,Championnats du Monde,Senior,RUSSIA,2007-10-03,2007-10-04,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2007/243,2007-243,no pools data
+783,2007,Championnats asiatiques seniors,Senior,CHINA,2007-08-22,2007-08-27,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2007/783,2007-783,no pools data
+121,2011,SK Trophée Séoul,Senior,KOREA,2011-05-21,2011-05-22,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2011/121,2011-121,no pools data
+122,2004,Coupe du Monde,Senior,CHINA,2004-03-06,2004-03-07,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2004/122,2004-122,no pools data
+397,2008,Tournoi satellite fleuret féminin,Senior,DENMARK,2008-03-30,2008-03-30,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2008/397,2008-397,no pools data
+458,2006,The Artus Court PKO BP,Senior,POLAND,2006-05-19,2006-05-20,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2006/458,2006-458,no pools data
+397,2010,Tournoi satellite fleuret féminin,Senior,DENMARK,2010-03-28,2010-03-28,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2010/397,2010-397,no pools data
+243,1986,Championnats du Monde,Senior,BULGARIA,1986-07-25,1986-08-03,Foil,Womens,Europe/Sofia,https://fie.org/competitions/1986/243,1986-243,no pools data
+127,2009,Cup der Sparkasse Leipzig,Senior,GERMANY,2009-02-21,2009-02-22,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2009/127,2009-127,no pools data
+243,1982,Championnats du Monde,Senior,ITALY,1982-07-15,1982-07-24,Foil,Womens,Europe/Rome,https://fie.org/competitions/1982/243,1982-243,no pools data
+458,2013,The Artus Court PKO BP,Senior,POLAND,2013-02-01,2013-02-02,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2013/458,2013-458,no pools data
+458,2018,Grand Prix,Senior,ITALY,2017-12-01,2017-12-03,Foil,Womens,Europe/Rome,https://fie.org/competitions/2018/458,2018-458,
+131,2009,Tournoi Nancy Uranga,Senior,CUBA,2009-06-08,2009-06-09,Foil,Womens,America/Havana,https://fie.org/competitions/2009/131,2009-131,no pools data
+1218,2019,Tournoi satellite,Senior,SLOVAKIA,2018-09-15,2018-09-15,Foil,Womens,Europe/Bratislava,https://fie.org/competitions/2019/1218,2019-1218,
+122,2015,Reinhold-Würth-Cup,Senior,GERMANY,2015-05-01,2015-05-02,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2015/122,2015-122,
+121,2006,2005 SK Trophée Séoul,Senior,KOREA,2006-02-24,2006-02-25,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2006/121,2006-121,no pools data
+1281,2017,Trekanten International,Senior,DENMARK,2017-05-28,2017-05-28,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2017/1281,2017-1281,
+125,2008,Cup Eximbank,Senior,HUNGARY,2008-03-15,2008-03-16,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2008/125,2008-125,no pools data
+740,2010,Championnats d'Europe,Senior,GERMANY,2010-07-16,2010-07-22,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2010/740,2010-740,no pools data
+457,2012,Grand Prix,Senior,FRANCE,2012-04-28,2012-04-29,Foil,Womens,Europe/Paris,https://fie.org/competitions/2012/457,2012-457,no pools data
+458,2008,The Artus Court PKO BP,Senior,POLAND,2008-02-29,2008-03-01,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2008/458,2008-458,no pools data
+291,2004,Championnats d'Europe seniors,Senior,DENMARK,2004-07-02,2004-07-02,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2004/291,2004-291,no pools data
+243,1999,Championnats du Monde,Senior,KOREA,1999-11-01,1999-11-08,Foil,Womens,Asia/Seoul,https://fie.org/competitions/1999/243,1999-243,no pools data
+627,2008,Star Cup Belgrade,Senior,SERBIA,2008-02-09,2008-02-10,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2008/627,2008-627,no pools data
+1043,2017,South East Asian Games,Senior,MALAYSIA,2017-08-21,2017-08-23,Foil,Womens,Asia/Singapore,https://fie.org/competitions/2017/1043,2017-1043,no pools data
+1014,2012,Championnats asiatiques,Senior,JAPAN,2012-04-22,2012-04-27,Foil,Womens,Asia/Tokyo,https://fie.org/competitions/2012/1014,2012-1014,no pools data
+906,2009,Universiade,Senior,SERBIA,2009-07-02,2009-07-07,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2009/906,2009-906,no pools data
+118,2013,Fleuret de St-Petersbourg,Senior,RUSSIA,2013-03-01,2013-03-02,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2013/118,2013-118,no pools data
+121,2013,SK Trophée Séoul,Senior,KOREA,2013-04-27,2013-04-28,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2013/121,2013-121,no pools data
+740,2007,Championnats d'Europe,Senior,BELGIUM,2007-07-02,2007-07-07,Foil,Womens,Europe/Brussels,https://fie.org/competitions/2007/740,2007-740,no pools data
+120,2003,Trophée Lancia,Senior,ITALY,2003-02-07,2003-02-08,Foil,Womens,Europe/Rome,https://fie.org/competitions/2003/120,2003-120,no pools data
+740,2011,Championnats d'Europe,Senior,GREAT BRITAIN,2011-07-14,2011-07-19,Foil,Womens,Europe/London,https://fie.org/competitions/2011/740,2011-740,no pools data
+118,2003,Coupe de Russie,Senior,RUSSIA,2002-12-14,2002-12-15,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2003/118,2003-118,no pools data
+458,2010,The Artus Court PKO BP,Senior,POLAND,2010-02-26,2010-02-27,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2010/458,2010-458,no pools data
+121,2017,Absolute Fencing Gear Long Beach Foil Grand Prix,Senior,USA,2017-03-17,2017-03-18,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/2017/121,2017-121,
+1307,2015,Jeux africains,Senior,CONGO,2015-09-02,2015-09-06,Foil,Womens,Africa/Brazzaville,https://fie.org/competitions/2015/1307,2015-1307,
+125,2005,Coupe Eximbank,Senior,HUNGARY,2005-05-28,2005-05-29,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2005/125,2005-125,no pools data
+1230,2015,Tournoi satellite,Senior,TURKEY,2014-12-13,2014-12-14,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2015/1230,2015-1230,
+129,2014,Coupe du Monde,Senior,ITALY,2014-03-21,2014-03-22,Foil,Womens,Europe/Rome,https://fie.org/competitions/2014/129,2014-129,no pools data
+121,2016,Grand Prix,Senior,CUBA,2016-03-11,2016-03-12,Foil,Womens,America/Havana,https://fie.org/competitions/2016/121,2016-121,
+243,1988,Jeux Olympiques,Senior,KOREA,1988-09-17,1988-10-02,Foil,Womens,Asia/Seoul,https://fie.org/competitions/1988/243,1988-243,no pools data
+243,2001,Championnats du Monde,Senior,FRANCE,2001-10-26,2001-11-01,Foil,Womens,Europe/Paris,https://fie.org/competitions/2001/243,2001-243,no pools data
+127,2014,Reinhold-Würth-Cup,Senior,GERMANY,2014-03-14,2014-03-15,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2014/127,2014-127,no pools data
+1356,2019,Tournoi Satellite,Senior,DENMARK,2018-10-07,2018-10-07,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2019/1356,2019-1356,
+402,2005,Championnats Asiatiques,Senior,MALAYSIA,2005-07-25,2005-07-25,Foil,Womens,Asia/Kuala_Lumpur,https://fie.org/competitions/2005/402,2005-402,no pools data
+131,2010,Tournoi Nancy Uranga,Senior,CUBA,2010-06-07,2010-06-08,Foil,Womens,America/Havana,https://fie.org/competitions/2010/131,2010-131,no pools data
+121,2003,2003 Trophee Incheon,Senior,KOREA,2003-02-22,2003-02-23,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2003/121,2003-121,no pools data
+800,2007,Championnats Panaméricains,Senior,CANADA,2007-08-29,2007-08-29,Foil,Womens,America/Toronto,https://fie.org/competitions/2007/800,2007-800,no pools data
+800,2012,Championnats Panaméricains,Senior,MEXICO,2012-06-17,2012-06-17,Foil,Womens,America/Cancun,https://fie.org/competitions/2012/800,2012-800,no pools data
+1218,2015,Tournoi satellite,Senior,TURKEY,2014-11-15,2014-11-16,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2015/1218,2015-1218,
+458,2012,The Artus Court PKO BP,Senior,POLAND,2012-02-24,2012-02-25,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2012/458,2012-458,no pools data
+1043,2015,South East Asian Games,Senior,SINGAPORE,2015-06-03,2015-06-07,Foil,Womens,Asia/Singapore,https://fie.org/competitions/2015/1043,2015-1043,no pools data
+397,2014,Tournoi satellite fleuret féminin,Senior,DENMARK,2014-05-11,2014-05-11,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2014/397,2014-397,no pools data
+121,2009,SK Trophée Séoul,Senior,KOREA,2009-05-15,2009-05-16,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2009/121,2009-121,no pools data
+127,2018,The Artus Court PKO BP,Senior,POLAND,2018-01-12,2018-01-13,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2018/127,2018-127,
+457,2013,Grand Prix,Senior,FRANCE,2013-05-24,2013-05-25,Foil,Womens,Europe/Paris,https://fie.org/competitions/2013/457,2013-457,no pools data
+243,1959,Championnats du Monde,Senior,HUNGARY,1959-07-12,1959-07-25,Foil,Womens,Europe/Budapest,https://fie.org/competitions/1959/243,1959-243,no pools data
+243,1984,Jeux Olympiques,Senior,USA,1984-07-28,1984-08-12,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/1984/243,1984-243,no pools data
+122,2011,Coupe du Monde,Senior,CHINA,2011-05-06,2011-05-07,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2011/122,2011-122,no pools data
+243,2014,Championnats du Monde,Senior,RUSSIA,2014-07-16,2014-07-19,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2014/243,2014-243,no pools data
+1073,2016,Championnats de qualifications panaméricains,Senior,COSTA RICA,2016-04-15,2016-04-15,Foil,Womens,America/Costa_Rica,https://fie.org/competitions/2016/1073,2016-1073,
+127,2003,Cup der Sparkasse Leipzig,Senior,GERMANY,2003-05-17,2003-05-18,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2003/127,2003-127,no pools data
+243,1968,Jeux Olympiques,Senior,MEXICO,1968-10-15,1968-10-25,Foil,Womens,America/Mexico_City,https://fie.org/competitions/1968/243,1968-243,no pools data
+660,2006,Championnats Centraméricains,Senior,PANAMA,2006-03-05,2006-03-05,Foil,Womens,America/Panama,https://fie.org/competitions/2006/660,2006-660,no pools data
+679,2006,Jeux Centraméricains,Senior,COLOMBIA,2006-07-15,2006-07-21,Foil,Womens,America/Bogota,https://fie.org/competitions/2006/679,2006-679,no pools data
+125,2012,Coupe du Monde,Senior,HUNGARY,2012-03-23,2012-03-24,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2012/125,2012-125,no pools data
+397,2007,Tournoi satellite fleuret féminin,Senior,DENMARK,2007-03-24,2007-03-25,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2007/397,2007-397,no pools data
+1245,2015,Jeux Européens,Senior,AZERBAIJAN,2015-06-24,2015-06-24,Foil,Womens,Asia/Baku,https://fie.org/competitions/2015/1245,2015-1245,
+1079,2016,Championnats de qualification européens,Senior,CZECH REPUBLIC,2016-04-16,2016-04-16,Foil,Womens,Europe/Prague,https://fie.org/competitions/2016/1079,2016-1079,
+121,2012,SK Trophée Séoul,Senior,KOREA,2012-05-19,2012-05-20,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2012/121,2012-121,no pools data
+1014,2017,Championnats asiatiques,Senior,"HONG KONG, CHINA",2017-06-16,2017-06-16,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2017/1014,2017-1014,
+800,2018,Championnats Panaméricains,Senior,CUBA,2018-06-17,2018-06-17,Foil,Womens,America/Havana,https://fie.org/competitions/2018/800,2018-800,
+122,2014,Coupe du Monde,Senior,CHINA,2014-05-02,2014-05-03,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2014/122,2014-122,no pools data
+1067,2016,Championnats de qualification Asie-Océanie,Senior,CHINA,2016-04-11,2016-04-11,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2016/1067,2016-1067,
+127,2008,Cup der Sparkasse Leipzig,Senior,GERMANY,2008-02-23,2008-02-24,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2008/127,2008-127,no pools data
+131,2007,Tournoi Nancy Uranga,Senior,CUBA,2007-06-13,2007-06-14,Foil,Womens,America/Havana,https://fie.org/competitions/2007/131,2007-131,no pools data
+800,2013,Championnats Panaméricains,Senior,COLOMBIA,2013-06-16,2013-06-16,Foil,Womens,America/Bogota,https://fie.org/competitions/2013/800,2013-800,no pools data
+243,1994,Championnats du Monde,Senior,GREECE,1994-07-03,1994-07-09,Foil,Womens,Europe/Athens,https://fie.org/competitions/1994/243,1994-243,no pools data
+125,2016,Coupe du Monde,Senior,MEXICO,2015-10-16,2015-10-17,Foil,Womens,America/Cancun,https://fie.org/competitions/2016/125,2016-125,
+458,2009,The Artus Court PKO BP,Senior,POLAND,2009-02-27,2009-02-28,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2009/458,2009-458,no pools data
+123,2003,Coupe d’Athènes,Senior,GREECE,2003-03-08,2003-03-09,Foil,Womens,Europe/Athens,https://fie.org/competitions/2003/123,2003-123,no pools data
+458,2014,The Artus Court PKO BP,Senior,POLAND,2014-01-31,2014-02-01,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2014/458,2014-458,no pools data
+883,2008,Championnats de qualification de zones,Senior,PORTUGAL,2008-04-26,2008-04-26,Foil,Womens,Europe/Lisbon,https://fie.org/competitions/2008/883,2008-883,no pools data
+243,2013,Championnats du Monde,Senior,HUNGARY,2013-08-05,2013-08-07,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2013/243,2013-243,no pools data
+127,2007,Cup der Sparkasse Leipzig,Senior,GERMANY,2007-02-24,2007-02-25,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2007/127,2007-127,no pools data
+124,2009,Coupe du Monde,Senior,AUSTRIA,2009-01-31,2009-02-01,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2009/124,2009-124,no pools data
+800,2017,Championnats Panaméricains,Senior,CANADA,2017-06-15,2017-06-15,Foil,Womens,America/Toronto,https://fie.org/competitions/2017/800,2017-800,
+555,2008,Cole Cup,Senior,GREAT BRITAIN,2008-06-14,2008-06-15,Foil,Womens,Europe/London,https://fie.org/competitions/2008/555,2008-555,no pools data
+243,2010,Championnats du Monde,Senior,FRANCE,2010-11-05,2010-11-07,Foil,Womens,Europe/Paris,https://fie.org/competitions/2010/243,2010-243,no pools data
+118,2007,Fleuret de St-Petersbourg,Senior,RUSSIA,2007-03-09,2007-03-10,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2007/118,2007-118,no pools data
+1093,2013,2013 Summer Universiade,Senior,RUSSIA,2013-07-07,2013-07-12,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2013/1093,2013-1093,no pools data
+397,2013,Tournoi satellite fleuret féminin,Senior,DENMARK,2013-03-24,2013-03-24,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2013/397,2013-397,no pools data
+125,2004,Coupe Eximbank,Senior,HUNGARY,2004-05-29,2004-05-30,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2004/125,2004-125,no pools data
+125,2011,Cup Eximbank,Senior,HUNGARY,2011-03-25,2011-03-26,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2011/125,2011-125,no pools data
+128,2004,Coupe Buenos Aires,Senior,ARGENTINA,2004-07-03,2004-07-04,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/2004/128,2004-128,no pools data
+131,2005,Tournoi Nancy Uranga,Senior,CUBA,2005-06-25,2005-06-26,Foil,Womens,America/Havana,https://fie.org/competitions/2005/131,2005-131,no pools data
+1050,2012,Jeux des Pays Arabophones,Senior,QATAR,2011-12-20,2011-12-20,Foil,Womens,Asia/Qatar,https://fie.org/competitions/2012/1050,2012-1050,no pools data
+243,1966,Championnats du Monde,Senior,RUSSIA,1966-07-06,1966-07-16,Foil,Womens,Europe/Moscow,https://fie.org/competitions/1966/243,1966-243,no pools data
+291,2005,Championnats d'Europe seniors,Senior,HUNGARY,2005-06-27,2005-07-03,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2005/291,2005-291,no pools data
+130,2004,Coupe du Monde,Senior,USA,2004-06-12,2004-06-13,Foil,Womens,America/New_York,https://fie.org/competitions/2004/130,2004-130,no pools data
+243,1983,Championnats du Monde,Senior,AUSTRIA,1983-07-20,1983-07-30,Foil,Womens,Europe/Vienna,https://fie.org/competitions/1983/243,1983-243,no pools data
+1061,2012,Champ. de qualification - Afrique,Senior,MOROCCO,2012-04-19,2012-04-19,Foil,Womens,Africa/Casablanca,https://fie.org/competitions/2012/1061,2012-1061,no pools data
+740,2018,Championnats d'Europe,Senior,SERBIA,2018-06-17,2018-06-17,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2018/740,2018-740,
+845,2007,The 24th Universiade Bangkok 2007,Senior,THAILAND,2007-08-13,2007-08-13,Foil,Womens,Asia/Bangkok,https://fie.org/competitions/2007/845,2007-845,no pools data
+243,1963,Championnats du Monde,Senior,POLAND,1963-07-14,1963-07-28,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/1963/243,1963-243,no pools data
+118,2011,Fleuret de St-Petersbourg,Senior,RUSSIA,2011-06-05,2011-06-06,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2011/118,2011-118,no pools data
+118,2017,Coupe du Monde,Senior,FRANCE,2016-11-04,2016-11-05,Foil,Womens,Europe/Paris,https://fie.org/competitions/2017/118,2017-118,
+963,2010,Jeux Centraméricains et des Caraïbes,Senior,PUERTO RICO,2010-07-18,2010-07-23,Foil,Womens,America/Puerto_Rico,https://fie.org/competitions/2010/963,2010-963,no pools data
+243,2005,Championnats du Monde,Senior,GERMANY,2005-10-08,2005-10-09,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2005/243,2005-243,no pools data
+118,2016,Coupe du Monde,Senior,FRANCE,2015-11-06,2015-11-07,Foil,Womens,Europe/Paris,https://fie.org/competitions/2016/118,2016-118,
+130,2009,Coupe du Monde,Senior,USA,2009-06-21,2009-06-22,Foil,Womens,America/Chicago,https://fie.org/competitions/2009/130,2009-130,no pools data
+402,2004,Championnats Asiatiques,Senior,PHILIPPINES,2004-04-21,2004-04-26,Foil,Womens,Asia/Manila,https://fie.org/competitions/2004/402,2004-402,no pools data
+123,2004,Coupe d’Athènes,Senior,GREECE,2004-03-13,2004-03-14,Foil,Womens,Europe/Athens,https://fie.org/competitions/2004/123,2004-123,no pools data
+458,2015,Grand Prix,Senior,ITALY,2014-11-28,2014-11-29,Foil,Womens,Europe/Rome,https://fie.org/competitions/2015/458,2015-458,
+130,2006,World Cup competition,Senior,USA,2006-06-16,2006-06-17,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/2006/130,2006-130,no pools data
+243,1964,Jeux Olympiques,Senior,JAPAN,1964-10-10,1964-10-24,Foil,Womens,Asia/Tokyo,https://fie.org/competitions/1964/243,1964-243,no pools data
+127,2005,Cup der Sparkasse Leipzig,Senior,GERMANY,2005-05-14,2005-05-15,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2005/127,2005-127,no pools data
+129,2005,Fencing WC,Senior,JAPAN,2005-03-11,2005-03-12,Foil,Womens,Asia/Tokyo,https://fie.org/competitions/2005/129,2005-129,no pools data
+121,2007,SK Trophée Séoul,Senior,KOREA,2007-05-04,2007-05-05,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2007/121,2007-121,no pools data
+124,2006,Coupe du Monde,Senior,AUSTRIA,2006-04-29,2006-04-30,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2006/124,2006-124,no pools data
+122,2008,Coupe du Monde,Senior,CHINA,2008-05-03,2008-05-04,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2008/122,2008-122,no pools data
+128,2003,Coupe Buenos Aires,Senior,ARGENTINA,2003-05-24,2003-05-25,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/2003/128,2003-128,no pools data
+130,2007,World Cup competition,Senior,USA,2007-06-22,2007-06-23,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/2007/130,2007-130,no pools data
+783,2008,Championnats asiatiques seniors,Senior,THAILAND,2008-04-24,2008-04-29,Foil,Womens,Asia/Bangkok,https://fie.org/competitions/2008/783,2008-783,no pools data
+125,2003,Coupe Eximbank,Senior,HUNGARY,2003-03-29,2003-03-30,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2003/125,2003-125,no pools data
+243,1990,Championnats du Monde,Senior,FRANCE,1990-07-08,1990-07-16,Foil,Womens,Europe/Paris,https://fie.org/competitions/1990/243,1990-243,no pools data
+243,1977,Championnats du Monde,Senior,ARGENTINA,1977-07-14,1977-07-24,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/1977/243,1977-243,no pools data
+129,2013,Coupe du Monde,Senior,ITALY,2013-03-22,2013-03-23,Foil,Womens,Europe/Rome,https://fie.org/competitions/2013/129,2013-129,no pools data
+124,2007,Coupe du Monde,Senior,AUSTRIA,2007-02-17,2007-02-18,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2007/124,2007-124,no pools data
+122,2013,Coupe du Monde,Senior,CHINA,2013-05-03,2013-05-04,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2013/122,2013-122,no pools data
+1377,2018,Tournoi Satelite,Senior,DENMARK,2018-05-27,2017-05-27,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2018/1377,2018-1377,
+243,2000,Jeux Olympiques,Senior,AUSTRALIA,2000-09-16,2000-09-24,Foil,Womens,Australia/Sydney,https://fie.org/competitions/2000/243,2000-243,no pools data
+518,2010,Challenge Jeanty,Senior,FRANCE,2010-03-26,2010-03-27,Foil,Womens,Europe/Paris,https://fie.org/competitions/2010/518,2010-518,no pools data
+125,2017,Coupe du Monde,Senior,MEXICO,2016-10-14,2016-10-15,Foil,Womens,America/Cancun,https://fie.org/competitions/2017/125,2017-125,
+586,2014,Championnats d'Afrique,Senior,EGYPT,2014-06-22,2014-06-22,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2014/586,2014-586,no pools data
+131,2008,Tournoi Nancy Uranga,Senior,CUBA,2008-06-11,2008-06-12,Foil,Womens,America/Havana,https://fie.org/competitions/2008/131,2008-131,no pools data
+243,1998,Championnats du Monde,Senior,SWITZERLAND,1998-10-04,1998-10-11,Foil,Womens,Europe/Zurich,https://fie.org/competitions/1998/243,1998-243,no pools data
+243,2015,Championnats du Monde,Senior,RUSSIA,2015-07-15,2015-07-16,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2015/243,2015-243,
+397,2015,Tournoi satellite,Senior,MEXICO,2014-10-15,2014-10-16,Foil,Womens,America/Cancun,https://fie.org/competitions/2015/397,2015-397,
+1152,2013,Juegos Centroamericanos 2013,Senior,COSTA RICA,2013-03-04,2013-03-04,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/2013/1152,2013-1152,no pools data
+291,2006,Championnats d'Europe seniors,Senior,TURKEY,2006-07-07,2006-07-07,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2006/291,2006-291,no pools data
+122,2016,Reinhold-Würth-Cup,Senior,GERMANY,2016-05-20,2016-05-21,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2016/122,2016-122,
+918,2008,FF-IND,Senior,CHINA,2008-08-09,2008-08-17,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2008/918,2008-918,no pools data
+125,2007,Cup Eximbank,Senior,HUNGARY,2007-03-17,2007-03-18,Foil,Womens,Europe/Budapest,https://fie.org/competitions/2007/125,2007-125,no pools data
+128,2007,Coupe Buenos Aires,Senior,ARGENTINA,2007-06-01,2007-06-02,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/2007/128,2007-128,no pools data
+124,2003,Coupe du Monde,Senior,AUSTRIA,2003-03-15,2003-03-16,Foil,Womens,Europe/Vienna,https://fie.org/competitions/2003/124,2003-124,no pools data
+424,2004,Qualification olympique Amérique,Senior,BRAZIL,2004-04-25,2004-04-26,Foil,Womens,America/Sao_Paulo,https://fie.org/competitions/2004/424,2004-424,no pools data
+243,2017,Championnats du Monde,Senior,GERMANY,2017-07-19,2017-07-21,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2017/243,2017-243,
+243,2018,Championnats du Monde,Senior,CHINA,2018-07-20,2018-07-23,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2018/243,2018-243,
+243,1958,Championnats du Monde,Senior,USA,1958-08-24,1958-09-06,Foil,Womens,America/New_York,https://fie.org/competitions/1958/243,1958-243,no pools data
+130,2010,Coupe du Monde,Senior,USA,2010-06-19,2010-06-20,Foil,Womens,America/New_York,https://fie.org/competitions/2010/130,2010-130,no pools data
+118,2005,Fleuret de St-Petersbourg,Senior,RUSSIA,2005-03-25,2005-03-26,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2005/118,2005-118,no pools data
+416,2005,Universiades,Senior,TURKEY,2005-08-11,2005-08-19,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2005/416,2005-416,no pools data
+129,2016,Coupe du Monde,Senior,ALGERIA,2016-02-05,2016-02-06,Foil,Womens,Africa/Algiers,https://fie.org/competitions/2016/129,2016-129,
+126,2004,Souvenir Jeanty,Senior,FRANCE,2004-04-30,2004-05-01,Foil,Womens,Europe/Paris,https://fie.org/competitions/2004/126,2004-126,no pools data
+121,2004,2004 SK Trophée Séoul,Senior,KOREA,2004-02-28,2004-02-29,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2004/121,2004-121,no pools data
+129,2007,Prince Takamado WC,Senior,JAPAN,2007-05-18,2007-05-19,Foil,Womens,Asia/Tokyo,https://fie.org/competitions/2007/129,2007-129,no pools data
+525,2006,Commonwealth Championships,Senior,IRELAND,2006-09-20,2006-09-25,Foil,Womens,Europe/London,https://fie.org/competitions/2006/525,2006-525,no pools data
+740,2009,Championnats d'Europe,Senior,BULGARIA,2009-07-13,2009-07-19,Foil,Womens,Europe/Sofia,https://fie.org/competitions/2009/740,2009-740,no pools data
+627,2010,Star Cup Belgrade,Senior,SERBIA,2010-02-06,2010-02-07,Foil,Womens,Europe/Belgrade,https://fie.org/competitions/2010/627,2010-627,no pools data
+875,2008,Championnats de qualification de zones,Senior,MEXICO,2008-04-26,2008-04-27,Foil,Womens,America/Mexico_City,https://fie.org/competitions/2008/875,2008-875,no pools data
+642,2007,Jeux Panaméricains,Senior,BRAZIL,2007-07-14,2007-07-21,Foil,Womens,America/Sao_Paulo,https://fie.org/competitions/2007/642,2007-642,no pools data
+586,2009,Championnats d'Afrique,Senior,SENEGAL,2009-08-07,2009-08-07,Foil,Womens,Africa/Dakar,https://fie.org/competitions/2009/586,2009-586,no pools data
+457,2016,Grand Prix,Senior,CHINA,2016-06-03,2016-06-04,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2016/457,2016-457,
+408,2004,Ch. qualification JO zone Europe,Senior,BELGIUM,2004-04-17,2004-04-17,Foil,Womens,Europe/Brussels,https://fie.org/competitions/2004/408,2004-408,no pools data
+243,1967,Championnats du Monde,Senior,CANADA,1967-07-05,1967-07-16,Foil,Womens,America/Toronto,https://fie.org/competitions/1967/243,1967-243,no pools data
+458,2017,Grand Prix,Senior,ITALY,2016-12-02,2016-12-04,Foil,Womens,Europe/Rome,https://fie.org/competitions/2017/458,2017-458,
+555,2006,Cole Cup,Senior,GREAT BRITAIN,2006-06-17,2006-06-18,Foil,Womens,Europe/London,https://fie.org/competitions/2006/555,2006-555,no pools data
+243,1995,Championnats du Monde,Senior,NETHERLANDS,1995-07-18,1995-07-23,Foil,Womens,Europe/Amsterdam,https://fie.org/competitions/1995/243,1995-243,no pools data
+1026,2011,26th Summer Universiade,Senior,CHINA,2011-08-14,2011-08-14,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2011/1026,2011-1026,no pools data
+243,1965,Championnats du Monde,Senior,FRANCE,1965-07-01,1965-07-12,Foil,Womens,Europe/Paris,https://fie.org/competitions/1965/243,1965-243,no pools data
+122,2003,Coupe du Monde,Senior,CHINA,2003-03-01,2003-03-02,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2003/122,2003-122,no pools data
+586,2011,Championnats d'Afrique,Senior,EGYPT,2011-07-21,2011-07-25,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2011/586,2011-586,no pools data
+1230,2019,Tournoi satellite,Senior,ROMANIA,2018-09-23,2018-09-23,Foil,Womens,Europe/Bucharest,https://fie.org/competitions/2019/1230,2019-1230,
+1014,2014,Championnats asiatiques,Senior,KOREA,2014-07-02,2014-07-07,Foil,Womens,Asia/Seoul,https://fie.org/competitions/2014/1014,2014-1014,no pools data
+243,2008,JO,Senior,CHINA,2008-08-11,2008-08-11,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2008/243,2008-243,no pools data
+130,2008,World Cup competition,Senior,USA,2008-06-21,2008-06-22,Foil,Womens,America/Los_Angeles,https://fie.org/competitions/2008/130,2008-130,no pools data
+128,2006,Coupe Buenos Aires,Senior,ARGENTINA,2006-07-01,2006-07-02,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/2006/128,2006-128,no pools data
+397,2011,Tournoi satellite fleuret féminin,Senior,DENMARK,2011-03-27,2011-03-27,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2011/397,2011-397,no pools data
+1093,2017,2017 Summer Universiades,Senior,CHINESE TAIPEI,2017-08-20,2017-08-25,Foil,Womens,Asia/Taipei,https://fie.org/competitions/2017/1093,2017-1093,
+397,2009,Tournoi satellite fleuret féminin,Senior,DENMARK,2009-03-29,2009-03-29,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2009/397,2009-397,no pools data
+118,2015,Coupe du Monde,Senior,FRANCE,2014-11-07,2014-11-08,Foil,Womens,Europe/Paris,https://fie.org/competitions/2015/118,2015-118,
+438,2004,Ch. qualification JO zone Afrique,Senior,TUNISIA,2004-04-22,2004-04-22,Foil,Womens,Africa/Tunis,https://fie.org/competitions/2004/438,2004-438,no pools data
+869,2008,Championnats de qualification de zones,Senior,MOROCCO,2008-04-25,2008-04-25,Foil,Womens,Africa/Casablanca,https://fie.org/competitions/2008/869,2008-869,no pools data
+243,1991,Championnats du Monde,Senior,HUNGARY,1991-06-13,1991-06-23,Foil,Womens,Europe/Budapest,https://fie.org/competitions/1991/243,1991-243,no pools data
+388,2004,Coupe du Monde de Jordanie,Senior,JORDAN,2004-01-17,2004-01-18,Foil,Womens,Asia/Amman,https://fie.org/competitions/2004/388,2004-388,no pools data
+1014,2015,Championnats asiatiques,Senior,SINGAPORE,2015-06-25,2015-06-30,Foil,Womens,Asia/Singapore,https://fie.org/competitions/2015/1014,2015-1014,
+457,2014,Grand Prix,Senior,FRANCE,2014-05-23,2014-05-24,Foil,Womens,Europe/Paris,https://fie.org/competitions/2014/457,2014-457,no pools data
+243,1971,Championnats du Monde,Senior,AUSTRIA,1971-07-04,1971-07-17,Foil,Womens,Europe/Vienna,https://fie.org/competitions/1971/243,1971-243,no pools data
+122,2018,Reinhold-Würth-Cup,Senior,GERMANY,2018-04-27,2018-04-28,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2018/122,2018-122,
+740,2014,Championnats d'Europe,Senior,FRANCE,2014-06-07,2014-06-14,Foil,Womens,Europe/Paris,https://fie.org/competitions/2014/740,2014-740,no pools data
+127,2016,The Artus Court PKO BP,Senior,POLAND,2016-01-15,2016-01-16,Foil,Womens,Europe/Warsaw,https://fie.org/competitions/2016/127,2016-127,
+118,2012,Fleuret de St-Petersbourg,Senior,RUSSIA,2012-06-03,2012-06-04,Foil,Womens,Europe/Moscow,https://fie.org/competitions/2012/118,2012-118,no pools data
+518,2009,Challenge Jeanty,Senior,FRANCE,2009-03-27,2009-03-28,Foil,Womens,Europe/Paris,https://fie.org/competitions/2009/518,2009-518,no pools data
+1218,2018,Tournoi satellite,Senior,TURKEY,2017-12-09,2017-12-09,Foil,Womens,Europe/Istanbul,https://fie.org/competitions/2018/1218,2018-1218,
+120,2004,Trophée Esperia,Senior,ITALY,2004-01-31,2004-02-01,Foil,Womens,Europe/Rome,https://fie.org/competitions/2004/120,2004-120,no pools data
+243,1956,Jeux Olympiques,Senior,AUSTRALIA,1956-11-22,1956-12-08,Foil,Womens,Australia/Melbourne,https://fie.org/competitions/1956/243,1956-243,no pools data
+129,2012,Coupe du Monde,Senior,ITALY,2012-03-09,2012-03-10,Foil,Womens,Europe/Rome,https://fie.org/competitions/2012/129,2012-129,no pools data
+243,2002,Championnats du Monde,Senior,PORTUGAL,2002-08-20,2002-08-20,Foil,Womens,Europe/Lisbon,https://fie.org/competitions/2002/243,2002-243,no pools data
+586,2010,Championnats d'Afrique,Senior,TUNISIA,2010-09-25,2010-09-30,Foil,Womens,Africa/Tunis,https://fie.org/competitions/2010/586,2010-586,no pools data
+131,2003,Tournoi Nancy Uranga,Senior,CUBA,2003-06-24,2003-06-25,Foil,Womens,America/Havana,https://fie.org/competitions/2003/131,2003-131,no pools data
+127,2012,Reinhold-Würth-Cup,Senior,GERMANY,2012-02-10,2012-02-11,Foil,Womens,Europe/Berlin,https://fie.org/competitions/2012/127,2012-127,no pools data
+457,2006,World Cup,Senior,EGYPT,2006-03-17,2006-03-18,Foil,Womens,Africa/Cairo,https://fie.org/competitions/2006/457,2006-457,no pools data
+397,2012,Tournoi satellite fleuret féminin,Senior,DENMARK,2012-03-25,2012-03-25,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2012/397,2012-397,no pools data
+397,2004,Tournoi satellite fleuret féminin,Senior,DENMARK,2004-03-20,2004-03-21,Foil,Womens,Europe/Copenhagen,https://fie.org/competitions/2004/397,2004-397,no pools data
+431,2004,Ch. qualification JO zone Asie,Senior,PHILIPPINES,2004-04-19,2004-04-20,Foil,Womens,Asia/Manila,https://fie.org/competitions/2004/431,2004-431,no pools data
+122,2010,Coupe du Monde,Senior,CHINA,2010-05-03,2010-05-04,Foil,Womens,Asia/Hong_Kong,https://fie.org/competitions/2010/122,2010-122,no pools data
+728,2007,8ème Jeux Sudaméricains,Senior,ARGENTINA,2006-11-10,2006-11-15,Foil,Womens,America/Argentina/Buenos_Aires,https://fie.org/competitions/2007/728,2007-728,no pools data

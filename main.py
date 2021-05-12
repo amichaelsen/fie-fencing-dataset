@@ -7,7 +7,7 @@ from get_results import get_results_for_division
 save_results = True 
 
 weapon = 'f'
-gender = 'f'
+gender = 'm'
 category = ''
 
 
@@ -34,7 +34,11 @@ if save_results:
         makedirs(directory)
 
     name_list = ['tournament_data', 'bout_data', 'fencer_bio_data', 'fencer_rankings_data']
-    for idx, df in enumerate([tourn_df, bout_df, fencers_bio_df, fencers_rankings_df]):
+    for idx, df in enumerate([tourn_df, bout_df, fencers_bio_df]):
         name = name_list[idx]
         file_name = div_name + "_" + name + "_" + date_string + ".csv"
         df.to_csv(directory+file_name, index=False)
+    
+    name = 'fencer_rankings_data'
+    file_name = div_name + "_" + name + "_" + date_string + ".csv"
+    fencers_rankings_df.to_csv(directory+file_name)
