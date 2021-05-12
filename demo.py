@@ -11,9 +11,9 @@ from soup_scraping import get_search_params
 from dataframe_columns import BOUTS_DF_COLS
 
 testing_single_tournament = False
-testing_list_tournaments = False
+testing_list_tournaments = True
 testing_results_search = False
-test_results_by_division = True
+test_results_by_division = False
 
 if testing_single_tournament:
     print("\n\n Reading and printing a single tournament")
@@ -41,8 +41,9 @@ if testing_list_tournaments:
 
     list_of_urls = ['https://fie.org/competitions/2021/1081',
                     'https://fie.org/competitions/2021/121']
+    list_of_urls = ['https://fie.org/competitions/2021/1081']
     tourn_df, bout_df, fencers_bio_df, fencers_rankings_df = get_dataframes_from_tournament_url_list(
-        list_of_urls)
+        list_of_urls=list_of_urls, use_fencer_cache=False)
 
     print("\n\n")
     time.sleep(2)
@@ -97,7 +98,7 @@ if test_results_by_division:
     print("Getting results for  Women's Foil...\n")
 
     tourn_df, bout_df, fencers_bio_df, fencers_rankings_df = get_results_for_division(
-        weapon=['s'], gender=['f'], category='', max_events=15, use_tournament_cache=False)
+        weapon=['s'], gender=['f'], category='', max_events=5, use_tournament_cache=False, use_fencer_cache=False)
 
     print("\n\n")
     time.sleep(2)

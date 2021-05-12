@@ -13,6 +13,18 @@ from dataframe_columns import FENCERS_RANKINGS_MULTI_INDEX, FENCERS_RANKINGS_DF_
 
 CACHE_FILENAME = 'fencers/fencer_cache.txt'
 
+def get_fencer_nationality_data(soup):
+    flag_span = soup.find('span', class_='AthleteHero-flag')
+    class_labels = flag_span['class'] # should be the third
+    flag_indicator = class_labels[2]
+    flag_label = flag_indicator.split('--')[1].upper()
+    with open('fencers/flag_to_country_code.txt') as flag_file:
+        with open('fencers/country_code_to_name.txt') as country_file:
+            flag_data = json.load(flag_file)
+            country_data = json.load(country_file)
+            country_code = flag_data.get(flag_label, flag_label)
+            country_name = country_data.get(country_code, flag_label)
+    return country_code, country_name
 
 def get_fencer_bio_from_soup(soup, fencer_ID):
     """
@@ -30,13 +42,7 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
     except:
         print("\nFailed to read name from name_tag for fencer ID: {}".format(fencer_ID))
 
-    # first approximation to get nationality
-    # window._tabOpponents = [{"date":"2021-04-10", "fencer1":{"id":"52027","name":"PARK Faith","nationality":"USA","isWinner":true,"score":"5"},
-    #                                               "fencer2":{"id":49302,"name":"CARDOSO Elisabete","nationality":"POR","isWinner":false,"score":"2"},"competition":"Championnats du monde juniors-cadets","season":"2021","competitionId":"235","city":"Le Caire"},
-    tabOpp_list = get_json_var_from_script(
-        soup=soup, script_id="js-single-athlete", var_name="window._tabOpponents")
-    if len(tabOpp_list) > 0 and int(tabOpp_list[0]['fencer1']['id']) == fencer_ID:
-        nationality = tabOpp_list[0]['fencer1']['nationality']
+    country_code, country_name = get_fencer_nationality_data(soup)
 
     try:
         info_div = soup.find('div', class_="ProfileInfo")
@@ -49,7 +55,8 @@ def get_fencer_bio_from_soup(soup, fencer_ID):
         print("\nFailed to info_div from ProfileInfo for fencer ID: {}".format(fencer_ID))
 
     return {'name': fencer_name,
-            'nationality': nationality,
+            'country_code': country_code,
+            'country': country_name,
             'hand': hand, 'age': age}
 
 
