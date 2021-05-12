@@ -198,7 +198,8 @@ def compile_bout_dict_list_from_tournament_data(tournament_data):
 
 def load_tournament_data(list_of_urls, tournaments_dict_list, bouts_dict_list, fencer_ID_list, use_cache=True, label="tournament data"):
     if len(list_of_urls) == 0:
-        return tournaments_dict_list, bouts_dict_list, fencer_ID_list
+        return
+    temp_fencer_list = [] # need this to avoid scoping issue, otherwise orig fencer_ID_list does not get updated
     for tournament_url in Bar('  Loading {}'.format(label)).iter(list_of_urls):
         load_from_cache = False
         # Check if tournament is in cache (uses potentially old data)
@@ -238,11 +239,11 @@ def load_tournament_data(list_of_urls, tournaments_dict_list, bouts_dict_list, f
             save_dict_to_cache(
                 CACHE_FILENAME, tournament_url, dict_to_cache)
         # append tournament data to the list
-        fencer_ID_list = list(
-            set(fencer_ID_list+tournament_fencer_ID_list))
+        temp_fencer_list = list(
+            set(temp_fencer_list+tournament_fencer_ID_list))
         bouts_dict_list = bouts_dict_list + tournament_bout_dict_list
         tournaments_dict_list.append(tournament_info_dict)
-    return tournaments_dict_list, bouts_dict_list, fencer_ID_list
+    fencer_ID_list += temp_fencer_list
 
 
 def process_tournament_data_from_urls(list_of_urls, use_cache=True):
@@ -253,7 +254,6 @@ def process_tournament_data_from_urls(list_of_urls, use_cache=True):
     fencer_ID_list = []
 
     print("Processing {} tournaments by URL ".format(len(list_of_urls)), end="")
-    
 
     if use_cache:
         with open(CACHE_FILENAME) as file_cache:
@@ -266,10 +266,10 @@ def process_tournament_data_from_urls(list_of_urls, use_cache=True):
         print("")
     uncached_URLS = list(set(list_of_urls) - set(cached_URLS))
 
-    load_tournament_data(uncached_URLS, tournaments_dict_list=tournaments_dict_list, bouts_dict_list=bouts_dict_list,
+    load_tournament_data(list_of_urls=uncached_URLS, tournaments_dict_list=tournaments_dict_list, bouts_dict_list=bouts_dict_list,
                          fencer_ID_list=fencer_ID_list, use_cache=use_cache, label="uncached tournaments")
 
-    load_tournament_data(cached_URLS, tournaments_dict_list=tournaments_dict_list, bouts_dict_list=bouts_dict_list,
-                         fencer_ID_list=fencer_ID_list, use_cache=use_cache, label="cached tournaments")
+    load_tournament_data(list_of_urls=cached_URLS, tournaments_dict_list=tournaments_dict_list, bouts_dict_list=bouts_dict_list,
+                         fencer_ID_list=fencer_ID_list, use_cache=use_cache, label="cached tournaments  ")
 
     return tournaments_dict_list, bouts_dict_list, fencer_ID_list
