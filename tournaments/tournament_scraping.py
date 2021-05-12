@@ -139,18 +139,19 @@ def create_tournament_data_from_url(tournament_url):
 
     # IF NO POOLS DATA STORED OR FENCER IDS MISSING (usually from all athletes) SKIP
     #    (return NoneType, handled in get_results.process_tournament_data_from_urls)
+    has_results_data = True
     if len(pools_list) == 0:
-        return False, TournamentData(pools_list=[],
-                                     fencers_dict={},
-                                     missing_results_flag="no pools data",
-                                     ** tournament_dict)
+        missing_results_flag="no pools data"
+        has_results_data = False
     elif 0 in list(tournament_athlete_dict.keys()):
+        missing_results_flag="fencer IDs missing"
+        has_results_data = False 
+
+    if not has_results_data:
         return False, TournamentData(pools_list=[],
                                      fencers_dict={},
-                                     missing_results_flag="fencer IDs missing",
-                                     ** tournament_dict)
-    else:
-        has_results_data = True
+                                     missing_results_flag=missing_results_flag,
+                                     ** tournament_dict) 
 
     # CREATE TOURNAMENT DATACLASS TO RETURN
     tournament = TournamentData(
@@ -196,8 +197,8 @@ def compile_bout_dict_list_from_tournament_data(tournament_data):
 
 
 def process_tournament_data_from_urls(list_of_urls, use_cache=True):
-    # tournaments_dataframe = pd.DataFrame(columns=TOURNAMENTS_DF_COLS)
-
+    """
+    """
     tournaments_dict_list = []
     bouts_dict_list = []
     fencer_ID_list = []
