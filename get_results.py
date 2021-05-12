@@ -21,6 +21,21 @@ CACHE_FILENAME = 'tournaments/tournament_cache.txt'
 def add_tournament_urls_to_list(url_list, tournament_dict_list):
     """
     Method for constructing a list of urls from a list of tournament_dict data
+
+        Input:
+        ------
+        url_list : list
+            Initial list of tournament urls represented as strings. 
+            Urls will have the form: https://fie.org/competitions/2020/1080
+        tournament_dict_list : list
+            List of tournaments stored in dicts (from GET 'https://fie.org/competitions/search')
+            with keys 'season' and 'competitionId' used to construct url
+
+        Output:
+        -------
+        url_list : list
+            Final list of tournament urls represented as strings. 
+            Urls will have the form: https://fie.org/competitions/2020/1080
     """
     for tournament in tournament_dict_list:
         url = "https://fie.org/competitions/" + \
@@ -73,9 +88,9 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
     """
     Performs relabeling/typecasting of tournament, bout, fencer_bio, and fencer_ranking pd.DataFrames
 
-    Notes: 
-        * No returns, makes changes to the dataframes in place
-        * Currently no changes made to bouts_dataframe
+        Notes: 
+            * No returns, makes changes to the dataframes in place
+            * Currently no changes made to bouts_dataframe
     """
     # expand labels for 'weapon', 'gender' and 'category' in the tournament dataframe
     weapon_dict = {'E': "Epee", "F": "Foil", "S": "Sabre"}
@@ -142,7 +157,8 @@ def get_dataframes_from_tournament_url_list(list_of_urls, use_tournament_cache=T
         fencers_rankings_dataframe : pandas.DataFrame 
             Dataframe with historical rankings data for each fencer, with columns listed 
             and described in dataframe_columns.py as FENCERS_RANKINGS_DF_COLS
-            and pd.multiIndex created from FENCERS_RANKINGS_MULTI_INDEX (see )
+            and pd.multiIndex created from FENCERS_RANKINGS_MULTI_INDEX 
+            (see `convert_list_to_dataframe_with_multi_index` in dataframe_columns.py)
     """
     # PROCESS TOURNAMENTS FIRST
     tournaments_dict_list, bouts_dict_list, fencer_ID_list = process_tournament_data_from_urls(
@@ -176,7 +192,42 @@ def get_dataframes_from_tournament_url_list(list_of_urls, use_tournament_cache=T
 
 def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, use_tournament_cache=True, use_fencer_cache=True):
     """
+    Given division parameters returns dataframes with data for results 
 
+        Input:
+        ------
+        weapon : list
+            List of weapons to include in results search
+            'e' = Epee, 'f' = Foil, 's' = Sabre
+        gender : list
+            List of genders to include in results search
+                'f' = Female/Women's, 'm' = Male/Men's
+        category : str
+            Category (i.e. age group) to search
+            'c' = Cadet, 'j' = Junior, 's' = Senior, 'v' = Veteran
+
+        max_events : int
+            Optional parameter to cap the number of tournaments to process
+
+        use_tournament_cache : boolean
+        use_fencer_cache : boolean
+
+        Output:
+        ______
+        tournaments_dataframe : pandas.DataFrame 
+            Dataframe with data about each tournament, with columns listed and described
+            in dataframe_columns.py as TOURNAMENTS_DF_COLS
+        bouts_dataframe  : pandas.DataFrame  
+            Dataframe with data about each bout, with columns listed and described
+            in dataframe_columns.py as BOUTS_DF_COLS
+        fencers_bio_dataframe  : pandas.DataFrame  
+            Dataframe with biographical data about each fencer, with columns listed 
+            and described in dataframe_columns.py as FENCERS_BIO_DF_COLS
+        fencers_rankings_dataframe : pandas.DataFrame 
+            Dataframe with historical rankings data for each fencer, with columns listed 
+            and described in dataframe_columns.py as FENCERS_RANKINGS_DF_COLS
+            and pd.multiIndex created from FENCERS_RANKINGS_MULTI_INDEX 
+            (see `convert_list_to_dataframe_with_multi_index` in dataframe_columns.py)
     """
     print("Gettting list of tournaments to process...", end="")
     search_params = get_search_params(weapon, gender, category)
