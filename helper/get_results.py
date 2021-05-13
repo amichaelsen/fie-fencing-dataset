@@ -6,13 +6,13 @@ import math
 import json
 from os import path, stat
 
-from dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_BIO_DF_COLS, FENCERS_RANKINGS_DF_COLS, FENCERS_RANKINGS_MULTI_INDEX
-from dataframe_columns import relabel_multiIndex, make_season_from_year
+from helper.dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_BIO_DF_COLS, FENCERS_RANKINGS_DF_COLS, FENCERS_RANKINGS_MULTI_INDEX
+from helper.dataframe_columns import relabel_multiIndex, make_season_from_year
 from tournaments.tournament_scraping import process_tournament_data_from_urls
 from fencers.fencer_scraping import get_fencer_data_lists_from_ID_list
-from dataframe_columns import convert_list_to_dataframe_with_multi_index
-from soup_scraping import get_search_params
-# from caching_methods import save_dict_to_cache
+from helper.dataframe_columns import convert_list_to_dataframe_with_multi_index
+from helper.soup_scraping import get_search_params
+# from helper.caching_methods import save_dict_to_cache
 # from tournaments.tournament_data import TournamentData
 
 CACHE_FILENAME = 'tournaments/tournament_cache.txt'
