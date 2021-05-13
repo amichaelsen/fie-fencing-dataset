@@ -9,7 +9,19 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
 
 * add a basic flowchart for process? or just image from notability drawing? 
 
+### 05/12/2021
 
+**Lesson Learned:**
+
+In converting cached data, process takes a while from url calls and may not run in one go, so have batched saves every 50 fencers to make sure progress is made even if the program gets terminated early or runs into an error 
+
+**More data inconsistencies**
+
+* Fencer ID: 1414 appears in https://fie.org/competitions/2015/1105 for the fencer HENNIG Bonnie but the athlete page is almost empty with the name AGUERO Es and the original Bonnie fencer does not exist in the database anymore...
+
+**Caching HTML Requests** 
+
+* Added code to cache the req.content to a file and load that for the tournaments always if possible and for the fencers depending on a cache flag. If no such file exists, it makes the URL request as normal and saves the content to a file. 
 
 ### 05/11/2021
 
