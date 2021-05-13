@@ -11,7 +11,6 @@ gender = 'm'
 category = ''
 
 
-
 weapon_dict = {'f': "foil", 'e': 'epee', 's': 'sabre'}
 gender_dict = {'f': "womens", 'm': 'mens'}
 category_dict = {'c': 'cadet', 'j': 'junior', 's':'senior', 'v':'veteran', '':'all'}
@@ -23,7 +22,7 @@ print("----------------------------------------------------------------------\n\
 
 
 tourn_df, bout_df, fencers_bio_df, fencers_rankings_df = get_results_for_division(
-    weapon=[weapon], gender=[gender], max_events = 5, category=category, use_tournament_cache=True, use_fencer_data_cache=True, use_fencer_req_cache=True)
+    weapon=[weapon], gender=[gender], category=category, use_tournament_cache=True, use_fencer_data_cache=True, use_fencer_req_cache=True)
 
 if save_results:
 
