@@ -35,7 +35,7 @@ fencers_bio_list, fencers_rankings_list = get_fencer_data_lists_from_ID_list(
 fencers_bio_dataframe = pd.DataFrame(
     data=fencers_bio_list, columns=FENCERS_BIO_DF_COLS)
 fencers_rankings_dataframe = convert_list_to_dataframe_with_multi_index(
-    list_of_results=fencers_rankings_list,
+    list_of_data=fencers_rankings_list,
     column_names=FENCERS_RANKINGS_DF_COLS, index_names=FENCERS_RANKINGS_MULTI_INDEX)
 
 print(fencers_bio_dataframe)

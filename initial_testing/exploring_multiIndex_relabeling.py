@@ -1,5 +1,5 @@
 from dataframe_columns import convert_list_to_dataframe_with_multi_index
-from dataframe_columns import multiIndex_relabeler
+from dataframe_columns import relabel_multiIndex, make_season_from_year
 print("\n Testing pandas multi-indexing\n")
 
 fencer_list_of_results = [{"weapon": "E", "category": "C", "season": "2020", "rank": 2, "points": 50},
@@ -72,8 +72,8 @@ all_ranking_df.index = index.set_levels(new_index, level=1)
 print(all_ranking_df)
 
 
-multiIndex_relabeler(all_ranking_df, 2, category_dict)
+relabel_multiIndex(all_ranking_df, 2, category_dict)
 print(all_ranking_df)
 
-multiIndex_relabeler(all_ranking_df, 3, make_season_from_year)
+relabel_multiIndex(all_ranking_df, 3, make_season_from_year)
 print(all_ranking_df)
