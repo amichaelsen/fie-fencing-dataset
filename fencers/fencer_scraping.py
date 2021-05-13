@@ -294,7 +294,7 @@ def load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list, fen
         all_fencer_ranking_data_list += fencer_rankings_list
 
 
-def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_data_cache=True, use_req_cache=True,):
+def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_data_cache=True, use_req_cache=True):
     """
     Loads fencer data from list with a progress bar and optional progress bar label
 
@@ -342,9 +342,9 @@ def get_fencer_data_lists_from_ID_list(fencer_ID_list, use_data_cache=True, use_
     # load fencer data for uncached then cached and 
     # add data to all_fencer_bio_data_list, all_fencer_ranking_data_list
     load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list,
-                     uncached_IDs, use_data_cache=True, use_req_cache=True, label="uncached fencers")
+                     uncached_IDs, use_data_cache=use_data_cache, use_req_cache=use_req_cache, label="uncached fencers")
 
     load_fencer_data(all_fencer_bio_data_list, all_fencer_ranking_data_list,
-                     cached_IDs, use_data_cache=True, use_req_cache=True, label="cached fencers  ")
+                     cached_IDs, use_data_cache=use_data_cache, use_req_cache=use_req_cache, label="cached fencers  ")
 
     return all_fencer_bio_data_list, all_fencer_ranking_data_list

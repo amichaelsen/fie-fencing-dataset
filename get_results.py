@@ -141,7 +141,7 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
             'category')
 
 
-def get_dataframes_from_tournament_url_list(list_of_urls, use_tournament_cache=True, use_fencer_cache=True):
+def get_dataframes_from_tournament_url_list(list_of_urls, use_tournament_cache=True, use_fencer_data_cache=True, use_fencer_req_cache=True):
     """
     Given list of tournament urls (+ cache flags), returns dataframes of compiled data
 
@@ -181,7 +181,7 @@ def get_dataframes_from_tournament_url_list(list_of_urls, use_tournament_cache=T
 
     # PROCESS FENCER DATA
     fencers_bio_data_list, fencers_rankings_data_list = get_fencer_data_lists_from_ID_list(
-        fencer_ID_list=fencer_ID_list, use_cache=use_fencer_cache)
+        fencer_ID_list=fencer_ID_list, use_data_cache=use_fencer_data_cache, use_req_cache=use_fencer_req_cache)
 
     fencers_bio_dataframe = pd.DataFrame(
         data=fencers_bio_data_list, columns=FENCERS_BIO_DF_COLS)
@@ -201,7 +201,7 @@ def get_dataframes_from_tournament_url_list(list_of_urls, use_tournament_cache=T
     return tournaments_dataframe, bouts_dataframe, fencers_bio_dataframe, fencers_rankings_dataframe
 
 
-def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, use_tournament_cache=True, use_fencer_cache=True):
+def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, use_tournament_cache=True, use_fencer_data_cache=True, use_fencer_req_cache=True):
     """
     Given division parameters returns dataframes with data for results 
 
@@ -256,6 +256,6 @@ def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, u
 
     # create the data! 
     tournament_df, bouts_df, fencer_bio_df, fencer_rank_df = get_dataframes_from_tournament_url_list(
-        list_of_urls=list_to_process, use_tournament_cache=use_tournament_cache, use_fencer_cache=use_fencer_cache)
+        list_of_urls=list_to_process, use_tournament_cache=use_tournament_cache, use_fencer_data_cache=use_fencer_data_cache, use_fencer_req_cache=use_fencer_req_cache)
 
     return tournament_df, bouts_df, fencer_bio_df, fencer_rank_df
