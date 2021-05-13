@@ -7,13 +7,13 @@ import json
 from os import path, stat
 
 from dataframe_columns import BOUTS_DF_COLS, TOURNAMENTS_DF_COLS, FENCERS_BIO_DF_COLS, FENCERS_RANKINGS_DF_COLS, FENCERS_RANKINGS_MULTI_INDEX
-from dataframe_columns import multiIndex_relabeler, make_season_from_year
-from tournaments.tournament_scraping import create_tournament_data_from_url, compile_bout_dict_list_from_tournament_data, process_tournament_data_from_urls
-from tournaments.tournament_data import TournamentData
+from dataframe_columns import relabel_multiIndex, make_season_from_year
+from tournaments.tournament_scraping import process_tournament_data_from_urls
 from fencers.fencer_scraping import get_fencer_data_lists_from_ID_list
 from dataframe_columns import convert_list_to_dataframe_with_multi_index
 from soup_scraping import get_search_params
-from caching_methods import save_dict_to_cache
+# from caching_methods import save_dict_to_cache
+# from tournaments.tournament_data import TournamentData
 
 CACHE_FILENAME = 'tournaments/tournament_cache.txt'
 
@@ -123,11 +123,11 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
 
     # no entries -> no index to label
     if fencers_rankings_dataframe.size > 0:
-        multiIndex_relabeler(fencers_rankings_dataframe,
+        relabel_multiIndex(fencers_rankings_dataframe,
                              level=1, mapper=weapon_dict)
-        multiIndex_relabeler(fencers_rankings_dataframe,
+        relabel_multiIndex(fencers_rankings_dataframe,
                              level=2, mapper=category_dict)
-        multiIndex_relabeler(fencers_rankings_dataframe,
+        relabel_multiIndex(fencers_rankings_dataframe,
                              level=3, mapper=make_season_from_year)
 
     # # to fix up date formats
@@ -187,7 +187,7 @@ def get_dataframes_from_tournament_url_list(list_of_urls, use_tournament_cache=T
         data=fencers_bio_data_list, columns=FENCERS_BIO_DF_COLS)
     
     fencers_rankings_dataframe = convert_list_to_dataframe_with_multi_index(
-        list_of_results=fencers_rankings_data_list,
+        list_of_data=fencers_rankings_data_list,
         column_names=FENCERS_RANKINGS_DF_COLS, index_names=FENCERS_RANKINGS_MULTI_INDEX)
 
     # CLEAN UP DATAFRAMES
