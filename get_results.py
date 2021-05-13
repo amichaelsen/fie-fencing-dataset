@@ -88,6 +88,17 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
     """
     Performs relabeling/typecasting of tournament, bout, fencer_bio, and fencer_ranking pd.DataFrames
 
+        Input: 
+        ------
+        tournaments_dataframe : pandas.Dataframe 
+            Tournament level data about the event 
+        bouts_dataframe : pandas.Dataframe 
+            Data stored for each bout
+        fencers_bio_dataframe : pandas.Dataframe 
+            Biographical data for each fencer 
+        fencers_rankings_dataframe : pandas.Dataframe 
+            Historical rankings data for each fencer 
+
         Notes: 
             * No returns, makes changes to the dataframes in place
             * Currently no changes made to bouts_dataframe
@@ -119,7 +130,7 @@ def cleanup_dataframes(tournaments_dataframe, bouts_dataframe,
         multiIndex_relabeler(fencers_rankings_dataframe,
                              level=3, mapper=make_season_from_year)
 
-    # # fix up date formats
+    # # to fix up date formats
     # df['col'] = pd.to_datetime(df['col']) # converts to a datetime columns in pandas
     # df['col'] = df['col'].dt.date # converts from datetime to just the YYYY-MM-DD
 
@@ -160,7 +171,7 @@ def get_dataframes_from_tournament_url_list(list_of_urls, use_tournament_cache=T
             and pd.multiIndex created from FENCERS_RANKINGS_MULTI_INDEX 
             (see `convert_list_to_dataframe_with_multi_index` in dataframe_columns.py)
     """
-    # PROCESS TOURNAMENTS FIRST
+    # PROCESS TOURNAMENT DATA
     tournaments_dict_list, bouts_dict_list, fencer_ID_list = process_tournament_data_from_urls(
         list_of_urls, use_cache=use_tournament_cache)
 
@@ -168,13 +179,13 @@ def get_dataframes_from_tournament_url_list(list_of_urls, use_tournament_cache=T
     tournaments_dataframe = pd.DataFrame(
         data=tournaments_dict_list, columns=TOURNAMENTS_DF_COLS)
 
-    # PROCESS INDIVIDUAL FENCER DATA
-
+    # PROCESS FENCER DATA
     fencers_bio_data_list, fencers_rankings_data_list = get_fencer_data_lists_from_ID_list(
         fencer_ID_list=fencer_ID_list, use_cache=use_fencer_cache)
 
     fencers_bio_dataframe = pd.DataFrame(
         data=fencers_bio_data_list, columns=FENCERS_BIO_DF_COLS)
+    
     fencers_rankings_dataframe = convert_list_to_dataframe_with_multi_index(
         list_of_results=fencers_rankings_data_list,
         column_names=FENCERS_RANKINGS_DF_COLS, index_names=FENCERS_RANKINGS_MULTI_INDEX)
@@ -213,7 +224,7 @@ def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, u
         use_fencer_cache : boolean
 
         Output:
-        ______
+        -------
         tournaments_dataframe : pandas.DataFrame 
             Dataframe with data about each tournament, with columns listed and described
             in dataframe_columns.py as TOURNAMENTS_DF_COLS
@@ -229,11 +240,13 @@ def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, u
             and pd.multiIndex created from FENCERS_RANKINGS_MULTI_INDEX 
             (see `convert_list_to_dataframe_with_multi_index` in dataframe_columns.py)
     """
+    # create request payload and construct list of urls 
     print("Gettting list of tournaments to process...", end="")
     search_params = get_search_params(weapon, gender, category)
     url_list = get_url_list_from_seach(search_params)
     print(" Done!")
 
+    # prune list of events if more than max_events 
     print("Results search found {} tournaments ".format(len(url_list)))
     if max_events == -1 or max_events > len(url_list):
         list_to_process = url_list
@@ -241,6 +254,7 @@ def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, u
         list_to_process = random.sample(url_list, max_events)
         print("  (processing {} random tournaments)".format(len(list_to_process)))
 
+    # create the data! 
     tournament_df, bouts_df, fencer_bio_df, fencer_rank_df = get_dataframes_from_tournament_url_list(
         list_of_urls=list_to_process, use_tournament_cache=use_tournament_cache, use_fencer_cache=use_fencer_cache)
 
