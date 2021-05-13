@@ -5,9 +5,22 @@ Inspired by Abhishek Gupta's [talk](https://zenodo.org/record/4737535#.YJGjZn1Kh
 # Entries 
 <!-- -------------------------------------------------------------------- -->
 
+
+### 05/13/2021 
+
 **Data Processing Pipeline**
 
-* add a basic flowchart for process? or just image from notability drawing? 
+* add a basic flowchart for process? or just image from notability drawing? Should first go through and flag public/private methods 
+
+**Denornamlized Dataframe?** Also maybe a single bout full data frame or script that compiles all 3 data frames into a single one that contains *all* the information for each bout in its row (this is redundant but easier to process for some analyses) 
+
+
+**Points for Cadet?**
+
+* Examples of seeming missing points data for cadet events:
+    * https://fie.org/athletes/28086
+    * https://fie.org/athletes/36225
+
 
 ### 05/12/2021
 

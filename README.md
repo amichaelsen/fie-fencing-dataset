@@ -35,17 +35,84 @@ The FIE website also maintains a list of competition results and fencer bios. Th
 
 ## Output Data
 
-* tournament dataframe 
+The output data, stored in `final_output/`, contains the following dataframes for each division collected (e.g. Women's Foil), each in their own CSV file within a division directory: 
 
-* bout dataframe 
+* `Tournament Dataframe`
+    * **Description**: Contains a list of tournaments in the division listed on the FIE competition results page. This contains information about the event itself, with the columns described below.
+    * **Columns**: 
+    ['competition_ID', 'season', 'name', 'category', 'country', 'start_date', 'end_date', 'weapon', 'gender', 'timezone', 'url', 'unique_ID','missing_results_flag']
+        * `competition_ID` - the FIE competition_ID (used in the competition URL). *NOT* a unique identifier across seasons. 
+        * `season` - the year in which the competition took place.
+        * `unique_ID` - constructed from year and competition_ID to create a unique identifier for each event (matches ending of url).
+        * `category` - the age division for the event, either 'cadet', 'junior', 'senior' or 'veteran'.
+        * `missing_results_flag` - Bout results are inconsistently stored on the FIE website and many tournament pages do not have pools data. This flag indicates whether pools data was ommitted and why.
 
-* fencer dataframe
+* `Bout Dataframe` 
+    * Description: Contains a list of bouts from pools across all tournaments stored in the Tournament Dataframe. 
+    * Columns: ['fencer_ID', 'opp_ID', 'fencer_age', 'opp_age', 'fencer_score', 'opp_score', 'winner_ID', 'fencer_curr_pts', 'opp_curr_pts', 'tournament_ID', 'pool_ID', 'upset', 'date']
+        * `fencer`/`opp` - several data fields are stored for both fencers with the first in pool stored as `fencer_` and the latter stored as `opp_` (opponent).
+        * `_ID` - the IDs for the two fencers in a match, used for lookups in the fencer data frames.
+        * `_age`, `_curr_pts`- data about both fencers *at the time of the tournament*.
+        * `winner_ID` - the ID for the fencer who won (needed in case of victories in overtime).
+        * `upset` - indicates if the winner was an 'upset', if neither fencer has points this is `False`.
 
- -> all exported into CSVs with date pulled in the filename 
+* `Fencer Bio Dataframe`
+    * Description: Contains biographical information about each fencer stored by ID. 
+    * Columns: ['id', 'name', 'country_code', 'country', 'hand', 'age', 'url', 'date_accessed']
+        * `country_code`/`country` - The 3 letter code and full name of fencer's country
+        * `Hand` - Fencer's handedness
+        * `url` - webpage for the fencer
+        * `date_accessed` - date when the fencer's data was pulled, since fields may change over time 
 
-**Denornamlized Dataframe?** Also maybe a single bout full data frame or script that compiles all 3 data frames into a single one that contains *all* the information for each bout in its row (this is redundant but easier to process for some analyses) 
+* `Fencer Rankings Dataframe`
+    * Description: Contains historical data about the fencers rankings/points in each division (weapon/age category). The first 3 columns of the CSV file can be converted to a multiIndex as seen in `load_csv.py`
+    * Columns: MultiIndex ['id', 'weapon', 'category', 'season'], Columns ['rank', 'points']
+        * `id` - fencer's ID
+        * `season` - the season in which the ranking/points were earned (e.g. 2014/2015)
+        * `points` - points earned from competitions in this division (see FIE for more information about points)
+        * `rank` - fencer's overall rank in the division (e.g. senior womens foil) based on points
+
+
 
 
 # Directory Structure
 
+## Main Directories/Files: 
+
+### Files to Create/Load Data: 
+
+* main
+* load_csv 
+
+### Helper Files
+
+* get_results
+* caching_methods
+* dataframe_columns
+* soup_scraping
+
+
+### Directories:
+
+* /Docs 
+* /fencers
+* /pools 
+* /tournaments
+* /final_output
+
+## Other Directories/Files: 
+
+### Files:
+
+* demo 
+* updating_fencer_cache
+
+### Directories: 
+
+* initial_testing
+* output 
+
+# Other 
+
 Webpage processing used pythons [`requests`](https://docs.python-requests.org/en/latest/user/quickstart/) package and the [`BeautifulSoup`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) package. 
+
