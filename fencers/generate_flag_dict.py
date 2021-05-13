@@ -3,8 +3,8 @@ import json
 from bs4 import BeautifulSoup
 from progress.bar import Bar
 
-from soup_scraping import get_json_var_from_script
-from caching_methods import save_dict_to_cache
+from helper.soup_scraping import get_json_var_from_script
+from helper.caching_methods import save_dict_to_cache
 
 
 def construct_country_flag_code():

@@ -7,9 +7,9 @@ import pandas as pd
 import tabulate
 from progress.bar import Bar
 
-from soup_scraping import get_json_var_from_script
-from caching_methods import save_dict_to_cache
-from dataframe_columns import FENCERS_RANKINGS_MULTI_INDEX, FENCERS_RANKINGS_DF_COLS, FENCERS_BIO_DF_COLS
+from helper.soup_scraping import get_json_var_from_script
+from helper.caching_methods import save_dict_to_cache
+from helper.dataframe_columns import FENCERS_RANKINGS_MULTI_INDEX, FENCERS_RANKINGS_DF_COLS, FENCERS_BIO_DF_COLS
 
 CACHE_FILENAME = 'fencers/fencer_cache.txt'
 

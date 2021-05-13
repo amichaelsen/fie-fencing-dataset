@@ -1,6 +1,6 @@
 import pandas as pd 
-from dataframe_columns import FENCERS_RANKINGS_DF_COLS, FENCERS_RANKINGS_MULTI_INDEX
-from dataframe_columns import convert_list_to_dataframe_with_multi_index
+from helper.dataframe_columns import FENCERS_RANKINGS_DF_COLS, FENCERS_RANKINGS_MULTI_INDEX
+from helper.dataframe_columns import convert_list_to_dataframe_with_multi_index
 
 date = 'May_12_2021'
 div_name = 'all_womens_foil'

@@ -6,11 +6,11 @@ import pandas as pd
 from os import path, stat
 from progress.bar import Bar
 
-from dataframe_columns import BOUTS_DF_COLS
+from helper.dataframe_columns import BOUTS_DF_COLS
 from pools.pool_scraping import get_pool_data_from_dict
 from tournaments.tournament_data import TournamentData
-from soup_scraping import get_json_var_from_script
-from caching_methods import load_all_cached_fencers_rankings, save_dict_to_cache
+from helper.soup_scraping import get_json_var_from_script
+from helper.caching_methods import load_all_cached_fencers_rankings, save_dict_to_cache
 
 
 CACHE_FILENAME = 'tournaments/tournament_cache.txt'

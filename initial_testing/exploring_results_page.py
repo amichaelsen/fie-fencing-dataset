@@ -2,7 +2,7 @@ import requests
 import json
 from bs4 import BeautifulSoup
 
-from soup_scraping import get_json_var_from_script
+from helper.soup_scraping import get_json_var_from_script
 
 url = 'https://fie.org/competitions'
 # making request without any checkboxes

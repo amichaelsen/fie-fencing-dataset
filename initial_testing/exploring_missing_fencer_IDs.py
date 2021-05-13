@@ -1,5 +1,5 @@
-from get_results import process_tournament_data_from_urls, get_url_list_from_seach
-from soup_scraping import get_search_params
+from helper.get_results import process_tournament_data_from_urls, get_url_list_from_seach
+from helper.soup_scraping import get_search_params
 
 
 # ## Diagnosing how many tournaments have 'id: 0' for fencers, and if *all* id's are zero or only some

@@ -2,9 +2,9 @@ import pandas as pd
 from datetime import date
 from os import path, makedirs
 
-from get_results import get_results_for_division
+from helper.get_results import get_results_for_division
 
-save_results = True 
+save_results = False 
 
 weapon = 'f'
 gender = 'm'
@@ -22,7 +22,7 @@ print("----------------------------------------------------------------------\n\
 
 
 tourn_df, bout_df, fencers_bio_df, fencers_rankings_df = get_results_for_division(
-    weapon=[weapon], gender=[gender], category=category, use_tournament_cache=True, use_fencer_data_cache=True, use_fencer_req_cache=True)
+    weapon=[weapon], gender=[gender], category=category, max_events= 5, use_tournament_cache=False, use_fencer_data_cache=True, use_fencer_req_cache=True)
 
 if save_results:
 

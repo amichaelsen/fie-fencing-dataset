@@ -1,5 +1,5 @@
-from dataframe_columns import convert_list_to_dataframe_with_multi_index
-from dataframe_columns import relabel_multiIndex, make_season_from_year
+from helper.dataframe_columns import convert_list_to_dataframe_with_multi_index
+from helper.dataframe_columns import relabel_multiIndex, make_season_from_year
 print("\n Testing pandas multi-indexing\n")
 
 fencer_list_of_results = [{"weapon": "E", "category": "C", "season": "2020", "rank": 2, "points": 50},
