@@ -76,28 +76,35 @@ To generate new division data, use the following steps:
 * main
 * load_csv 
 
-### Helper Files
-
-* get_results
-* caching_methods
-* dataframe_columns
-* soup_scraping
-
-
 ### Directories:
 
-* /Docs 
+* /docs 
+    <!-- * Data
+    * ExternalLinks
+    * LabNotebook -->
 * /fencers
+    <!-- * fencer_scraping
+    * generate_flag_dict -->
 * /pools 
+    <!-- * pool_data
+    * pool_scrapings -->
 * /tournaments
+    <!-- * tournament_data
+    * tournamnet_scraping -->
 * /final_output
+    <!-- * all_mens_foil
+    * all_womens_foil  -->
+* /helper
+    <!-- * get_results
+    * caching_methods
+    * dataframe_columns
+    * soup_scraping -->
 
 ## Other Directories/Files: 
 
 ### Files:
 
 * demo 
-* updating_fencer_cache
 
 ### Directories: 
 
