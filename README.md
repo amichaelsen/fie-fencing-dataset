@@ -6,7 +6,7 @@ The goal of this project is to generate a dataset of fencing matches pulled from
 
 The International Fencing Federation (FIE) is recognized by the International Olympic Committee (IOC) as the world governing body of fencing, as such is charged with establishing the rules and implementation for international competition. 
 
-While the FIE is not the only fencing results page (see [AskFRED](askfred.net) or [USFA](https://www.usafencing.org/natresults)), it has several advantages to other sources considered. To read more about the source comparisons, check out the 'Data Source(s)' section of [`Docs/Data.md`](https://github.com/amichaelsen/fie-fencing-dataset/blob/main/Docs/Data.md) 
+While the FIE is not the only fencing results page (see [AskFRED](askfred.net) or [USFA](https://www.usafencing.org/natresults)), it has several advantages to other sources considered. To read more about the source comparisons, check out the 'Data Source(s)' section of [`docs/Data.md`](https://github.com/amichaelsen/fie-fencing-dataset/blob/main/docs/Data.md) 
 
 
 The FIE website maintains a list of competition results and fencer bios. The following pages were used to collect data: 
@@ -22,6 +22,7 @@ The output data, stored in `final_output/`, contains the following dataframes fo
 * `Tournament Dataframe`
     * List of tournaments in the division listed on the FIE competition results page. Below is an example of a subset of the dataframe:
 
+    * Sample of Dataframe:
 
         |    |   season | name                   | category   | country       | start_date   | weapon   | gender   | unique_ID   |
         |---:|---------:|:-----------------------|:-----------|:--------------|:-------------|:---------|:---------|:------------|
@@ -34,6 +35,8 @@ The output data, stored in `final_output/`, contains the following dataframes fo
 * `Bout Dataframe` 
     * List of bouts from pools across all tournaments stored in the Tournament Dataframe. 
 
+    * Sample of Dataframe:
+
         |    |   fencer_ID |   opp_ID |   fencer_age |   fencer_score |   opp_score |   winner_ID |   fencer_curr_pts | tournament_ID   |   pool_ID | upset   | date       |
         |---:|------------:|---------:|-------------:|---------------:|------------:|------------:|------------------:|:----------------|----------:|:--------|:-----------|
         |  0 |       29240 |    27947 |           24 |              2 |           5 |       27947 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
@@ -44,6 +47,8 @@ The output data, stored in `final_output/`, contains the following dataframes fo
     
 * `Fencer Bio Dataframe`
     * Biographical information about each fencer stored by ID. 
+
+    * Sample of Dataframe:
 
         |    |    id | name                | country   | hand   |   age | date_accessed       |
         |---:|------:|:--------------------|:----------|:-------|------:|:--------------------|
@@ -56,6 +61,8 @@ The output data, stored in `final_output/`, contains the following dataframes fo
 
 * `Fencer Rankings Dataframe`
     * Historical data about the fencers rankings/points in each division (weapon/age category). 
+
+    * Sample of Dataframe:
 
         |    id | weapon   | category   | season    |   rank |   points |
         |------:|:---------|:-----------|:----------|-------:|---------:|
