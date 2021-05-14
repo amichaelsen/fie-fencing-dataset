@@ -6,7 +6,7 @@ The goal of this project is to generate a dataset of fencing matches pulled from
 
 The International Fencing Federation (FIE) is recognized by the International Olympic Committee (IOC) as the world governing body of fencing, as such is charged with establishing the rules and implementation for international competition. 
 
-While the FIE is not the only fencing results page (see [AskFRED](askfred.net)or [USFA](https://www.usafencing.org/natresults)), it has several advantages to other sources considered. To read more about the source comparisons, check out the 'Data Source(s)' section of [`Docs/Data.md`](https://github.com/amichaelsen/fie-fencing-dataset/blob/main/Docs/Data.md) 
+While the FIE is not the only fencing results page (see [AskFRED](askfred.net) or [USFA](https://www.usafencing.org/natresults)), it has several advantages to other sources considered. To read more about the source comparisons, check out the 'Data Source(s)' section of [`Docs/Data.md`](https://github.com/amichaelsen/fie-fencing-dataset/blob/main/Docs/Data.md) 
 
 
 The FIE website maintains a list of competition results and fencer bios. The following pages were used to collect data: 
@@ -34,7 +34,6 @@ The output data, stored in `final_output/`, contains the following dataframes fo
 
 
 ## Generating & Loading New Data
----
 
 To generate new division data, use the following steps: 
 
