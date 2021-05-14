@@ -20,17 +20,53 @@ The FIE website maintains a list of competition results and fencer bios. The fol
 The output data, stored in `final_output/`, contains the following dataframes for each division collected (e.g. Women's Foil), each in their own CSV file within a division directory: 
 
 * `Tournament Dataframe`
-    * List of tournaments in the division listed on the FIE competition results page. 
+    * List of tournaments in the division listed on the FIE competition results page. Below is an example of a subset of the dataframe:
+
+
+        |    |   season | name                   | category   | country       | start_date   | weapon   | gender   | unique_ID   |
+        |---:|---------:|:-----------------------|:-----------|:--------------|:-------------|:---------|:---------|:------------|
+        |  0 |     2015 | Memorial de Martinengo | Junior     | SLOVAKIA      | 2014-11-21   | Foil     | Womens   | 2015-37     |
+        |  1 |     2004 | Trophée Federico II    | Junior     | ITALY         | 2003-11-29   | Foil     | Womens   | 2004-36     |
+        |  2 |     2011 | Coupe du Monde         | Junior     | SERBIA        | 2011-03-06   | Foil     | Womens   | 2011-35     |
+        |  3 |     2007 | Tournoi Carl Schwende  | Junior     | CANADA        | 2007-01-20   | Foil     | Womens   | 2007-40     |
+        |  4 |     2006 | Cole Cup               | Senior     | GREAT BRITAIN | 2006-06-17   | Foil     | Womens   | 2006-555    |
 
 * `Bout Dataframe` 
     * List of bouts from pools across all tournaments stored in the Tournament Dataframe. 
-  
+
+        |    |   fencer_ID |   opp_ID |   fencer_age |   fencer_score |   opp_score |   winner_ID |   fencer_curr_pts | tournament_ID   |   pool_ID | upset   | date       |
+        |---:|------------:|---------:|-------------:|---------------:|------------:|------------:|------------------:|:----------------|----------:|:--------|:-----------|
+        |  0 |       29240 |    27947 |           24 |              2 |           5 |       27947 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
+        |  1 |       29240 |    35149 |           24 |              5 |           3 |       29240 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
+        |  2 |       29240 |    28025 |           24 |              0 |           5 |       28025 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
+        |  3 |       29240 |    23626 |           24 |              1 |           5 |       23626 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
+        |  4 |       29240 |    33989 |           24 |              5 |           4 |       29240 |                 0 | 2015-37         |         1 | True    | 2014-11-21 |
+    
 * `Fencer Bio Dataframe`
     * Biographical information about each fencer stored by ID. 
+
+        |    |    id | name                | country   | hand   |   age | date_accessed       |
+        |---:|------:|:--------------------|:----------|:-------|------:|:--------------------|
+        |  0 | 20482 | YANAOKA Haruka      | JAPAN     | Right  |    26 | 2021-05-11 18:15:32 |
+        |  1 | 28701 | CIPRESSA Erica      | ITALY     | Right  |    24 | 2021-05-11 18:15:44 |
+        |  2 | 33865 | TANGHERLINI Elena   | ITALY     | Left   |    23 | 2021-05-11 18:16:12 |
+        |  3 | 30818 | BIANCHIN Elisabetta | ITALY     | Right  |    24 | 2021-05-11 12:05:47 |
+        |  4 | 36458 | POSGAY Zsofia       | GERMANY   | Left   |    22 | 2021-05-11 12:05:52 |
         
 
 * `Fencer Rankings Dataframe`
     * Historical data about the fencers rankings/points in each division (weapon/age category). 
+
+        |    id | weapon   | category   | season    |   rank |   points |
+        |------:|:---------|:-----------|:----------|-------:|---------:|
+        | 32192 | Foil     | Junior     | 2013/2014 |    201 |        2 |
+        |  |      |      | 2014/2015 |    180 |        4 |
+        |  |      |      | 2015/2016 |    296 |        0 |
+        |  |      |      | 2016/2017 |    226 |        4 |
+        |  |      |      | 2017/2018 |     73 |       22 |
+        |  |      | Senior     | 2016/2017 |    433 |        0 |
+        |  |      |      | 2018/2019 |    312 |        0 |
+        
 
 
 ## Generating & Loading New Data
