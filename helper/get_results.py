@@ -201,7 +201,11 @@ def get_dataframes_from_tournament_url_list(list_of_urls, use_tournament_cache=T
     return tournaments_dataframe, bouts_dataframe, fencers_bio_dataframe, fencers_rankings_dataframe
 
 
-def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, use_tournament_cache=True, use_fencer_data_cache=True, use_fencer_req_cache=True):
+def get_results_for_division(weapon=[], gender=[], category="", 
+                            max_events=-1, 
+                            use_tournament_cache=True, 
+                            use_fencer_data_cache=True, 
+                            use_fencer_req_cache=True):
     """
     Given division parameters returns dataframes with data for results 
 
@@ -221,7 +225,13 @@ def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, u
             Optional parameter to cap the number of tournaments to process
 
         use_tournament_cache : boolean
+            Flag for reusing cached data for tournaments already pulled (saved in tournaments/tournament_cache.txt)
+
         use_fencer_cache : boolean
+            Flag for using cached dictionary data of fencers (saved in fencers/fencer_cache.txt)
+
+        use_fencer_req_cache : boolean
+            Flag for using cached requests for fencers (saved in fencers/athlete_pages/)
 
         Output:
         -------
@@ -256,6 +266,9 @@ def get_results_for_division(weapon=[], gender=[], category="", max_events=-1, u
 
     # create the data! 
     tournament_df, bouts_df, fencer_bio_df, fencer_rank_df = get_dataframes_from_tournament_url_list(
-        list_of_urls=list_to_process, use_tournament_cache=use_tournament_cache, use_fencer_data_cache=use_fencer_data_cache, use_fencer_req_cache=use_fencer_req_cache)
+        list_of_urls = list_to_process, 
+        use_tournament_cache = use_tournament_cache, 
+        use_fencer_data_cache = use_fencer_data_cache, 
+        use_fencer_req_cache = use_fencer_req_cache)
 
     return tournament_df, bouts_df, fencer_bio_df, fencer_rank_df
