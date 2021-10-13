@@ -24,24 +24,28 @@ List of tournaments in the division listed on the FIE competition results page.
 
 | variable | type | description |
 |:-------  |:---: | :-------|
+|competition_ID| int| FIE competition ID| 
 |season | int | start year of competition season|
 |name | string | Name of tournament | 
 |category | string | age category for event (Cadet/Junior/Senior/Veterans)|
 | country | string | host country for tournament| 
 | start_date | date | first day of event | 
+| end_date | date | last day of event | 
 | weapon | string | foil/epee/saber  |
 |gender | string | event gender (Mens/Womens)| 
-|unique_ID |string| unique ID of event of the form year-eventid|
-     
-Sample of Dataframe:
+|timezone| string | timezone where the event took place|
+|url | string | FIE url for event page|
+|missing_results_flag | string | specifies missing (pools) results|
 
-|    |   season | name                   | category   | country       | start_date   | weapon   | gender   | unique_ID   |
+Sample of Dataframe (not all columns shown):
+
+|    |   season | name                   | category   | country       | start_date   | weapon   | gender   | competition+ID   |
 |---:|---------:|:-----------------------|:-----------|:--------------|:-------------|:---------|:---------|:------------|
-|  0 |     2015 | Memorial de Martinengo | Junior     | SLOVAKIA      | 2014-11-21   | Foil     | Womens   | 2015-37     |
-|  1 |     2004 | Trophée Federico II    | Junior     | ITALY         | 2003-11-29   | Foil     | Womens   | 2004-36     |
-| 2 |     2011 | Coupe du Monde         | Junior     | SERBIA        | 2011-03-06   | Foil     | Womens   | 2011-35     |
-<!-- |  3 |     2007 | Tournoi Carl Schwende  | Junior     | CANADA        | 2007-01-20   | Foil     | Womens   | 2007-40     |
-|  4 |     2006 | Cole Cup               | Senior     | GREAT BRITAIN | 2006-06-17   | Foil     | Womens   | 2006-555    | -->
+|  0 |     2015 | Memorial de Martinengo | Junior     | SLOVAKIA      | 2014-11-21   | Foil     | Womens   | 37     |
+|  1 |     2004 | Trophée Federico II    | Junior     | ITALY         | 2003-11-29   | Foil     | Womens   | 36     |
+| 2 |     2011 | Coupe du Monde         | Junior     | SERBIA        | 2011-03-06   | Foil     | Womens   | 35     |
+<!-- |  3 |     2007 | Tournoi Carl Schwende  | Junior     | CANADA        | 2007-01-20   | Foil     | Womens   | 40     |
+|  4 |     2006 | Cole Cup               | Senior     | GREAT BRITAIN | 2006-06-17   | Foil     | Womens   | 555    | -->
 
 ### `Bout Dataframe`  (\*\_bout_data\_\*.csv)
 List of bouts from pools across all tournaments stored in the Tournament Dataframe.
@@ -64,7 +68,7 @@ List of bouts from pools across all tournaments stored in the Tournament Datafra
 Bouts are not double count, so `fencer_ID` corresponds to the fencer with the lower number in the pools table ordering. If both fencers have no points, then `upset` is `False`. `winner_ID` is included in the case of ties, where the scores will match. 
 
 
-Sample of Dataframe:
+Sample of Dataframe (not all columns shown):
 
 |    |   fencer_ID |   opp_ID |   fencer_age |   fencer_score |   opp_score |   winner_ID |   fencer_curr_pts | tournament_ID   |   pool_ID | upset   | date       |
 |---:|------------:|---------:|-------------:|---------------:|------------:|------------:|------------------:|:----------------|----------:|:--------|:-----------|
