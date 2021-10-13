@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*listOfFiles
 
 .DS_Store
 TODO.md
