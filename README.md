@@ -19,62 +19,108 @@ The FIE website maintains a list of competition results and fencer bios. The fol
 
 The output data, stored in `final_output/`, contains the following dataframes for each division collected (e.g. Women's Foil), each in their own CSV file within a division directory: 
 
-* `Tournament Dataframe`
-    * List of tournaments in the division listed on the FIE competition results page. Below is an example of a subset of the dataframe:
+### `Tournament Dataframe` (\*\_tournament_data\_\*.csv)
+List of tournaments in the division listed on the FIE competition results page. 
 
-    * Sample of Dataframe:
+| variable | type | description |
+|:-------  |:---: | :-------|
+|season | int | start year of competition season|
+|name | string | Name of tournament | 
+|category | string | age category for event (Cadet/Junior/Senior/Veterans)|
+| country | string | host country for tournament| 
+| start_date | date | first day of event | 
+| weapon | string | foil/epee/saber  |
+|gender | string | event gender (Mens/Womens)| 
+|unique_ID |string| unique ID of event of the form year-eventid|
+     
+Sample of Dataframe:
 
-        |    |   season | name                   | category   | country       | start_date   | weapon   | gender   | unique_ID   |
-        |---:|---------:|:-----------------------|:-----------|:--------------|:-------------|:---------|:---------|:------------|
-        |  0 |     2015 | Memorial de Martinengo | Junior     | SLOVAKIA      | 2014-11-21   | Foil     | Womens   | 2015-37     |
-        |  1 |     2004 | Trophée Federico II    | Junior     | ITALY         | 2003-11-29   | Foil     | Womens   | 2004-36     |
-        |  2 |     2011 | Coupe du Monde         | Junior     | SERBIA        | 2011-03-06   | Foil     | Womens   | 2011-35     |
-        |  3 |     2007 | Tournoi Carl Schwende  | Junior     | CANADA        | 2007-01-20   | Foil     | Womens   | 2007-40     |
-        |  4 |     2006 | Cole Cup               | Senior     | GREAT BRITAIN | 2006-06-17   | Foil     | Womens   | 2006-555    |
+|    |   season | name                   | category   | country       | start_date   | weapon   | gender   | unique_ID   |
+|---:|---------:|:-----------------------|:-----------|:--------------|:-------------|:---------|:---------|:------------|
+|  0 |     2015 | Memorial de Martinengo | Junior     | SLOVAKIA      | 2014-11-21   | Foil     | Womens   | 2015-37     |
+|  1 |     2004 | Trophée Federico II    | Junior     | ITALY         | 2003-11-29   | Foil     | Womens   | 2004-36     |
+| 2 |     2011 | Coupe du Monde         | Junior     | SERBIA        | 2011-03-06   | Foil     | Womens   | 2011-35     |
+<!-- |  3 |     2007 | Tournoi Carl Schwende  | Junior     | CANADA        | 2007-01-20   | Foil     | Womens   | 2007-40     |
+|  4 |     2006 | Cole Cup               | Senior     | GREAT BRITAIN | 2006-06-17   | Foil     | Womens   | 2006-555    | -->
 
-* `Bout Dataframe` 
-    * List of bouts from pools across all tournaments stored in the Tournament Dataframe. 
+### `Bout Dataframe`  (\*\_bout_data\_\*.csv)
+List of bouts from pools across all tournaments stored in the Tournament Dataframe.
 
-    * Sample of Dataframe:
+| variable | type | description |
+|:-------  |:---: | :-------|
+|fencer_id | int | ID of of fencer in the bout |
+|opp_ID    | int | ID of the opponent in the bout| 
+|fencer_age| int | age of fencer at the time of the event|
+|opp_age   | int | age of opponent at the time of the event|
+| fencer_score| int | points scored in bout for fencer| 
+| opp_score| int | points scored in bout for opponent | 
+| winner_ID| int | ID matching the fencer who won |
+|fencer_curr_pts | double | fencer's points in the division at the start of the event | 
+|opp_curr_pts    | double |opponents's points in the division at the start of the event  | 
+|tournament_ID   |string| tournament the pool occured in |
+|upset |boolean | True if fencer with fewer points won|
+|date |date | date of the pool | 
 
-        |    |   fencer_ID |   opp_ID |   fencer_age |   fencer_score |   opp_score |   winner_ID |   fencer_curr_pts | tournament_ID   |   pool_ID | upset   | date       |
-        |---:|------------:|---------:|-------------:|---------------:|------------:|------------:|------------------:|:----------------|----------:|:--------|:-----------|
-        |  0 |       29240 |    27947 |           24 |              2 |           5 |       27947 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
-        |  1 |       29240 |    35149 |           24 |              5 |           3 |       29240 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
-        |  2 |       29240 |    28025 |           24 |              0 |           5 |       28025 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
-        |  3 |       29240 |    23626 |           24 |              1 |           5 |       23626 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
-        |  4 |       29240 |    33989 |           24 |              5 |           4 |       29240 |                 0 | 2015-37         |         1 | True    | 2014-11-21 |
+Bouts are not double count, so `fencer_ID` corresponds to the fencer with the lower number in the pools table ordering. If both fencers have no points, then `upset` is `False`. `winner_ID` is included in the case of ties, where the scores will match. 
+
+
+Sample of Dataframe:
+
+|    |   fencer_ID |   opp_ID |   fencer_age |   fencer_score |   opp_score |   winner_ID |   fencer_curr_pts | tournament_ID   |   pool_ID | upset   | date       |
+|---:|------------:|---------:|-------------:|---------------:|------------:|------------:|------------------:|:----------------|----------:|:--------|:-----------|
+|  0 |       29240 |    27947 |           24 |              2 |           5 |       27947 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
+|  1 |       29240 |    35149 |           24 |              5 |           3 |       29240 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
+|  2 |       29240 |    28025 |           24 |              0 |           5 |       28025 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
+<!--|  3 |       29240 |    23626 |           24 |              1 |           5 |       23626 |                 0 | 2015-37         |         1 | False   | 2014-11-21 |
+|  4 |       29240 |    33989 |           24 |              5 |           4 |       29240 |                 0 | 2015-37         |         1 | True    | 2014-11-21 |-->
     
-* `Fencer Bio Dataframe`
-    * Biographical information about each fencer stored by ID. 
+### `Fencer Bio Dataframe`  (\*\_fencer_bio_data\_\*.csv)
+Biographical information about each fencer stored by ID. 
+| variable | type | description |
+|:-------  |:---: | :-------|
+|id |int| FIE ID number for fencer|
+| name  |string| Fencer's full name|
+| country  |string| Fencer's country (when data was accessed)|
+|  hand |string|whether the fencer is left or right handed|
+| age  |int| Fencer's age (when data was accessed)|
+| date_accessed  |datetime| Date and time when data was accessed |
 
-    * Sample of Dataframe:
+Sample of Dataframe:
 
-        |    |    id | name                | country   | hand   |   age | date_accessed       |
-        |---:|------:|:--------------------|:----------|:-------|------:|:--------------------|
-        |  0 | 20482 | YANAOKA Haruka      | JAPAN     | Right  |    26 | 2021-05-11 18:15:32 |
-        |  1 | 28701 | CIPRESSA Erica      | ITALY     | Right  |    24 | 2021-05-11 18:15:44 |
-        |  2 | 33865 | TANGHERLINI Elena   | ITALY     | Left   |    23 | 2021-05-11 18:16:12 |
-        |  3 | 30818 | BIANCHIN Elisabetta | ITALY     | Right  |    24 | 2021-05-11 12:05:47 |
-        |  4 | 36458 | POSGAY Zsofia       | GERMANY   | Left   |    22 | 2021-05-11 12:05:52 |
+|    |    id | name                | country   | hand   |   age | date_accessed       |
+|---:|------:|:--------------------|:----------|:-------|------:|:--------------------|
+|  0 | 20482 | YANAOKA Haruka      | JAPAN     | Right  |    26 | 2021-05-11 18:15:32 |
+|  1 | 28701 | CIPRESSA Erica      | ITALY     | Right  |    24 | 2021-05-11 18:15:44 |
+|  2 | 33865 | TANGHERLINI Elena   | ITALY     | Left   |    23 | 2021-05-11 18:16:12 |
+<!--|  3 | 30818 | BIANCHIN Elisabetta | ITALY     | Right  |    24 | 2021-05-11 12:05:47 |
+|  4 | 36458 | POSGAY Zsofia       | GERMANY   | Left   |    22 | 2021-05-11 12:05:52 |-->
         
 
-* `Fencer Rankings Dataframe`
-    * Historical data about the fencers rankings/points in each division (weapon/age category). 
+### `Fencer Rankings Dataframe`  (\*\_fencer_rankings_data\_\*.csv)
+Historical data about the fencers rankings/points in each division (weapon/age category). 
 
-    * Sample of Dataframe:
+| variable | type | description |
+|:-------  |:---: | :-------|
+|id|int|Fencer's FIE ID|
+|weapon|string|foil/epee/saber |
+|category|string|Age category of ranking (Cadet/Junior/Senior/Veterans)|
+|season|string| season for ranking in format YYYY/YYYY|
+|rank|int|ranking within division (weapon and category) for the given season|
+|points|double| points earned in the division (weapon and category) for the given season |
 
-        |    id | weapon   | category   | season    |   rank |   points |
-        |------:|:---------|:-----------|:----------|-------:|---------:|
-        | 32192 | Foil     | Junior     | 2013/2014 |    201 |        2 |
-        |  |      |      | 2014/2015 |    180 |        4 |
-        |  |      |      | 2015/2016 |    296 |        0 |
-        |  |      |      | 2016/2017 |    226 |        4 |
-        |  |      |      | 2017/2018 |     73 |       22 |
-        |  |      | Senior     | 2016/2017 |    433 |        0 |
-        |  |      |      | 2018/2019 |    312 |        0 |
+
+Sample of Dataframe (rendered with MultiIndex):
+
+|    id | weapon   | category   | season    |   rank |   points |
+|------:|:---------|:-----------|:----------|-------:|---------:|
+| 32192 | Foil     | Junior     | 2013/2014 |    20|        2 |
+|  |      |      | 2014/2015 |    180 |        4 |
+|  |      |      | 2015/2016 |    296 |        0 |
+|  |      |      | 2016/2017 |    226 |        4 |
+|  |      |      | 2017/2018 |     73 |       22 |
+|  |      | Senior     | 2016/2017 |    433 |        0 |
+|  |      |      | 2018/2019 |    312 |        0 |
         
-
 
 ## Generating & Loading New Data
 
